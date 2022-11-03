@@ -1,6 +1,6 @@
 import { Row, Col, Card, Container } from 'react-bootstrap';
 import Header from '../components/Header';
-import SearchBar from '../components/SearchBar';
+import SubHeader from '../components/SubHeader';
 import styles from '../styles/Home.module.scss'
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
       <Container className="mt-4 gap-4">
         <Row>
           <Col>
-            <SearchBar/>
+            <SubHeader/>
           </Col>
         </Row>
       </Container>

@@ -31,6 +31,7 @@ $kf-body-bg: $kf-primary-900;
 
 // Colors and theme-colors map overrides
 $body-bg: $kf-body-bg;
+$body-color: white;
 $theme-colors: map-merge($theme-colors, $kf-colors);
 
 // Input group and form overrides
