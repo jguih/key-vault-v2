@@ -6,8 +6,8 @@ export default function Header({ activeKey }) {
     <Navbar bg="kf-primary-800" variant="dark" expand="sm" className="shadow">
       <Container>
         <Navbar.Brand href="/">
-          <i className={"bi bi-safe me-1 " + styles["kf-logo-text"]}></i>
-          <span className={styles["kf-logo-text"]}>KeyFrame</span>
+          <i className={"bi bi-safe me-1 " + styles["header-logo-text"]}></i>
+          <span className={styles["header-logo-text"]}>KeyFrame</span>
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Offcanvas placement="end">
@@ -16,9 +16,9 @@ export default function Header({ activeKey }) {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-start align-items-center" activeKey={activeKey}>
-              <Nav.Link href="/" className={styles.text}>Loja</Nav.Link>
-              <Nav.Link href="/about" className={styles.text}>Sobre</Nav.Link>
-              <Nav.Link href="/help" className={styles.text}>Ajuda</Nav.Link>
+              <Nav.Link href="/" className={styles["header-text"]}>Loja</Nav.Link>
+              <Nav.Link href="/about" className={styles["header-text"]}>Sobre</Nav.Link>
+              <Nav.Link href="/help" className={styles["header-text"]}>Ajuda</Nav.Link>
             </Nav>
             <Nav className="justify-content-end align-items-center w-100">
                 <Button
