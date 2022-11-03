@@ -3,24 +3,83 @@
 * https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors
 */
 @use "sass:map";
+
 // Required
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/utilities";
+
+$kf-primary-900: #212529;
+$kf-primary-800: #42464b;
+$kf-primary-700: #61666a;
+$kf-secondary-900: #212929;
+$kf-secondary-800: #313e3e;
+$kf-secondary-700: #3f5150;
 
 $kf-colors: (
-  "kf-primary-900": #212529,
-  "kf-primary-800": #42464b,
-  "kf-primary-700": #61666a,
-  "kf-secondary-900": #212929,
-  "kf-secondary-800": #313e3e,
-  "kf-secondary-700": #3f5150
+  "kf-primary-900": $kf-primary-900,
+  "kf-primary-800": $kf-primary-800,
+  "kf-primary-700": $kf-primary-700,
+  "kf-secondary-900": $kf-secondary-900,
+  "kf-secondary-800": $kf-secondary-800,
+  "kf-secondary-700": $kf-secondary-700
 );
 
-$kf-body-bg: map.get($kf-colors, "kf-primary-900");
+$kf-body-bg: $kf-primary-900;
 
-// Variables overrides
+// Colors and theme-colors map overrides
 $body-bg: $kf-body-bg;
-
 $theme-colors: map-merge($theme-colors, $kf-colors);
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+// Input group and form overrides
+$input-bg: $kf-primary-800;
+$input-color: white;
+$input-border-color: white;
+
+$input-focus-bg: $kf-primary-800;
+$input-focus-color: white;
+$input-focus-border-color: white;
+$input-focus-box-shadow: none;
+
+$input-group-addon-bg: $kf-primary-800;
+$input-group-addon-color: white;
+$input-group-addon-border-color: white;
+
+@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+//@import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/tables";
+@import "../node_modules/bootstrap/scss/forms";
+@import "../node_modules/bootstrap/scss/buttons";
+@import "../node_modules/bootstrap/scss/transitions";
+//@import "../node_modules/bootstrap/scss/dropdown";
+@import "../node_modules/bootstrap/scss/button-group";
+@import "../node_modules/bootstrap/scss/nav";
+@import "../node_modules/bootstrap/scss/navbar";
+//@import "../node_modules/bootstrap/scss/card";
+@import "../node_modules/bootstrap/scss/accordion";
+//@import "../node_modules/bootstrap/scss/breadcrumb";
+//@import "../node_modules/bootstrap/scss/pagination";
+//@import "../node_modules/bootstrap/scss/badge";
+//@import "../node_modules/bootstrap/scss/alert";
+//@import "../node_modules/bootstrap/scss/progress";
+//@import "../node_modules/bootstrap/scss/list-group";
+@import "../node_modules/bootstrap/scss/close";
+//@import "../node_modules/bootstrap/scss/toasts";
+//@import "../node_modules/bootstrap/scss/modal";
+//@import "../node_modules/bootstrap/scss/tooltip";
+@import "../node_modules/bootstrap/scss/popover";
+//@import "../node_modules/bootstrap/scss/carousel";
+//@import "../node_modules/bootstrap/scss/spinners";
+@import "../node_modules/bootstrap/scss/offcanvas";
+@import "../node_modules/bootstrap/scss/placeholders";
+
+// Helpers
+@import "../node_modules/bootstrap/scss/helpers";
+// Utilities
+@import "../node_modules/bootstrap/scss/utilities/api";

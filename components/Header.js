@@ -1,7 +1,4 @@
-import { Navbar, Container, Nav, Offcanvas, Button, Row, Col } from 'react-bootstrap';
-import KeyFrameLogo from '../public/KeyVault_Logo.svg';
-import AccountBox from '../public/account-box.svg'
-import Image from 'next/image';
+import { Navbar, Container, Nav, Offcanvas, Button } from 'react-bootstrap';
 import styles from '../styles/Header.module.scss'
 
 export default function Header({ activeKey }) {
@@ -9,11 +6,8 @@ export default function Header({ activeKey }) {
     <Navbar bg="kf-primary-800" variant="dark" expand="sm" className="shadow">
       <Container>
         <Navbar.Brand href="/">
-          <Image
-            src={KeyFrameLogo}
-            height="42"
-            alt="Key frame logo"
-          />
+          <i className={"bi bi-safe me-1 " + styles["kf-logo-text"]}></i>
+          <span className={styles["kf-logo-text"]}>KeyFrame</span>
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Offcanvas placement="end">

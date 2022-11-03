@@ -1,11 +1,19 @@
-import { Button, Card, Container } from 'react-bootstrap';
+import { Row, Col, Card, Container } from 'react-bootstrap';
 import Header from '../components/Header';
+import SearchBar from '../components/SearchBar';
 import styles from '../styles/Home.module.scss'
 
 export default function Home() {
   return (
-    <Container fluid className="p-0 m-0">
+    <>
       <Header activeKey="/" />
-    </Container>
-  )
+      <Container className="mt-4 gap-4">
+        <Row>
+          <Col>
+            <SearchBar/>
+          </Col>
+        </Row>
+      </Container>
+    </>
+  );
 }
