@@ -1,17 +1,17 @@
 import { Container, Row, Col, Nav, NavLink, NavItem, Dropdown, Navbar } from 'react-bootstrap';
 import SearchBar from './SearchBar';
-import header_styles from '../scss/modules/Header.module.scss';
+import header from '../scss/modules/Header.module.scss';
 
 export default function SubHeader() {
   return (
-    <Container>
+    <Container className="mt-4">
       <Row className="align-items-center justify-content-center">
         <Col xs="auto">
           <SearchBar />
         </Col>
         <Col xs="auto">
           <Navbar variant="dark">
-            <Nav className={header_styles["text"]}>
+            <Nav className={header["text"]}>
               <Dropdown as={NavItem}>
                 <Dropdown.Toggle
                   as={NavLink}

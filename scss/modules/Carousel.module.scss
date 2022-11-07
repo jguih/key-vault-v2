@@ -1,0 +1,53 @@
+$gap: 12px;
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .left {
+  }
+
+  .right {
+    display: flex;
+    gap: $gap;
+  }
+}
+
+.content {
+  position: relative;
+}
+
+@mixin card-group {
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  gap: $gap;
+  overflow: auto;
+}
+
+.card-group-sentinel {
+  position: static;
+  transition: 400ms opacity ease-in-out;
+
+  @include card-group;
+}
+
+.card-group-cycle {
+  position: absolute;
+  inset: 0;
+  transition: 400ms opacity ease-in-out;
+
+  @include card-group;
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+}

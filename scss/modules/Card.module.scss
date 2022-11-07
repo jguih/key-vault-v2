@@ -1,0 +1,25 @@
+@use '../colors' as colors;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: colors.$kf-primary-800;
+  border-radius: 10px;
+  min-width: 130px;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-radius: 10px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+}
