@@ -6,20 +6,21 @@
   padding: 10px;
   background-color: colors.$kf-primary-800;
   border-radius: 10px;
-  min-width: 130px;
 
   img {
     width: 100%;
     object-fit: cover;
-    flex-grow: 0;
-    flex-shrink: 0;
     border-radius: 10px;
   }
 
   .info {
+    width: 100%;
+    align-self: stretch;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
     font-size: 1.2rem;
   }
 }

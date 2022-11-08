@@ -1,6 +1,6 @@
 import { Button, Badge, Container } from 'react-bootstrap';
-import carousel from '../scss/modules/Carousel.module.scss'
-import Card from './Card';
+import carousel from './Carousel.module.scss'
+import Card from '../components/Card';
 
 function handleClick(e, value) {
   const offset = value === "next" ? 1 : -1;

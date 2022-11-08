@@ -1,0 +1,34 @@
+$gap: 20px;
+$padding: 0 10px;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+
+  hr {
+    margin: 0 10px;
+  }
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $padding;
+
+  h3 {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  row-gap: $gap;
+
+  .item {
+    padding: $padding;
+  }
+}
