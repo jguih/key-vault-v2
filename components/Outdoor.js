@@ -4,7 +4,7 @@ import outdoor from '../scss/modules/Outdoor.module.scss'
 
 export default function Outdoor() {
   return (
-    <Container className="mt-4">
+    <Container>
       <div className={outdoor.outdoor}>
         <div className={outdoor.item}>
           <Image

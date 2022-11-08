@@ -24,6 +24,7 @@ export default function Header({ activeKey }) {
                 <Button
                   variant="kf-primary-800"
                   className="border"
+                  href="/login"
                 >Login</Button>
             </Nav>
           </Offcanvas.Body>

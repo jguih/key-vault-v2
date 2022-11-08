@@ -4,7 +4,7 @@ import header from '../scss/modules/Header.module.scss';
 
 export default function SubHeader() {
   return (
-    <Container className="mt-4">
+    <Container>
       <Row className="align-items-center justify-content-center">
         <Col xs="auto">
           <SearchBar />
