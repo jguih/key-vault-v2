@@ -35,7 +35,9 @@ export default function Home({ games }) {
     <div className="d-grid gap-4">
       <Header activeKey="/" />
       <SubHeader />
-      <Outdoor />
+      <Outdoor 
+        mainImgUrl="https://via.placeholder.com/1600" 
+      />
       <Section title="Promoção">
         {games.map((game, index) => {
           return (
@@ -44,6 +46,7 @@ export default function Home({ games }) {
               name={game.name}
               price={getPrice(game.price)}
               platforms={getPlatforms(game.platforms)}
+              imgUrl={game.imgUrl}
             />
           );
         })}

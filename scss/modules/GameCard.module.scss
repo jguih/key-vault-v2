@@ -3,17 +3,17 @@
 .card {
   display: flex;
   flex-direction: column;
-  padding: 10px;
   background-color: colors.$kf-primary-800;
   border-radius: 10px;
 
   img {
     width: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 10px 10px 0px 0px;
   }
 
   .info {
+    padding: 10px;
     width: 100%;
     align-self: stretch;
     display: flex;

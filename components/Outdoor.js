@@ -1,44 +1,19 @@
 import { Container, Image } from "react-bootstrap";
-import container from '../scss/modules/Container.module.scss'
 import outdoor from '../scss/modules/Outdoor.module.scss'
 
-export default function Outdoor() {
+export default function Outdoor({ mainImgUrl }) {
   return (
     <Container>
       <div className={outdoor.outdoor}>
-        <div className={outdoor.item}>
-          <Image
-            src="https://via.placeholder.com/1100x600"
-            className="rounded"
-          ></Image>
-        </div>
-        <div className={outdoor.item}>
-          <div className={outdoor.grid}>
-            <div className={outdoor["grid-item"]}>
-              <Image
-                src="https://via.placeholder.com/250x150"
-                className="rounded"
-              ></Image>
-            </div>
-            <div className={outdoor["grid-item"]}>
-              <Image
-                src="https://via.placeholder.com/250x150"
-                className="rounded"
-              ></Image>
-            </div>
-            <div className={outdoor["grid-item"]}>
-              <Image
-                src="https://via.placeholder.com/250x150"
-                className="rounded"
-              ></Image>
-            </div>
-            <div className={outdoor["grid-item"]}>
-              <Image
-                src="https://via.placeholder.com/250x150"
-                className="rounded"
-              ></Image>
-            </div>
-          </div>
+        <Image 
+          src={mainImgUrl}
+          width="100%"
+        />
+        <div className={outdoor.cards}>
+          <div className={outdoor.item}></div>
+          <div className={outdoor.item}></div>
+          <div className={outdoor.item}></div>
+          <div className={outdoor.item}></div>
         </div>
       </div>
     </Container>

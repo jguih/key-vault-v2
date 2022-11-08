@@ -2,26 +2,31 @@
   {
     "name": "Marvel's Spider Man",
     "platforms": ["Windows", "Steam"],
-    "price": "250,00"
+    "price": "250,00",
+    "imgUrl": "https://via.placeholder.com/200"
   },
   {
     "name": "Terraria",
     "platforms": ["Windows", "Steam"],
-    "price": "20,00"
+    "price": "20,00",
+    "imgUrl": "https://via.placeholder.com/200"
   },
   {
     "name": "God of War",
     "platforms": ["Windows", "Steam"],
-    "price": "200,00"
+    "price": "200,00",
+    "imgUrl": "https://via.placeholder.com/200"
   },
   {
     "name": "Fallout 76",
     "platforms": ["Windows", "Steam"],
-    "price": "150,00"
+    "price": "150,00",
+    "imgUrl": "https://via.placeholder.com/200"
   },
   {
     "name": "Horizon Zero Dawn",
     "platforms": ["Windows", "Steam"],
-    "price": "250,00"
+    "price": "250,00",
+    "imgUrl": "https://via.placeholder.com/200"
   }
 ]
