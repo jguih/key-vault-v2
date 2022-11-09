@@ -1,4 +1,6 @@
+@use '../breakpoints' as breakpoints;
 @use '../colors' as colors;
+@use '../custom' as custom;
 
 .outdoor {
   width: 100%;
@@ -6,10 +8,11 @@
 
   img {
     max-height: 55vh;
+    object-fit: cover;
   }
 }
 
-.cards {
+.cards-grid {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -17,22 +20,79 @@
   background: linear-gradient(180deg, rgba(33, 37, 41, 0) 0%, #212529 59.37%);
 
   display: grid;
-  grid-template-columns: 18% 18% 18% 18%;
+  grid-template-columns: 20% 20% 20% 20%;
   align-items: center;
   justify-content: center;
   padding: 10px;
   gap: 10px;
 
   .item {
-    height: 120px;
+    padding: 0px;
+  }
+
+  .small-game-card {
+    height: 100px;
     background-color: colors.$kf-primary-800;
-    opacity: 60%;
     border-radius: 10px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+
+    img {
+      height: 100%;
+      max-width: 45%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: white;
+      overflow: hidden;
+    }
   }
 }
 
-@media screen and (max-width: 992px) {
-  .cards {
-    grid-template-columns: 40% 40%;
+// 992px to 1200px
+@media screen and (max-width: breakpoints.$xl) and (min-width: breakpoints.$lg) {
+  .cards-grid {
+    grid-template-columns: repeat(4, 25%);
+    padding: 0px;
+    gap: 0px;
+
+    .item {
+      padding: 0 5px;
+    }
+  }
+}
+
+// 0 to 992px
+@media screen and (max-width: breakpoints.$lg) {
+  .outdoor {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: static;
+  }
+
+  .cards-grid {
+    position: relative;
+    bottom: 50px;
+    
+    overflow-y: none;
+    overflow: auto;
+    @include custom.custom-scrollbar;
+
+    display: flex;
+    justify-content: flex-start;
+
+    .small-game-card {
+      min-width: 200px;
+    }
   }
 }

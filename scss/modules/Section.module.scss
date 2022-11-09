@@ -1,13 +1,17 @@
-$gap: 20px;
-$padding: 0 10px;
+@use '../breakpoints' as breakpoints;
+@use '../colors' as colors;
+@use '../custom' as custom;
+
+$gap: 10px;
+$small-gap: 5px;
 
 .container {
   display: flex;
   flex-direction: column;
-  gap: $gap;
+  gap: calc($gap * 2);
 
   hr {
-    margin: 0 10px;
+    margin: 0 $gap;
   }
 }
 
@@ -15,7 +19,7 @@ $padding: 0 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $padding;
+  padding: 0 $gap;
 
   h3 {
     margin: 0;
@@ -29,6 +33,80 @@ $padding: 0 10px;
   row-gap: $gap;
 
   .item {
-    padding: $padding;
+    padding: 0 $gap;
+  }
+
+  .last-item {
+    visibility: visible;
+  }
+}
+
+// 992px to 1400px
+@media screen and (max-width: breakpoints.$xxl) and (min-width: breakpoints.$lg) {
+  .content {
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+
+  .last-item {
+    display: none;
+  }
+}
+
+// 0px to 992px
+// Applies to both @media below this one
+@media screen and (max-width: breakpoints.$lg) {
+  .container {
+    gap: calc($small-gap * 2);
+
+    hr {
+      margin: 0 $small-gap;
+    }
+  }
+
+  .top {
+    padding: 0 $small-gap;
+  }
+}
+
+// 768px to 992px
+@media screen and (max-width: breakpoints.$lg) and (min-width: breakpoints.$md) {
+  .content {
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
+    justify-content: flex-start;
+    gap: calc($small-gap * 2);
+    
+    margin: 0 $small-gap;
+    padding-bottom: calc($small-gap * 2);
+    
+    .item {
+      padding: 0px;
+      min-width: 214px;
+    }
+    
+    overflow: auto;
+    @include custom.custom-scrollbar;
+  }
+
+  .last-item {
+    display: none;
+  }
+}
+
+// 0px to 768px
+@media screen and (max-width: breakpoints.$md) {
+  .content {
+    grid-template-columns: 50% 50%;
+    overflow: auto;
+    row-gap: 10px;
+
+    .item {
+      padding: 0px $small-gap;
+    }
+  }
+
+  .last-item {
+    display: none;
   }
 }

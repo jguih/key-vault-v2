@@ -1,0 +1,12 @@
+@use './colors' as colors;
+
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    height: 6px;
+    background-color: colors.$kf-scrollbar-background;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: colors.$kf-primary-800;
+  }
+}
