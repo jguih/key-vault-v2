@@ -14,9 +14,14 @@ function getPlatforms(platforms) {
   });
 }
 
-// Format the price
-function getPrice(price) {
-  return <Badge>{"R$ " + price}</Badge>
+function getClass(index) {
+  if (index >= 4) {
+    // Marks every item after the 4th with a class 'removed'
+    // This limits the section to 4 items when screen is too small
+    return section.item + " " + section["removed"];
+  } else {
+    return section.item;
+  }
 }
 
 const fetcher = (...args) => fetch(...args).then(res => res.json());
@@ -27,16 +32,6 @@ export default function Section({ title, rows }) {
   if (error) return <div>Failed to load...</div>
   if (!data) return <div>Loading...</div>
 
-  function getClass(index) {
-    if (index >= 4) {
-      // Marks every item after the 4th with a class 'removed'
-      // This limits the section to 4 items when screen is too small
-      return section.item + " " + section["removed"];
-    } else {
-      return section.item;
-    }
-  }
-
   function createGameCard(game, index) {
     if (index < rows * 5) {
       return (
@@ -46,7 +41,9 @@ export default function Section({ title, rows }) {
           <GameCard
             key={game.name+" "+game.id}
             name={game.name}
-            price={getPrice(game.price)}
+            price={game.price}
+            discount={game.discount}
+            isDiscountActive={game.isDiscountActive}
             platforms={getPlatforms(game.platforms)}
             imgUrl={game.imgUrl}
           />

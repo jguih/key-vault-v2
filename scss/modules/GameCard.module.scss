@@ -1,4 +1,5 @@
 @use '../colors' as colors;
+@use '../custom' as custom;
 
 .card {
   display: flex;
@@ -13,19 +14,38 @@
   }
 
   .info {
-    padding: 10px;
-    width: 100%;
-    align-self: stretch;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
+    padding: 10px;
     font-size: 1.2rem;
+    
+    .name {
+      font-weight: 600;
+    }
 
     .platforms {
       .platform {
-        padding-right: 10px;
+        margin-right: 10px;
+      }
+    }
+
+    .price-info {
+      .old-price {
+        text-decoration: line-through;
+        margin: 0 5px;
+      }
+      
+      .discount {
+        @include custom.badge(colors.$kf-green)
+      }
+
+      .new-price, .price {
+        @include custom.badge(colors.$kf-primary-700);
+        font-weight: bold;
       }
     }
   }

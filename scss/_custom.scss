@@ -30,3 +30,11 @@
   color: white;
   overflow: hidden;
 }
+
+@mixin badge($bg-color) {
+  background-color: $bg-color;
+  padding: 0px 6px;
+  border-radius: 6px;
+  display: inline-block;
+  margin: 4px 0px;
+}
