@@ -5,14 +5,14 @@ import SubHeader from '../components/SubHeader';
 
 export default function Home() {
   return (
-    <div className="d-grid gap-4 mb-5">
+    <>
       <Header activeKey="/" />
       <SubHeader />
       <Outdoor />
-      <Section 
+      <Section
         title="Promoção"
         rows="1"
       />
-    </div>
+    </>
   );
 }

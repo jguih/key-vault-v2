@@ -24,7 +24,7 @@ export default function Outdoor() {
   }
 
   return (
-    <Container>
+    <Container className="mt-4">
       <div className={outdoor.outdoor}>
         <Image
           src="https://via.placeholder.com/1300x700"

@@ -28,10 +28,10 @@ export default function Section({ title, rows }) {
   if (!data) return <div>Loading...</div>
 
   function getClass(index) {
-    if (index === (rows * 5) - 1) {
-      // Marks the last item with a class 'last-item'
-      // This last item will be removed when screen is too small
-      return section.item + " " + section["last-item"];
+    if (index >= 4) {
+      // Marks every item after the 4th with a class 'removed'
+      // This limits the section to 4 items when screen is too small
+      return section.item + " " + section["removed"];
     } else {
       return section.item;
     }
@@ -56,7 +56,7 @@ export default function Section({ title, rows }) {
   }
 
   return (
-    <Container>
+    <Container className="mt-4">
       <div className={section.container}>
         <div className={section.top}>
           <h3>{title}</h3>

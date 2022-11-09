@@ -1,12 +1,32 @@
 @use './colors' as colors;
 
-@mixin custom-scrollbar {
+// Defines custom variables & mixins for the entire project
+
+@mixin scrollbar {
   &::-webkit-scrollbar {
     height: 6px;
     background-color: colors.$kf-scrollbar-background;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: colors.$kf-primary-800;
   }
+
+}
+
+@mixin border-radius {
+  border-radius: 10px;
+}
+
+// Used in outdoor and section titles
+@mixin title {
+  font-weight: bold;
+  color: white;
+  overflow: hidden;
+}
+
+@mixin default-text {
+  font-weight: normal;
+  color: white;
+  overflow: hidden;
 }

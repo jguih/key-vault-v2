@@ -2,6 +2,9 @@
 @use '../colors' as colors;
 @use '../custom' as custom;
 
+$gap: 8px;
+$small-gap: 4px;
+
 .outdoor {
   width: 100%;
   position: relative;
@@ -9,7 +12,8 @@
   img {
     max-height: 55vh;
     object-fit: cover;
-    border-radius: 10px;
+
+    @include custom.border-radius;
   }
 }
 
@@ -24,18 +28,17 @@
   grid-template-columns: 20% 20% 20% 20%;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-  gap: 10px;
+  padding: $gap;
 
   .item {
-    padding: 0px;
+    padding: 0px $gap;
   }
 
   .small-game-card {
     height: 100px;
     background-color: colors.$kf-primary-800;
-    border-radius: 10px;
     padding: 10px;
+    @include custom.border-radius;
 
     display: flex;
     flex-direction: row;
@@ -45,16 +48,13 @@
 
     img {
       height: 100%;
-      max-width: 45%;
-      border-radius: 10px;
+      @include custom.border-radius;
       object-fit: cover;
     }
 
     .title {
+      @include custom.title;
       font-size: 1.4rem;
-      font-weight: bold;
-      color: white;
-      overflow: hidden;
     }
   }
 }
@@ -63,37 +63,45 @@
 @media screen and (max-width: breakpoints.$xl) and (min-width: breakpoints.$lg) {
   .cards-grid {
     grid-template-columns: repeat(4, 25%);
-    padding: 0px;
-    gap: 0px;
 
     .item {
-      padding: 0 5px;
+      padding: 0 $small-gap;
     }
   }
 }
 
-// 0 to 992px
+// 0px to 992px
 @media screen and (max-width: breakpoints.$lg) {
-  .outdoor {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    position: static;
-  }
-
   .cards-grid {
     position: relative;
     bottom: 50px;
+    padding: 0;
+    padding-bottom: 10px;
     
     overflow-y: none;
     overflow: auto;
-    @include custom.custom-scrollbar;
+    @include custom.scrollbar;
+    scroll-snap-type: none;
 
     display: flex;
     justify-content: flex-start;
 
     .small-game-card {
       min-width: 200px;
+    }
+  }
+}
+
+// 0px to 576px
+@media screen and (max-width: breakpoints.$sm) {
+  .cards-grid {
+    .small-game-card {
+      min-width: 200px;
+      height: 60px;
+      
+      .title {
+        font-size: 1.2rem;
+      }
     }
   }
 }

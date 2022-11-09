@@ -2,8 +2,8 @@
 @use '../colors' as colors;
 @use '../custom' as custom;
 
-$gap: 10px;
-$small-gap: 5px;
+$gap: 8px;
+$small-gap: 4px;
 
 .container {
   display: flex;
@@ -22,6 +22,9 @@ $small-gap: 5px;
   padding: 0 $gap;
 
   h3 {
+    @include custom.title;
+
+    font-size: 1.8rem;
     margin: 0;
     padding: 0;
   }
@@ -30,24 +33,24 @@ $small-gap: 5px;
 .content {
   display: grid;
   grid-template-columns: repeat(5, 20%);
-  row-gap: $gap;
+  row-gap: calc($gap * 2);
 
   .item {
     padding: 0 $gap;
   }
 
-  .last-item {
+  .removed {
     visibility: visible;
   }
 }
 
-// 992px to 1400px
-@media screen and (max-width: breakpoints.$xxl) and (min-width: breakpoints.$lg) {
+// 992px to 1200px
+@media screen and (max-width: breakpoints.$xl) and (min-width: breakpoints.$lg) {
   .content {
     grid-template-columns: 25% 25% 25% 25%;
   }
 
-  .last-item {
+  .removed {
     display: none;
   }
 }
@@ -66,6 +69,10 @@ $small-gap: 5px;
   .top {
     padding: 0 $small-gap;
   }
+
+  .removed {
+    display: none;
+  }
 }
 
 // 768px to 992px
@@ -73,10 +80,13 @@ $small-gap: 5px;
   .content {
     display: flex;
     flex-direction: row;
-    overflow-y: hidden;
     justify-content: flex-start;
     gap: calc($small-gap * 2);
     
+    overflow-y: hidden;
+    overflow: auto;
+    @include custom.scrollbar;
+
     margin: 0 $small-gap;
     padding-bottom: calc($small-gap * 2);
     
@@ -84,13 +94,6 @@ $small-gap: 5px;
       padding: 0px;
       min-width: 214px;
     }
-    
-    overflow: auto;
-    @include custom.custom-scrollbar;
-  }
-
-  .last-item {
-    display: none;
   }
 }
 
@@ -104,9 +107,5 @@ $small-gap: 5px;
     .item {
       padding: 0px $small-gap;
     }
-  }
-
-  .last-item {
-    display: none;
   }
 }
