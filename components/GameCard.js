@@ -5,7 +5,9 @@ export default function GameCard({ name, imgUrl, platforms, price, discount, isD
 
   function getPriceInfo() {
     if (!isDiscountActive) {
-      return <span className={card.price}>{"R$ " + price}</span>
+      return (
+        <span className={card.price}>{"R$ " + price}</span>
+      );
     } else {
       const newPrice = price * (1 - discount);
 

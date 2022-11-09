@@ -4,13 +4,24 @@
 .card {
   display: flex;
   flex-direction: column;
+
   background-color: colors.$kf-primary-800;
   border-radius: 10px;
+  cursor: pointer;
 
   img {
     width: 100%;
     object-fit: cover;
     border-radius: 10px 10px 0px 0px;
+  }
+
+  &:hover {
+    box-shadow: 0 0 10px colors.$kf-primary-700;
+  }
+
+  &:hover .price,
+  &:hover .new-price {
+    background-color: colors.$kf-green;
   }
 
   .info {
@@ -19,7 +30,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-
+  
     padding: 10px;
     font-size: 1.2rem;
     
@@ -34,18 +45,28 @@
     }
 
     .price-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    
+      text-align: center;
+      font-weight: bold;
+      width: 100%;
+    
       .old-price {
         text-decoration: line-through;
         margin: 0 5px;
       }
       
       .discount {
-        @include custom.badge(colors.$kf-green)
+        @include custom.badge(colors.$kf-green);
       }
-
+    
       .new-price, .price {
         @include custom.badge(colors.$kf-primary-700);
-        font-weight: bold;
+        flex-grow: 1;
       }
     }
   }
