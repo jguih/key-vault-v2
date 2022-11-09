@@ -1,4 +1,5 @@
-@use "sass:map";
+@use 'sass:map';
+@use './colors' as colors;
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 
 html {
@@ -11,23 +12,6 @@ body {
   margin: 0;
 }
 
-$kf-primary-900: #212529;
-$kf-primary-800: #42464b;
-$kf-primary-700: #61666a;
-$kf-primary-500: #9fa3a9;
-$kf-secondary-900: #212929;
-$kf-secondary-800: #313e3e;
-$kf-secondary-700: #3f5150;
-
-$kf-colors: (
-  "kf-primary-900": $kf-primary-900,
-  "kf-primary-800": $kf-primary-800,
-  "kf-primary-700": $kf-primary-700,
-  "kf-secondary-900": $kf-secondary-900,
-  "kf-secondary-800": $kf-secondary-800,
-  "kf-secondary-700": $kf-secondary-700
-);
-
 // ----------------------------------------
 //          BOOTSTRAP OVERRIDES
 // ----------------------------------------
@@ -39,32 +23,41 @@ $kf-colors: (
 @import "../node_modules/bootstrap/scss/mixins";
 @import "../node_modules/bootstrap/scss/utilities";
 
+$kf-colors: (
+  "kf-primary-900": colors.$kf-primary-900,
+  "kf-primary-800": colors.$kf-primary-800,
+  "kf-primary-700": colors.$kf-primary-700,
+  "kf-secondary-900": colors.$kf-secondary-900,
+  "kf-secondary-800": colors.$kf-secondary-800,
+  "kf-secondary-700": colors.$kf-secondary-700
+);
+
 // Colors and theme-colors map overrides
-$body-bg: $kf-primary-900;
+$body-bg: colors.$kf-primary-900;
 $body-color: white;
 $theme-colors: map-merge($theme-colors, $kf-colors);
 
 // Input group and form overrides
-$input-bg: $kf-primary-800;
+$input-bg: colors.$kf-primary-800;
 $input-color: white;
-$input-border-color: $kf-primary-500;
+$input-border-color: colors.$kf-primary-500;
 
-$input-focus-bg: $kf-primary-800;
+$input-focus-bg: colors.$kf-primary-800;
 $input-focus-color: white;
 $input-focus-border-color: white;
 $input-focus-box-shadow: none;
 
-$input-group-addon-bg: $kf-primary-700;
+$input-group-addon-bg: colors.$kf-primary-700;
 $input-group-addon-color: white;
-$input-group-addon-border-color: $kf-primary-500;
+$input-group-addon-border-color: colors.$kf-primary-500;
 
 // Dropdown overrides
-$dropdown-bg: $kf-primary-800;
+$dropdown-bg: colors.$kf-primary-800;
 $dropdown-color: white;
 $dropdown-link-color: white;
 $dropdown-link-hover-color: white;
-$dropdown-link-hover-bg: $kf-primary-700;
-$dropdown-link-active-bg: $kf-secondary-700;
+$dropdown-link-hover-bg: colors.$kf-primary-700;
+$dropdown-link-active-bg: colors.$kf-secondary-700;
 $dropdown-link-active-color: white;
 
 @import "../node_modules/bootstrap/scss/root";
