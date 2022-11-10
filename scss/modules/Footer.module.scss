@@ -1,0 +1,33 @@
+@use '../colors' as colors;
+@use '../custom' as custom;
+@use '../breakpoints' as breakpoints;
+
+$spacing: 30px;
+
+.logo {
+  font-size: 1.8rem;
+}
+
+.container {
+  margin-left: $spacing;
+  padding-left: $spacing; 
+  @include custom.default-text;
+  border-left: gray 2px solid;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+// 0px to 576px
+@media screen and (max-width: breakpoints.$sm) {
+  .logo {
+    display: none;
+  }
+
+  .container {
+    border-left: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+}

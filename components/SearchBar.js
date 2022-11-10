@@ -1,7 +1,4 @@
 import { InputGroup, Form, Button } from 'react-bootstrap';
-import _JSXStyle from 'styled-jsx/style'
-
-const sp = 0;
 
 export default function SearchBar() {
   return (
@@ -11,7 +8,7 @@ export default function SearchBar() {
         placeholder="Buscar"
       />
       <InputGroup.Text className="p-0">
-        <Button variant="kf-primary-700">
+        <Button variant="kv-primary-700">
           <i className="bi bi-search"></i>
         </Button>
       </InputGroup.Text>

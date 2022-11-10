@@ -3,11 +3,11 @@ import header from '../scss/modules/Header.module.scss'
 
 export default function Header({ activeKey }) {
   return (
-    <Navbar variant="dark" expand="sm" className="shadow text-bg-kv-primary-700">
+    <Navbar variant="dark" expand="sm" className="shadow text-bg-kv-primary-800">
       <Container>
-        <Navbar.Brand href="/">
-          <i className={"bi bi-safe me-1 " + header["logo-text"]}></i>
-          <span className={header["logo-text"]}>KeyFrame</span>
+        <Navbar.Brand href="/" className={header.logo}>
+          <i className={"bi bi-safe me-1"}></i>
+          <span>KeyFrame</span>
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Offcanvas placement="end">
@@ -22,7 +22,7 @@ export default function Header({ activeKey }) {
             </Nav>
             <Nav className="justify-content-end align-items-center w-100">
                 <Button
-                  variant="kv-primary-800"
+                  variant="kv-primary-700"
                   className="border"
                   href="/login"
                 >Login</Button>

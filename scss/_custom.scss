@@ -11,7 +11,6 @@
   &::-webkit-scrollbar-thumb {
     background: colors.$kv-primary-800;
   }
-
 }
 
 @mixin border-radius {
@@ -26,9 +25,9 @@
 }
 
 @mixin default-text {
+  font-size: 1rem;
   font-weight: normal;
   color: white;
-  overflow: hidden;
 }
 
 @mixin badge($bg-color) {

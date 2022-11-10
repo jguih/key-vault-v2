@@ -1,3 +1,4 @@
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Outdoor from '../components/Outdoor';
 import Section from '../components/Section';
@@ -13,6 +14,7 @@ export default function Home() {
         title="Promoção"
         rows="1"
       />
+      <Footer/>
     </>
   );
 }
