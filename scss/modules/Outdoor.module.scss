@@ -10,7 +10,7 @@ $small-gap: 4px;
   position: relative;
 
   img {
-    max-height: 90vh;
+    max-height: 60vh;
     object-fit: cover;
 
     @include custom.border-radius;
@@ -22,7 +22,7 @@ $small-gap: 4px;
   left: 0;
   bottom: 0;
   width: 100%;
-  background: linear-gradient(180deg, rgba(33, 37, 41, 0) 0%, #212529 59.37%);
+  background: linear-gradient(180deg, rgba(33, 37, 41, 0) 0%, colors.$kv-primary-900 59.37%);
 
   display: grid;
   grid-template-columns: 20% 20% 20% 20%;
@@ -54,7 +54,10 @@ $small-gap: 4px;
 
     .title {
       @include custom.title;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
+      height: 100%;
+
+      flex-grow: 1;
     }
 
     &:hover {
@@ -81,7 +84,7 @@ $small-gap: 4px;
     bottom: 50px;
     padding: 0;
     padding-bottom: 10px;
-    
+
     overflow-y: none;
     overflow: auto;
     @include custom.scrollbar;
@@ -92,6 +95,7 @@ $small-gap: 4px;
 
     .small-game-card {
       min-width: 200px;
+      height: 80px;
     }
   }
 }
@@ -102,9 +106,9 @@ $small-gap: 4px;
     .small-game-card {
       min-width: 200px;
       height: 60px;
-      
+
       .title {
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
     }
   }

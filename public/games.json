@@ -1,6 +1,15 @@
 [
   {
     "id": 1,
+    "name": "Oxygen Not Included",
+    "platforms": ["Windows", "Steam"],
+    "price": 40.00,
+    "discount": 0.5,
+    "isDiscountActive": true,
+    "imgUrl": "https://via.placeholder.com/200"
+  },
+  {
+    "id": 2,
     "name": "Marvel's Spider Man",
     "platforms": ["Windows", "Steam"],
     "price": 250.00,
@@ -9,16 +18,16 @@
     "imgUrl": "https://via.placeholder.com/200"
   },
   {
-    "id": 2,
-    "name": "Terraria",
+    "id": 3,
+    "name": "Detroit: Become Human",
     "platforms": ["Windows", "Steam"],
-    "price": 20.00,
+    "price": 150.00,
     "discount": 0.2,
     "isDiscountActive": true,
     "imgUrl": "https://via.placeholder.com/200"
   },
   {
-    "id": 3,
+    "id": 4,
     "name": "God of War",
     "platforms": ["Windows", "Steam"],
     "price": 200.00,
@@ -27,7 +36,7 @@
     "imgUrl": "https://via.placeholder.com/200"
   },
   {
-    "id": 4,
+    "id": 5,
     "name": "Fallout 76",
     "platforms": ["Windows", "Steam"],
     "price": 150.00,
@@ -36,7 +45,7 @@
     "imgUrl": "https://via.placeholder.com/200"
   },
   {
-    "id": 5,
+    "id": 6,
     "name": "Horizon Zero Dawn",
     "platforms": ["Windows", "Steam"],
     "price": 250.00,
@@ -45,7 +54,7 @@
     "imgUrl": "https://via.placeholder.com/200"
   },
   {
-    "id": 6,
+    "id": 7,
     "name": "Cyberpunk 2077",
     "platforms": ["Windows", "Steam"],
     "price": 200.00,

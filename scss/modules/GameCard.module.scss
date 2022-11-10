@@ -19,11 +19,6 @@
     box-shadow: 0 0 10px colors.$kv-primary-700;
   }
 
-  &:hover .price,
-  &:hover .new-price {
-    background-color: colors.$kv-green;
-  }
-
   .info {
     display: flex;
     flex-wrap: wrap;
@@ -32,41 +27,87 @@
     align-items: flex-start;
   
     padding: 10px;
-    font-size: 1.2rem;
     
     .name {
+      width: 100%;
+
+      font-size: 1.4rem;
       font-weight: 600;
     }
+    
+    .platforms-container {
+      width: 100%;
 
-    .platforms {
       .platform {
         margin-right: 10px;
+        font-size: 1.2rem;
       }
+    }
+    
+    .name, .platform {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .price-info {
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       flex-wrap: wrap;
+      gap: 4px;
     
-      text-align: center;
-      font-weight: bold;
       width: 100%;
+      height: 60px;
+      
+      font-size: 1.2rem;
+    
+      .discount {
+        @include custom.badge(colors.$kv-green);
+        align-self: stretch;
+
+        text-align: center;
+        font-weight: bold;
+        
+        // Vertically center the text
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
     
       .old-price {
+        font-weight: normal;
+        font-size: 1rem;
+
         text-decoration: line-through;
         margin: 0 5px;
       }
-      
-      .discount {
-        @include custom.badge(colors.$kv-green);
-      }
-    
+
       .new-price, .price {
         @include custom.badge(colors.$kv-primary-700);
+
+        text-align: center;
+        font-weight: bold;
+
         flex-grow: 1;
+      }
+
+      .price {
+        align-self: stretch;
+        
+        // Vertically center the text
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    
+      .old-new-price-container {
+        flex-grow: 1;
+
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
       }
     }
   }

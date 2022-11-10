@@ -3,7 +3,7 @@ import header from '../scss/modules/Header.module.scss'
 
 export default function Header({ activeKey }) {
   return (
-    <Navbar variant="dark" expand="sm" className="shadow text-bg-kf-primary-700">
+    <Navbar variant="dark" expand="sm" className="shadow text-bg-kv-primary-700">
       <Container>
         <Navbar.Brand href="/">
           <i className={"bi bi-safe me-1 " + header["logo-text"]}></i>
@@ -22,7 +22,7 @@ export default function Header({ activeKey }) {
             </Nav>
             <Nav className="justify-content-end align-items-center w-100">
                 <Button
-                  variant="kf-primary-800"
+                  variant="kv-primary-800"
                   className="border"
                   href="/login"
                 >Login</Button>

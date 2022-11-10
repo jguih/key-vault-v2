@@ -53,11 +53,11 @@ export default function Section({ title, rows }) {
   }
 
   return (
-    <Container className="mt-4">
+    <Container className="mt-4 mb-4">
       <div className={section.container}>
         <div className={section.top}>
           <h3>{title}</h3>
-          <Button>Ver mais</Button>
+          <Button variant="kv-primary-800">Ver mais</Button>
         </div>
         <hr/>
         <div className={section.content}>

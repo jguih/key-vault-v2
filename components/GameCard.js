@@ -20,8 +20,10 @@ export default function GameCard({ name, imgUrl, platforms, price, discount, isD
       return (
         <>
           <span className={card.discount}>{"-" + discount * 100 + "%"}</span>
-          <span className={card["old-price"]}>{formatter.format(price)}</span>
-          <span className={card["new-price"]}>{formatter.format(newPrice)}</span>
+          <div className={card["old-new-price-container"]}>
+            <span className={card["old-price"]}>{formatter.format(price)}</span>
+            <span className={card["new-price"]}>{formatter.format(newPrice)}</span>
+          </div>
         </>
       );
     }
@@ -34,7 +36,7 @@ export default function GameCard({ name, imgUrl, platforms, price, discount, isD
       ></Image>
       <div className={card.info}>
         <div className={card.name}>{name}</div>
-        <div className={card.platforms}>
+        <div className={card["platforms-container"]}>
           {[...platforms].map(platform => {
             return (
               <span className={card.platform}>{platform}</span>
