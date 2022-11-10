@@ -16,7 +16,9 @@ export default function Outdoor() {
         <div className={outdoor.item}>
           <div className={outdoor["small-game-card"]}>
             <Image src="https://via.placeholder.com/300" />
-            <div className={outdoor.title}>{game.name}</div>
+            <div className={outdoor["title-container"]}>
+              <span className={outdoor.title}>{game.name}</span>
+            </div>
           </div>
         </div>
       );
