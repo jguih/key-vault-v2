@@ -28,10 +28,12 @@ export default function Outdoor() {
   return (
     <Container className="mt-4">
       <div className={outdoor.outdoor}>
-        <Image
-          src="https://images.igdb.com/igdb/image/upload/t_original/ar7dp.jpg"
-          width="100%"
-        />
+        <div className={outdoor["outdoor-img"]}>
+          <Image
+            src="https://images.igdb.com/igdb/image/upload/t_original/ar7dp.jpg"
+            width="100%"
+          />
+        </div>
         <div className={outdoor["cards-grid"]}>
           {data.map((game, index) => getSmallGameCard(game, index))}
         </div>
