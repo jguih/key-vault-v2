@@ -4,9 +4,15 @@ import { Badge, Image } from 'react-bootstrap';
 export default function GameCard({ name, imgUrl, platforms, price, discount, isDiscountActive }) {
 
   function getPriceInfo() {
+    const formatter = Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+      minimumFractionDigits: 2,
+    });
+
     if (!isDiscountActive) {
       return (
-        <span className={card.price}>{"R$ " + price}</span>
+        <span className={card.price}>{formatter.format(price)}</span>
       );
     } else {
       const newPrice = price * (1 - discount);
@@ -14,8 +20,8 @@ export default function GameCard({ name, imgUrl, platforms, price, discount, isD
       return (
         <>
           <span className={card.discount}>{"-" + discount * 100 + "%"}</span>
-          <span className={card["old-price"]}>{"R$ " + price}</span>
-          <span className={card["new-price"]}>{"R$ " + newPrice}</span>
+          <span className={card["old-price"]}>{formatter.format(price)}</span>
+          <span className={card["new-price"]}>{formatter.format(newPrice)}</span>
         </>
       );
     }
