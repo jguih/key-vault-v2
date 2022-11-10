@@ -58,7 +58,7 @@ export default function Section({ title, rows }) {
       <div className={section.container}>
         <div className={section.top}>
           <h3>{title}</h3>
-          <Button variant="kv-primary-800">Ver mais</Button>
+          <Button variant="kv-primary-800" className="border">Ver mais</Button>
         </div>
         <hr/>
         <div className={section.content}>
