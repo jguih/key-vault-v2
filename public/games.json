@@ -1,48 +1,48 @@
 [
   {
     "id": 1,
-    "name": "Oxygen Not Included",
+    "name": "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
     "platforms": ["Windows", "Steam"],
-    "price": 40.00,
+    "price": 200.00,
     "discount": 0.5,
     "isDiscountActive": true,
-    "imgUrl": "https://via.placeholder.com/200"
+    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5pxn.png"
   },
   {
     "id": 2,
-    "name": "Marvel's Spider Man",
+    "name": "You Suck at Parking",
     "platforms": ["Windows", "Steam"],
-    "price": 250.00,
+    "price": 99.99,
     "discount": 0.5,
-    "isDiscountActive": true,
-    "imgUrl": "https://via.placeholder.com/200"
+    "isDiscountActive": false,
+    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co59yn.png"
   },
   {
     "id": 3,
-    "name": "Detroit: Become Human",
+    "name": "Scorn",
     "platforms": ["Windows", "Steam"],
     "price": 150.00,
     "discount": 0.2,
     "isDiscountActive": true,
-    "imgUrl": "https://via.placeholder.com/200"
+    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4v5c.png"
   },
   {
     "id": 4,
-    "name": "God of War",
+    "name": "There Is No Light",
     "platforms": ["Windows", "Steam"],
     "price": 200.00,
     "discount": 0.1,
     "isDiscountActive": false,
-    "imgUrl": "https://via.placeholder.com/200"
+    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2m22.png"
   },
   {
     "id": 5,
-    "name": "Fallout 76",
+    "name": "Metal: Hellsinger",
     "platforms": ["Windows", "Steam"],
-    "price": 150.00,
+    "price": 110.00,
     "discount": 0.4,
     "isDiscountActive": false,
-    "imgUrl": "https://via.placeholder.com/200"
+    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5jf5.png"
   },
   {
     "id": 6,

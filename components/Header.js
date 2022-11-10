@@ -9,19 +9,26 @@ export default function Header({ activeKey }) {
           <i className={"bi bi-safe me-1"}></i>
           <span>KeyFrame</span>
         </Navbar.Brand>
-        <div className={header.button}><i className="bi bi-list"></i></div>
-        <Nav className={"me-auto " + header.nav} activeKey={activeKey}>
-          <Nav.Link href="/" className={header["text"]}>Loja</Nav.Link>
-          <Nav.Link href="/about" className={header["text"]}>Sobre</Nav.Link>
-          <Nav.Link href="/help" className={header["text"]}>Ajuda</Nav.Link>
-        </Nav>
-        <Nav className={header.nav}>
-          <Button
-            variant="kv-primary-700"
-            className="border"
-            href="/login"
-          >Login</Button>
-        </Nav>
+        <Navbar.Toggle />
+        <Navbar.Offcanvas className="text-bg-kv-primary-800">
+          <Offcanvas.Header closeButton >
+            <Offcanvas.Title>Menu</Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <Nav className="me-auto" activeKey={activeKey}>
+              <Nav.Link href="/" className={header["text"]}>Loja</Nav.Link>
+              <Nav.Link href="/about" className={header["text"]}>Sobre</Nav.Link>
+              <Nav.Link href="/help" className={header["text"]}>Ajuda</Nav.Link>
+            </Nav>
+            <Nav className="align-items-center">
+              <Button
+                variant="kv-primary-800"
+                className="border"
+                href="/login"
+              >Login</Button>
+            </Nav>
+          </Offcanvas.Body>
+        </Navbar.Offcanvas>
       </Container>
     </Navbar>
   );

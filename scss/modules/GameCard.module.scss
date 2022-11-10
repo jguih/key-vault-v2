@@ -8,9 +8,11 @@
   background-color: colors.$kv-primary-800;
   border-radius: 10px;
   cursor: pointer;
+  height: 100%;
 
   img {
     width: 100%;
+    flex-shrink: 0;
     object-fit: cover;
     border-radius: 10px 10px 0px 0px;
   }
@@ -20,95 +22,103 @@
   }
 
   .info {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: flex-start;
-  
+    flex-grow: 1;
     padding: 10px;
-    
-    .name {
-      width: 100%;
-
-      font-size: 1.4rem;
-      font-weight: 600;
-    }
-    
-    .platforms-container {
-      width: 100%;
-
-      .platform {
-        margin-right: 10px;
-        font-size: 1.2rem;
-      }
-    }
-    
-    .name, .platform {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .price-info {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-      gap: 4px;
-    
-      width: 100%;
-      height: 60px;
-      
-      font-size: 1.2rem;
-    
-      .discount {
-        @include custom.badge(colors.$kv-green);
-        align-self: stretch;
-
-        text-align: center;
-        font-weight: bold;
-        
-        // Vertically center the text
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-    
-      .old-price {
-        font-weight: normal;
-        font-size: 1rem;
-
-        text-decoration: line-through;
-        margin: 0 5px;
-      }
-
-      .new-price, .price {
-        @include custom.badge(colors.$kv-primary-700);
-
-        text-align: center;
-        font-weight: bold;
-
-        flex-grow: 1;
-      }
-
-      .price {
-        align-self: stretch;
-        
-        // Vertically center the text
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-    
-      .old-new-price-container {
-        flex-grow: 1;
-
-        display: flex;
-        flex-direction: column;
-        align-content: flex-start;
-      }
-    }
   }
+}
+
+.name {
+  width: 100%;
+
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.platform-price-wrapper {
+  width: 100%;
+}
+
+.platforms-container {
+  width: 100%;
+  margin-bottom: 4px;
+
+  .platform {
+    margin-right: 10px;
+    font-size: 1.2rem;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.price-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 4px;
+
+  width: 100%;
+
+  font-size: 1.2rem;
+}
+
+.discount {
+  @include custom.badge(colors.$kv-green);
+  align-self: stretch;
+
+  text-align: center;
+  font-weight: bold;
+
+  // Vertically center the text
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.old-price {
+  font-weight: normal;
+  font-size: 1rem;
+
+  text-decoration: line-through;
+  margin: 0 5px;
+}
+
+.new-price,
+.price {
+  @include custom.badge(colors.$kv-primary-700);
+
+  text-align: center;
+  font-weight: bold;
+
+  flex-grow: 1;
+}
+
+.price {
+  align-self: stretch;
+
+  // Vertically center the text
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.old-new-price-container {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
 }
