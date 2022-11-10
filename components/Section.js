@@ -37,6 +37,7 @@ export default function Section({ title, rows }) {
       return (
         <div 
           className={getClass(index)}
+          key={index}
         >
           <GameCard
             key={game.name+" "+game.id}

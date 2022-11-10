@@ -37,9 +37,9 @@ export default function GameCard({ name, imgUrl, platforms, price, discount, isD
       <div className={card.info}>
         <div className={card.name}>{name}</div>
         <div className={card["platforms-container"]}>
-          {[...platforms].map(platform => {
+          {[...platforms].map((platform, index) => {
             return (
-              <span className={card.platform}>{platform}</span>
+              <span className={card.platform} key={index}>{platform}</span>
             );
           })}
         </div>

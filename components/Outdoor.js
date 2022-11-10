@@ -13,7 +13,7 @@ export default function Outdoor() {
   function getSmallGameCard(game, index) {
     if (index < 4) {
       return (
-        <div className={outdoor.item}>
+        <div className={outdoor.item} key={index}>
           <div className={outdoor["small-game-card"]}>
             <Image src="https://via.placeholder.com/300" />
             <div className={outdoor["title-container"]}>
