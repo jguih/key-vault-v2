@@ -10,25 +10,20 @@ export default function Header({ activeKey }) {
           <span>KeyFrame</span>
         </Navbar.Brand>
         <Navbar.Toggle />
-        <Navbar.Offcanvas placement="end">
-          <Offcanvas.Header closeButton>
-            <Offcanvas.Title>Menu</Offcanvas.Title>
-          </Offcanvas.Header>
-          <Offcanvas.Body>
-            <Nav className="justify-content-start align-items-center" activeKey={activeKey}>
-              <Nav.Link href="/" className={header["text"]}>Loja</Nav.Link>
-              <Nav.Link href="/about" className={header["text"]}>Sobre</Nav.Link>
-              <Nav.Link href="/help" className={header["text"]}>Ajuda</Nav.Link>
-            </Nav>
-            <Nav className="justify-content-end align-items-center w-100">
-                <Button
-                  variant="kv-primary-700"
-                  className="border"
-                  href="/login"
-                >Login</Button>
-            </Nav>
-          </Offcanvas.Body>
-        </Navbar.Offcanvas>
+        <Navbar.Collapse>
+          <Nav className="me-auto" activeKey={activeKey}>
+            <Nav.Link href="/" className={header["text"]}>Loja</Nav.Link>
+            <Nav.Link href="/about" className={header["text"]}>Sobre</Nav.Link>
+            <Nav.Link href="/help" className={header["text"]}>Ajuda</Nav.Link>
+          </Nav>
+          <Nav>
+            <Button
+              variant="kv-primary-700"
+              className="border"
+              href="/login"
+            >Login</Button>
+          </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
