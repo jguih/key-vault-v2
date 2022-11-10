@@ -2,17 +2,21 @@
 @use '../custom' as custom;
 
 .card {
-  display: flex;
-  flex-direction: column;
-
   background-color: colors.$kv-primary-800;
   border-radius: 10px;
   cursor: pointer;
   height: 100%;
 
+  .card-img {
+    position: relative;
+    padding-bottom: 133%;
+    display: block;
+  }
+
   img {
+    position: absolute;
     width: 100%;
-    flex-shrink: 0;
+    height: 100%;
     object-fit: cover;
     border-radius: 10px 10px 0px 0px;
   }

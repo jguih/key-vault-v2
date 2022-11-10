@@ -31,9 +31,11 @@ export default function GameCard({ name, imgUrl, platforms, price, discount, isD
 
   return (
     <div className={card.card}>
-      <Image
-        src={imgUrl || "https://via.placeholder.com/400"}
-      ></Image>
+      <div className={card["card-img"]}>
+        <Image
+          src={imgUrl}
+        ></Image>
+      </div>
       <div className={card.info}>
         <div className={card.name}>{name}</div>
         <div className={card["platform-price-wrapper"]}>
