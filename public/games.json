@@ -46,20 +46,47 @@
   },
   {
     "id": 6,
-    "name": "Horizon Zero Dawn",
+    "name": "Overwatch 2",
     "platforms": ["Windows", "Steam"],
-    "price": 250.00,
-    "discount": 0.5,
-    "isDiscountActive": false,
-    "imgUrl": "https://via.placeholder.com/200"
+    "price": 200.00,
+    "discount": 1,
+    "isDiscountActive": true,
+    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5g1e.png"
   },
   {
     "id": 7,
-    "name": "Cyberpunk 2077",
+    "name": "Ghost Song",
     "platforms": ["Windows", "Steam"],
     "price": 200.00,
     "discount": 0.5,
     "isDiscountActive": false,
-    "imgUrl": "https://via.placeholder.com/200"
+    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4koz.png"
+  },
+  {
+    "id": 8,
+    "name": "God of War Ragnarök",
+    "platforms": ["Windows", "Steam"],
+    "price": 200.00,
+    "discount": 0.5,
+    "isDiscountActive": false,
+    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3swk.png"
+  },
+  {
+    "id": 9,
+    "name": "Persona 5 Royal",
+    "platforms": ["Windows", "Steam"],
+    "price": 100.00,
+    "discount": 0.5,
+    "isDiscountActive": false,
+    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4koz.png"
+  },
+  {
+    "id": 10,
+    "name": "Uncharted: Legacy of Thieves Collection",
+    "platforms": ["Windows", "Steam"],
+    "price": 200.00,
+    "discount": 0.5,
+    "isDiscountActive": false,
+    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3swl.png"
   }
 ]

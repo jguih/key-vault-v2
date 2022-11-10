@@ -11,14 +11,17 @@ export default function Home() {
       <SubHeader />
       <Outdoor />
       <Section
-        title="Promoção"
+        title="Adicionados Recentemente"
         rows="1"
       />
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+      <Section
+        title="Promoção"
+        rows="2"
+      />
+      <Section
+        title="Mais Vendidos"
+        rows="1"
+      />
       <Footer/>
     </>
   );
