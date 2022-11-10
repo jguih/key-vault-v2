@@ -24,40 +24,40 @@ body {
 @import "../node_modules/bootstrap/scss/utilities";
 
 $kf-colors: (
-  "kf-primary-900": colors.$kf-primary-900,
-  "kf-primary-800": colors.$kf-primary-800,
-  "kf-primary-700": colors.$kf-primary-700,
-  "kf-secondary-900": colors.$kf-secondary-900,
-  "kf-secondary-800": colors.$kf-secondary-800,
-  "kf-secondary-700": colors.$kf-secondary-700
+  "kf-primary-900": colors.$kv-primary-900,
+  "kf-primary-800": colors.$kv-primary-800,
+  "kf-primary-700": colors.$kv-primary-700,
+  "kf-secondary-900": colors.$kv-secondary-900,
+  "kf-secondary-800": colors.$kv-secondary-800,
+  "kf-secondary-700": colors.$kv-secondary-700
 );
 
 // Colors and theme-colors map overrides
-$body-bg: colors.$kf-primary-900;
+$body-bg: colors.$kv-primary-900;
 $body-color: white;
 $theme-colors: map-merge($theme-colors, $kf-colors);
 
 // Input group and form overrides
-$input-bg: colors.$kf-primary-800;
+$input-bg: colors.$kv-primary-800;
 $input-color: white;
-$input-border-color: colors.$kf-primary-500;
+$input-border-color: colors.$kv-primary-500;
 
-$input-focus-bg: colors.$kf-primary-800;
+$input-focus-bg: colors.$kv-primary-800;
 $input-focus-color: white;
 $input-focus-border-color: white;
 $input-focus-box-shadow: none;
 
-$input-group-addon-bg: colors.$kf-primary-700;
+$input-group-addon-bg: colors.$kv-primary-700;
 $input-group-addon-color: white;
-$input-group-addon-border-color: colors.$kf-primary-500;
+$input-group-addon-border-color: colors.$kv-primary-500;
 
 // Dropdown overrides
-$dropdown-bg: colors.$kf-primary-800;
+$dropdown-bg: colors.$kv-primary-800;
 $dropdown-color: white;
 $dropdown-link-color: white;
 $dropdown-link-hover-color: white;
-$dropdown-link-hover-bg: colors.$kf-primary-700;
-$dropdown-link-active-bg: colors.$kf-secondary-700;
+$dropdown-link-hover-bg: colors.$kv-primary-700;
+$dropdown-link-active-bg: colors.$kv-secondary-700;
 $dropdown-link-active-color: white;
 
 @import "../node_modules/bootstrap/scss/root";

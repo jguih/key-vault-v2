@@ -36,7 +36,7 @@ $small-gap: 4px;
 
   .small-game-card {
     height: 100px;
-    background-color: colors.$kf-primary-800;
+    background-color: colors.$kv-primary-800;
     padding: 10px;
     @include custom.border-radius;
 
@@ -58,7 +58,7 @@ $small-gap: 4px;
     }
 
     &:hover {
-      box-shadow: 0 0 10px colors.$kf-primary-700;
+      box-shadow: 0 0 10px colors.$kv-primary-700;
     }
   }
 }

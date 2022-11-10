@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
 
-  background-color: colors.$kf-primary-800;
+  background-color: colors.$kv-primary-800;
   border-radius: 10px;
   cursor: pointer;
 
@@ -16,12 +16,12 @@
   }
 
   &:hover {
-    box-shadow: 0 0 10px colors.$kf-primary-700;
+    box-shadow: 0 0 10px colors.$kv-primary-700;
   }
 
   &:hover .price,
   &:hover .new-price {
-    background-color: colors.$kf-green;
+    background-color: colors.$kv-green;
   }
 
   .info {
@@ -61,11 +61,11 @@
       }
       
       .discount {
-        @include custom.badge(colors.$kf-green);
+        @include custom.badge(colors.$kv-green);
       }
     
       .new-price, .price {
-        @include custom.badge(colors.$kf-primary-700);
+        @include custom.badge(colors.$kv-primary-700);
         flex-grow: 1;
       }
     }

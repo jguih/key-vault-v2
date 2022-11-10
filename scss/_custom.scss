@@ -5,11 +5,11 @@
 @mixin scrollbar {
   &::-webkit-scrollbar {
     height: 6px;
-    background-color: colors.$kf-scrollbar-background;
+    background-color: colors.$kv-scrollbar-background;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: colors.$kf-primary-800;
+    background: colors.$kv-primary-800;
   }
 
 }
