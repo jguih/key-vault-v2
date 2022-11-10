@@ -15,7 +15,7 @@ export default function Outdoor() {
       return (
         <div className={outdoor.item} key={index}>
           <div className={outdoor["small-game-card"]}>
-            <Image src="https://via.placeholder.com/300" />
+            <Image src={game.imgUrl} />
             <div className={outdoor["title-container"]}>
               <span className={outdoor.title}>{game.name}</span>
             </div>
@@ -29,7 +29,7 @@ export default function Outdoor() {
     <Container className="mt-4">
       <div className={outdoor.outdoor}>
         <Image
-          src="https://via.placeholder.com/1300x700"
+          src="https://images.igdb.com/igdb/image/upload/t_original/aruiy.jpg"
           width="100%"
         />
         <div className={outdoor["cards-grid"]}>

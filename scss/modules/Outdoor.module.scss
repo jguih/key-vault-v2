@@ -10,7 +10,7 @@ $small-gap: 4px;
   position: relative;
 
   img {
-    max-height: 60vh;
+    width: 100%;
     object-fit: cover;
 
     @include custom.border-radius;

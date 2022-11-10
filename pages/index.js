@@ -14,6 +14,11 @@ export default function Home() {
         title="Promoção"
         rows="1"
       />
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <Footer/>
     </>
   );
