@@ -13,10 +13,6 @@
   }
 }
 
-@mixin border-radius {
-  border-radius: 10px;
-}
-
 // Used in outdoor and section titles
 @mixin title {
   font-weight: bold;
@@ -36,3 +32,5 @@
   border-radius: 6px;
   display: inline-block;
 }
+
+$img-border-radius: 10px;

@@ -5,21 +5,18 @@ import Footer from "../../components/Footer";
 import MainTitle from "./components/MainTitle";
 import Gallery from "./components/Gallery";
 import { Container } from "react-bootstrap";
+import GallerySection from "./components/GallerySection";
 
 export default function Game() {
   const router = useRouter();
-  const { id } = router.query;
+  const { name } = router.query;
 
   return (
     <>
       <Header/>
       <SubHeader/>
-      <MainTitle id={id}/>
-
-      <Container className="mb-4 mt-4 d-flex gap-4">
-        <Gallery/>
-      </Container>
-
+      <MainTitle name={name}/>
+      <GallerySection/>
       <Footer/>
     </>
   );
