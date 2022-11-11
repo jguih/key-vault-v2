@@ -20,7 +20,7 @@ $small-gap: 4px;
     position: absolute;
     object-fit: cover;
 
-    @include custom.border-radius;
+    border-radius:  custom.$img-border-radius;
 
     cursor: pointer;
   }
@@ -48,14 +48,14 @@ $small-gap: 4px;
   height: 100px;
   background-color: colors.$kv-primary-800;
   position: relative;
-  @include custom.border-radius;
+  border-radius:  custom.$img-border-radius;
 
   cursor: pointer;
 
   img {
     height: 100%;
     width: 100%;
-    @include custom.border-radius;
+    border-radius:  custom.$img-border-radius;
     object-fit: cover;
   }
 
@@ -77,7 +77,7 @@ $small-gap: 4px;
   bottom: 0;
 
   padding: 10px;
-  @include custom.border-radius;
+  border-radius:  custom.$img-border-radius;
 
   background-color: colors.$kv-primary-800;
   opacity: 0.6;

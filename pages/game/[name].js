@@ -3,21 +3,26 @@ import Header from "../../components/Header";
 import SubHeader from "../../components/SubHeader";
 import Footer from "../../components/Footer";
 import MainTitle from "./components/MainTitle";
-import Gallery from "./components/Gallery";
-import { Container } from "react-bootstrap";
 import GallerySection from "./components/GallerySection";
+import { useEffect, useState } from "react";
 
 export default function Game() {
   const router = useRouter();
-  const { name } = router.query;
+  const [ name, setName ] = useState();
 
+  useEffect(() => {
+    if (router.isReady) {
+      setName(router.query.name.replaceAll("-", " "))
+    }
+  }, [router])
+  
   return (
     <>
-      <Header/>
-      <SubHeader/>
-      <MainTitle name={name}/>
-      <GallerySection/>
-      <Footer/>
+      <Header />
+      <SubHeader />
+      <MainTitle name={name} />
+      <GallerySection name={name} />
+      <Footer />
     </>
   );
 }

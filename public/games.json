@@ -6,7 +6,16 @@
     "price": 200.00,
     "discount": 0.5,
     "isDiscountActive": true,
-    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5pxn.png"
+    "imgUrl": {
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5pxn.png",
+      "artwork": [
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6cy.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6cz.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6d0.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6d1.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6a9.jpg"
+      ]
+    }
   },
   {
     "id": 2,
@@ -15,7 +24,16 @@
     "price": 99.99,
     "discount": 0.5,
     "isDiscountActive": false,
-    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co59yn.png"
+    "imgUrl": {
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co59yn.png",
+      "artwork": [
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6cy.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6cz.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6d0.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6d1.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6a9.jpg"
+      ]
+    } 
   },
   {
     "id": 3,
@@ -24,7 +42,16 @@
     "price": 150.00,
     "discount": 0.2,
     "isDiscountActive": true,
-    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4v5c.png"
+    "imgUrl": {
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4v5c.png",
+      "artwork": [
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6cy.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6cz.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6d0.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6d1.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6a9.jpg"
+      ]
+    }
   },
   {
     "id": 4,
@@ -33,7 +60,9 @@
     "price": 200.00,
     "discount": 0.1,
     "isDiscountActive": false,
-    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2m22.png"
+    "imgUrl": {
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2m22.png"
+    }
   },
   {
     "id": 5,
@@ -42,7 +71,9 @@
     "price": 110.00,
     "discount": 0.4,
     "isDiscountActive": false,
-    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5jf5.png"
+    "imgUrl": {
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5jf5.png"
+    }
   },
   {
     "id": 6,
@@ -51,7 +82,16 @@
     "price": 200.00,
     "discount": 1,
     "isDiscountActive": true,
-    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5g1e.png"
+    "imgUrl": {
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5g1e.png",
+      "artwork": [
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6cy.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6cz.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6d0.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6d1.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar6a9.jpg"
+      ]
+    }
   },
   {
     "id": 7,
@@ -60,7 +100,9 @@
     "price": 200.00,
     "discount": 0.5,
     "isDiscountActive": false,
-    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4koz.png"
+    "imgUrl": {
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4koz.png"
+    }
   },
   {
     "id": 8,
@@ -69,7 +111,9 @@
     "price": 200.00,
     "discount": 0.5,
     "isDiscountActive": false,
-    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3swk.png"
+    "imgUrl": {
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4koz.png"
+    }
   },
   {
     "id": 9,
@@ -78,7 +122,9 @@
     "price": 100.00,
     "discount": 0.5,
     "isDiscountActive": false,
-    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4koz.png"
+    "imgUrl": {
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4koz.png"
+    }
   },
   {
     "id": 10,
@@ -87,6 +133,8 @@
     "price": 200.00,
     "discount": 0.5,
     "isDiscountActive": false,
-    "imgUrl": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3swl.png"
+    "imgUrl": {
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4koz.png"
+    }
   }
 ]

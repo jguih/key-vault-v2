@@ -15,7 +15,7 @@ export default function Outdoor() {
       return (
         <div className={outdoor.item} key={index}>
           <div className={outdoor["small-game-card"]}>
-            <Image src={game.imgUrl} />
+            <Image src={game.imgUrl.cover} />
             <div className={outdoor["title-container"]}>
               <span className={outdoor.title}>{game.name}</span>
             </div>

@@ -1,18 +1,10 @@
-import { Container, Button, Badge } from "react-bootstrap";
+import { Container, Button, Badge, Alert } from "react-bootstrap";
 import section from "../scss/modules/Section.module.scss";
 import useSWR from 'swr';
 import GameCard from "./GameCard";
-
-// Generate platform icons based on data
-function getPlatforms(platforms) {
-  return platforms.map(platform => {
-    if (platform === "Windows") {
-      return <i className="bi bi-windows"></i>;
-    } else if (platform === "Steam") {
-      return <i className="bi bi-steam"></i>
-    }
-  });
-}
+import Link from "next/link";
+import useGame from "../hooks/useGame";
+import { getPlatformsIcons } from "../functions";
 
 function getClass(index) {
   if (index >= 4) {
@@ -24,30 +16,42 @@ function getClass(index) {
   }
 }
 
-const fetcher = (...args) => fetch(...args).then(res => res.json());
-
 export default function Section({ title, rows }) {
-  const { data, error } = useSWR('http://localhost:3000/games.json', fetcher);
+  const { games, isLoading, isError } = useGame();
 
-  if (error) return <div>Failed to load...</div>
-  if (!data) return <div>Loading...</div>
+  if (isLoading) {
+    return (
+      <Container>
+        <Alert variant="success">Loading...</Alert>
+      </Container>
+    );
+  }
+  if (isError) {
+    return (
+      <Container>
+        <Alert variant="danger">Failed to load</Alert>
+      </Container>
+    );
+  } 
 
   function createGameCard(game, index) {
     if (index < rows * 5) {
       return (
-        <div 
+        <div
           className={getClass(index)}
           key={index}
         >
-          <GameCard
-            key={game.name+" "+game.id}
-            name={game.name}
-            price={game.price}
-            discount={game.discount}
-            isDiscountActive={game.isDiscountActive}
-            platforms={getPlatforms(game.platforms)}
-            imgUrl={game.imgUrl}
-          />
+          <Link href={`/game/${(game.name.toLowerCase().replaceAll(" ", "-"))}`}>
+            <GameCard
+              key={game.name + " " + game.id}
+              name={game.name}
+              price={game.price}
+              discount={game.discount}
+              isDiscountActive={game.isDiscountActive}
+              platforms={getPlatformsIcons(game.platforms)}
+              imgUrl={game.imgUrl.cover}
+            />
+          </Link>
         </div>
       );
     }
@@ -60,9 +64,9 @@ export default function Section({ title, rows }) {
           <h3>{title}</h3>
           <Button variant="kv-primary-800" className="border">Ver mais</Button>
         </div>
-        <hr/>
+        <hr />
         <div className={section.content}>
-          {data.map((game, index) => createGameCard(game, index))}
+          {games.map((game, index) => createGameCard(game, index))}
         </div>
       </div>
     </Container>
