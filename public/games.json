@@ -14,8 +14,19 @@
         "https://images.igdb.com/igdb/image/upload/t_original/ar6d0.jpg",
         "https://images.igdb.com/igdb/image/upload/t_original/ar6d1.jpg",
         "https://images.igdb.com/igdb/image/upload/t_original/ar6a9.jpg"
+      ],
+      "screenshot": [
+        "https://images.igdb.com/igdb/image/upload/t_original/scaht2.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/scaht7.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/scaht6.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/scaht5.jpg"
       ]
-    }
+    },
+    "description": [],
+    "releaseDate": "",
+    "developer": [],
+    "publisher": [],
+    "genre": []
   },
   {
     "id": 2,
@@ -32,8 +43,19 @@
         "https://images.igdb.com/igdb/image/upload/t_original/ar6d0.jpg",
         "https://images.igdb.com/igdb/image/upload/t_original/ar6d1.jpg",
         "https://images.igdb.com/igdb/image/upload/t_original/ar6a9.jpg"
+      ],
+      "screenshot": [
+        "https://images.igdb.com/igdb/image/upload/t_original/sccs5f.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/sccs5e.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/sccs5d.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/sccs5c.jpg"
       ]
-    } 
+    },
+    "description": [],
+    "releaseDate": "",
+    "developer": [],
+    "publisher": [],
+    "genre": [] 
   },
   {
     "id": 3,
@@ -50,8 +72,19 @@
         "https://images.igdb.com/igdb/image/upload/t_original/ar6d0.jpg",
         "https://images.igdb.com/igdb/image/upload/t_original/ar6d1.jpg",
         "https://images.igdb.com/igdb/image/upload/t_original/ar6a9.jpg"
+      ],
+      "screenshot": [
+        "https://images.igdb.com/igdb/image/upload/t_original/ezq5wfc1nj3jmiyhdvu4.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/vgpnyascxdbuoomvyd18.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/fmyt3ahdungh6ngyqiqe.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/uyqvqq7sreuce3mfq927.jpg"
       ]
-    }
+    },
+    "description": [],
+    "releaseDate": "",
+    "developer": [],
+    "publisher": [],
+    "genre": []
   },
   {
     "id": 4,
@@ -61,8 +94,20 @@
     "discount": 0.1,
     "isDiscountActive": false,
     "imgUrl": {
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2m22.png"
-    }
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2m22.png",
+      "artwork": [],
+      "screenshot": [
+        "https://images.igdb.com/igdb/image/upload/t_original/scip83.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/sccrmz.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/sccrmy.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/sccrmx.jpg"
+      ]
+    },
+    "description": [],
+    "releaseDate": "",
+    "developer": [],
+    "publisher": [],
+    "genre": []
   },
   {
     "id": 5,
@@ -72,8 +117,20 @@
     "discount": 0.4,
     "isDiscountActive": false,
     "imgUrl": {
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5jf5.png"
-    }
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5jf5.png",
+      "artwork": [],
+      "screenshot": [
+        "https://images.igdb.com/igdb/image/upload/t_original/sc8bfm.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/sc8bfp.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/sc8bfn.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/sc8bfl.jpg"
+      ]
+    },
+    "description": [],
+    "releaseDate": "",
+    "developer": [],
+    "publisher": [],
+    "genre": []
   },
   {
     "id": 6,
@@ -90,8 +147,19 @@
         "https://images.igdb.com/igdb/image/upload/t_original/ar6d0.jpg",
         "https://images.igdb.com/igdb/image/upload/t_original/ar6d1.jpg",
         "https://images.igdb.com/igdb/image/upload/t_original/ar6a9.jpg"
+      ],
+      "screenshot": [
+        "https://images.igdb.com/igdb/image/upload/t_original/sc78ey.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/sc78ew.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/sc78ex.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/sc78ev.jpg"
       ]
-    }
+    },
+    "description": [],
+    "releaseDate": "",
+    "developer": [],
+    "publisher": [],
+    "genre": []
   },
   {
     "id": 7,
@@ -101,8 +169,20 @@
     "discount": 0.5,
     "isDiscountActive": false,
     "imgUrl": {
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4koz.png"
-    }
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4koz.png",
+      "artwork": [],
+      "screenshot": [
+        "https://images.igdb.com/igdb/image/upload/t_original/scg8vp.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/scg8vo.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/scg8vn.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/scg8vm.jpg"
+      ]
+    },
+    "description": [],
+    "releaseDate": "",
+    "developer": [],
+    "publisher": [],
+    "genre": []
   },
   {
     "id": 8,
@@ -112,8 +192,20 @@
     "discount": 0.5,
     "isDiscountActive": false,
     "imgUrl": {
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4koz.png"
-    }
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.png",
+      "artwork": [],
+      "screenshot": [
+        "https://images.igdb.com/igdb/image/upload/t_original/rm35ytrytuka9qkylqyk.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ywrkjcrbeemmb51flsfj.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/qseegzssgetrybgbplrv.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/jvdoaxza3cawklvof1sl.jpg"
+      ]
+    },
+    "description": [],
+    "releaseDate": "",
+    "developer": [],
+    "publisher": [],
+    "genre": []
   },
   {
     "id": 9,
@@ -123,8 +215,20 @@
     "discount": 0.5,
     "isDiscountActive": false,
     "imgUrl": {
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4koz.png"
-    }
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1nic.png",
+      "artwork": [],
+      "screenshot": [
+        "https://images.igdb.com/igdb/image/upload/t_original/sc6vps.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/sc6vpt.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/sc6vpu.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/sc6vpw.jpg"
+      ]
+    },
+    "description": [],
+    "releaseDate": "",
+    "developer": [],
+    "publisher": [],
+    "genre": []
   },
   {
     "id": 10,
@@ -134,7 +238,23 @@
     "discount": 0.5,
     "isDiscountActive": false,
     "imgUrl": {
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4koz.png"
-    }
+      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3swl.png",
+      "artwork": [],
+      "screenshot": [
+        "https://images.igdb.com/igdb/image/upload/t_original/scf374.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/scf373.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/scf372.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/scf371.jpg"
+      ]
+    },
+    "description": [
+      "Are You Ready To Seek Your Fortune?",
+      "Seek your fortune and leave your mark on the map in the UNCHARTED: Legacy of Thieves Collection. Uncover the thrilling cinematic storytelling and the largest blockbuster action set pieces in the UNCHARTED franchise, packed with all the wit, cunning, and over the top moments of the beloved thieves – Nathan Drake and Chloe Frazer.",
+      "In an experience delivered by award winning developer Naughty Dog can, the UNCHARTED: Legacy of Thieves Collection includes the two critically-acclaimed, globe-trotting single player adventures from UNCHARTED 4: A Thief’s End and UNCHARTED: The Lost Legacy. Each story is filled with laughs, drama, high octane combat, and a sense of wonder – remastered to be even more immersive."
+    ],
+    "releaseDate": "Oct 19, 2022",
+    "developer": ["Naughty Dog"],
+    "publisher": ["Sony Interactive Entertainment", "Naughty Dog"],
+    "genre": ["Adventure", "Shooter", "RPG"]
   }
 ]

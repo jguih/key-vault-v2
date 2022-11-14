@@ -7,7 +7,7 @@ export default function Footer() {
       <Container className="justify-content-start flex-nowrap">
         <Navbar.Brand className={footer.logo + " " + "m-0 p-0"}>
           <i className={"bi bi-safe me-1 "}></i>
-          <span>KeyFrame</span>
+          <span>KeyVault</span>
         </Navbar.Brand>
         <div className={footer.container}>
           © 2022 KeyVault Corporation. Todos os direitos reservados.

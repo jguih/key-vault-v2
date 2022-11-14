@@ -12,6 +12,10 @@ $small-gap: 4px;
 
   hr {
     margin: 0 $gap;
+
+    border: 2px solid colors.$kv-primary-700;
+    border-radius: 10px;
+    opacity: 1;
   }
 }
 

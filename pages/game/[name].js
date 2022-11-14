@@ -2,8 +2,8 @@ import { useRouter } from "next/router";
 import Header from "../../components/Header";
 import SubHeader from "../../components/SubHeader";
 import Footer from "../../components/Footer";
-import MainTitle from "./components/MainTitle";
-import GallerySection from "./components/GallerySection";
+import Title from "./components/Title";
+import Content from "./components/Content";
 import { useEffect, useState } from "react";
 
 export default function Game() {
@@ -20,8 +20,8 @@ export default function Game() {
     <>
       <Header />
       <SubHeader />
-      <MainTitle name={name} />
-      <GallerySection name={name} />
+      <Title name={name} />
+      <Content name={name} />
       <Footer />
     </>
   );

@@ -1,0 +1,11 @@
+@use '../../../scss/custom' as custom;
+@use '../../../scss/colors' as colors;
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 30%;
+  gap: 6px;
+
+  .left {}
+  .right {}
+}

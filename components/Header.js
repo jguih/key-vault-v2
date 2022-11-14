@@ -7,7 +7,7 @@ export default function Header({ activeKey }) {
       <Container>
         <Navbar.Brand href="/" className={header.logo}>
           <i className={"bi bi-safe me-1"}></i>
-          <span>KeyFrame</span>
+          <span>KeyVault</span>
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Offcanvas className="text-bg-kv-primary-800">

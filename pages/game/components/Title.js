@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { getPlatformsIcons } from "../../../functions";
-import useGame from "../../../hooks/useGame";
-import mainTitle from "./MainTitle.module.scss"
+import useGameByName from "../../../hooks/useGameByName";
+import title from "./Title.module.scss"
 
 function getTitle(name) {
   if (name) {
@@ -15,22 +15,9 @@ function getTitle(name) {
   }
 }
 
-export default function MainTitle({ name }) {
-  const { games, isLoading, isError } = useGame();
-  const [currentGame, setCurrentGame] = useState();
+export default function Title({ name }) {
+  const { currentGame, isLoading, isError } = useGameByName(name);
   const [platforms, setPlatforms] = useState();
-
-  useEffect(() => {
-    // Waits for games and name to be defined
-    if (games && name) {
-      // Gets the current game
-      games.forEach((game) => {
-        if (game.name.toLowerCase() === name) {
-          setCurrentGame(game);
-        }
-      });
-    }
-  }, [games, name]);
 
   useEffect(() => {
     if (currentGame) {
@@ -40,11 +27,11 @@ export default function MainTitle({ name }) {
 
   return (
     <Container className="mt-4 mb-4">
-      <div className={mainTitle.container}>
-        <div className={mainTitle.title}>
+      <div className={title.container}>
+        <div className={title.title}>
           {getTitle(name)}
         </div>
-        <div className={mainTitle["platforms-container"]}>
+        <div className={title["platforms-container"]}>
           {getPlatformsIcons(platforms)}
         </div>
       </div>
