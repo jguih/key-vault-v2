@@ -54,7 +54,7 @@ $small-gap: 4px;
     grid-template-columns: 25% 25% 25% 25%;
   }
 
-  .removed {
+  .sentinel {
     display: none;
   }
 }
@@ -74,7 +74,7 @@ $small-gap: 4px;
     padding: 0 $small-gap;
   }
 
-  .removed {
+  .sentinel {
     display: none;
   }
 }

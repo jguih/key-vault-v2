@@ -9,11 +9,9 @@
     "imgUrl": {
       "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5pxn.png",
       "artwork": [
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6cy.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6cz.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6d0.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6d1.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6a9.jpg"
+        "https://images.igdb.com/igdb/image/upload/t_original/arcna.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar88j.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar88i.jpg"
       ],
       "screenshot": [
         "https://images.igdb.com/igdb/image/upload/t_original/scaht2.jpg",
@@ -38,11 +36,9 @@
     "imgUrl": {
       "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co59yn.png",
       "artwork": [
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6cy.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6cz.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6d0.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6d1.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6a9.jpg"
+        "https://images.igdb.com/igdb/image/upload/t_original/ar1vee.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar1r1i.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/sccs5f.jpg"
       ],
       "screenshot": [
         "https://images.igdb.com/igdb/image/upload/t_original/sccs5f.jpg",
@@ -67,11 +63,9 @@
     "imgUrl": {
       "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4v5c.png",
       "artwork": [
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6cy.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6cz.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6d0.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6d1.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6a9.jpg"
+        "https://images.igdb.com/igdb/image/upload/t_original/ar7dp.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ar7do.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_original/ezq5wfc1nj3jmiyhdvu4.jpg"
       ],
       "screenshot": [
         "https://images.igdb.com/igdb/image/upload/t_original/ezq5wfc1nj3jmiyhdvu4.jpg",
@@ -95,7 +89,9 @@
     "isDiscountActive": false,
     "imgUrl": {
       "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2m22.png",
-      "artwork": [],
+      "artwork": [
+        "https://images.igdb.com/igdb/image/upload/t_original/ar1bu1.jpg"
+      ],
       "screenshot": [
         "https://images.igdb.com/igdb/image/upload/t_original/scip83.jpg",
         "https://images.igdb.com/igdb/image/upload/t_original/sccrmz.jpg",

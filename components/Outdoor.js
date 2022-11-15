@@ -1,43 +1,108 @@
+import { useEffect, useState } from "react";
 import { Container, Image } from "react-bootstrap";
+import useGame from "../hooks/useGame";
 import outdoor from '../scss/modules/Outdoor.module.scss';
-import useSWR from 'swr';
-
-const fetcher = (...args) => fetch(...args).then(res => res.json());
 
 export default function Outdoor() {
-  const { data, error } = useSWR('http://localhost:3000/games.json', fetcher);
+  const { games, isLoading, isError } = useGame();
+  const [index, setIndex] = useState(0);
+  const interval = 6000; // Outdoor timer interval
+  const cards = 4; // Number of cards
+  const [timer, setTimer] = useState();
 
-  if (error) return <div>Failed to load...</div>
-  if (!data) return <div>Loading...</div>
+  useEffect(() => {
+    // Sets the initial timer
+    setTimer(
+      setInterval(() => {
+        setIndex(prevVal => prevVal + 1 <= cards - 1 ? prevVal + 1 : 0);
+      }, interval)
+    );
 
-  function getSmallGameCard(game, index) {
-    if (index < 4) {
-      return (
-        <div className={outdoor.item} key={index}>
-          <div className={outdoor["small-game-card"]}>
-            <Image src={game.imgUrl.cover} />
-            <div className={outdoor["title-container"]}>
-              <span className={outdoor.title}>{game.name}</span>
-            </div>
-          </div>
-        </div>
-      );
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    // Updates the current outdoor image
+    const outdoorImages = document.querySelector(`.${outdoor["outdoor-img"]}`);
+    if (outdoorImages) {
+      const activeImg = outdoorImages.querySelector(`.${outdoor["img-show"]}`);
+      activeImg.classList.remove(outdoor["img-show"]);
+      outdoorImages.children[index].classList.add(outdoor["img-show"]);
     }
+
+    // Highlights the current smallGameCard at index with a white bar below
+    const cardsGrid = document.querySelector(`.${outdoor["cards-grid"]}`)
+    if (cardsGrid) {
+      const activeSmallCard = cardsGrid.querySelector(`.${outdoor["bar-show"]}`)
+      activeSmallCard.classList.remove(outdoor["bar-show"]);
+      // Gets the 'bar' element from smallGameCard at index
+      const cardBar =
+        cardsGrid.children[index].children[0].querySelector(`.${outdoor.bar}`);
+      cardBar.classList.add(outdoor["bar-show"]);
+    }
+
+  }, [index])
+
+  if (isLoading) {
+    return <div>Loading...</div>
   }
 
-  return (
-    <Container className="mt-4">
-      <div className={outdoor.outdoor}>
-        <div className={outdoor["outdoor-img"]}>
-          <Image
-            src="https://images.igdb.com/igdb/image/upload/t_original/ar7dp.jpg"
-            width="100%"
-          />
+  if (isError) {
+    return <div>Failed to Load...</div>
+  }
+
+  if (games) {
+    return (
+      <Container className="mt-4">
+        <div className={outdoor.outdoor}>
+          <div className={outdoor["outdoor-img"]}>
+            {games.slice(0, cards).map((game, index) => {
+              return (
+                <Image
+                  src={game.imgUrl.artwork[0]}
+                  key={index}
+                  className={index === 0 ? outdoor["img-show"] : ""}
+                />
+              );
+            })}
+          </div>
+          <div className={outdoor["cards-grid"]}>
+            {games.slice(0, cards).map((game, index) => getSmallGameCard(game, index))}
+          </div>
         </div>
-        <div className={outdoor["cards-grid"]}>
-          {data.map((game, index) => getSmallGameCard(game, index))}
+      </Container>
+    );
+  }
+
+  function getSmallGameCard(game, index) {
+    return (
+      <div
+        className={outdoor.item}
+        key={index}
+        onClick={() => handleOnClick(game, index)}
+      >
+        <div className={outdoor["small-game-card"]}>
+          <Image src={game.imgUrl.cover} />
+          <div
+            className={outdoor.bar + " " + (index === 0 ? outdoor["bar-show"] : "")}
+          ></div>
+          <div className={outdoor["title-container"]}>
+            <span className={outdoor.title}>{game.name}</span>
+          </div>
         </div>
       </div>
-    </Container>
-  );
+    );
+  }
+
+  function handleOnClick(game, index) {
+    // Handle onClick events for the game cards
+    setIndex(index);
+    // Clear the current timer and restart it
+    clearInterval(timer);
+    setTimer(
+      setInterval(() => {
+        setIndex(prevVal => prevVal + 1 <= cards - 1 ? prevVal + 1 : 0);
+      }, interval)
+    );
+  }
 }

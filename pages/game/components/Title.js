@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { getPlatformsIcons } from "../../../functions";
 import useGameByName from "../../../hooks/useGameByName";
-import title from "./Title.module.scss"
+import title from "./Title.module.scss";
 
-function getTitle(name) {
+function getGameTitle(name) {
   if (name) {
     // Formats the game title
     let _name = name.split(" ");
@@ -17,24 +16,22 @@ function getTitle(name) {
 
 export default function Title({ name }) {
   const { currentGame, isLoading, isError } = useGameByName(name);
-  const [platforms, setPlatforms] = useState();
 
-  useEffect(() => {
-    if (currentGame) {
-      setPlatforms(currentGame.platforms);
-    }
-  }, [currentGame]);
+  if (currentGame) {
+    const gameTitle = getGameTitle(name);
+    const platformIcons = getPlatformsIcons(currentGame.platforms);
 
-  return (
-    <Container className="mt-4 mb-4">
-      <div className={title.container}>
-        <div className={title.title}>
-          {getTitle(name)}
+    return (
+      <Container className="mt-4 mb-4">
+        <div className={title.container}>
+          <div className={title.title}>
+            {gameTitle}
+          </div>
+          <div className={title["platforms-container"]}>
+            {platformIcons}
+          </div>
         </div>
-        <div className={title["platforms-container"]}>
-          {getPlatformsIcons(platforms)}
-        </div>
-      </div>
-    </Container>
-  );
+      </Container>
+    );
+  }
 }

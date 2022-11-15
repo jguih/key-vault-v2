@@ -8,21 +8,25 @@ $small-gap: 4px;
 .outdoor {
   width: 100%;
   position: relative;
+}
 
-  .outdoor-img {
-    position: relative;
-    padding-bottom: 50%;
-  }
+.outdoor-img {
+  position: relative;
+  padding-bottom: 60%;
 
   img {
     width: 100%;
     height: 100%;
     position: absolute;
-    object-fit: cover;
+    object-fit: fill;
 
-    border-radius:  custom.$img-border-radius;
+    border-radius: custom.$img-border-radius custom.$img-border-radius 0 0;
+    transition: 300ms opacity ease-in-out;
+    opacity: 0;
+  }
 
-    cursor: pointer;
+  .img-show {
+    opacity: 1;
   }
 }
 
@@ -45,18 +49,20 @@ $small-gap: 4px;
 }
 
 .small-game-card {
-  height: 100px;
   background-color: colors.$kv-primary-800;
   position: relative;
-  border-radius:  custom.$img-border-radius;
-
+  border-radius: custom.$img-border-radius;
+  padding-bottom: 133%;
   cursor: pointer;
 
   img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
     height: 100%;
     width: 100%;
-    border-radius:  custom.$img-border-radius;
-    object-fit: cover;
+    object-fit: fill;
+    border-radius: custom.$img-border-radius;
   }
 
   &:hover {
@@ -64,8 +70,23 @@ $small-gap: 4px;
   }
 
   &:hover .title-container {
-    visibility: visible;
+    opacity: 0.8;
   }
+}
+
+.bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  border-bottom: 3px solid white;
+  border-radius: custom.$img-border-radius;
+  opacity: 0;
+}
+
+.bar-show {
+  opacity: 1;
 }
 
 .title-container {
@@ -77,10 +98,10 @@ $small-gap: 4px;
   bottom: 0;
 
   padding: 10px;
-  border-radius:  custom.$img-border-radius;
+  border-radius: custom.$img-border-radius;
 
-  background-color: colors.$kv-primary-800;
-  opacity: 0.6;
+  background-color: colors.$kv-primary-900;
+  box-shadow: white 0px 0px 10px;
 
   font-size: 1.4rem;
 
@@ -88,10 +109,12 @@ $small-gap: 4px;
   flex-direction: column;
   justify-content: center;
 
-  visibility: hidden;
+  opacity: 0;
+  transition: 100ms opacity ease-in-out;
 
   .title {
     text-align: center;
+    font-size: 1.4rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -100,54 +123,44 @@ $small-gap: 4px;
 
 // 992px to 1200px
 @media screen and (max-width: breakpoints.$xl) and (min-width: breakpoints.$lg) {
-  .outdoor {
-    .cards-grid {
-      grid-template-columns: repeat(4, 25%);
+  .cards-grid {
+    position: relative;
+    bottom: 50px;
+    padding: 0px;
+    padding-bottom: 10px;
+    grid-template-columns: repeat(4, 25%);
 
-      .item {
-        padding: 0 $small-gap;
-      }
+    .item {
+      padding: 0 $small-gap;
     }
   }
 }
 
 // 0px to 992px
 @media screen and (max-width: breakpoints.$lg) {
-  .outdoor {
-    .cards-grid {
-      position: relative;
-      bottom: 50px;
-      padding: 0;
-      padding-bottom: 10px;
+  .cards-grid {
+    position: relative;
+    bottom: 50px;
+    padding: 0px;
+    padding-bottom: 10px;
 
-      overflow-y: none;
-      overflow: auto;
-      @include custom.scrollbar;
-      scroll-snap-type: none;
+    overflow-y: none;
+    overflow: auto;
+    @include custom.scrollbar;
 
-      display: flex;
-      justify-content: flex-start;
+    display: flex;
+    justify-content: flex-start;
+  }
 
-      .item {
-        .small-game-card {
-          min-width: 200px;
-          height: 80px;
-        }
-      }
-    }
+  .small-game-card {
+    min-width: 200px;
   }
 }
 
 // 0px to 576px
 @media screen and (max-width: breakpoints.$sm) {
-  .outdoor {
-    .cards-grid {
-      .item {
-        .small-game-card {
-          min-width: 200px;
-          height: 60px;
-        }
-      }
-    }
+  .small-game-card {
+    min-width: 200px;
+    height: 60px;
   }
 }
