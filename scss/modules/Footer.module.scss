@@ -6,13 +6,16 @@ $spacing: 30px;
 
 .logo {
   font-size: 1.8rem;
+  color: colors.$kv-text-on-primary;
 }
 
 .container {
   margin-left: $spacing;
   padding-left: $spacing; 
-  @include custom.default-text;
   border-left: gray 2px solid;
+
+  @include custom.default-text;
+  color: colors.$kv-text-on-primary;
 
   display: flex;
   flex-direction: column;

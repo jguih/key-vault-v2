@@ -17,6 +17,11 @@ $small-gap: 4px;
     border-radius: 10px;
     opacity: 1;
   }
+
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
 }
 
 .top {
@@ -27,10 +32,15 @@ $small-gap: 4px;
 
   h3 {
     @include custom.title;
-
+    color: colors.$kv-text-on-primary;
     font-size: 1.8rem;
+
     margin: 0;
     padding: 0;
+  }
+
+  button {
+    color: colors.$kv-text-on-primary;
   }
 }
 

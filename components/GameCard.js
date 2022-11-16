@@ -1,34 +1,8 @@
 import card from '../scss/modules/GameCard.module.scss'
 import { Badge, Image } from 'react-bootstrap';
+import PriceContainer from './PriceContainer';
 
 export default function GameCard({ name, imgUrl, platforms, price, discount, isDiscountActive }) {
-
-  function getPriceInfo() {
-    const formatter = Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-      minimumFractionDigits: 2,
-    });
-
-    if (!isDiscountActive) {
-      return (
-        <span className={card.price}>{formatter.format(price)}</span>
-      );
-    } else {
-      const newPrice = price * (1 - discount);
-
-      return (
-        <>
-          <span className={card.discount}>{"-" + discount * 100 + "%"}</span>
-          <div className={card["old-new-price-container"]}>
-            <span className={card["old-price"]}>{formatter.format(price)}</span>
-            <span className={card["new-price"]}>{formatter.format(newPrice)}</span>
-          </div>
-        </>
-      );
-    }
-  }
-
   return (
     <div className={card.card}>
       <div className={card["card-img"]}>
@@ -47,9 +21,11 @@ export default function GameCard({ name, imgUrl, platforms, price, discount, isD
             })}
           </div>
         </div>
-        <div className={card["price-container"]}>
-          {getPriceInfo()}
-        </div>
+        <PriceContainer 
+          price={price} 
+          discount={discount} 
+          isDiscountActive={isDiscountActive}
+        />
       </div>
     </div>
   );

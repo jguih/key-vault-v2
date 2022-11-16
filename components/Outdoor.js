@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { Container, Image } from "react-bootstrap";
 import useGame from "../hooks/useGame";
 import outdoor from '../scss/modules/Outdoor.module.scss';
+import PriceContainer from "./PriceContainer";
 
 export default function Outdoor() {
   const { games, isLoading, isError } = useGame();
   const [index, setIndex] = useState(0);
+  const [timer, setTimer] = useState();
   const interval = 6000; // Outdoor timer interval
   const cards = 4; // Number of cards
-  const [timer, setTimer] = useState();
 
   useEffect(() => {
     // Sets the initial timer
@@ -52,6 +53,8 @@ export default function Outdoor() {
   }
 
   if (games) {
+    const {name, price, discount, isDiscountActive} = games[index];
+
     return (
       <Container className="mt-4">
         <div className={outdoor.outdoor}>
@@ -65,6 +68,14 @@ export default function Outdoor() {
                 />
               );
             })}
+          </div>
+          <div className={outdoor["outdoor-content"]}>
+            <p>{name}</p>
+            <PriceContainer 
+              price={price}
+              discount={discount}
+              isDiscountActive={isDiscountActive}
+            />
           </div>
           <div className={outdoor["cards-grid"]}>
             {games.slice(0, cards).map((game, index) => getSmallGameCard(game, index))}

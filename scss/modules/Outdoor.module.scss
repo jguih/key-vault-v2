@@ -30,6 +30,23 @@ $small-gap: 4px;
   }
 }
 
+.outdoor-content {
+  position: absolute;
+  left: 5%;
+  top: 5%;
+
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+
+  p {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: colors.$kv-text-on-primary;
+  }
+}
+
 .cards-grid {
   position: absolute;
   left: 0;
@@ -104,6 +121,7 @@ $small-gap: 4px;
   box-shadow: white 0px 0px 10px;
 
   font-size: 1.4rem;
+  color: colors.$kv-text-on-primary;
 
   display: flex;
   flex-direction: column;
@@ -125,10 +143,10 @@ $small-gap: 4px;
 @media screen and (max-width: breakpoints.$xl) and (min-width: breakpoints.$lg) {
   .cards-grid {
     position: relative;
-    bottom: 50px;
+    bottom: 120px;
+    height: 200px;
     padding: 0px;
-    padding-bottom: 10px;
-    grid-template-columns: repeat(4, 25%);
+    grid-template-columns: repeat(4, 23%);
 
     .item {
       padding: 0 $small-gap;
@@ -153,14 +171,13 @@ $small-gap: 4px;
   }
 
   .small-game-card {
-    min-width: 200px;
+    min-width: 180px;
   }
 }
 
 // 0px to 576px
 @media screen and (max-width: breakpoints.$sm) {
   .small-game-card {
-    min-width: 200px;
-    height: 60px;
+    min-width: 150px;
   }
 }

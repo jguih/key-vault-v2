@@ -12,11 +12,6 @@ body {
   margin: 0;
 }
 
-a {
-  color: inherit !important;
-  text-decoration: none !important;
-}
-
 // ----------------------------------------
 //          BOOTSTRAP OVERRIDES
 // ----------------------------------------
@@ -84,12 +79,12 @@ $dropdown-link-active-color: white;
 //@import "../node_modules/bootstrap/scss/breadcrumb";
 //@import "../node_modules/bootstrap/scss/pagination";
 @import "../node_modules/bootstrap/scss/badge";
-//@import "../node_modules/bootstrap/scss/alert";
+@import "../node_modules/bootstrap/scss/alert";
 //@import "../node_modules/bootstrap/scss/progress";
 //@import "../node_modules/bootstrap/scss/list-group";
 @import "../node_modules/bootstrap/scss/close";
 //@import "../node_modules/bootstrap/scss/toasts";
-//@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/modal";
 @import "../node_modules/bootstrap/scss/tooltip";
 @import "../node_modules/bootstrap/scss/popover";
 //@import "../node_modules/bootstrap/scss/carousel";
