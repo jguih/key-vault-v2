@@ -12,14 +12,14 @@ export default function Header({ activeKey }) {
             <span>KeyVault</span>
           </div>
         </Link>
-        <nav>
+        <nav className={`${header["nav-left"]}`}>
           {["Loja", "Sobre", "Ajuda"].map((value, index) => {
             return (
               <Link
                 href={`/${value.toLowerCase() === "loja" ? "" : value.toLowerCase()}`}
                 key={index}
               >
-                <div 
+                <div
                   className={header["nav-link"] + " " + (activeKey === index ? header.active : "")}
                 >
                   {value}
@@ -28,11 +28,16 @@ export default function Header({ activeKey }) {
             );
           })}
         </nav>
-        <Button
-          variant="kv-primary-800"
-          className="border"
-          href="/login"
-        >Login</Button>
+        <nav>
+          <i className="bi bi-list"></i>
+          <Button
+            variant="kv-primary-800"
+            className={`${header["btn"]} border`}
+            href="/login"
+          >
+            Login
+          </Button>
+        </nav>
       </Container>
     </div>
   );

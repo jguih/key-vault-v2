@@ -1,4 +1,5 @@
 @use '../colors' as colors;
+@use '../breakpoints' as breakpoints;
 
 $spacing: 16px;
 
@@ -6,7 +7,7 @@ $spacing: 16px;
   width: 100%;
   padding: 10px;
   background-color: colors.$kv-primary-800;
-  
+
   color: colors.$kv-text-on-primary;
 
   a {
@@ -17,9 +18,26 @@ $spacing: 16px;
   nav {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: $spacing;
-    margin-right: auto;
+
+    // Menu icon
+    i {
+      font-size: 1.8rem;
+      opacity: 0.8;
+      transition: opacity 200ms ease-in-out;
+      display: none;
+
+      &:hover {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
   }
+}
+
+.nav-left {
+  margin-right: auto;
 }
 
 .nav-bar-container {
@@ -43,6 +61,10 @@ $spacing: 16px;
   }
 }
 
+.btn {
+  font-size: 1.2rem !important;
+}
+
 // Active navLink
 .active {
   opacity: 1;
@@ -53,4 +75,28 @@ $spacing: 16px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+}
+
+@media screen and (max-width: breakpoints.$sm) {
+  .btn {
+    display: none;
+  }
+
+  .nav-bar {
+    nav {
+      i {
+        display: inline-block;
+      }
+    }
+  }
+
+  .nav-bar {
+    .nav-left {
+      display: none;
+    }
+  }
+
+  .nav-bar-container {
+    justify-content: space-between;
+  }
 }

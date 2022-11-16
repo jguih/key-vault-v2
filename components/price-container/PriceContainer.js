@@ -1,4 +1,4 @@
-import priceContainer from "../scss/modules/PriceContainer.module.scss"
+import priceContainer from "./PriceContainer.module.scss"
 
 export default function PriceContainer({ price, discount, isDiscountActive }) {
   const formatter = Intl.NumberFormat('pt-BR', {

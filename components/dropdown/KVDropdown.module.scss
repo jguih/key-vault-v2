@@ -1,0 +1,38 @@
+@use '../../scss/colors' as colors;
+
+$font-size: 1.2rem;
+
+.dropdown-toggle-text {
+  font-size: $font-size;
+}
+
+.dropdown-toggle {
+  background-color: colors.$kv-primary-900 !important;
+  border: none !important;
+
+  &:hover {
+    background-color: colors.$kv-primary-800 !important;
+  }
+
+  &:active {
+    background-color: colors.$kv-primary-700 !important;
+  }
+}
+
+.dropdown-menu {
+  background-color: colors.$kv-primary-800 !important;
+  color: colors.$kv-text-on-primary !important; 
+
+  .dropdown-item {
+    font-size: $font-size !important;
+
+    &:hover {
+      background-color: colors.$kv-primary-700 !important;
+      color: colors.$kv-text-on-primary;
+    }
+    &:active {
+      background-color: colors.$kv-primary-500 !important;
+      color: black !important;
+    }
+  }
+}

@@ -34,31 +34,8 @@ $kv-colors: (
 
 // Colors and theme-colors map overrides
 $body-bg: colors.$kv-primary-900;
-$body-color: white;
+$body-color: colors.$kv-text-on-primary;
 $theme-colors: map-merge($theme-colors, $kv-colors);
-
-// Input group and form overrides
-$input-bg: colors.$kv-primary-800;
-$input-color: white;
-$input-border-color: colors.$kv-primary-500;
-
-$input-focus-bg: colors.$kv-primary-800;
-$input-focus-color: white;
-$input-focus-border-color: white;
-$input-focus-box-shadow: none;
-
-$input-group-addon-bg: colors.$kv-primary-700;
-$input-group-addon-color: white;
-$input-group-addon-border-color: colors.$kv-primary-500;
-
-// Dropdown overrides
-$dropdown-bg: colors.$kv-primary-800;
-$dropdown-color: white;
-$dropdown-link-color: white;
-$dropdown-link-hover-color: white;
-$dropdown-link-hover-bg: colors.$kv-primary-700;
-$dropdown-link-active-bg: colors.$kv-secondary-700;
-$dropdown-link-active-color: white;
 
 @import "../node_modules/bootstrap/scss/root";
 @import "../node_modules/bootstrap/scss/reboot";

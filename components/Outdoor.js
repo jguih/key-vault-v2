@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Container, Image } from "react-bootstrap";
 import useGame from "../hooks/useGame";
 import outdoor from '../scss/modules/Outdoor.module.scss';
-import PriceContainer from "./PriceContainer";
+import PriceContainer from "./price-container/PriceContainer";
 
 export default function Outdoor() {
   const { games, isLoading, isError } = useGame();
