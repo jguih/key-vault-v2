@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button, Image } from "react-bootstrap";
-import saleCard from "./SaleCard.module.scss";
+import saleCard from "../../../scss/modules/pages/game/SaleCard.module.scss";
 import PriceContainer from "../../../components/price-container/PriceContainer"
 
 export default function SaleCard({ coverUrl, title, price, discount, isDiscountActive }) {

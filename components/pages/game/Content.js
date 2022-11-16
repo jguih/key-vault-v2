@@ -1,6 +1,6 @@
 import Gallery from "./Gallery";
-import content from "../components/Content.module.scss"
-import { Container } from "react-bootstrap";
+import content from "../../../scss/modules/pages/game/Content.module.scss"
+import { Container, Alert } from "react-bootstrap";
 import useGameByName from "../../../hooks/useGameByName";
 import DescriptionCard from "./DescriptionCard";
 import SaleCard from "./SaleCard";

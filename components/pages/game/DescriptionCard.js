@@ -1,5 +1,5 @@
 import { Image } from "react-bootstrap";
-import descCard from "../components/DescriptionCard.module.scss";
+import descCard from "../../../scss/modules/pages/game/DescriptionCard.module.scss";
 
 export default function DescriptionCard({ coverUrl, description, releaseDate, developer, publisher, genre}) {
 

@@ -1,5 +1,5 @@
 import { Dropdown } from "react-bootstrap";
-import dropdown from "./KVDropdown.module.scss"
+import dropdown from "../../scss/modules/dropdown/KVDropdown.module.scss"
 
 export default function DropdownItem({children}) {
   return (

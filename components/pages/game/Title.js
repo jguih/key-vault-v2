@@ -1,7 +1,7 @@
-import { Container } from "react-bootstrap";
+import { Container, Alert } from "react-bootstrap";
 import { getPlatformsIcons } from "../../../functions";
 import useGameByName from "../../../hooks/useGameByName";
-import title from "./Title.module.scss";
+import title from "../../../scss/modules/pages/game/Title.module.scss";
 
 function getGameTitle(name) {
   if (name) {

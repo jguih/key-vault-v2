@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
+    "name": "S.T.A.L.K.E.R. 2: Heart of Chernobyl",
     "platforms": ["Windows", "Steam"],
     "price": 200.00,
     "discount": 0.5,

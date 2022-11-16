@@ -1,5 +1,5 @@
 import { InputGroup, Form, Button } from 'react-bootstrap';
-import searchBar from "./SearchBar.module.scss";
+import searchBar from "../../scss/modules/search-bar/SearchBar.module.scss";
 
 export default function SearchBar() {
   return (

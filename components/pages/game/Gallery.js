@@ -1,7 +1,6 @@
-import gallery from "./Gallery.module.scss";
+import gallery from "../../../scss/modules/pages/game/Gallery.module.scss";
 import { Image } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import useGameByName from "../../../hooks/useGameByName";
 
 export default function Gallery({ screenshots }) {
   const [currentImg, setCurrentImg] = useState();
