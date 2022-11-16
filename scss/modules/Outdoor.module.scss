@@ -39,9 +39,11 @@ $small-gap: 4px;
   flex-direction: column;
   gap: $gap;
 
+  cursor: pointer;
+
   p {
     margin: 0;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: colors.$kv-text-on-primary;
   }

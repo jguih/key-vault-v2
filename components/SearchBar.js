@@ -2,7 +2,7 @@ import { InputGroup, Form, Button } from 'react-bootstrap';
 
 export default function SearchBar() {
   return (
-    <InputGroup className="sb-input-group">
+    <InputGroup className="sb-input-group w-auto">
       <Form.Control
         type="text"
         placeholder="Buscar"

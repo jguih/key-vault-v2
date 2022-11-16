@@ -7,7 +7,7 @@ import SubHeader from '../components/SubHeader';
 export default function Home() {
   return (
     <>
-      <Header activeKey="/" />
+      <Header activeKey={0} />
       <SubHeader />
       <Outdoor />
       <Section

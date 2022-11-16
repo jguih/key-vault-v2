@@ -2,11 +2,9 @@
 
 $spacing: 16px;
 
-.nav-bar {
+.main-container {
   width: 100%;
-  padding: 10px;
-  background-color: colors.$kv-primary-800;
-  
+  background-color: colors.$kv-primary-900;
   color: colors.$kv-text-on-primary;
 
   a {
@@ -18,15 +16,18 @@ $spacing: 16px;
     display: flex;
     flex-direction: row;
     gap: $spacing;
-    margin-right: auto;
   }
 }
 
-.nav-bar-container {
+.container {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
   gap: $spacing;
+
+  padding: 1.2rem;
 }
 
 .nav-link {
@@ -46,11 +47,4 @@ $spacing: 16px;
 // Active navLink
 .active {
   opacity: 1;
-}
-
-.logo {
-  font-size: 1.8rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
 }
