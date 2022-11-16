@@ -47,6 +47,19 @@ $small-gap: 4px;
     font-weight: bold;
     color: colors.$kv-text-on-primary;
   }
+
+  a {
+    text-decoration: none;
+
+    &:hover p {
+      text-decoration: underline white;
+    }
+
+    &:hover .price,
+    &:hover .new-price {
+      background-color: colors.$kv-green;
+    }
+  }
 }
 
 .cards-grid {
@@ -140,6 +153,75 @@ $small-gap: 4px;
     text-overflow: ellipsis;
   }
 }
+
+.btn {
+  @include custom.buy-btn;
+  width: fit-content;
+}
+
+// Price section --
+.price-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 4px;
+
+  width: 100%;
+
+  font-size: 1.2rem;
+  color: colors.$kv-text-on-primary;
+}
+
+.discount {
+  @include custom.badge(colors.$kv-green);
+  align-self: stretch;
+
+  text-align: center;
+  font-weight: bold;
+
+  // Vertically center the text
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.old-price {
+  font-weight: normal;
+  font-size: 1rem;
+
+  text-decoration: line-through;
+  margin: 0 5px;
+}
+
+.new-price,
+.price {
+  @include custom.badge(colors.$kv-primary-700);
+
+  text-align: center;
+  font-weight: bold;
+
+  flex-grow: 0;
+}
+
+.price {
+  align-self: stretch;
+
+  // Vertically center the text
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.old-new-price-container {
+  flex-grow: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+}
+// -------
 
 // 992px to 1200px
 @media screen and (max-width: breakpoints.$xl) and (min-width: breakpoints.$lg) {

@@ -1,7 +1,7 @@
 import Link from "next/link";
+import { useEffect } from "react";
 import { Button, Image } from "react-bootstrap";
 import saleCard from "../../../scss/modules/pages/game/SaleCard.module.scss";
-import PriceContainer from "../../../components/price-container/PriceContainer"
 
 export default function SaleCard({ coverUrl, title, price, discount, isDiscountActive }) {
   return (
@@ -30,6 +30,40 @@ export default function SaleCard({ coverUrl, title, price, discount, isDiscountA
           </Button>
         </div>
       </div>
+    </div>
+  );
+}
+
+function PriceContainer({ price, discount, isDiscountActive }) {
+  const formatter = Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+  });
+
+  function getPriceInfo() {
+    if (!isDiscountActive) {
+      return (
+        <span className={saleCard.price}>{formatter.format(price)}</span>
+      );
+    } else {
+      const newPrice = price * (1 - discount);
+
+      return (
+        <>
+          <span className={saleCard.discount}>{"-" + discount * 100 + "%"}</span>
+          <div className={saleCard["old-new-price-container"]}>
+            <span className={saleCard["old-price"]}>{formatter.format(price)}</span>
+            <span className={saleCard["new-price"]}>{formatter.format(newPrice)}</span>
+          </div>
+        </>
+      );
+    }
+  }
+
+  return (
+    <div className={saleCard["price-container"]}>
+      {getPriceInfo()}
     </div>
   );
 }

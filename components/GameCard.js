@@ -1,6 +1,6 @@
 import card from '../scss/modules/GameCard.module.scss'
 import { Image } from 'react-bootstrap';
-import PriceContainer from '../components/price-container/PriceContainer';
+//import PriceContainer from '../components/price-container/PriceContainer';
 
 export default function GameCard({ name, imgUrl, platforms, price, discount, isDiscountActive }) {
   return (
@@ -27,6 +27,40 @@ export default function GameCard({ name, imgUrl, platforms, price, discount, isD
           isDiscountActive={isDiscountActive}
         />
       </div>
+    </div>
+  );
+}
+
+function PriceContainer({ price, discount, isDiscountActive }) {
+  const formatter = Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+  });
+
+  function getPriceInfo() {
+    if (!isDiscountActive) {
+      return (
+        <span className={card.price}>{formatter.format(price)}</span>
+      );
+    } else {
+      const newPrice = price * (1 - discount);
+
+      return (
+        <>
+          <span className={card.discount}>{"-" + discount * 100 + "%"}</span>
+          <div className={card["old-new-price-container"]}>
+            <span className={card["old-price"]}>{formatter.format(price)}</span>
+            <span className={card["new-price"]}>{formatter.format(newPrice)}</span>
+          </div>
+        </>
+      );
+    }
+  }
+
+  return (
+    <div className={card["price-container"]}>
+      {getPriceInfo()}
     </div>
   );
 }

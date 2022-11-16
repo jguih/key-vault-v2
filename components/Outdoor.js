@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Container, Image } from "react-bootstrap";
+import { Button, Container, Image } from "react-bootstrap";
 import useGame from "../hooks/useGame";
 import outdoor from '../scss/modules/Outdoor.module.scss';
-import PriceContainer from "./price-container/PriceContainer";
 
 export default function Outdoor() {
   const { games, isLoading, isError } = useGame();
@@ -54,7 +53,7 @@ export default function Outdoor() {
   }
 
   if (games) {
-    const {name, price, discount, isDiscountActive} = games[index];
+    const { name, price, discount, isDiscountActive } = games[index];
 
     return (
       <Container className="mt-4">
@@ -70,16 +69,17 @@ export default function Outdoor() {
               );
             })}
           </div>
-          <Link href={`/game/${(name.toLowerCase().replaceAll(" ", "-"))}`}>
-            <div className={outdoor["outdoor-content"]}>
+          <div className={outdoor["outdoor-content"]}>
+            <Link href={`/game/${(name.toLowerCase().replaceAll(" ", "-"))}`}>
               <p>{name}</p>
-              <PriceContainer 
+              <PriceContainer
                 price={price}
                 discount={discount}
                 isDiscountActive={isDiscountActive}
               />
-            </div>
-          </Link>
+            </Link>
+            <Button className={`${outdoor["btn"]}`}>Comprar</Button>
+          </div>
           <div className={outdoor["cards-grid"]}>
             {games.slice(0, cards).map((game, index) => getSmallGameCard(game, index))}
           </div>
@@ -119,4 +119,38 @@ export default function Outdoor() {
       }, interval)
     );
   }
+}
+
+function PriceContainer({ price, discount, isDiscountActive }) {
+  const formatter = Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+  }); 
+
+  function getPriceInfo() {
+    if (!isDiscountActive) {
+      return (
+        <span className={outdoor.price}>{formatter.format(price)}</span>
+      );
+    } else {
+      const newPrice = price * (1 - discount);
+
+      return (
+        <>
+          <span className={outdoor.discount}>{"-" + discount * 100 + "%"}</span>
+          <div className={outdoor["old-new-price-container"]}>
+            <span className={outdoor["old-price"]}>{formatter.format(price)}</span>
+            <span className={outdoor["new-price"]}>{formatter.format(newPrice)}</span>
+          </div>
+        </>
+      );
+    }
+  }
+
+  return (
+    <div className={outdoor["price-container"]}>
+      {getPriceInfo()}
+    </div>
+  );
 }

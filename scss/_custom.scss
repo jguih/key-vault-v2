@@ -33,4 +33,17 @@
   display: inline-block;
 }
 
+@mixin buy-btn {
+  margin-top: 6px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: colors.$kv-green;
+  border: none;
+  box-shadow: 4px 4px 4px colors.$kv-primary-900;
+  
+  &:hover {
+    background-color: colors.$kv-dark-green !important;
+  }
+}
+
 $img-border-radius: 10px;
