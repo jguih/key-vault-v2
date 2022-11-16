@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Container, Image } from "react-bootstrap";
 import useGame from "../hooks/useGame";
@@ -69,14 +70,16 @@ export default function Outdoor() {
               );
             })}
           </div>
-          <div className={outdoor["outdoor-content"]}>
-            <p>{name}</p>
-            <PriceContainer 
-              price={price}
-              discount={discount}
-              isDiscountActive={isDiscountActive}
-            />
-          </div>
+          <Link href={`/game/${(name.toLowerCase().replaceAll(" ", "-"))}`}>
+            <div className={outdoor["outdoor-content"]}>
+              <p>{name}</p>
+              <PriceContainer 
+                price={price}
+                discount={discount}
+                isDiscountActive={isDiscountActive}
+              />
+            </div>
+          </Link>
           <div className={outdoor["cards-grid"]}>
             {games.slice(0, cards).map((game, index) => getSmallGameCard(game, index))}
           </div>
