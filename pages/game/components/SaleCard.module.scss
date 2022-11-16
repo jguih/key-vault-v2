@@ -1,0 +1,67 @@
+@use '../../../scss/custom' as custom;
+@use '../../../scss/colors' as colors;
+@use './card' as card;
+
+$spacing: 6px;
+
+.container {
+  @include card.card;
+
+  display: grid;
+  column-gap: card.$spacing;
+  grid-template-columns: 25% 1fr;
+
+  padding: 16px;
+
+  .img-wrapper {
+    position: relative;
+    padding-bottom: 100%;
+  }
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    border-radius: custom.$img-border-radius;
+    object-fit: cover;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+}
+
+.sale-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border-left: 6px solid colors.$kv-primary-900;
+  border-radius: 10px;
+  padding-left: card.$spacing;
+}
+
+.activation {
+  font-size: 1.2rem;
+}
+
+.bold-500 {
+  font-weight: 500;
+}
+
+.button {
+  margin-top: 6px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: colors.$kv-green;
+  border: none;
+  width: 100%;
+  box-shadow: 4px 4px 4px colors.$kv-primary-900;
+  &:hover {
+    background-color: colors.$kv-dark-green !important;
+  }
+}

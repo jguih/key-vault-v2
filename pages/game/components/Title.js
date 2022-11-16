@@ -17,6 +17,22 @@ function getGameTitle(name) {
 export default function Title({ name }) {
   const { currentGame, isLoading, isError } = useGameByName(name);
 
+  if (isLoading) {
+    return (
+      <Container>
+        <Alert variant="success">Loading...</Alert>
+      </Container>
+    );
+  }
+  
+  if (isError) {
+    return (
+      <Container>
+        <Alert variant="danger">Failed to load</Alert>
+      </Container>
+    );
+  } 
+
   if (currentGame) {
     const gameTitle = getGameTitle(name);
     const platformIcons = getPlatformsIcons(currentGame.platforms);

@@ -1,17 +1,13 @@
 @use '../../../scss/custom' as custom;
 @use '../../../scss/colors' as colors;
-
-$spacing: 6px;
+@use './card' as card;
 
 .container {
+  @include card.card;
+
   display: flex;
   flex-direction: column;
-  gap: $spacing;
-
-  background-color: colors.$kv-primary-800;
-  border-radius: custom.$img-border-radius;
-
-  padding: $spacing;
+  gap: card.$spacing;
 
   hr {
     border: 4px solid colors.$kv-primary-900;
@@ -38,12 +34,13 @@ $spacing: 6px;
   text-align: start;
 
   p {
-    margin-bottom: $spacing;
+    margin-bottom: card.$spacing;
   }
 }
 
 .badge {
   @include custom.badge(colors.$kv-primary-700);
+  margin-top: 4px;
   font-weight: bold;
-  margin-right: $spacing;
+  margin-right: card.$spacing;
 }

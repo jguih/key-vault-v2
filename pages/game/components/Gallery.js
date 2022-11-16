@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import useGameByName from "../../../hooks/useGameByName";
 
 export default function Gallery({ screenshots }) {
-  //const { currentGame, isLoading, isError } = useGameByName(name);
   const [currentImg, setCurrentImg] = useState();
   const [sliderImg, setSliderImg] = useState();
 
