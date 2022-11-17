@@ -1,0 +1,27 @@
+@use './local' as local;
+
+.container {
+  h3 {
+    @include local.title;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.grid-item-rec {
+  padding-left: 8px;
+}
+
+.grid-item-min {
+  padding-right: 8px;
+}
+
+.grid-item-min,
+.grid-item-rec {
+  p {
+    margin: 0;
+  }
+}

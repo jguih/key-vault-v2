@@ -1,4 +1,4 @@
-@use '../../../custom' as custom;
+@use './local' as local;
 @use '../../../colors' as colors;
 
 .container {
@@ -8,10 +8,21 @@
   .left, .right {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: local.$cards-gap;
+  }
+
+  .left {
+    padding-right: calc(local.$cards-gap/2);
   }
 
   .right {
-    padding-left: 6px;
+    padding-left: calc(local.$cards-gap/2);
+  }
+
+  hr {
+    border: 2px solid colors.$kv-primary-800;
+    border-radius: 10px;
+    opacity: 1;
+    margin: 0;
   }
 }

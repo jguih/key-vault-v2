@@ -4,6 +4,8 @@ import { Container, Alert } from "react-bootstrap";
 import useGameByName from "../../../hooks/useGameByName";
 import DescriptionCard from "./DescriptionCard";
 import SaleCard from "./SaleCard";
+import Description from "./Description";
+import SystemReq from "./SystemReq";
 
 export default function Content({ name }) {
   const { currentGame, isLoading, isError } = useGameByName(name);
@@ -35,6 +37,7 @@ export default function Content({ name }) {
           return accumulator.length >= current.length ? accumulator : current;
         });
     }
+    const description = currentGame.description;
     const releaseDate = currentGame.releaseDate;
     const developer = currentGame.developer.join(", ");
     const publisher = currentGame.publisher.join(", ");
@@ -43,6 +46,7 @@ export default function Content({ name }) {
     const discount = currentGame.discount;
     const isDiscountActive = currentGame.isDiscountActive;
     const name = currentGame.name;
+    const sysReq = currentGame.sysReq;
     
     return (
       <Container className="mt-4 mb-4">
@@ -55,6 +59,13 @@ export default function Content({ name }) {
               price={price}
               discount={discount}
               isDiscountActive={isDiscountActive}
+            />
+            <Description
+              description={description}
+            />
+            <hr></hr>
+            <SystemReq
+              sysReq={sysReq}
             />
           </div>
           <div className={content.right}>

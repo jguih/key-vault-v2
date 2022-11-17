@@ -2,7 +2,6 @@ import { Image } from "react-bootstrap";
 import descCard from "../../../scss/modules/pages/game/DescriptionCard.module.scss";
 
 export default function DescriptionCard({ coverUrl, description, releaseDate, developer, publisher, genre}) {
-
   return (
     <div className={descCard.container}>
       <div className={descCard["img-wrapper"]}>

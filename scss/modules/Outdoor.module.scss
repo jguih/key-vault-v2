@@ -157,6 +157,7 @@ $small-gap: 4px;
 .btn {
   @include custom.buy-btn;
   width: fit-content;
+  margin-top: 6px;
 }
 
 // Price section ---

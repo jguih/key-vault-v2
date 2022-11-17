@@ -6,10 +6,11 @@
   border-radius: custom.$img-border-radius;
 
   display: grid;
-  grid-template-columns: 14% 66% 20%;
-
+  grid-template-columns: 15% 65% 20%;
+  
   .img-wrapper {
     position: relative;
+    padding-bottom: 133%;
   }
 
   img {
@@ -58,6 +59,7 @@
 .button {
   @include custom.buy-btn;
   width: 100%;
+  margin-top: 6px;
 }
 
 .game-version {

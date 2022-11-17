@@ -19,7 +19,6 @@
 @mixin title {
   font-weight: bold;
   color: colors.$kv-text-on-primary;
-  overflow: hidden;
 }
 
 @mixin default-text {
@@ -36,7 +35,6 @@
 }
 
 @mixin buy-btn {
-  margin-top: 6px;
   font-size: 1.2rem;
   font-weight: bold;
   background-color: colors.$kv-green;
@@ -45,6 +43,17 @@
   
   &:hover {
     background-color: colors.$kv-dark-green !important;
+  }
+}
+
+@mixin btn($font-size, $background-color, $background-color-hover) {
+  font-size: $font-size;
+  font-weight: bold;
+  background-color: $background-color;
+  border: none;
+
+  &:hover {
+    background-color: $background-color-hover !important;
   }
 }
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Button, Container, Image } from "react-bootstrap";
+import { Button, Container, Image, Alert } from "react-bootstrap";
 import { brlCurrencyFormatter } from "../global";
 import useGame from "../hooks/useGame";
 import outdoor from '../scss/modules/Outdoor.module.scss';
@@ -46,12 +46,20 @@ export default function Outdoor() {
   }, [index])
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return (
+      <Container>
+        <Alert variant="success">Loading...</Alert>
+      </Container>
+    );
   }
-
+  
   if (isError) {
-    return <div>Failed to Load...</div>
-  }
+    return (
+      <Container>
+        <Alert variant="danger">Failed to load</Alert>
+      </Container>
+    );
+  } 
 
   if (games) {
     const { name, price, discount, isDiscountActive } = games[index];

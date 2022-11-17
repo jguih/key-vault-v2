@@ -1,0 +1,8 @@
+@use '../../../custom' as custom;
+
+@mixin title {
+  margin-bottom: 24px;
+  @include custom.title;
+}
+
+$cards-gap: 16px;

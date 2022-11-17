@@ -1,0 +1,49 @@
+@use '../../../custom' as custom;
+@use '../../../colors' as colors;
+@use './local' as local;
+
+.container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  p {
+    @include custom.default-text;
+  }
+
+  h3 {
+    @include local.title;
+  }
+}
+
+.expand-container {
+  height: fit-content;
+}
+
+.collapse-container {
+  height: 200px;
+}
+
+.show-more-btn,
+.show-less-btn {
+  display: none;
+  width: 100%;
+
+  @include custom.btn(1.2rem, colors.$kv-primary-800, colors.$kv-primary-700);
+  border-radius: 0;
+  box-shadow: 0px -24px 30px colors.$kv-primary-900;
+}
+
+.show-more-btn {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.show-less-btn {
+  display: none;
+}
+
+.display-btn {
+  display: block;
+}
