@@ -1,10 +1,9 @@
 import { Container, Button, Badge, Alert } from "react-bootstrap";
 import section from "../scss/modules/Section.module.scss";
-import useSWR from 'swr';
 import GameCard from "./GameCard";
 import Link from "next/link";
 import useGame from "../hooks/useGame";
-import { getPlatformsIcons } from "../functions";
+import { getPlatformsIcons } from "../global";
 
 function getClass(index) {
   if (index >= 4) {

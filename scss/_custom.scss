@@ -4,11 +4,13 @@
 
 @mixin scrollbar {
   &::-webkit-scrollbar {
-    height: 6px;
+    height: 8px;
+    border-radius: 10px;
     background-color: colors.$kv-scrollbar-background;
   }
 
   &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
     background: colors.$kv-primary-800;
   }
 }
@@ -16,14 +18,14 @@
 // Used in outdoor and section titles
 @mixin title {
   font-weight: bold;
-  color: white;
+  color: colors.$kv-text-on-primary;
   overflow: hidden;
 }
 
 @mixin default-text {
   font-size: 1rem;
   font-weight: normal;
-  color: white;
+  color: colors.$kv-text-on-primary;
 }
 
 @mixin badge($bg-color) {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button, Container, Image } from "react-bootstrap";
+import { brlCurrencyFormatter } from "../global";
 import useGame from "../hooks/useGame";
 import outdoor from '../scss/modules/Outdoor.module.scss';
 
@@ -121,12 +122,9 @@ export default function Outdoor() {
   }
 }
 
+// Component that display the price and discount
 function PriceContainer({ price, discount, isDiscountActive }) {
-  const formatter = Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-    minimumFractionDigits: 2,
-  }); 
+  const formatter = brlCurrencyFormatter;
 
   function getPriceInfo() {
     if (!isDiscountActive) {
@@ -139,10 +137,8 @@ function PriceContainer({ price, discount, isDiscountActive }) {
       return (
         <>
           <span className={outdoor.discount}>{"-" + discount * 100 + "%"}</span>
-          <div className={outdoor["old-new-price-container"]}>
-            <span className={outdoor["old-price"]}>{formatter.format(price)}</span>
-            <span className={outdoor["new-price"]}>{formatter.format(newPrice)}</span>
-          </div>
+          <span className={outdoor["old-price"]}>{formatter.format(price)}</span>
+          <span className={outdoor["new-price"]}>{formatter.format(newPrice)}</span>
         </>
       );
     }

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { useEffect } from "react";
 import { Button, Image } from "react-bootstrap";
 import saleCard from "../../../scss/modules/pages/game/SaleCard.module.scss";
+import { brlCurrencyFormatter } from "../../../global";
 
 export default function SaleCard({ coverUrl, title, price, discount, isDiscountActive }) {
   return (
@@ -12,34 +12,29 @@ export default function SaleCard({ coverUrl, title, price, discount, isDiscountA
         />
       </div>
       <div className={`${saleCard["sale-info"]}`}>
-        <div>
-          <h3>{title}</h3>
-          <p className={`${saleCard.activation}`}>
-            <span className={`${saleCard["bold-500"]}`}>Ativação: </span>Steam <br />
-            Produto ativado através de <Link href={"/activation"} target="_blank">chave de ativação.</Link>
-          </p>
-        </div>
-        <div>
-          <PriceContainer
-            price={price}
-            discount={discount}
-            isDiscountActive={isDiscountActive}
-          />
-          <Button className={`${saleCard.button}`}>
-            Comprar
-          </Button>
-        </div>
+        <h3>{title}</h3>
+        <div className={`${saleCard["game-version"]}`}>Jogo Base</div>
+        <p className={`${saleCard.activation}`}>
+          <span className={`${saleCard["bold-500"]}`}>Ativação: </span>Steam <br/>
+          Produto ativado através de <Link href={"/activation"} target="_blank">chave de ativação.</Link>
+        </p>
+      </div>
+      <div className={`${saleCard["price-btn"]}`}>
+        <PriceContainer
+          price={price}
+          discount={discount}
+          isDiscountActive={isDiscountActive}
+        />
+        <Button className={`${saleCard.button}`}>
+          Comprar
+        </Button>
       </div>
     </div>
   );
 }
 
 function PriceContainer({ price, discount, isDiscountActive }) {
-  const formatter = Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-    minimumFractionDigits: 2,
-  });
+  const formatter = brlCurrencyFormatter;
 
   function getPriceInfo() {
     if (!isDiscountActive) {
@@ -52,7 +47,7 @@ function PriceContainer({ price, discount, isDiscountActive }) {
       return (
         <>
           <span className={saleCard.discount}>{"-" + discount * 100 + "%"}</span>
-          <div className={saleCard["old-new-price-container"]}>
+          <div className={`${saleCard["old-new-price-container"]}`}>
             <span className={saleCard["old-price"]}>{formatter.format(price)}</span>
             <span className={saleCard["new-price"]}>{formatter.format(newPrice)}</span>
           </div>

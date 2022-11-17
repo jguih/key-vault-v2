@@ -1,21 +1,15 @@
 @use '../../../custom' as custom;
 @use '../../../colors' as colors;
-@use './card' as card;
-
-$spacing: 6px;
 
 .container {
-  @include card.card;
+  background-color: colors.$kv-primary-800;
+  border-radius: custom.$img-border-radius;
 
   display: grid;
-  column-gap: card.$spacing;
-  grid-template-columns: 25% 1fr;
-
-  padding: 16px;
+  grid-template-columns: 14% 66% 20%;
 
   .img-wrapper {
     position: relative;
-    padding-bottom: 100%;
   }
 
   img {
@@ -29,9 +23,18 @@ $spacing: 6px;
   }
 
   h3 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: bold;
-    margin-bottom: 16px;
+    height: 2rem;
+    margin: 0;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  p {
+    margin: 0;
   }
 }
 
@@ -39,14 +42,13 @@ $spacing: 6px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-  border-left: 6px solid colors.$kv-primary-900;
-  border-radius: 10px;
-  padding-left: card.$spacing;
+  gap: 12px;
+  padding: 16px;
 }
 
 .activation {
   font-size: 1.2rem;
+  line-height: 1.1;
 }
 
 .bold-500 {
@@ -54,41 +56,45 @@ $spacing: 6px;
 }
 
 .button {
-  @include custom.buy-btn
+  @include custom.buy-btn;
+  width: 100%;
+}
+
+.game-version {
+  @include custom.badge(colors.$kv-primary-700);
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: fit-content;
+}
+
+.price-btn {
+  align-self: center;
+  padding-right: 16px;
 }
 
 // Price section --
 .price-container {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 4px;
-
-  width: 100%;
-
   font-size: 1.2rem;
+  gap: 2px;
   color: colors.$kv-text-on-primary;
 }
 
 .discount {
   @include custom.badge(colors.$kv-green);
+  font-weight: bold;
   align-self: stretch;
 
-  text-align: center;
-  font-weight: bold;
-
-  // Vertically center the text
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .old-price {
-  font-weight: normal;
   font-size: 1rem;
-
   text-decoration: line-through;
   margin: 0 5px;
 }
@@ -96,27 +102,13 @@ $spacing: 6px;
 .new-price,
 .price {
   @include custom.badge(colors.$kv-primary-700);
-
   text-align: center;
   font-weight: bold;
-
   flex-grow: 0;
-}
-
-.price {
-  align-self: stretch;
-
-  // Vertically center the text
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .old-new-price-container {
-  flex-grow: 0;
-
   display: flex;
   flex-direction: column;
-  align-content: flex-start;
 }
 // -------

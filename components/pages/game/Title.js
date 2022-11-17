@@ -1,5 +1,5 @@
 import { Container, Alert } from "react-bootstrap";
-import { getPlatformsIcons } from "../../../functions";
+import { getPlatformsIcons } from "../../../global";
 import useGameByName from "../../../hooks/useGameByName";
 import title from "../../../scss/modules/pages/game/Title.module.scss";
 

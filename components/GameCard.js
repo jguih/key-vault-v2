@@ -1,5 +1,6 @@
 import card from '../scss/modules/GameCard.module.scss'
 import { Image } from 'react-bootstrap';
+import { brlCurrencyFormatter } from '../global';
 //import PriceContainer from '../components/price-container/PriceContainer';
 
 export default function GameCard({ name, imgUrl, platforms, price, discount, isDiscountActive }) {
@@ -31,12 +32,9 @@ export default function GameCard({ name, imgUrl, platforms, price, discount, isD
   );
 }
 
+// Component that display the price and discount
 function PriceContainer({ price, discount, isDiscountActive }) {
-  const formatter = Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-    minimumFractionDigits: 2,
-  });
+  const formatter = brlCurrencyFormatter;
 
   function getPriceInfo() {
     if (!isDiscountActive) {

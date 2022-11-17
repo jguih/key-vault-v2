@@ -76,11 +76,9 @@
   }
 }
 
+// Price section ---
 .price-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 4px;
 
@@ -104,7 +102,6 @@
 }
 
 .old-price {
-  font-weight: normal;
   font-size: 1rem;
 
   text-decoration: line-through;
@@ -114,26 +111,11 @@
 .new-price,
 .price {
   @include custom.badge(colors.$kv-primary-700);
-
-  text-align: center;
   font-weight: bold;
-
-  flex-grow: 0;
-}
-
-.price {
-  align-self: stretch;
-
-  // Vertically center the text
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .old-new-price-container {
-  flex-grow: 0;
-
   display: flex;
   flex-direction: column;
-  align-content: flex-start;
 }
+// ---------
