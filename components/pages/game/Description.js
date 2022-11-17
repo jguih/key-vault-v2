@@ -73,10 +73,5 @@ export default function Description({ description }) {
     // Hides "show less" button
     const showLessBtn = container.querySelector(`.${styleDescription["show-less-btn"]}`);
     showLessBtn.classList.remove(styleDescription["display-btn"]);
-
-    container.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    })
   }
 }

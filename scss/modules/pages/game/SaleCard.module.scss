@@ -1,5 +1,6 @@
 @use '../../../custom' as custom;
 @use '../../../colors' as colors;
+@use '../../../breakpoints' as breakpoints;
 
 .container {
   background-color: colors.$kv-primary-800;
@@ -7,10 +8,9 @@
 
   display: grid;
   grid-template-columns: 15% 65% 20%;
-  
+
   .img-wrapper {
     position: relative;
-    padding-bottom: 133%;
   }
 
   img {
@@ -24,11 +24,10 @@
   }
 
   h3 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: bold;
-    height: 2rem;
     margin: 0;
-
+    padding-bottom: 8px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -36,20 +35,24 @@
 
   p {
     margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.1;
   }
+}
+
+.game-version {
+  @include custom.badge(colors.$kv-primary-700);
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: fit-content;
 }
 
 .sale-info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
   padding: 16px;
-}
-
-.activation {
-  font-size: 1.2rem;
-  line-height: 1.1;
 }
 
 .bold-500 {
@@ -62,16 +65,9 @@
   margin-top: 6px;
 }
 
-.game-version {
-  @include custom.badge(colors.$kv-primary-700);
-  font-size: 1.2rem;
-  font-weight: bold;
-  width: fit-content;
-}
-
 .price-btn {
   align-self: center;
-  padding-right: 16px;
+  padding: 16px;
 }
 
 // Price section --
@@ -113,4 +109,50 @@
   display: flex;
   flex-direction: column;
 }
+
 // -------
+
+// 0px to 1200px
+@media screen and (max-width: breakpoints.$xl) {
+  .container {
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+
+  .sale-info {
+    gap: 6px;
+  }
+}
+
+@media screen and (min-width: breakpoints.$lg) and (max-width: breakpoints.$xl) {
+  .container {
+    grid-template-columns: 20% 55% 25%;
+  }
+}
+
+// 576px to 768px
+@media screen and (min-width: breakpoints.$sm) and (max-width: breakpoints.$md) {
+  .container {
+    grid-template-columns: 20% 50% 30%;
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .game-version {
+    font-size: 1rem;
+  }
+
+  .sale-info {
+    gap: 4px;
+  }
+}
+
+// 0px to 576px
+@media screen and (max-width: breakpoints.$sm) {
+  .container {
+    grid-template-columns: 100%;
+  }
+}

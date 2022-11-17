@@ -1,5 +1,6 @@
 @use './local' as local;
 @use '../../../colors' as colors;
+@use '../../../breakpoints' as breakpoints;
 
 .container {
   display: grid;
@@ -24,5 +25,12 @@
     border-radius: 10px;
     opacity: 1;
     margin: 0;
+  }
+}
+
+@media screen and (max-width: breakpoints.$lg) {
+  .container {
+    grid-template-columns: 100%;
+    column-gap: 16px;
   }
 }

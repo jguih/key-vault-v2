@@ -14,7 +14,7 @@ export default function SaleCard({ coverUrl, title, price, discount, isDiscountA
       <div className={`${saleCard["sale-info"]}`}>
         <h3>{title}</h3>
         <div className={`${saleCard["game-version"]}`}>Jogo Base</div>
-        <p className={`${saleCard.activation}`}>
+        <p>
           <span className={`${saleCard["bold-500"]}`}>Ativação: </span>Steam <br/>
           Produto ativado através de <Link href={"/activation"} target="_blank">chave de ativação.</Link>
         </p>

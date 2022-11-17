@@ -29,6 +29,7 @@ export default function Content({ name }) {
   if (currentGame) {
     const screenshots = currentGame.imgUrl.screenshot;
     const cover = currentGame.imgUrl.cover;
+    const artworks = currentGame.imgUrl.artwork;
     // Takes the longest string as the short description
     let shortDescription = "";
     if (currentGame.description.length > 0) {
@@ -70,7 +71,7 @@ export default function Content({ name }) {
           </div>
           <div className={content.right}>
             <DescriptionCard
-              coverUrl={cover}
+              coverUrl={artworks[0]}
               description={shortDescription}
               releaseDate={releaseDate}
               developer={developer}
