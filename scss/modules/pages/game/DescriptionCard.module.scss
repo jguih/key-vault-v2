@@ -10,6 +10,8 @@
   flex-direction: column;
   gap: 6px;
 
+  font-size: 1rem; // Global font size
+
   hr {
     border: 4px solid colors.$kv-primary-900;
     margin: 16px 0;
@@ -33,15 +35,18 @@
 
 .text {
   @include custom.default-text;
+  font-size: 1em;
   text-align: start;
 
   p {
+    font-size: 1em;
     margin: 0;
   }
 }
 
 .badge {
   @include custom.badge(colors.$kv-primary-700);
+  font-size: 1em;
   margin-top: 4px;
   font-weight: bold;
   margin-right: 6px;
