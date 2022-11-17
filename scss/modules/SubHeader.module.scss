@@ -1,11 +1,14 @@
 @use '../colors' as colors;
 
 $spacing: 16px;
+$container-font-size: 1em;
 
 .main-container {
   width: 100%;
   background-color: colors.$kv-primary-900;
   color: colors.$kv-text-on-primary;
+
+  font-size: 1rem; // Global font size
 
   a {
     text-decoration: none;
@@ -27,11 +30,13 @@ $spacing: 16px;
   align-items: center;
   gap: $spacing;
 
-  padding: 1.2rem;
+  padding: 8px;
+
+  font-size: $container-font-size;
 }
 
 .nav-link {
-  font-size: 1.2rem;
+  font-size: 1.2em;
   opacity: 0.6;
   transition: 100ms opacity ease-in-out;
 
@@ -47,4 +52,59 @@ $spacing: 16px;
 // Active navLink
 .active {
   opacity: 1;
+}
+
+.dropdown-toggle {
+  font-size: 1.2em;
+  background-color: colors.$kv-primary-900 !important;
+  border: none !important;
+
+  &:hover {
+    background-color: colors.$kv-primary-800 !important;
+  }
+
+  &:active {
+    background-color: colors.$kv-primary-700 !important;
+  }
+}
+
+.dropdown-menu {
+  background-color: colors.$kv-primary-800 !important;
+  color: colors.$kv-text-on-primary !important; 
+
+  .dropdown-item {
+    font-size: 1.2em;
+
+    &:hover {
+      background-color: colors.$kv-primary-700 !important;
+      color: colors.$kv-text-on-primary;
+    }
+    &:active {
+      background-color: colors.$kv-primary-500 !important;
+      color: black !important;
+    }
+  }
+}
+
+// Search bar
+.form-control {
+  background-color: colors.$kv-primary-800 !important;
+  border: none !important;
+  color: colors.$kv-text-on-primary !important;
+  
+  font-size: 1.2em !important;
+
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
+.input-group-text {
+  border: none !important;
+  background-color: colors.$kv-primary-800 !important;
+}
+
+.button {
+  border: none !important;
+  color: colors.$kv-text-on-primary !important;
 }

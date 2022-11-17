@@ -1,26 +1,13 @@
-import { Container } from 'react-bootstrap';
-import SearchBar from './search-bar/SearchBar';
+import { Container, Dropdown, InputGroup, Form, Button } from 'react-bootstrap';
 import subHeader from "../scss/modules/SubHeader.module.scss"
 import Link from 'next/link';
-import KVDropdown from './dropdown/KVDropdown';
-import KVDropdownItem from './dropdown/KVDropdownItem';
 
 export default function SubHeader({ activeKey }) {
   return (
     <div className={subHeader["main-container"] + " sticky-top"}>
       <Container className={subHeader.container + " mt-4"}>
-        <SearchBar />
-        <KVDropdown title="Categorias">
-          <KVDropdownItem>
-            Genre 1
-          </KVDropdownItem>
-          <KVDropdownItem>
-            Genre 2
-          </KVDropdownItem>
-          <KVDropdownItem>
-            Genre 3
-          </KVDropdownItem>
-        </KVDropdown>
+        <MySearchBar />
+        <MyDropdown />
         <nav>
           {["Promoções", "Novidades"].map((value, index) => {
             return (
@@ -40,5 +27,36 @@ export default function SubHeader({ activeKey }) {
         </nav>
       </Container>
     </div>
+  );
+}
+
+function MyDropdown() {
+  return (
+    <Dropdown>
+      <Dropdown.Toggle className={`${subHeader["dropdown-toggle"]}`}>
+        <span>Categorias</span>
+      </Dropdown.Toggle>
+      <Dropdown.Menu className={`${subHeader["dropdown-menu"]}`}>
+        <Dropdown.Item className={`${subHeader["dropdown-item"]}`}>
+          <span>Genre 1</span>
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+}
+
+function MySearchBar() {
+  return (
+    <InputGroup className={`w-auto`}>
+      <Form.Control className={`${subHeader["form-control"]}`}
+        type="text"
+        placeholder="Buscar"
+      />
+      <InputGroup.Text className={`${subHeader["input-group-text"]} p-0`}>
+        <Button className={`${subHeader["button"]}`} variant={""}>
+          <i className={`bi bi-search`}></i>
+        </Button>
+      </InputGroup.Text>
+    </InputGroup>
   );
 }
