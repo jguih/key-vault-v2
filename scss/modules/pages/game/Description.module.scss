@@ -7,12 +7,16 @@
   position: relative;
   overflow: hidden;
 
+  font-size: 1rem; // Global font size
+
   p {
     @include custom.default-text;
+    font-size: 1em;
   }
 
   h3 {
     @include local.title;
+    font-size: 1.6em;
   }
 }
 
@@ -29,7 +33,7 @@
   display: none;
   width: 100%;
 
-  @include custom.btn(1.2rem, colors.$kv-primary-800, colors.$kv-primary-700);
+  @include custom.btn(1em, colors.$kv-primary-800, colors.$kv-primary-700);
   border-radius: 0;
   box-shadow: 0px -24px 30px colors.$kv-primary-900;
 }

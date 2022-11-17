@@ -9,7 +9,7 @@ export default function Description({ description }) {
     const container = document.querySelector(`.${styleDescription.container}`);
     
     if (container) {
-      if (container.clientHeight > 300) {
+      if (container.clientHeight > 250) {
         // Collapse the container
         container.classList.add(styleDescription["collapse-container"]);
   
