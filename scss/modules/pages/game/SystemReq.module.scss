@@ -1,8 +1,8 @@
-@use './local' as local;
+@use '../../../colors' as colors;
 
 .container {
   h3 {
-    @include local.title;
+    color: colors.$kv-text-on-primary;
   }
 }
 

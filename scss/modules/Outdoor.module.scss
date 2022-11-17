@@ -45,7 +45,7 @@ $small-gap: 4px;
 
   p {
     margin: 0;
-    font-size: 1.8rem;
+    font-size: 1.8em;
     font-weight: bold;
     color: colors.$kv-text-on-primary;
   }
@@ -137,7 +137,6 @@ $small-gap: 4px;
   background-color: colors.$kv-primary-900;
   box-shadow: white 0px 0px 10px;
 
-  font-size: 1.4rem;
   color: colors.$kv-text-on-primary;
 
   display: flex;
@@ -149,7 +148,7 @@ $small-gap: 4px;
 
   .title {
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.4em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -157,7 +156,7 @@ $small-gap: 4px;
 }
 
 .btn {
-  @include custom.buy-btn;
+  @include custom.btn($font-size: 1.2em, $bg-color: colors.$kv-green, $bg-color-hover: colors.$kv-dark-green);
   width: fit-content;
   margin-top: 6px;
 }
@@ -167,17 +166,17 @@ $small-gap: 4px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  font-size: 1.2rem;
   color: colors.$kv-text-on-primary;
 }
 
 .discount {
   @include custom.badge(colors.$kv-green);
+  font-size: 1.2em;
   font-weight: bold;
 }
 
 .old-price {
-  font-size: 1rem;
+  font-size: 1em;
   text-decoration: line-through;
   margin: 0 5px;
 }
@@ -185,6 +184,7 @@ $small-gap: 4px;
 .new-price,
 .price {
   @include custom.badge(colors.$kv-primary-700);
+  font-size: 1.2em;
   font-weight: bold;
 }
 // ---------
@@ -206,6 +206,10 @@ $small-gap: 4px;
 
 // 0px to 992px
 @media screen and (max-width: breakpoints.$lg) {
+  .outdoor {
+    font-size: 0.8rem;
+  }
+  
   .cards-grid {
     position: relative;
     bottom: 50px;

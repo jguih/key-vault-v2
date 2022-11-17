@@ -15,17 +15,6 @@
   }
 }
 
-// Used in outdoor and section titles
-@mixin title {
-  font-weight: bold;
-  color: colors.$kv-text-on-primary;
-}
-
-@mixin default-text {
-  font-weight: normal;
-  color: colors.$kv-text-on-primary;
-}
-
 @mixin badge($bg-color) {
   background-color: $bg-color;
   padding: 0px 6px;
@@ -33,26 +22,14 @@
   display: inline-block;
 }
 
-@mixin buy-btn {
-  font-size: 1.2rem;
-  font-weight: bold;
-  background-color: colors.$kv-green;
-  border: none;
-  box-shadow: 4px 4px 4px colors.$kv-primary-900;
-  
-  &:hover {
-    background-color: colors.$kv-dark-green !important;
-  }
-}
-
-@mixin btn($font-size, $background-color, $background-color-hover) {
+@mixin btn($font-size, $bg-color, $bg-color-hover) {
   font-size: $font-size;
   font-weight: bold;
-  background-color: $background-color;
+  background-color: $bg-color;
   border: none;
 
   &:hover {
-    background-color: $background-color-hover !important;
+    background-color: $bg-color-hover !important;
   }
 }
 

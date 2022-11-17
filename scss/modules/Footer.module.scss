@@ -14,7 +14,6 @@ $spacing: 30px;
   padding-left: $spacing; 
   border-left: gray 2px solid;
 
-  @include custom.default-text;
   color: colors.$kv-text-on-primary;
 
   display: flex;

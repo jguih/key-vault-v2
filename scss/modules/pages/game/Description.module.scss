@@ -1,6 +1,5 @@
 @use '../../../custom' as custom;
 @use '../../../colors' as colors;
-@use './local' as local;
 
 .container {
   width: 100%;
@@ -10,12 +9,12 @@
   font-size: 1rem; // Global font size
 
   p {
-    @include custom.default-text;
+    color: colors.$kv-text-on-primary;
     font-size: 1em;
   }
 
   h3 {
-    @include local.title;
+    color: colors.$kv-text-on-primary;
     font-size: 1.6em;
   }
 }

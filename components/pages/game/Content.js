@@ -6,6 +6,7 @@ import DescriptionCard from "./DescriptionCard";
 import SaleCard from "./SaleCard";
 import Description from "./Description";
 import SystemReq from "./SystemReq";
+import LanguageGamemodeCard from "./LanguageGamemodeCard";
 
 export default function Content({ name }) {
   const { currentGame, isLoading, isError } = useGameByName(name);
@@ -48,7 +49,8 @@ export default function Content({ name }) {
     const isDiscountActive = currentGame.isDiscountActive;
     const name = currentGame.name;
     const sysReq = currentGame.sysReq;
-    
+    const gamemode = currentGame.gamemode;
+
     return (
       <Container className="mt-4 mb-4">
         <div className={content.container}>
@@ -77,6 +79,9 @@ export default function Content({ name }) {
               developer={developer}
               publisher={publisher}
               genre={genre}
+            />
+            <LanguageGamemodeCard 
+              gamemode={gamemode}
             />
           </div>
         </div>

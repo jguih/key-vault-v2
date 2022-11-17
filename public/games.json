@@ -299,7 +299,8 @@
         "internet": "-",
         "other": "-"
       }
-    ]
+    ],
+    "gamemode": ["singleplayer", "multiplayer", "co-op"]
   },
   {
     "id": 7,
@@ -346,7 +347,8 @@
         "internet": "-",
         "other": "-"
       }
-    ]
+    ],
+    "gamemode": ["singleplayer"]
   },
   {
     "id": 8,
@@ -393,7 +395,8 @@
         "internet": "-",
         "other": "-"
       }
-    ]
+    ],
+    "gamemode": ["singleplayer"]
   },
   {
     "id": 9,
@@ -491,6 +494,7 @@
         "internet": "-",
         "other": "-"
       }
-    ]
+    ],
+  "gamemode": ["singleplayer"]
   }
 ]

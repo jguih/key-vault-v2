@@ -1,0 +1,40 @@
+@use '../../../colors' as colors;
+@use '../../../custom' as custom;
+
+.container {
+  font-size: 1rem; // Global font size
+
+  background-color: colors.$kv-primary-800;
+  border-radius: custom.$img-border-radius;
+  padding: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+@mixin title {
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 0;
+  padding-bottom: 6px;
+}
+
+.gamemode-container {
+  h3 {
+    @include title;
+  }
+}
+
+.gamemodes {
+  font-size: 1.2em;
+  font-weight: normal;
+  color: colors.$kv-text-on-primary;
+  opacity: 0.6;
+}
+
+.language-container {
+  h3 {
+    @include title;
+  }
+}

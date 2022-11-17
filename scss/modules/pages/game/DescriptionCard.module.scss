@@ -4,7 +4,7 @@
 .container {
   background-color: colors.$kv-primary-800;
   border-radius: custom.$img-border-radius;
-  padding: 6px;
+  padding: 12px;
 
   display: flex;
   flex-direction: column;
@@ -34,11 +34,10 @@
 }
 
 .text {
-  @include custom.default-text;
-  font-size: 1em;
   text-align: start;
 
   p {
+    color: colors.$kv-text-on-primary;
     font-size: 1em;
     margin: 0;
   }

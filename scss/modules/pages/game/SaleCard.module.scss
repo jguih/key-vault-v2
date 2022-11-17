@@ -71,7 +71,7 @@
 }
 
 .button {
-  @include custom.btn($font-size: 1.2em, $background-color: colors.$kv-green, $background-color-hover: colors.$kv-dark-green);
+  @include custom.btn($font-size: 1.2em, $bg-color: colors.$kv-green, $bg-color-hover: colors.$kv-dark-green);
   width: 100%;
   margin-top: 6px;
 }

@@ -10,6 +10,8 @@ $small-gap: 4px;
   flex-direction: column;
   gap: calc($gap * 2);
 
+  font-size: 1rem; // Global font size
+
   hr {
     margin: 0 $gap;
 
@@ -31,9 +33,8 @@ $small-gap: 4px;
   padding: 0 $gap;
 
   h3 {
-    @include custom.title;
     color: colors.$kv-text-on-primary;
-    font-size: 1.8rem;
+    font-size: 1.8em;
 
     margin: 0;
     padding: 0;
