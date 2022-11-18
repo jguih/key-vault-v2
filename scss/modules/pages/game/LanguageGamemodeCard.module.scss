@@ -10,7 +10,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 16px;
 }
 
 @mixin title {
@@ -18,23 +18,61 @@
   font-weight: bold;
   margin: 0;
   padding-bottom: 6px;
+  color: colors.$kv-text-on-primary;
 }
 
 .gamemode-container {
   h3 {
     @include title;
   }
+
+  p {
+    font-size: 1.2em;
+    color: colors.$kv-text-on-primary;
+    margin: 0;
+  }
 }
 
-.gamemodes {
-  font-size: 1.2em;
-  font-weight: normal;
-  color: colors.$kv-text-on-primary;
-  opacity: 0.6;
-}
+$icons-gap: 24px;
+$icons-font-size: 1.4em;
 
-.language-container {
+.language-support-container {
   h3 {
     @include title;
   }
+
+  hr {
+    border: 1px solid colors.$kv-primary-700;
+    margin: 0;
+    border-radius: 10px;
+    opacity: 1;
+  }
+}
+
+.legend-container,
+.language-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.legend,
+.language {
+  font-size: $icons-font-size;
+
+  display: flex;
+  flex-direction: row;
+  gap: $icons-gap;
+}
+
+.language-container {
+  p {
+    margin: 0;
+    font-size: 1.2em;
+  }
+}
+
+// Used for invisible icons
+.invisible {
+  visibility: hidden;
 }

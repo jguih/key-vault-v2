@@ -23,18 +23,18 @@ export default function Description({ description }) {
   if (description.length > 0) {
     return (
       <div className={`${styleDescription.container}`}>
-        <h3>About the Game</h3>
+        <h3>Sobre o Jogo</h3>
         {description.map((description, index) => {
           return <p key={index}>{description}</p>
         })}
         <Button
           className={`${styleDescription["show-more-btn"]}`}
           onClick={() => handleOnClickShowMore()}
-        >Show More <i className="bi bi-chevron-down"></i></Button>
+        >Mostrar Mais <i className="bi bi-chevron-down"></i></Button>
         <Button
           className={`${styleDescription["show-less-btn"]}`}
           onClick={() => handleOnClickShowLess()}
-        >Show Less <i className="bi bi-chevron-up"></i></Button>
+        >Mostrar Menos <i className="bi bi-chevron-up"></i></Button>
       </div>
     );
   }

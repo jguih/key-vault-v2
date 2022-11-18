@@ -1,39 +1,69 @@
 import lgCardStyles from "../../../scss/modules/pages/game/LanguageGamemodeCard.module.scss"
 
-export default function LanguageGamemodeCard({ gamemode }) {
-  if (gamemode) {
+export default function LanguageGamemodeCard({ gamemode, languageSupport }) {
+  if (gamemode && languageSupport) {
     return (
       <div className={`${lgCardStyles.container}`}>
         <div className={`${lgCardStyles["gamemode-container"]}`}>
-          <h3>Gamemodes</h3>
-          <div className={`${lgCardStyles["gamemodes"]}`}>
-            {gamemode.map((gamemode, index) => {
-              return (
-                <div key={index}>{getGamemode(gamemode)}</div>
-              )
-            })}
-          </div>
+          <h3>Modos de Jogo</h3>
+          {gamemode.map((gamemode, index) => getGamemode(gamemode, index))}
         </div>
-        <div className={`${lgCardStyles["language-container"]}`}>
-          <h3>Languages</h3>
+        <div className={`${lgCardStyles["language-support-container"]}`}>
+          <h3>Idioma</h3>
+          <div className={`${lgCardStyles["legend-container"]}`}>
+            <div></div>
+            <div className={`${lgCardStyles.legend}`}>
+              <i className="bi bi-volume-up-fill"></i>
+              <i className="bi bi-card-text"></i>
+              <i className="bi bi-display-fill"></i>
+            </div>
+          </div>
+          <hr />
+          {languageSupport.map((language, index) => getLanguage(language, index))}
         </div>
       </div>
     );
   }
 
-  function getGamemode(gamemode) {
-    if (gamemode.toLowerCase() === "singleplayer") {
-      return (
-        <span><i className="bi bi-person-fill"></i>Singleplayer</span>
-      );
-    } else if (gamemode.toLowerCase() === "multiplayer") {
-      return (
-        <span><i className="bi bi-people-fill"></i>Multiplayer</span>
-      );
-    } else if (gamemode.toLowerCase() === "co-op") {
-      return (
-        <span><i className="bi bi-people-fill"></i>Co-op</span>
-      );
+  function getGamemode(gamemode, index) {
+    switch (gamemode.toLowerCase()) {
+      case "singleplayer":
+        return (
+          <p key={index}><i className="bi bi-person-fill"></i> Singleplayer</p>
+        );
+      case "multiplayer":
+        return (
+          <p key={index}> <i className="bi bi-people-fill"></i> Multiplayer</p>
+        );
+      case "co-op":
+        return (
+          <p key={index}><i className="bi bi-people-fill"></i> Co-op</p>
+        );
+      default:
+        return (
+          <p key={index}><i className="bi bi-person-fill"></i> Singleplayer</p>
+        );
     }
+  }
+
+  function getLanguage(language, index) {
+    const ptBRName = language.ptBRName[0].toUpperCase() + language.ptBRName.slice(1);
+    const _audio = language.audio;
+    const _interface = language.interface;
+    const _subtitles = language.subtitles;
+
+    return (
+      <div className={`${lgCardStyles["language-container"]}`} key={index}>
+        <p>{ptBRName}</p>
+        <div className={`${lgCardStyles.language}`}>
+          {_audio ? <i className="bi bi-check2-circle"></i> :
+            <i className={`bi bi-check2-circle ${lgCardStyles.invisible}`}></i>}
+          {_subtitles ? <i className="bi bi-check2-circle"></i> :
+            <i className={`bi bi-check2-circle ${lgCardStyles.invisible}`}></i>}
+          {_interface ? <i className="bi bi-check2-circle"></i> :
+            <i className={`bi bi-check2-circle ${lgCardStyles.invisible}`}></i>}
+        </div>
+      </div>
+    );
   }
 }

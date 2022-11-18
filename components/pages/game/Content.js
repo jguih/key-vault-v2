@@ -31,12 +31,12 @@ export default function Content({ name }) {
     const screenshots = currentGame.imgUrl.screenshot;
     const cover = currentGame.imgUrl.cover;
     const artworks = currentGame.imgUrl.artwork;
-    // Takes the longest string as the short description
+    // Takes the shortest string as the short description
     let shortDescription = "";
     if (currentGame.description.length > 0) {
       shortDescription = currentGame.description
         .reduce((accumulator, current) => {
-          return accumulator.length >= current.length ? accumulator : current;
+          return accumulator.length <= current.length ? accumulator : current;
         });
     }
     const description = currentGame.description;
@@ -50,12 +50,13 @@ export default function Content({ name }) {
     const name = currentGame.name;
     const sysReq = currentGame.sysReq;
     const gamemode = currentGame.gamemode;
+    const languageSupport = currentGame.languageSupport;
 
     return (
       <Container className="mt-4 mb-4">
         <div className={content.container}>
           <div className={content.left}>
-            <Gallery screenshots={screenshots} />
+            <Gallery screenshots={screenshots.concat(artworks)} />
             <SaleCard
               coverUrl={cover}
               title={name}
@@ -82,6 +83,7 @@ export default function Content({ name }) {
             />
             <LanguageGamemodeCard 
               gamemode={gamemode}
+              languageSupport={languageSupport}
             />
           </div>
         </div>
