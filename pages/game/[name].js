@@ -19,12 +19,12 @@ export default function Game() {
   return (
     <div className="d-flex flex-column justify-content-between h-100">
       <Header activeKey={0} />
-      <div className="mb-auto">
+      <div className="mb-auto pb-4 pt-4">
         <SubHeader />
         <Title name={name} />
         <Content name={name} />
       </div>
-      <Footer />
+      <Footer/>
     </div>
   );
 }

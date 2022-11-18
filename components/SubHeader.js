@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function SubHeader({ activeKey }) {
   return (
     <div className={subHeader["main-container"] + " sticky-top"}>
-      <Container className={subHeader.container + " mt-4"}>
+      <Container className={subHeader.container}>
         <MySearchBar />
         <MyDropdown />
         <nav>

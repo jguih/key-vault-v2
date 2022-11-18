@@ -3,12 +3,25 @@
 
 $spacing: 16px;
 
+.logo {
+  font-size: 1.8em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .nav-bar {
   width: 100%;
   padding: 10px;
   background-color: colors.$kv-primary-800;
 
   color: colors.$kv-text-on-primary;
+
+  font-size: 1rem; // Global font size
 
   a {
     text-decoration: none;
@@ -20,19 +33,6 @@ $spacing: 16px;
     flex-direction: row;
     align-items: center;
     gap: $spacing;
-
-    // Menu icon
-    i {
-      font-size: 1.8rem;
-      opacity: 0.8;
-      transition: opacity 200ms ease-in-out;
-      display: none;
-
-      &:hover {
-        transform: scale(1.1);
-        opacity: 1;
-      }
-    }
   }
 }
 
@@ -48,7 +48,7 @@ $spacing: 16px;
 }
 
 .nav-link {
-  font-size: 1.2rem;
+  font-size: 1.2em;
   opacity: 0.6;
   transition: 100ms opacity ease-in-out;
 
@@ -61,33 +61,74 @@ $spacing: 16px;
   }
 }
 
-.btn {
-  font-size: 1.2rem !important;
-}
-
 // Active navLink
 .active {
   opacity: 1;
 }
 
-.logo {
-  font-size: 1.8rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+.btn {
+  font-size: 1.2em !important;
 }
 
+.offcanvas-btn {
+  font-size: 1.8em !important;
+  border-radius: 50px;
+  display: none;
+}
+
+.offcanvas {
+  font-size: 1rem;
+  background-color: colors.$kv-primary-800;
+}
+
+.offcanvas-header {
+  font-size: 1em;
+  color: white;
+}
+
+.offcanvas-title {
+  font-size: 1.2em;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.offcanvas-close-btn {
+  color: white !important;
+  font-size: 1.5em !important;
+  background-color: colors.$kv-primary-800;
+  border: none;
+
+  &:hover {
+    background-color: colors.$kv-primary-700 !important;
+  }
+
+  &:active {
+    background-color: colors.$kv-primary-500 !important;
+  }
+}
+
+.offcanvas-body {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+// 0 to 576px;
 @media screen and (max-width: breakpoints.$sm) {
   .btn {
     display: none;
   }
 
-  .nav-bar {
-    nav {
-      i {
-        display: inline-block;
-      }
-    }
+  .offcanvas-btn {
+    display: inline-block;
   }
 
   .nav-bar {

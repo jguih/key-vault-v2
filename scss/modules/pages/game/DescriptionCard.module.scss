@@ -1,5 +1,6 @@
 @use '../../../custom' as custom;
 @use '../../../colors' as colors;
+@use '../../../breakpoints' as breakpoints;
 
 .container {
   background-color: colors.$kv-primary-800;
@@ -50,4 +51,11 @@
   margin-top: 4px;
   font-weight: 500;
   margin-right: 6px;
+}
+
+// 0 to 992px
+@media screen and (max-width: breakpoints.$lg) {
+  .container {
+    font-size: 0.9rem;
+  }
 }

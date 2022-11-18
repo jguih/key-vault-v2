@@ -35,7 +35,19 @@ $cards-gap: 16px;
     gap: $cards-gap;
 
     .right {
-      padding-left: 0;
+      padding-left: 0px;
+
+      display: grid;
+      grid-template-columns: 49% 49%;
+      gap: 2%;
+    }
+  }
+}
+
+@media screen and (max-width: breakpoints.$sm) {
+  .container {
+    .right {
+      grid-template-columns: 100%;
     }
   }
 }

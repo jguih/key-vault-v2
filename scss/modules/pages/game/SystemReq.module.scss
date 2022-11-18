@@ -1,6 +1,9 @@
 @use '../../../colors' as colors;
+@use '../../../breakpoints' as breakpoints;
 
 .container {
+  font-size: 1rem;
+
   h3 {
     color: colors.$kv-text-on-primary;
     font-weight: bold;
@@ -12,19 +15,35 @@
 .grid {
   display: grid;
   grid-template-columns: 50% 50%;
+
+  h5 {
+    font-size: 1.4em;
+    color: colors.$kv-text-on-primary;
+    font-weight: bold;
+  }
 }
 
 .grid-item-rec {
-  padding-left: 8px;
+  padding-left: 16px;
+
 }
 
 .grid-item-min {
-  padding-right: 8px;
+  padding-right: 16px;
 }
 
 .grid-item-min,
 .grid-item-rec {
   p {
+    font-size: 1em;
+    color: colors.$kv-text-on-primary;
     margin: 0;
+  }
+}
+
+// 0 to 992px
+@media screen and (max-width: breakpoints.$lg) {
+  .container {
+    font-size: 0.9rem;
   }
 }

@@ -22,9 +22,9 @@ export default function SystemReq({ sysReq }) {
           </div>
           <div className={`${styleSystemReq["grid-item-rec"]}`}>
             <h5>Recommended</h5>
+            {recSysReq[0].so ? <p><strong>SO: </strong>{recSysReq[0].so}</p> : ""}
             {recSysReq[0].storage ? <p><strong>Storage: </strong>{recSysReq[0].storage}</p> : ""}
             {recSysReq[0].cpu ? <p><strong>CPU: </strong>{recSysReq[0].cpu}</p> : ""}
-            {recSysReq[0].so ? <p><strong>SO: </strong>{recSysReq[0].so}</p> : ""}
             {recSysReq[0].ram ? <p><strong>RAM: </strong>{recSysReq[0].ram}</p> : ""}
             {recSysReq[0].gpu ? <p><strong>GPU: </strong>{recSysReq[0].gpu}</p> : ""}
             {recSysReq[0].internet ? <p><strong>Network: </strong>{recSysReq[0].internet}</p> : ""}

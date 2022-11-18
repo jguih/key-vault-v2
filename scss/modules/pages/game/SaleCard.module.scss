@@ -7,22 +7,24 @@
   border-radius: custom.$img-border-radius;
 
   display: grid;
-  grid-template-columns: 15% 57% 28%;
+  grid-template-columns: 14% 58% 28%;
   
   font-size: 1rem; // Global font-size
 
-  .img-wrapper {
+  .img-wrapper { 
+    background-color: colors.$kv-primary-700;
+    border-radius: custom.$img-border-radius;
     position: relative;
   }
 
   img {
     position: absolute;
-    width: 100%;
     height: 100%;
+    width: 100%;
     left: 0;
     bottom: 0;
-    border-radius: custom.$img-border-radius;
     object-fit: cover;
+    border-radius: custom.$img-border-radius;
   }
 }
 
@@ -121,16 +123,25 @@
 }
 // -------
 
+// 1200px to 1400px
+@media screen and (min-width: breakpoints.$xl) and (max-width: breakpoints.$xxl) {
+  .container {
+    grid-template-columns: 15% 58% 27%;
+
+    font-size: 0.9rem;
+  }
+}
+
 // 768px to 1200px
 @media screen and (min-width: breakpoints.$md) and (max-width: breakpoints.$xl) {
   .container {
     grid-template-columns: 20% 53% 27%;
 
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
-  .sale-info {
-    gap: 8px;
+  .sale-info-container {
+    gap: 12px;
   }
 }
 
@@ -139,7 +150,7 @@
   .container {
     grid-template-columns: 24% 44% 32%;
 
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -148,11 +159,15 @@
   .container {
     grid-template-columns: 100%;
 
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+
+    img {
+      display: none;
+    }
   }
 
   .sale-info-container {
-    gap: 8px;
     padding: 16px 16px 0 16px;
+    gap: 8px;
   }
 }
