@@ -7,8 +7,8 @@ import SubHeader from '../components/SubHeader';
 export default function Home() {
   return (
     <div className="d-flex flex-column justify-content-between h-100">
-      <Header activeKey={0} />
-      <div className="mb-auto">
+      <Header activeKey={"/store"} />
+      <div className="mb-auto pb-4 pt-4">
         <SubHeader />
         <Outdoor />
         <Section

@@ -7,23 +7,23 @@ export default function SubHeader({ activeKey }) {
     <div className={subHeader["main-container"] + " sticky-top"}>
       <Container className={subHeader.container}>
         <MySearchBar />
+        <MyResponsiveDropDown activeKey={activeKey} />
         <MyDropdown />
         <nav>
-          {["Promoções", "Novidades"].map((value, index) => {
-            return (
-              <Link
-                href={`/${value.toLowerCase() === "loja" ? "" : value.toLowerCase()}`}
-                key={index}
-              >
-                <div
-                  className={subHeader["nav-link"] + " " +
-                    (activeKey === index ? subHeader.active : "")}
-                >
-                  {value}
-                </div>
-              </Link>
-            );
-          })}
+          <Link
+            href={`/discounted`}
+            target="_blank"
+            className={`${(activeKey === 0 ? subHeader.active : "")}`}
+          >
+            Promoções
+          </Link>
+          <Link
+            href={`/recently-added`}
+            target="_blank"
+            className={`${(activeKey === 1 ? subHeader.active : "")}`}
+          >
+            Novidades
+          </Link>
         </nav>
       </Container>
     </div>
@@ -32,7 +32,7 @@ export default function SubHeader({ activeKey }) {
 
 function MyDropdown() {
   return (
-    <Dropdown>
+    <Dropdown className={`${subHeader.dropdown}`}>
       <Dropdown.Toggle className={`${subHeader["dropdown-toggle"]}`}>
         <span>Categorias</span>
       </Dropdown.Toggle>
@@ -47,7 +47,7 @@ function MyDropdown() {
 
 function MySearchBar() {
   return (
-    <InputGroup className={`w-auto`}>
+    <InputGroup className={`${subHeader["input-group"]}`}>
       <Form.Control className={`${subHeader["form-control"]}`}
         type="text"
         placeholder="Buscar"
@@ -58,5 +58,44 @@ function MySearchBar() {
         </Button>
       </InputGroup.Text>
     </InputGroup>
+  );
+}
+
+function MyResponsiveDropDown({ activeKey }) {
+  return (
+    <Dropdown className={`${subHeader["responsive-dropdown"]}`}>
+      <Dropdown.Toggle className={`${subHeader["dropdown-toggle"]}`}>
+        <span>Navegar</span>
+      </Dropdown.Toggle>
+      <Dropdown.Menu className={`${subHeader["dropdown-menu"]}`}>
+        <Dropdown.Item className={`${subHeader["dropdown-item"]}`}>
+          <Link
+            href={`/genres`}
+            target="_blank"
+            className={`${(activeKey === 0 ? subHeader.active : "")}`}
+          >
+            Categorias
+          </Link>
+        </Dropdown.Item>
+        <Dropdown.Item className={`${subHeader["dropdown-item"]}`}>
+          <Link
+            href={`/discounted`}
+            target="_blank"
+            className={`${(activeKey === 0 ? subHeader.active : "")}`}
+          >
+            Promoções
+          </Link>
+        </Dropdown.Item>
+        <Dropdown.Item className={`${subHeader["dropdown-item"]}`}>
+          <Link
+            href={`/recently-added`}
+            target="_blank"
+            className={`${(activeKey === 0 ? subHeader.active : "")}`}
+          >
+            Novidades
+          </Link>
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
   );
 }

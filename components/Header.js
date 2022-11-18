@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import { Container, Offcanvas, Button, CloseButton } from 'react-bootstrap';
+import { Container, Offcanvas, Button } from 'react-bootstrap';
 import header from '../scss/modules/Header.module.scss'
 
 export default function Header({ activeKey }) {
@@ -12,36 +12,31 @@ export default function Header({ activeKey }) {
   return (
     <div className={header["nav-bar"]}>
       <Container className={header["nav-bar-container"]}>
-        <Link href={"/"}>
-          <div className={header.logo}>
-            <i className={"bi bi-safe me-1"}></i>
-            <span>KeyVault</span>
-          </div>
+        <Link href={"/"} className={header.logo}>
+          <i className={"bi bi-safe me-1"}></i>
+          <span>KeyVault</span>
         </Link>
         <nav className={`${header["nav-left"]}`}>
-          <Link href={`/store`}>
-            <div
-              className={`${header["nav-link"]} ${(activeKey === 0 ? header.active : "")}`}
-            >
-              Loja
-            </div>
+          <Link
+            href={`/store`}
+            className={`${(activeKey === "/store" ? header.active : "")}`}
+          >
+            Loja
           </Link>
-          <Link href={`/about`}>
-            <div
-              className={`${header["nav-link"]} ${(activeKey === 1 ? header.active : "")}`}
-            >
-              Sobre
-            </div>
+          <Link
+            href={`/about`}
+            className={`${(activeKey === "/about" ? header.active : "")}`}
+          >
+            Sobre
           </Link>
-          <Link href={`/help`}>
-            <div
-              className={`${header["nav-link"]} ${(activeKey === 2 ? header.active : "")}`}
-            >
-              Ajuda
-            </div>
+          <Link
+            href={`/help`}
+            className={`${(activeKey === "/help" ? header.active : "")}`}
+          >
+            Ajuda
           </Link>
         </nav>
-        <nav>
+        <div>
           <Button
             variant="kv-primary-800"
             className={`${header["offcanvas-btn"]}`}
@@ -56,7 +51,7 @@ export default function Header({ activeKey }) {
           >
             Login
           </Button>
-        </nav>
+        </div>
       </Container>
       <MyOffcanvas
         show={show}
@@ -78,11 +73,9 @@ function MyOffcanvas({ show, handleClose, activeKey }) {
       >
         <Offcanvas.Header className={`${header["offcanvas-header"]}`}>
           <Offcanvas.Title className={`${header["offcanvas-title"]}`}>
-            <Link href={"/"}>
-              <div className={header.logo}>
-                <i className={"bi bi-safe me-1"}></i>
-                <span>KeyVault</span>
-              </div>
+            <Link href={"/"} className={header.logo}>
+              <i className={"bi bi-safe me-1"}></i>
+              <span>KeyVault</span>
             </Link>
           </Offcanvas.Title>
           <Button className={`${header["offcanvas-close-btn"]}`} onClick={handleClose}>
@@ -91,28 +84,26 @@ function MyOffcanvas({ show, handleClose, activeKey }) {
         </Offcanvas.Header>
         <Offcanvas.Body className={`${header["offcanvas-body"]}`}>
           <nav className={`${header["nav-left"]}`}>
-            <Link href={`/store`}>
-              <div
-                className={`${header["nav-link"]} ${(activeKey === 0 ? header.active : "")}`}
-              >
-                Loja
-              </div>
+            <Link
+              href={`/store`}
+              className={`${(activeKey === "/store" ? header.active : "")}`}
+            >
+              Loja
             </Link>
-            <Link href={`/about`}>
-              <div
-                className={`${header["nav-link"]} ${(activeKey === 1 ? header.active : "")}`}
-              >
-                Sobre
-              </div>
+            <Link
+              href={`/about`}
+              className={`${(activeKey === "/about" ? header.active : "")}`}
+            >
+              Sobre
             </Link>
-            <Link href={`/help`}>
-              <div
-                className={`${header["nav-link"]} ${(activeKey === 2 ? header.active : "")}`}
-              >
-                Ajuda
-              </div>
+            <Link
+              href={`/help`}
+              className={`${(activeKey === "/help" ? header.active : "")}`}
+            >
+              Ajuda
             </Link>
           </nav>
+          <hr></hr>
         </Offcanvas.Body>
       </Offcanvas>
     </>

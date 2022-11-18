@@ -3,14 +3,34 @@
 
 $spacing: 16px;
 
+@mixin nav-link {
+  font-size: 1.2em;
+  opacity: 0.6;
+  transition: 100ms opacity ease-in-out;
+  text-decoration: none;
+  color: colors.$kv-text-on-primary;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 1;
+  }
+}
+
 .logo {
   font-size: 1.8em;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
 
+  text-decoration: none;
+  color: colors.$kv-text-on-primary;
+
   &:hover {
     text-decoration: underline;
+    color: colors.$kv-text-on-primary;
   }
 }
 
@@ -22,22 +42,19 @@ $spacing: 16px;
   color: colors.$kv-text-on-primary;
 
   font-size: 1rem; // Global font size
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: $spacing;
-  }
 }
 
 .nav-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $spacing;
+
   margin-right: auto;
+
+  a {
+    @include nav-link;
+  }
 }
 
 .nav-bar-container {
@@ -47,23 +64,9 @@ $spacing: 16px;
   gap: $spacing;
 }
 
-.nav-link {
-  font-size: 1.2em;
-  opacity: 0.6;
-  transition: 100ms opacity ease-in-out;
-
-  &:hover {
-    opacity: 0.8;
-  }
-
-  &:active {
-    opacity: 1;
-  }
-}
-
 // Active navLink
 .active {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 .btn {
@@ -115,9 +118,8 @@ $spacing: 16px;
 }
 
 .offcanvas-body {
-  a {
-    text-decoration: none;
-    color: inherit;
+  .nav-left {
+    justify-content: space-around;
   }
 }
 

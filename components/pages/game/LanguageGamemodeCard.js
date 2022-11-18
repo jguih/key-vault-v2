@@ -1,3 +1,4 @@
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import lgCardStyles from "../../../scss/modules/pages/game/LanguageGamemodeCard.module.scss"
 
 export default function LanguageGamemodeCard({ gamemode, languageSupport }) {
@@ -13,9 +14,7 @@ export default function LanguageGamemodeCard({ gamemode, languageSupport }) {
           <div className={`${lgCardStyles["legend-container"]}`}>
             <div></div>
             <div className={`${lgCardStyles.legend}`}>
-              <i className="bi bi-volume-up-fill"></i>
-              <i className="bi bi-card-text"></i>
-              <i className="bi bi-display-fill"></i>
+              {getLegend()}
             </div>
           </div>
           <hr />
@@ -65,5 +64,42 @@ export default function LanguageGamemodeCard({ gamemode, languageSupport }) {
         </div>
       </div>
     );
+  }
+
+  function getLegend() {
+    return (
+      <>
+        <OverlayTrigger
+          placement="top"
+          overlay={
+            <Tooltip>
+              Audio
+            </Tooltip>
+          }
+        >
+          <i className="bi bi-volume-up-fill"></i>
+        </OverlayTrigger>
+        <OverlayTrigger
+          placement="top"
+          overlay={
+            <Tooltip>
+              Legenda
+            </Tooltip>
+          }
+        >
+          <i className="bi bi-card-text"></i>
+        </OverlayTrigger>
+        <OverlayTrigger
+          placement="top"
+          overlay={
+            <Tooltip>
+              Interface
+            </Tooltip>
+          }
+        >
+          <i className="bi bi-display-fill"></i>
+        </OverlayTrigger>
+      </>
+    )
   }
 }

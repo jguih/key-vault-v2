@@ -59,7 +59,7 @@ export default function Section({ title, rows }) {
 
   if (games) {
     return (
-      <Container className="mt-4 mb-4">
+      <Container className="mt-4">
         <div className={section.container}>
           <div className={section.top}>
             <h3>{title}</h3>
