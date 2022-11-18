@@ -4,6 +4,9 @@ import { Container, Alert } from "react-bootstrap";
 import useGameByName from "../../../hooks/useGameByName";
 import DescriptionCard from "./DescriptionCard";
 import SaleCard from "./SaleCard";
+import Description from "./Description";
+import SystemReq from "./SystemReq";
+import LanguageGamemodeCard from "./LanguageGamemodeCard";
 
 export default function Content({ name }) {
   const { currentGame, isLoading, isError } = useGameByName(name);
@@ -27,14 +30,16 @@ export default function Content({ name }) {
   if (currentGame) {
     const screenshots = currentGame.imgUrl.screenshot;
     const cover = currentGame.imgUrl.cover;
-    // Takes the longest string as the short description
+    const artworks = currentGame.imgUrl.artwork;
+    // Takes the shortest string as the short description
     let shortDescription = "";
     if (currentGame.description.length > 0) {
       shortDescription = currentGame.description
         .reduce((accumulator, current) => {
-          return accumulator.length >= current.length ? accumulator : current;
+          return accumulator.length <= current.length ? accumulator : current;
         });
     }
+    const description = currentGame.description;
     const releaseDate = currentGame.releaseDate;
     const developer = currentGame.developer.join(", ");
     const publisher = currentGame.publisher.join(", ");
@@ -43,12 +48,15 @@ export default function Content({ name }) {
     const discount = currentGame.discount;
     const isDiscountActive = currentGame.isDiscountActive;
     const name = currentGame.name;
-    
+    const sysReq = currentGame.sysReq;
+    const gamemode = currentGame.gamemode;
+    const languageSupport = currentGame.languageSupport;
+
     return (
       <Container className="mt-4 mb-4">
         <div className={content.container}>
           <div className={content.left}>
-            <Gallery screenshots={screenshots} />
+            <Gallery screenshots={screenshots.concat(artworks)} />
             <SaleCard
               coverUrl={cover}
               title={name}
@@ -56,15 +64,26 @@ export default function Content({ name }) {
               discount={discount}
               isDiscountActive={isDiscountActive}
             />
+            <Description
+              description={description}
+            />
+            <hr></hr>
+            <SystemReq
+              sysReq={sysReq}
+            />
           </div>
           <div className={content.right}>
             <DescriptionCard
-              coverUrl={cover}
+              coverUrl={artworks[0]}
               description={shortDescription}
               releaseDate={releaseDate}
               developer={developer}
               publisher={publisher}
               genre={genre}
+            />
+            <LanguageGamemodeCard 
+              gamemode={gamemode}
+              languageSupport={languageSupport}
             />
           </div>
         </div>

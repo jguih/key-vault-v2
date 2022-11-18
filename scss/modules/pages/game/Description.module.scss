@@ -1,0 +1,54 @@
+@use '../../../custom' as custom;
+@use '../../../colors' as colors;
+
+.container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  font-size: 1rem; // Global font size
+
+  p {
+    color: colors.$kv-text-on-primary;
+    font-size: 1em;
+  }
+
+  h3 {
+    color: colors.$kv-text-on-primary;
+    font-weight: bold;
+    font-size: 1.8em;
+    margin-bottom: 24px;
+  }
+}
+
+.expand-container {
+  height: fit-content;
+}
+
+.collapse-container {
+  height: 200px;
+}
+
+.show-more-btn,
+.show-less-btn {
+  display: none;
+  width: 100%;
+
+  @include custom.btn(1em, colors.$kv-primary-800, colors.$kv-primary-700);
+  border-radius: 0;
+  box-shadow: 0px -24px 30px colors.$kv-primary-900;
+}
+
+.show-more-btn {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.show-less-btn {
+  display: none;
+}
+
+.display-btn {
+  display: block;
+}

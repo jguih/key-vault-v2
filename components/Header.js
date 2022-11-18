@@ -1,35 +1,49 @@
 import Link from 'next/link';
-import { Navbar, Container, Nav, Offcanvas, Button } from 'react-bootstrap';
+import { useState } from 'react';
+import { Container, Offcanvas, Button } from 'react-bootstrap';
 import header from '../scss/modules/Header.module.scss'
 
 export default function Header({ activeKey }) {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div className={header["nav-bar"]}>
       <Container className={header["nav-bar-container"]}>
-        <Link href={"/"}>
-          <div className={header.logo}>
-            <i className={"bi bi-safe me-1"}></i>
-            <span>KeyVault</span>
-          </div>
+        <Link href={"/"} className={header.logo}>
+          <i className={"bi bi-safe me-1"}></i>
+          <span>KeyVault</span>
         </Link>
         <nav className={`${header["nav-left"]}`}>
-          {["Loja", "Sobre", "Ajuda"].map((value, index) => {
-            return (
-              <Link
-                href={`/${value.toLowerCase() === "loja" ? "" : value.toLowerCase()}`}
-                key={index}
-              >
-                <div
-                  className={header["nav-link"] + " " + (activeKey === index ? header.active : "")}
-                >
-                  {value}
-                </div>
-              </Link>
-            );
-          })}
+          <Link
+            href={`/store`}
+            className={`${(activeKey === "/store" ? header.active : "")}`}
+          >
+            Loja
+          </Link>
+          <Link
+            href={`/about`}
+            className={`${(activeKey === "/about" ? header.active : "")}`}
+          >
+            Sobre
+          </Link>
+          <Link
+            href={`/help`}
+            className={`${(activeKey === "/help" ? header.active : "")}`}
+          >
+            Ajuda
+          </Link>
         </nav>
-        <nav>
-          <i className="bi bi-list"></i>
+        <div>
+          <Button
+            variant="kv-primary-800"
+            className={`${header["offcanvas-btn"]}`}
+            onClick={handleShow}
+          >
+            <i className="bi bi-list"></i>
+          </Button>
           <Button
             variant="kv-primary-800"
             className={`${header["btn"]} border`}
@@ -37,8 +51,61 @@ export default function Header({ activeKey }) {
           >
             Login
           </Button>
-        </nav>
+        </div>
       </Container>
+      <MyOffcanvas
+        show={show}
+        handleClose={handleClose}
+        activeKey={activeKey}
+      />
     </div>
+  );
+}
+
+function MyOffcanvas({ show, handleClose, activeKey }) {
+  return (
+    <>
+      <Offcanvas
+        show={show}
+        onHide={handleClose}
+        className={`${header.offcanvas}`}
+        placement="end"
+      >
+        <Offcanvas.Header className={`${header["offcanvas-header"]}`}>
+          <Offcanvas.Title className={`${header["offcanvas-title"]}`}>
+            <Link href={"/"} className={header.logo}>
+              <i className={"bi bi-safe me-1"}></i>
+              <span>KeyVault</span>
+            </Link>
+          </Offcanvas.Title>
+          <Button className={`${header["offcanvas-close-btn"]}`} onClick={handleClose}>
+            <i className="bi bi-x-lg"></i>
+          </Button>
+        </Offcanvas.Header>
+        <Offcanvas.Body className={`${header["offcanvas-body"]}`}>
+          <nav className={`${header["nav-left"]}`}>
+            <Link
+              href={`/store`}
+              className={`${(activeKey === "/store" ? header.active : "")}`}
+            >
+              Loja
+            </Link>
+            <Link
+              href={`/about`}
+              className={`${(activeKey === "/about" ? header.active : "")}`}
+            >
+              Sobre
+            </Link>
+            <Link
+              href={`/help`}
+              className={`${(activeKey === "/help" ? header.active : "")}`}
+            >
+              Ajuda
+            </Link>
+          </nav>
+          <hr></hr>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
   );
 }

@@ -1,5 +1,7 @@
-@use '../../../custom' as custom;
 @use '../../../colors' as colors;
+@use '../../../breakpoints' as breakpoints;
+
+$cards-gap: 16px;
 
 .container {
   display: grid;
@@ -8,10 +10,48 @@
   .left, .right {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: $cards-gap;
+  }
+
+  .left {
+    padding-right: calc($cards-gap/2);
   }
 
   .right {
-    padding-left: 6px;
+    padding-left: calc($cards-gap/2);
+  }
+
+  hr {
+    border: 2px solid colors.$kv-primary-800;
+    border-radius: 10px;
+    opacity: 1;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: breakpoints.$lg) {
+  .container {
+    grid-template-columns: 100%;
+    gap: $cards-gap;
+
+    .right {
+      padding-left: 0px;
+
+      display: grid;
+      grid-template-columns: 49% 49%;
+      gap: 2%;
+    }
+
+    .left {
+      padding-right: 0;
+    }
+  }
+}
+
+@media screen and (max-width: breakpoints.$sm) {
+  .container {
+    .right {
+      grid-template-columns: 100%;
+    }
   }
 }

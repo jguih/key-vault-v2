@@ -6,23 +6,25 @@ import SubHeader from '../components/SubHeader';
 
 export default function Home() {
   return (
-    <>
-      <Header activeKey={0} />
-      <SubHeader />
-      <Outdoor />
-      <Section
-        title="Adicionados Recentemente"
-        rows="1"
-      />
-      <Section
-        title="Promoção"
-        rows="2"
-      />
-      <Section
-        title="Mais Vendidos"
-        rows="1"
-      />
+    <div className="d-flex flex-column justify-content-between h-100">
+      <Header activeKey={"/store"} />
+      <div className="mb-auto pb-4 pt-4">
+        <SubHeader />
+        <Outdoor />
+        <Section
+          title="Adicionados Recentemente"
+          rows="1"
+        />
+        <Section
+          title="Promoção"
+          rows="2"
+        />
+        <Section
+          title="Mais Vendidos"
+          rows="1"
+        />
+      </div>
       <Footer/>
-    </>
+    </div>
   );
 }

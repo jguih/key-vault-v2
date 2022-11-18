@@ -8,21 +8,23 @@ import { useEffect, useState } from "react";
 
 export default function Game() {
   const router = useRouter();
-  const [ name, setName ] = useState();
+  const [name, setName] = useState();
 
   useEffect(() => {
     if (router.isReady) {
       setName(router.query.name.replaceAll("-", " "))
     }
   }, [router])
-  
+
   return (
-    <>
-      <Header activeKey={0} />
-      <SubHeader />
-      <Title name={name} />
-      <Content name={name} />
-      <Footer />
-    </>
+    <div className="d-flex flex-column justify-content-between h-100">
+      <Header activeKey="/store" />
+      <div className="mb-auto pb-4 pt-4">
+        <SubHeader />
+        <Title name={name} />
+        <Content name={name} />
+      </div>
+      <Footer/>
+    </div>
   );
 }

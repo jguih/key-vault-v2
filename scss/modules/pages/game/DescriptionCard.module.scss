@@ -1,47 +1,61 @@
 @use '../../../custom' as custom;
 @use '../../../colors' as colors;
+@use '../../../breakpoints' as breakpoints;
 
 .container {
   background-color: colors.$kv-primary-800;
   border-radius: custom.$img-border-radius;
-  padding: 6px;
+  padding: 12px;
 
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 16px;
+
+  font-size: 1rem; // Global font size
 
   hr {
-    border: 4px solid colors.$kv-primary-900;
+    border: 1px solid colors.$kv-primary-700;
+    margin: 0;
     border-radius: 10px;
     opacity: 1;
+  }
+
+  p {
+    text-align: start;
+    color: colors.$kv-text-on-primary;
+    font-size: 1em;
+    margin: 0;
+  }
+
+  h5 {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 16px;
   }
 }
 
 .img-wrapper {
-  position: relative;
-  padding-bottom: 50%;
+  background-color: colors.$kv-primary-700;
+  border-radius: custom.$img-border-radius;
 
   img {
-    position: absolute;
     width: 100%;
-    height: 100%;
     object-fit: cover;
     border-radius: custom.$img-border-radius;
   }
 }
 
-.text {
-  @include custom.default-text;
-  text-align: start;
-
-  p {
-    margin-bottom: 6px;
-  }
-}
-
 .badge {
   @include custom.badge(colors.$kv-primary-700);
+  font-size: 1em;
   margin-top: 4px;
-  font-weight: bold;
+  font-weight: 500;
   margin-right: 6px;
+}
+
+// 0 to 992px
+@media screen and (max-width: breakpoints.$lg) {
+  .container {
+    font-size: 0.9rem;
+  }
 }

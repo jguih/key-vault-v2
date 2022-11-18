@@ -1,0 +1,90 @@
+@use '../../../colors' as colors;
+@use '../../../custom' as custom;
+@use '../../../breakpoints' as breakpoints;
+
+.container {
+  font-size: 1rem; // Global font size
+
+  background-color: colors.$kv-primary-800;
+  border-radius: custom.$img-border-radius;
+  padding: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@mixin title {
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 0;
+  padding-bottom: 6px;
+  color: colors.$kv-text-on-primary;
+}
+
+.gamemode-container {
+  h3 {
+    @include title;
+  }
+
+  p {
+    font-size: 1.2em;
+    color: colors.$kv-text-on-primary;
+    margin: 0;
+  }
+}
+
+$icons-gap: 24px;
+$icons-font-size: 1.4em;
+
+.language-support-container {
+  h3 {
+    @include title;
+  }
+
+  hr {
+    border: 1px solid colors.$kv-primary-700;
+    margin: 0;
+    border-radius: 10px;
+    opacity: 1;
+  }
+}
+
+.legend-container,
+.language-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.legend,
+.language {
+  font-size: $icons-font-size;
+
+  display: flex;
+  flex-direction: row;
+  gap: $icons-gap;
+}
+
+.language-container {
+  p {
+    margin: 0;
+    font-size: 1.2em;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// Used for invisible icons
+.invisible {
+  visibility: hidden;
+}
+
+// 0 to 992px
+@media screen and (max-width: breakpoints.$lg) {
+  .container {
+    font-size: 0.9rem;
+  }
+}

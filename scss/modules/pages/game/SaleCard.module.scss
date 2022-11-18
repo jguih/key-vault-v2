@@ -1,33 +1,47 @@
 @use '../../../custom' as custom;
 @use '../../../colors' as colors;
+@use '../../../breakpoints' as breakpoints;
 
 .container {
   background-color: colors.$kv-primary-800;
   border-radius: custom.$img-border-radius;
 
   display: grid;
-  grid-template-columns: 14% 66% 20%;
+  grid-template-columns: 14% 58% 28%;
+  
+  font-size: 1rem; // Global font-size
 
-  .img-wrapper {
+  .img-wrapper { 
+    background-color: colors.$kv-primary-700;
+    border-radius: custom.$img-border-radius;
     position: relative;
   }
 
   img {
     position: absolute;
-    width: 100%;
     height: 100%;
+    width: 100%;
     left: 0;
     bottom: 0;
-    border-radius: custom.$img-border-radius;
     object-fit: cover;
+    border-radius: custom.$img-border-radius;
   }
+}
+
+.sale-info-container {
+  font-size: 1em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px;
 
   h3 {
-    font-size: 1.6rem;
+    font-size: 1.6em;
     font-weight: bold;
-    height: 2rem;
     margin: 0;
-
+    padding-bottom: 8px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -35,57 +49,52 @@
 
   p {
     margin: 0;
+    font-size: 1.2em;
+    line-height: 1.1;
   }
 }
 
-.sale-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 16px;
-}
-
-.activation {
-  font-size: 1.2rem;
-  line-height: 1.1;
+.game-version {
+  @include custom.badge(colors.$kv-primary-700);
+  font-size: 1.2em;
+  font-weight: bold;
+  width: fit-content;
 }
 
 .bold-500 {
   font-weight: 500;
 }
 
-.button {
-  @include custom.buy-btn;
-  width: 100%;
-}
+.price-btn-container {
+  font-size: 1em;
 
-.game-version {
-  @include custom.badge(colors.$kv-primary-700);
-  font-size: 1.2rem;
-  font-weight: bold;
-  width: fit-content;
-}
-
-.price-btn {
   align-self: center;
-  padding-right: 16px;
+  padding: 12px;
+}
+
+.button {
+  @include custom.btn($font-size: 1.2em, $bg-color: colors.$kv-green, $bg-color-hover: colors.$kv-dark-green);
+  width: 100%;
+  margin-top: 6px;
 }
 
 // Price section --
 .price-container {
+  font-size: 1em;
+
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  font-size: 1.2rem;
   gap: 2px;
+
   color: colors.$kv-text-on-primary;
 }
 
 .discount {
   @include custom.badge(colors.$kv-green);
   font-weight: bold;
+  font-size: 1.2em;
   align-self: stretch;
 
   display: flex;
@@ -94,7 +103,7 @@
 }
 
 .old-price {
-  font-size: 1rem;
+  font-size: 1em;
   text-decoration: line-through;
   margin: 0 5px;
 }
@@ -104,6 +113,7 @@
   @include custom.badge(colors.$kv-primary-700);
   text-align: center;
   font-weight: bold;
+  font-size: 1.2em;
   flex-grow: 0;
 }
 
@@ -112,3 +122,52 @@
   flex-direction: column;
 }
 // -------
+
+// 1200px to 1400px
+@media screen and (min-width: breakpoints.$xl) and (max-width: breakpoints.$xxl) {
+  .container {
+    grid-template-columns: 15% 58% 27%;
+
+    font-size: 0.9rem;
+  }
+}
+
+// 768px to 1200px
+@media screen and (min-width: breakpoints.$md) and (max-width: breakpoints.$xl) {
+  .container {
+    grid-template-columns: 20% 53% 27%;
+
+    font-size: 0.9rem;
+  }
+
+  .sale-info-container {
+    gap: 12px;
+  }
+}
+
+// 576px to 768px
+@media screen and (min-width: breakpoints.$sm) and (max-width: breakpoints.$md) {
+  .container {
+    grid-template-columns: 24% 44% 32%;
+
+    font-size: 0.8rem;
+  }
+}
+
+// 0px to 576px
+@media screen and (max-width: breakpoints.$sm) {
+  .container {
+    grid-template-columns: 100%;
+
+    font-size: 0.8rem;
+
+    img {
+      display: none;
+    }
+  }
+
+  .sale-info-container {
+    padding: 16px 16px 0 16px;
+    gap: 8px;
+  }
+}
