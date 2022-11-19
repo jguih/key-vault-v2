@@ -68,7 +68,7 @@ function MyResponsiveDropDown({ activeKey }) {
         <span>Navegar</span>
       </Dropdown.Toggle>
       <Dropdown.Menu className={`${subHeader["dropdown-menu"]}`}>
-        <Dropdown.Item className={`${subHeader["dropdown-item"]}`}>
+        <Dropdown.Item className={`${subHeader["dropdown-item"]}`} as="div">
           <Link
             href={`/genres`}
             target="_blank"
@@ -77,7 +77,7 @@ function MyResponsiveDropDown({ activeKey }) {
             Categorias
           </Link>
         </Dropdown.Item>
-        <Dropdown.Item className={`${subHeader["dropdown-item"]}`}>
+        <Dropdown.Item className={`${subHeader["dropdown-item"]}`} as="div">
           <Link
             href={`/discounted`}
             target="_blank"
@@ -86,7 +86,7 @@ function MyResponsiveDropDown({ activeKey }) {
             Promoções
           </Link>
         </Dropdown.Item>
-        <Dropdown.Item className={`${subHeader["dropdown-item"]}`}>
+        <Dropdown.Item className={`${subHeader["dropdown-item"]}`} as="div">
           <Link
             href={`/recently-added`}
             target="_blank"

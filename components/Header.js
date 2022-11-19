@@ -18,8 +18,8 @@ export default function Header({ activeKey }) {
         </Link>
         <nav className={`${header["nav-left"]}`}>
           <Link
-            href={`/store`}
-            className={`${(activeKey === "/store" ? header.active : "")}`}
+            href={`/`}
+            className={`${(activeKey === "/" ? header.active : "")}`}
           >
             Loja
           </Link>
@@ -85,8 +85,8 @@ function MyOffcanvas({ show, handleClose, activeKey }) {
         <Offcanvas.Body className={`${header["offcanvas-body"]}`}>
           <nav className={`${header["nav-left"]}`}>
             <Link
-              href={`/store`}
-              className={`${(activeKey === "/store" ? header.active : "")}`}
+              href={`/`}
+              className={`${(activeKey === "/" ? header.active : "")}`}
             >
               Loja
             </Link>
