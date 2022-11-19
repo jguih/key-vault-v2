@@ -1,8 +1,8 @@
 import gallery from "../../../scss/modules/pages/game/Gallery.module.scss";
-import { Image } from "react-bootstrap";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export default function Gallery({ screenshots }) {
+export default function Gallery({ screenshots, alt }) {
   const [currentImg, setCurrentImg] = useState();
   const [sliderImg, setSliderImg] = useState();
 
@@ -15,7 +15,19 @@ export default function Gallery({ screenshots }) {
             <div className={gallery["slider-img"]} key={index}>
               <Image
                 src={screenshot}
-                onClick={() => setCurrentImg(<Image src={screenshot} />)}
+                fill
+                priority
+                alt={alt}
+                sizes="25vw"
+                onClick={() => setCurrentImg(
+                  <Image
+                    src={screenshot}
+                    fill priority
+                    alt={alt}
+                    sizes="(max-width: 576px) 100vw
+                            50vw"
+                  />
+                )}
               />
             </div>
           );
@@ -25,6 +37,11 @@ export default function Gallery({ screenshots }) {
       setCurrentImg(
         <Image
           src={screenshots[0]}
+          fill
+          priority
+          alt={alt}
+          sizes="(max-width: 576px) 100vw
+                  50vw"
         />
       )
     }
@@ -32,7 +49,7 @@ export default function Gallery({ screenshots }) {
 
   return (
     <div className={gallery.container}>
-      <div className={gallery["gallery-img"]}>
+      <div className={gallery["current-img"]}>
         {currentImg}
       </div>
       <div className={gallery.slider}>

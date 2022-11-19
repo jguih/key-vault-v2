@@ -1,0 +1,10 @@
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  row-gap: 16px;
+}
+
+.card-wrapper {
+  padding: 0 8px;
+}

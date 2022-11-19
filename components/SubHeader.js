@@ -47,17 +47,25 @@ function MyDropdown() {
 
 function MySearchBar() {
   return (
-    <InputGroup className={`${subHeader["input-group"]}`}>
-      <Form.Control className={`${subHeader["form-control"]}`}
-        type="text"
-        placeholder="Buscar"
-      />
-      <InputGroup.Text className={`${subHeader["input-group-text"]} p-0`}>
-        <Button className={`${subHeader["button"]}`} variant={""}>
-          <i className={`bi bi-search`}></i>
-        </Button>
-      </InputGroup.Text>
-    </InputGroup>
+    <form action='/search'>
+      <InputGroup className={`${subHeader["input-group"]}`}>
+        <Form.Control
+          className={`${subHeader["form-control"]}`}
+          type="text"
+          placeholder="Buscar"
+          name="entry"
+        />
+        <InputGroup.Text className={`${subHeader["input-group-text"]} p-0`}>
+          <Button
+            className={`${subHeader["button"]}`}
+            variant={""}
+            type="submit"
+          >
+            <i className={`bi bi-search`}></i>
+          </Button>
+        </InputGroup.Text>
+      </InputGroup>
+    </form>
   );
 }
 

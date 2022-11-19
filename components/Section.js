@@ -3,7 +3,7 @@ import section from "../scss/modules/Section.module.scss";
 import GameCard from "./GameCard";
 import Link from "next/link";
 import useGame from "../hooks/useGame";
-import { getPlatformsIcons } from "../global";
+import { createGameCard } from "../global";
 
 function getClass(index) {
   if (index >= 4) {
@@ -15,24 +15,14 @@ function getClass(index) {
   }
 }
 
-function createGameCard(game, index, rows) {
+function getGameCards(game, index, rows) {
   if (index < rows * 5) {
     return (
       <div
         className={getClass(index)}
         key={index}
       >
-        <Link href={`/game/${(game.name.toLowerCase().replaceAll(" ", "-"))}`}>
-          <GameCard
-            key={game.name + " " + game.id}
-            name={game.name}
-            price={game.price}
-            discount={game.discount}
-            isDiscountActive={game.isDiscountActive}
-            platforms={getPlatformsIcons(game.platforms)}
-            imgUrl={game.imgUrl.cover}
-          />
-        </Link>
+        {createGameCard(game)}
       </div>
     );
   }
@@ -48,14 +38,14 @@ export default function Section({ title, rows }) {
       </Container>
     );
   }
-  
+
   if (isError) {
     return (
       <Container>
         <Alert variant="danger">Failed to load</Alert>
       </Container>
     );
-  } 
+  }
 
   if (games) {
     return (
@@ -69,7 +59,7 @@ export default function Section({ title, rows }) {
           </div>
           <hr />
           <div className={section.content}>
-            {games.map((game, index) => createGameCard(game, index, rows))}
+            {games.map((game, index) => getGameCards(game, index, rows))}
           </div>
         </div>
       </Container>

@@ -56,7 +56,7 @@ export default function Content({ name }) {
       <Container className="mt-4 mb-4">
         <div className={content.container}>
           <div className={content.left}>
-            <Gallery screenshots={screenshots.concat(artworks)} />
+            <Gallery screenshots={screenshots.concat(artworks)} alt={name + " image"} />
             <SaleCard
               coverUrl={cover}
               title={name}
@@ -80,6 +80,7 @@ export default function Content({ name }) {
               developer={developer}
               publisher={publisher}
               genre={genre}
+              alt={name + " image"}
             />
             <LanguageGamemodeCard 
               gamemode={gamemode}
