@@ -1,7 +1,6 @@
 import card from '../scss/modules/GameCard.module.scss'
 import { Image } from 'react-bootstrap';
 import { brlCurrencyFormatter } from '../global';
-//import PriceContainer from '../components/price-container/PriceContainer';
 
 export default function GameCard({ name, imgUrl, platforms, price, discount, isDiscountActive }) {
   return (

@@ -1,3 +1,4 @@
+@use '../../../colors' as colors;
 
 .games-grid {
   display: grid;
@@ -7,4 +8,9 @@
 
 .card-wrapper {
   padding: 0 8px;
+
+  a {
+    text-decoration: none;
+    color: colors.$kv-text-on-primary;
+  }
 }

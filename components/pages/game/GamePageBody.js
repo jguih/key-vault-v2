@@ -1,5 +1,5 @@
 import Gallery from "./Gallery";
-import content from "../../../scss/modules/pages/game/Content.module.scss"
+import gpBodyStyles from "../../../scss/modules/pages/game/GamePageBody.module.scss"
 import { Container, Alert } from "react-bootstrap";
 import useGameByName from "../../../hooks/useGameByName";
 import DescriptionCard from "./DescriptionCard";
@@ -7,6 +7,8 @@ import SaleCard from "./SaleCard";
 import Description from "./Description";
 import SystemReq from "./SystemReq";
 import LanguageGamemodeCard from "./LanguageGamemodeCard";
+import SubHeader from "../../SubHeader";
+import Title from "./Title";
 
 export default function Content({ name }) {
   const { currentGame, isLoading, isError } = useGameByName(name);
@@ -18,14 +20,14 @@ export default function Content({ name }) {
       </Container>
     );
   }
-  
+
   if (isError) {
     return (
       <Container>
         <Alert variant="danger">Failed to load</Alert>
       </Container>
     );
-  } 
+  }
 
   if (currentGame) {
     const screenshots = currentGame.imgUrl.screenshot;
@@ -51,11 +53,17 @@ export default function Content({ name }) {
     const sysReq = currentGame.sysReq;
     const gamemode = currentGame.gamemode;
     const languageSupport = currentGame.languageSupport;
+    const platforms = currentGame.platforms;
 
     return (
       <Container className="mt-4 mb-4">
-        <div className={content.container}>
-          <div className={content.left}>
+        <SubHeader />
+        <Title
+          title={name}
+          platforms={platforms}
+        />
+        <div className={gpBodyStyles.container}>
+          <div className={gpBodyStyles.left}>
             <Gallery screenshots={screenshots.concat(artworks)} alt={name + " image"} />
             <SaleCard
               coverUrl={cover}
@@ -72,7 +80,7 @@ export default function Content({ name }) {
               sysReq={sysReq}
             />
           </div>
-          <div className={content.right}>
+          <div className={gpBodyStyles.right}>
             <DescriptionCard
               coverUrl={artworks[0]}
               description={shortDescription}
@@ -82,7 +90,7 @@ export default function Content({ name }) {
               genre={genre}
               alt={name + " image"}
             />
-            <LanguageGamemodeCard 
+            <LanguageGamemodeCard
               gamemode={gamemode}
               languageSupport={languageSupport}
             />

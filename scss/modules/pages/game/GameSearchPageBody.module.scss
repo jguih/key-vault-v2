@@ -1,0 +1,59 @@
+@use '../../../colors' as colors;
+@use '../../../breakpoints' as breakpoints;
+@use '../../../custom' as custom;
+
+.top-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 1rem;
+}
+
+.results {
+  font-size: 1.6em;
+}
+
+.content-container {
+  display: grid;
+  grid-template-columns: 25% 75%;
+}
+
+// Search bar
+.input-group {
+  width: fit-content;
+  border-radius: 10px;
+  margin-left: auto;
+  @include custom.shadow;
+
+  &:hover {
+    box-shadow: 0px 0px 10px colors.$kv-primary-800;
+  }
+
+  &:focus-within {
+    box-shadow: 0px 0px 10px colors.$kv-primary-500;
+  }
+}
+
+.form-control {
+  background-color: colors.$kv-primary-800 !important;
+  border: none !important;
+  color: colors.$kv-text-on-primary !important;
+
+  font-size: 1.2em !important;
+
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
+.input-group-text {
+  border: none !important;
+  background-color: colors.$kv-primary-800 !important;
+}
+
+.button {
+  color: colors.$kv-text-on-primary !important;
+  border: none !important;
+}

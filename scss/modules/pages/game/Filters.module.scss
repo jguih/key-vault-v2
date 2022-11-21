@@ -1,0 +1,39 @@
+@use '../../../colors' as colors;
+@use '../../../custom' as custom;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.accordion {
+  font-size: 1rem;
+}
+
+.accordion-header {
+  background-color: colors.$kv-primary-900 !important;
+  border: none !important;
+  margin-bottom: 2px;
+  padding: 0px;
+  opacity: 0.8;
+
+  font-size: 1.2em;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.accordion-body {
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: inherit;
+
+  font-size: 1.2em;
+}
+
+.show-body {
+  height: auto;
+}

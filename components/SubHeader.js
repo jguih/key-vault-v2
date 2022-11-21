@@ -11,14 +11,20 @@ export default function SubHeader({ activeKey }) {
         <MyDropdown />
         <nav>
           <Link
-            href={`/discounted`}
+            href={{
+              pathname: "/game",
+              query: { discounted: true }
+            }}
             target="_blank"
             className={`${(activeKey === 0 ? subHeader.active : "")}`}
           >
             Promoções
           </Link>
           <Link
-            href={`/recently-added`}
+            href={{
+              pathname: "/game",
+              query: { releaseStatus: "new-releases" }
+            }}
             target="_blank"
             className={`${(activeKey === 1 ? subHeader.active : "")}`}
           >
@@ -37,9 +43,19 @@ function MyDropdown() {
         <span>Categorias</span>
       </Dropdown.Toggle>
       <Dropdown.Menu className={`${subHeader["dropdown-menu"]}`}>
-        <Dropdown.Item className={`${subHeader["dropdown-item"]}`}>
-          <span>Genre 1</span>
-        </Dropdown.Item>
+        <Link
+          href={{
+            pathname: "/game",
+            query: { genre: "genre1" }
+          }}
+        >
+          <Dropdown.Item
+            className={`${subHeader["dropdown-item"]}`}
+            as="span"
+          >
+            Genre 1
+          </Dropdown.Item>
+        </Link>
       </Dropdown.Menu>
     </Dropdown>
   );
@@ -47,7 +63,7 @@ function MyDropdown() {
 
 function MySearchBar() {
   return (
-    <form action='/search'>
+    <form action='/game'>
       <InputGroup className={`${subHeader["input-group"]}`}>
         <Form.Control
           className={`${subHeader["form-control"]}`}
