@@ -1,5 +1,5 @@
-import { createGameCard } from '../../../global';
-import gamesGridStyles from "../../../scss/modules/pages/game/GamesGrid.module.scss"
+import { createGameCard } from '../../../../global';
+import gamesGridStyles from "../../../../scss/modules/pages/game/search/GamesGrid.module.scss"
 
 function getGameCard(game, index) {
   return (

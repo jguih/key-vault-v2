@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "RPG"
+  },
+  {
+    "id": 2,
+    "name": "FPS"
+  },
+  {
+    "id": 3,
+    "name": "Shooter"
+  },
+  {
+    "id": 4,
+    "name": "Looter"
+  },
+  {
+    "id": 5,
+    "name": "Open World"
+  },
+  {
+    "id": 6,
+    "name": "Action"
+  }
+]

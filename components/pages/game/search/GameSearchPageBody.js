@@ -1,37 +1,30 @@
 import { Button, Container, Form, InputGroup } from "react-bootstrap";
 import GamesGrid from "./GamesGrid";
-import bodyStyles from "../../../scss/modules/pages/game/GameSearchPageBody.module.scss";
+import bodyStyles from "../../../../scss/modules/pages/game/search/GameSearchPageBody.module.scss";
 import { useEffect, useState } from "react";
-import useGameByNameContains from '../../../hooks/useGameByNameContains';
+import useGameByNameContains from '../../../../hooks/useGameByNameContains';
 import Filters from "./Filters";
 import { useRouter } from "next/router";
-
-function ArrToMap(Arr) {
-  console.log(Arr)
-  const map = new Map();
-  if (Arr) {
-    Arr.forEach((value) => {
-      if (value) {
-        map.set(value, true);
-      }
-    })
-  };
-  return map;
-}
 
 export default function GameSearchBody() {
   const router = useRouter();
   const [entry, setEntry] = useState();
-  const [genres, setGenres] = useState();
   const { games, isLoading, isError } = useGameByNameContains(entry);
+  // FilteredGames is controlled by the Filter component!
+  // 'games' will be used as a fallback to FilteredGames
+  const [filteredGames, setFilteredGames] = useState();
 
   useEffect(() => {
     if (router.isReady) {
-      console.log("router ready");
+      // Gets initial data from the URL
+      // Initial entry
       setEntry(router.query.entry);
-      setGenres(ArrToMap(router.query.genres ? router.query.genres.split(".") : [""]));
     }
   }, [router])
+
+  useEffect(() => {
+    console.log(filteredGames)
+  }, [filteredGames])
 
   const mySearchBar = {
     handleOnChange: function (e) {
@@ -39,47 +32,30 @@ export default function GameSearchBody() {
     },
     handleOnSubmit: function (e) {
       e.preventDefault();
-      push();
     }
   }
 
-  const filter = {
-    handleOnChange: function (genre, value) {
-      const _genres = new Map(genres);
-      _genres.set(genre, value);
-      setGenres(_genres);
+  function getResults() {
+    if (filteredGames) {
+      return filteredGames.length > 1 ? `${filteredGames.length} Resultados` :
+        filteredGames.length === 0 ? `${filteredGames.length} Resultados` :
+          `${filteredGames.length} Resultado`;
+    } else if (games) {
+      return games.length > 1 ? `${games.length} Resultados` :
+        games.length === 0 ? `${games.length} Resultados` :
+          `${games.length} Resultado`;
     }
   }
-
-  function push() {
-    let _genres = [];
-
-    genres.forEach((value, key) => {
-      if (value === true) {
-        _genres.push(key);
-      }
-    });
-
-    router.push({
-      pathname: "/game",
-      query: {
-        entry,
-        genres: _genres.join(".")
-      }
-    });
-  };
 
   if (games) {
     return (
       <Container className={`mt-4 mb-4`}>
         <div className={`${bodyStyles["top-section"]}`}>
           <span className={`${bodyStyles["results"]}`}>
-            {games.length > 1 ? `${games.length} Resultados` :
-              games.length === 0 ? `${games.length} Resultados` :
-                `${games.length} Resultado`}
+            {getResults()}
           </span>
           <MySearchBar
-            defaultValue={entry}
+            value={entry}
             onSubmit={(e) => mySearchBar.handleOnSubmit(e)}
             onChange={(e) => mySearchBar.handleOnChange(e)}
           />
@@ -87,11 +63,11 @@ export default function GameSearchBody() {
         <hr />
         <div className={`${bodyStyles["content-container"]}`}>
           <Filters
-            genres={["RPG", "FPS", "Action", "Adventure"]}
-            onChange={filter.handleOnChange}
+            games={games}
+            onFilter={setFilteredGames}
           />
           <GamesGrid
-            games={games}
+            games={filteredGames ? filteredGames : games}
           />
         </div>
       </Container>
@@ -99,7 +75,7 @@ export default function GameSearchBody() {
   }
 }
 
-function MySearchBar({ defaultValue, onSubmit, onChange }) {
+function MySearchBar({ value, onSubmit, onChange }) {
   return (
     <form action="/game" onSubmit={onSubmit}>
       <InputGroup className={`${bodyStyles["input-group"]}`}>
@@ -108,7 +84,7 @@ function MySearchBar({ defaultValue, onSubmit, onChange }) {
           type="text"
           placeholder="Buscar"
           name="entry"
-          defaultValue={defaultValue}
+          value={value || ""}
           onChange={(e) => onChange(e)}
         />
         <InputGroup.Text className={`${bodyStyles["input-group-text"]} p-0`}>
