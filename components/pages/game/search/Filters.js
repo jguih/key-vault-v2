@@ -21,16 +21,8 @@ export default function Filters({ games, onFilter }) {
 
   useEffect(() => {
     if (genresFilterMap) {
-      // Decides if games will be filtered based on genre
-      let filter = false;
-      const genresArr = Array.from(genresFilterMap);
-      genresArr.forEach(genre => {
-        // If there's any true value inside genresArr games will be filtered
-        if (genre[1]) {
-          filter = true;
-          return;
-        }
-      });
+
+      const [filter, genresArr] = shouldFilterByGenre();
 
       if (filter) {
         // Gets an array of current checked genres
@@ -42,10 +34,9 @@ export default function Filters({ games, onFilter }) {
         });
 
         const filteredGames = games.filter((game) => {
+          const gameGenres = game.genre.map((gameGenre) => gameGenre.toLowerCase());
           // Return true if every genresNameArr genre is included in gameGenres
           return genresNameArr.every((genreName) => {
-            // Get lower case game genres
-            const gameGenres = game.genre.map((gameGenre) => gameGenre.toLowerCase());
             // Return true if genresNameArr genre is included in gameGenres
             return gameGenres.includes(genreName);
           })
@@ -63,7 +54,7 @@ export default function Filters({ games, onFilter }) {
       const _genres = new Map(genresFilterMap);
       _genres.set(genre, checked);
       setGenresFilterMap(_genres);
-    }
+    },
   };
 
   if (genres) {
@@ -86,8 +77,38 @@ export default function Filters({ games, onFilter }) {
             })}
           </form>
         </Accordion>
+        <Accordion title="Modos de Jogo">
+
+        </Accordion>
+        <Accordion title="Plataformas">
+
+        </Accordion>
+        <Accordion title="Preço">
+
+        </Accordion>
+        <Accordion title="Data de Lançamento">
+
+        </Accordion>
+        <Accordion title="Idiomas">
+
+        </Accordion>
       </div>
     );
+  }
+
+  function shouldFilterByGenre() {
+    let filter = false;
+
+    const genresArr = Array.from(genresFilterMap);
+    genresArr.forEach(genre => {
+      // If there's any true value inside genresArr games will be filtered
+      if (genre[1]) {
+        filter = true;
+        return;
+      }
+    });
+
+    return [filter, genresArr];
   }
 }
 

@@ -22,5 +22,21 @@
   {
     "id": 6,
     "name": "Action"
+  },
+  {
+    "id": 7,
+    "name": "Arcade"
+  },
+  {
+    "id": 8,
+    "name": "Racing"
+  },
+  {
+    "id": 9,
+    "name": "Indie"
+  },
+  {
+    "id": 10,
+    "name": "Comedy"
   }
 ]
