@@ -1,6 +1,8 @@
 @use '../../../../colors' as colors;
 
 .games-grid {
+  width: 78%;
+  
   display: grid;
   grid-template-columns: repeat(4, 25%);
   row-gap: 16px;

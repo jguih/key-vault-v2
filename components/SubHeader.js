@@ -1,12 +1,33 @@
 import { Container, Dropdown, InputGroup, Form, Button } from 'react-bootstrap';
 import subHeader from "../scss/modules/SubHeader.module.scss"
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function SubHeader({ activeKey }) {
+  const router = useRouter();
+
+  function handleOnSubmit(e) {
+    e.preventDefault();
+
+    let myQuery = { ...router.query };
+    if (e.target.querySelector("input").value) {
+      myQuery = {
+        entry: e.target.querySelector("input").value
+      }
+    } else {
+      delete myQuery.entry;
+    }
+
+    router.push({
+      pathname: "/game",
+      query: myQuery
+    })
+  }
+
   return (
     <div className={subHeader["main-container"] + " sticky-top"}>
       <Container className={subHeader.container}>
-        <MySearchBar />
+        <MySearchBar onSubmit={handleOnSubmit}/>
         <MyResponsiveDropDown activeKey={activeKey} />
         <MyDropdown />
         <nav>
@@ -61,15 +82,14 @@ function MyDropdown() {
   );
 }
 
-function MySearchBar() {
+function MySearchBar({ onSubmit }) {
   return (
-    <form action='/game'>
+    <form onSubmit={onSubmit}>
       <InputGroup className={`${subHeader["input-group"]}`}>
         <Form.Control
           className={`${subHeader["form-control"]}`}
           type="text"
           placeholder="Buscar"
-          name="entry"
         />
         <InputGroup.Text className={`${subHeader["input-group-text"]} p-0`}>
           <Button

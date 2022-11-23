@@ -20,9 +20,12 @@ export default function GameSearchBody() {
       clearTimeout(this.timeout);
 
       this.timeout = setTimeout(() => {
-        const myQuery = {
-          ...router.query,
-          entry: e.target.value
+        
+        let myQuery = { ...router.query };
+        if (e.target.value) {
+          myQuery.entry = e.target.value;
+        } else {
+          delete myQuery.entry;
         }
   
         router.push({
@@ -33,10 +36,12 @@ export default function GameSearchBody() {
     },
     handleOnSubmit: function (e) {
       e.preventDefault();
-
-      const myQuery = {
-        ...router.query,
-        entry: e.target.querySelector("input").value.toString()
+      
+      let myQuery = { ...router.query };
+      if (e.target.querySelector("input").value) {
+        myQuery.entry = e.target.querySelector("input").value;
+      } else {
+        delete myQuery.entry;
       }
 
       router.push({
@@ -88,7 +93,7 @@ export default function GameSearchBody() {
 
 function MySearchBar({ defaultValue, onSubmit, onChange }) {
   return (
-    <form action="/game" onSubmit={onSubmit}>
+    <form onSubmit={onSubmit}>
       <InputGroup className={`${bodyStyles["input-group"]}`}>
         <Form.Control
           className={`${bodyStyles["form-control"]}`}

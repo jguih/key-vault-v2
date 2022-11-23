@@ -12,7 +12,7 @@ function getGameCard(game, index) {
 export default function GamesGrid({ games }) {
   if (games) {
     return (
-      <div className={`${gamesGridStyles["games-grid"]} mt-4`}>
+      <div className={`${gamesGridStyles["games-grid"]}`}>
         {games.map((game, index) => getGameCard(game, index))}
       </div>
     );

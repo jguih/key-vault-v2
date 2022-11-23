@@ -7,29 +7,38 @@ import filterStyles from "../../../../scss/modules/pages/game/search/Filters.mod
 export default function Filters({ games, onFilter }) {
   const router = useRouter();
   const [checkedGenres, setCheckedGenres] = useState([]);
+  const [checkedDiscount, setCheckedDiscount] = useState();
   const { genres, isLoading, isError } = useGenre();
 
   useEffect(() => {
     let filteredGames = games;
     if (router.isReady) {
-
+      // Filter by genre
       if (router.query.genres) {
+        // Get genres from URL
         const genresArr = router.query.genres.split(".")
           .map(genre => genre.toLowerCase());
 
         setCheckedGenres(genresArr);
-        console.log(router.query.genres)
 
         filteredGames = filteredGames.filter((game) => {
           const gameGenres = game.genre.map((gameGenre) => gameGenre.toLowerCase());
-          // Return true if every genresNameArr genre is included in gameGenres
+          // Return true if every genresArr genre is included in gameGenres
           return genresArr.every((genreName) => {
-            // Return true if genresNameArr genre is included in gameGenres
+            // Return true if genresArr genre is included in gameGenres
             return gameGenres.includes(genreName);
           })
         });
-
       }
+      // Filter by discount
+      if (router.query.discounted) {
+        setCheckedDiscount(true);
+
+        filteredGames = filteredGames.filter((game) => {
+          return game.isDiscountActive;
+        });
+      }
+
       onFilter(filteredGames);
     }
   }, [router, games]);
@@ -38,29 +47,21 @@ export default function Filters({ games, onFilter }) {
     onChangeGenre: function (genre, checked) {
       const genreName = genre.name.toLowerCase();
 
-      let myQuery;
+      let myQuery = { ...router.query };
       if (checked) {
         // Adding genre to URL
         if (router.query.genres) {
-          myQuery = {
-            ...router.query,
-            genres: router.query.genres + "." + genreName
-          }
+          myQuery.genres = router.query.genres + "." + genreName;
         } else {
-          myQuery = {
-            ...router.query,
-            genres: genreName
-          }
+          myQuery.genres = genreName;
         }
       } else {
         // Removing genre from URL
-        let genresArr = router.query.genres.split(".");
-        genresArr = genresArr.map((genre) => genre.toLowerCase());
-        const newGenres = genresArr.filter((genre) => genre !== genreName);
-
-        myQuery = {
-          ...router.query,
-          genres: newGenres.join(".")
+        const newGenres = checkedGenres.filter((genre) => genre !== genreName);
+        if (newGenres.length > 0) {
+          myQuery.genres = newGenres.join(".");
+        } else {
+          delete myQuery.genres;
         }
       }
       router.push({
@@ -71,17 +72,44 @@ export default function Filters({ games, onFilter }) {
     getCheckedGenre: function (genre) {
       const genreName = genre.name.toLowerCase();
       return checkedGenres ? checkedGenres.includes(genreName) : false;
+    },
+    onChangeDiscounted: function (checked) {
+      let myQuery = { ...router.query };
+      if (checked) {
+        // Adding 'discounted=true' to URL
+        myQuery = {
+          ...router.query,
+          discounted: true
+        }
+      } else {
+        // Removing 'discounted=true' from URL
+        delete myQuery.discounted;
+      }
+      router.push({
+        pathname: "/game",
+        query: myQuery
+      })
     }
   };
 
   if (genres) {
     return (
       <div className={`${filterStyles.container}`}>
+        <form>
+          <Form.Check
+            className={`${filterStyles.checkbox}`}
+            type="checkbox"
+            label="Promoção"
+            onChange={(e) => filter.onChangeDiscounted(e.target.checked)}
+            defaultChecked={checkedDiscount}
+          />
+        </form>
         <Accordion title="Categorias">
           <form>
             {genres.map((genre, index) => {
               return (
                 <Form.Check
+                  className={`${filterStyles.checkbox}`}
                   type="checkbox"
                   label={genre.name}
                   onChange={(e) => filter.onChangeGenre(genre, e.target.checked)}
@@ -115,6 +143,7 @@ export default function Filters({ games, onFilter }) {
 function Accordion({ title, children }) {
   const [chevron, setChevron] = useState("right");
   const accordionBodyRef = React.createRef();
+  const headerRef = React.createRef();
 
   function handleOnClick() {
     // Toggle accordion body visibility
@@ -127,6 +156,8 @@ function Accordion({ title, children }) {
     } else {
       setChevron("right")
     }
+
+    headerRef.current.classList.toggle(filterStyles.active);
   }
 
   return (
@@ -134,6 +165,7 @@ function Accordion({ title, children }) {
       <Button
         className={`${filterStyles["accordion-header"]}`}
         onClick={handleOnClick}
+        ref={headerRef}
       ><i className={`bi bi-chevron-${chevron}`}></i> {title}</Button>
       <div
         className={`${filterStyles["accordion-body"]}`}

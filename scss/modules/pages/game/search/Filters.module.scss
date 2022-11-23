@@ -2,6 +2,7 @@
 @use '../../../../custom' as custom;
 
 .container {
+  width: 22%;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -23,6 +24,10 @@
   &:hover {
     opacity: 1;
   }
+
+  &.active {
+    opacity: 1;
+  }
 }
 
 .accordion-body {
@@ -31,9 +36,18 @@
   border-radius: 10px;
   background-color: inherit;
 
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .show-body {
   height: auto;
+}
+
+.checkbox {
+  color: colors.$kv-text-on-primary !important;
+  font-size: 1.1em;
+
+  input {
+    background-color: colors.$kv-primary-800 !important;
+  }
 }
