@@ -23,6 +23,7 @@ export const brlCurrencyFormatter =
     minimumFractionDigits: 2,
   });
 
+// Creates a game card from game object
 export function createGameCard(game) {
   return (
     <Link href={`/game/${(game.name.toLowerCase().replaceAll(" ", "-"))}`} key={game.id}>

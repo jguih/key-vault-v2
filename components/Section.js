@@ -23,14 +23,17 @@ function getGameCards(game, index) {
   );
 }
 
-export default function Section({ title, games }) {
+export default function Section({ title, games, onClick }) {
   if (games) {
     return (
-      <Container className="mt-4">
-        <div className={section.container}>
+      <Container className={`${section.container} mt-5`}>
           <div className={section.top}>
             <h3>{title}</h3>
-            <Button variant="kv-primary-800" className="border">
+            <Button 
+              variant="kv-primary-800" 
+              className={`${section.btn} border`}
+              onClick={onClick}
+            >
               <strong>VER MAIS</strong>
             </Button>
           </div>
@@ -38,7 +41,6 @@ export default function Section({ title, games }) {
           <div className={section.content}>
             {games.map((game, index) => getGameCards(game, index))}
           </div>
-        </div>
       </Container>
     );
   }

@@ -35,13 +35,21 @@ $small-gap: 4px;
   h3 {
     color: colors.$kv-text-on-primary;
     font-size: 1.8em;
+    font-weight: normal;
 
     margin: 0;
     padding: 0;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   button {
     color: colors.$kv-text-on-primary;
+    font-size: 1em;
+
+    white-space: nowrap;
   }
 }
 
@@ -110,6 +118,10 @@ $small-gap: 4px;
 
 // 0px to 768px
 @media screen and (max-width: breakpoints.$md) {
+  .container {
+    font-size: 0.9rem;
+  }
+
   .content {
     grid-template-columns: 50% 50%;
     overflow: auto;

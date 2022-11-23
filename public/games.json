@@ -104,6 +104,9 @@
         "subtitles": true,
         "interface": true
       }
+    ],
+    "tag": [
+      "recently added"
     ]
   },
   {
@@ -210,6 +213,9 @@
         "subtitles": true,
         "interface": true
       }
+    ],
+    "tag": [
+      "recently added"
     ]
   },
   {
@@ -315,6 +321,9 @@
         "subtitles": true,
         "interface": true
       }
+    ],
+    "tag": [
+      "recently added"
     ]
   },
   {
@@ -419,6 +428,9 @@
         "subtitles": true,
         "interface": true
       }
+    ],
+    "tag": [
+      "recently added"
     ]
   },
   {
@@ -521,6 +533,9 @@
         "subtitles": true,
         "interface": true
       }
+    ],
+    "tag": [
+      "recently added"
     ]
   },
   {
@@ -626,7 +641,8 @@
         "subtitles": true,
         "interface": true
       }
-    ]
+    ],
+    "tag": []
   },
   {
     "id": 7,
@@ -728,7 +744,8 @@
         "subtitles": true,
         "interface": true
       }
-    ]
+    ],
+    "tag": []
   },
   {
     "id": 8,
@@ -828,7 +845,8 @@
         "subtitles": true,
         "interface": true
       }
-    ]
+    ],
+    "tag": []
   },
   {
     "id": 9,
@@ -837,8 +855,8 @@
       "Steam"
     ],
     "price": 100.00,
-    "discount": 0.5,
-    "isDiscountActive": false,
+    "discount": 0.1,
+    "isDiscountActive": true,
     "imgUrl": {
       "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1nic.png",
       "artwork": [
@@ -930,7 +948,8 @@
         "subtitles": true,
         "interface": true
       }
-    ]
+    ],
+    "tag": []
   },
   {
     "id": 10,
@@ -939,8 +958,8 @@
       "Steam"
     ],
     "price": 200.00,
-    "discount": 0.5,
-    "isDiscountActive": false,
+    "discount": 0.3,
+    "isDiscountActive": true,
     "imgUrl": {
       "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3swl.png",
       "artwork": [
@@ -1034,6 +1053,7 @@
         "subtitles": true,
         "interface": true
       }
-    ]
+    ],
+    "tag": []
   }
 ]
