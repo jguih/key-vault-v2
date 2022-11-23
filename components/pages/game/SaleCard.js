@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Button, Image } from "react-bootstrap";
+import Image from "next/image";
+import { Button } from "react-bootstrap";
 import saleCard from "../../../scss/modules/pages/game/SaleCard.module.scss";
 import { brlCurrencyFormatter } from "../../../global";
 
@@ -9,13 +10,17 @@ export default function SaleCard({ coverUrl, title, price, discount, isDiscountA
       <div className={`${saleCard["img-wrapper"]}`}>
         <Image
           src={coverUrl}
+          alt=""
+          fill
+          priority
+          sizes="25vw"
         />
       </div>
       <div className={`${saleCard["sale-info-container"]}`}>
         <h3>{title}</h3>
         <div className={`${saleCard["game-version"]}`}>Jogo Base</div>
         <p>
-          <span className={`${saleCard["bold-500"]}`}>Ativação: </span>Steam <br/>
+          <span className={`${saleCard["bold-500"]}`}>Ativação: </span>Steam <br />
           Produto ativado através de <Link href={"/activation"} target="_blank">chave de ativação.</Link>
         </p>
       </div>

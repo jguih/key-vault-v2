@@ -18,7 +18,7 @@ export default function Description({ description }) {
         showMoreBtn.classList.add(styleDescription["display-btn"]);
       }
     }
-  }, [document.querySelector(`.${styleDescription.container}`)])
+  }, [description])
 
   if (description.length > 0) {
     return (

@@ -51,7 +51,7 @@ export default function Filters({ games, onFilter }) {
 
       onFilter(filteredGames);
     }
-  }, [router, games]);
+  }, [router, games, onFilter]);
 
   const filter = {
     onChangeGenre: function (genre, checked) {

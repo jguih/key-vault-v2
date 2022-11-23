@@ -45,6 +45,7 @@
   @include custom.scrollbar;
 
   font-size: 1em;
+  overscroll-behavior: contain;
 }
 
 .show-body {
