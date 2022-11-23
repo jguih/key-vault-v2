@@ -1,22 +1,19 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Button, Container, Image, Alert } from "react-bootstrap";
+import { Button, Container, Image } from "react-bootstrap";
 import { brlCurrencyFormatter } from "../global";
-import useGame from "../hooks/useGame";
 import outdoor from '../scss/modules/Outdoor.module.scss';
 
-export default function Outdoor() {
-  const { games, isLoading, isError } = useGame();
+export default function Outdoor({ games, gamesLength }) {
   const [index, setIndex] = useState(0);
   const [timer, setTimer] = useState();
   const interval = 6000; // Outdoor timer interval
-  const cards = 4; // Number of cards
 
   useEffect(() => {
     // Sets the initial timer
     setTimer(
       setInterval(() => {
-        setIndex(prevVal => prevVal + 1 <= cards - 1 ? prevVal + 1 : 0);
+        setIndex(prevVal => prevVal + 1 <= gamesLength - 1 ? prevVal + 1 : 0);
       }, interval)
     );
 
@@ -45,21 +42,37 @@ export default function Outdoor() {
 
   }, [index])
 
-  if (isLoading) {
+  function getSmallGameCard(game, index) {
     return (
-      <Container>
-        <Alert variant="success">Loading...</Alert>
-      </Container>
+      <div
+        className={outdoor.item}
+        key={index}
+        onClick={() => handleOnClick(index)}
+      >
+        <div className={outdoor["small-game-card"]}>
+          <Image src={game.imgUrl.cover} />
+          <div
+            className={outdoor.bar + " " + (index === 0 ? outdoor["bar-show"] : "")}
+          ></div>
+          <div className={outdoor["title-container"]}>
+            <span className={outdoor.title}>{game.name}</span>
+          </div>
+        </div>
+      </div>
     );
   }
-  
-  if (isError) {
-    return (
-      <Container>
-        <Alert variant="danger">Failed to load</Alert>
-      </Container>
+
+  function handleOnClick(index) {
+    // Handle onClick events for the game cards
+    setIndex(index);
+    // Clear the current timer and restart it
+    clearInterval(timer);
+    setTimer(
+      setInterval(() => {
+        setIndex(prevVal => prevVal + 1 <= gamesLength - 1 ? prevVal + 1 : 0);
+      }, interval)
     );
-  } 
+  }
 
   if (games) {
     const { name, price, discount, isDiscountActive } = games[index];
@@ -68,7 +81,7 @@ export default function Outdoor() {
       <Container className="mt-4">
         <div className={outdoor.outdoor}>
           <div className={outdoor["outdoor-img"]}>
-            {games.slice(0, cards).map((game, index) => {
+            {games.slice(0, gamesLength).map((game, index) => {
               return (
                 <Image
                   src={game.imgUrl.artwork[0]}
@@ -90,42 +103,10 @@ export default function Outdoor() {
             <Button className={`${outdoor["btn"]}`}>Comprar</Button>
           </div>
           <div className={outdoor["cards-grid"]}>
-            {games.slice(0, cards).map((game, index) => getSmallGameCard(game, index))}
+            {games.slice(0, gamesLength).map((game, index) => getSmallGameCard(game, index))}
           </div>
         </div>
       </Container>
-    );
-  }
-
-  function getSmallGameCard(game, index) {
-    return (
-      <div
-        className={outdoor.item}
-        key={index}
-        onClick={() => handleOnClick(game, index)}
-      >
-        <div className={outdoor["small-game-card"]}>
-          <Image src={game.imgUrl.cover} />
-          <div
-            className={outdoor.bar + " " + (index === 0 ? outdoor["bar-show"] : "")}
-          ></div>
-          <div className={outdoor["title-container"]}>
-            <span className={outdoor.title}>{game.name}</span>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  function handleOnClick(game, index) {
-    // Handle onClick events for the game cards
-    setIndex(index);
-    // Clear the current timer and restart it
-    clearInterval(timer);
-    setTimer(
-      setInterval(() => {
-        setIndex(prevVal => prevVal + 1 <= cards - 1 ? prevVal + 1 : 0);
-      }, interval)
     );
   }
 }

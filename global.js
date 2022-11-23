@@ -1,3 +1,6 @@
+import Link from "next/link";
+import GameCard from "./components/GameCard";
+
 // Generate platform icons based on it name
 export function getPlatformsIcons(platforms) {
   if (platforms) {
@@ -19,3 +22,18 @@ export const brlCurrencyFormatter =
     currency: 'BRL',
     minimumFractionDigits: 2,
   });
+
+export function createGameCard(game) {
+  return (
+    <Link href={`/game/${(game.name.toLowerCase().replaceAll(" ", "-"))}`} key={game.id}>
+      <GameCard
+        name={game.name}
+        price={game.price}
+        discount={game.discount}
+        isDiscountActive={game.isDiscountActive}
+        platforms={getPlatformsIcons(game.platforms)}
+        imgUrl={game.imgUrl.cover}
+      />
+    </Link>
+  );
+}

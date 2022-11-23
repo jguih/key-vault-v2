@@ -1,9 +1,7 @@
 import { useRouter } from "next/router";
 import Header from "../../components/Header";
-import SubHeader from "../../components/SubHeader";
 import Footer from "../../components/Footer";
-import Title from "../../components/pages/game/Title";
-import Content from "../../components/pages/game/Content";
+import GamePageBody from "../../components/pages/game/GamePageBody";
 import { useEffect, useState } from "react";
 
 export default function Game() {
@@ -18,11 +16,9 @@ export default function Game() {
 
   return (
     <div className="d-flex flex-column justify-content-between h-100">
-      <Header activeKey="/store" />
-      <div className="mb-auto pb-4 pt-4">
-        <SubHeader />
-        <Title name={name} />
-        <Content name={name} />
+      <Header activeKey="/" />
+      <div className="mb-auto pb-4">
+        <GamePageBody name={name} />
       </div>
       <Footer/>
     </div>

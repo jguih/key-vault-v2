@@ -72,7 +72,7 @@ $small-gap: 4px;
   background: linear-gradient(180deg, rgba(33, 37, 41, 0) 0%, colors.$kv-primary-900 59.37%);
 
   display: grid;
-  grid-template-columns: repeat(4, 20%);
+  grid-template-columns: repeat(auto-fit, 20%);
   align-items: center;
   justify-content: center;
   padding: $gap;

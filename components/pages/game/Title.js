@@ -1,53 +1,32 @@
-import { Container, Alert } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { getPlatformsIcons } from "../../../global";
-import useGameByName from "../../../hooks/useGameByName";
-import title from "../../../scss/modules/pages/game/Title.module.scss";
+import titleStyles from "../../../scss/modules/pages/game/Title.module.scss"
 
-function getGameTitle(name) {
-  if (name) {
+function getGameTitle(title) {
+  if (title) {
     // Formats the game title
-    let _name = name.split(" ");
+    let _title = title.split(" ");
 
-    return _name.map((name) => {
-      return name[0].toUpperCase() + name.substring(1);
+    return _title.map((title) => {
+      return title[0].toUpperCase() + title.substring(1);
     }).join(" ");
   }
 }
 
-export default function Title({ name }) {
-  const { currentGame, isLoading, isError } = useGameByName(name);
+export default function Title({ title, platforms }) {
+  const gameTitle = getGameTitle(title);
+  const platformIcons = getPlatformsIcons(platforms);
 
-  if (isLoading) {
-    return (
-      <Container>
-        <Alert variant="success">Loading...</Alert>
-      </Container>
-    );
-  }
-  
-  if (isError) {
-    return (
-      <Container>
-        <Alert variant="danger">Failed to load</Alert>
-      </Container>
-    );
-  } 
-
-  if (currentGame) {
-    const gameTitle = getGameTitle(name);
-    const platformIcons = getPlatformsIcons(currentGame.platforms);
-
-    return (
-      <Container className="mt-4 mb-4">
-        <div className={title.container}>
-          <div className={title.title}>
-            {gameTitle}
-          </div>
-          <div className={title["platforms-container"]}>
-            {platformIcons}
-          </div>
+  return (
+    <Container className="mt-4 mb-4">
+      <div className={titleStyles.container}>
+        <div className={titleStyles.title}>
+          {gameTitle}
         </div>
-      </Container>
-    );
-  }
+        <div className={titleStyles["platforms-container"]}>
+          {platformIcons}
+        </div>
+      </div>
+    </Container>
+  );
 }
