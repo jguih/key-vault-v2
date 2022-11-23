@@ -2,6 +2,7 @@ import { Container, Dropdown, InputGroup, Form, Button } from 'react-bootstrap';
 import subHeader from "../scss/modules/SubHeader.module.scss"
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import useGenre from '../hooks/useGenre';
 
 export default function SubHeader({ activeKey }) {
   const router = useRouter();
@@ -27,16 +28,15 @@ export default function SubHeader({ activeKey }) {
   return (
     <div className={subHeader["main-container"] + " sticky-top"}>
       <Container className={subHeader.container}>
-        <MySearchBar onSubmit={handleOnSubmit}/>
+        <MySearchBar onSubmit={handleOnSubmit} />
         <MyResponsiveDropDown activeKey={activeKey} />
-        <MyDropdown />
+        <GenresDropdown />
         <nav>
           <Link
             href={{
               pathname: "/game",
               query: { discounted: true }
             }}
-            target="_blank"
             className={`${(activeKey === 0 ? subHeader.active : "")}`}
           >
             Promoções
@@ -44,9 +44,8 @@ export default function SubHeader({ activeKey }) {
           <Link
             href={{
               pathname: "/game",
-              query: { releaseStatus: "new-releases" }
+              query: { tags: "recently added" }
             }}
-            target="_blank"
             className={`${(activeKey === 1 ? subHeader.active : "")}`}
           >
             Novidades
@@ -57,29 +56,42 @@ export default function SubHeader({ activeKey }) {
   );
 }
 
-function MyDropdown() {
-  return (
-    <Dropdown className={`${subHeader.dropdown}`}>
-      <Dropdown.Toggle className={`${subHeader["dropdown-toggle"]}`}>
-        <span>Categorias</span>
-      </Dropdown.Toggle>
-      <Dropdown.Menu className={`${subHeader["dropdown-menu"]}`}>
-        <Link
-          href={{
-            pathname: "/game",
-            query: { genre: "genre1" }
-          }}
-        >
-          <Dropdown.Item
-            className={`${subHeader["dropdown-item"]}`}
-            as="span"
-          >
-            Genre 1
-          </Dropdown.Item>
-        </Link>
-      </Dropdown.Menu>
-    </Dropdown>
-  );
+function GenresDropdown() {
+  const router = useRouter();
+  const { genres, isLoading, isError } = useGenre();
+
+  function handleOnClick(e) {
+    router.push({
+      pathname: "/game",
+      query: {
+        genres: e.target.innerText.toLowerCase()
+      }
+    })
+  }
+
+  if (genres) {
+    return (
+      <Dropdown className={`${subHeader.dropdown}`}>
+        <Dropdown.Toggle className={`${subHeader["dropdown-toggle"]}`}>
+          <span>Categorias</span>
+        </Dropdown.Toggle>
+        <Dropdown.Menu className={`${subHeader["dropdown-menu"]}`}>
+          {genres.map((genre, index) => {
+            return (
+              <Dropdown.Item
+                className={`${subHeader["dropdown-item"]}`}
+                as="span"
+                onClick={handleOnClick}
+                key={index}
+              >
+                {genre.name}
+              </Dropdown.Item>
+            );
+          })}
+        </Dropdown.Menu>
+      </Dropdown>
+    );
+  }
 }
 
 function MySearchBar({ onSubmit }) {

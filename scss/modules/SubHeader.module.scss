@@ -76,8 +76,9 @@ $container-font-size: 1em;
   background-color: colors.$kv-primary-800 !important;
 
   .dropdown-item {
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: colors.$kv-text-on-primary !important;
+    cursor: pointer;
 
     &:hover {
       background-color: colors.$kv-primary-700 !important;

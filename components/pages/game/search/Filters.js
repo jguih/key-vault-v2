@@ -6,8 +6,11 @@ import filterStyles from "../../../../scss/modules/pages/game/search/Filters.mod
 
 export default function Filters({ games, onFilter }) {
   const router = useRouter();
-  const [checkedGenres, setCheckedGenres] = useState([]);
-  const [checkedDiscount, setCheckedDiscount] = useState();
+
+  // States controlled by router changes
+  const [checkedGenres, setCheckedGenres] = useState([]); // Genre checkboxes state
+  const [checkedDiscount, setCheckedDiscount] = useState(); // Discount checkbox state
+
   const { genres, isLoading, isError } = useGenre();
 
   useEffect(() => {
@@ -29,6 +32,8 @@ export default function Filters({ games, onFilter }) {
             return gameGenres.includes(genreName);
           })
         });
+      } else {
+        setCheckedGenres([]);
       }
       // Filter by discount
       if (router.query.discounted) {
@@ -37,6 +42,8 @@ export default function Filters({ games, onFilter }) {
         filteredGames = filteredGames.filter((game) => {
           return game.isDiscountActive;
         });
+      } else {
+        setCheckedDiscount(false);
       }
 
       onFilter(filteredGames);
@@ -71,7 +78,8 @@ export default function Filters({ games, onFilter }) {
     },
     getCheckedGenre: function (genre) {
       const genreName = genre.name.toLowerCase();
-      return checkedGenres ? checkedGenres.includes(genreName) : false;
+      console.log(genreName, checkedGenres.includes(genreName))
+      return checkedGenres.includes(genreName);
     },
     onChangeDiscounted: function (checked) {
       let myQuery = { ...router.query };
@@ -101,7 +109,7 @@ export default function Filters({ games, onFilter }) {
             type="checkbox"
             label="Promoção"
             onChange={(e) => filter.onChangeDiscounted(e.target.checked)}
-            defaultChecked={checkedDiscount}
+            checked={checkedDiscount || false}
           />
         </form>
         <Accordion title="Categorias">
@@ -113,7 +121,7 @@ export default function Filters({ games, onFilter }) {
                   type="checkbox"
                   label={genre.name}
                   onChange={(e) => filter.onChangeGenre(genre, e.target.checked)}
-                  defaultChecked={filter.getCheckedGenre(genre)}
+                  checked={checkedGenres.includes(genre.name.toLowerCase())}
                   key={index}
                 />
               );
