@@ -10,13 +10,11 @@ export default function SubHeader({ activeKey }) {
   function handleOnSubmit(e) {
     e.preventDefault();
 
-    let myQuery = { ...router.query };
+    let myQuery = {};
     if (e.target.querySelector("input").value) {
       myQuery = {
         entry: e.target.querySelector("input").value
       }
-    } else {
-      delete myQuery.entry;
     }
 
     router.push({
