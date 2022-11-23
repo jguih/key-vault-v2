@@ -7,9 +7,10 @@ import filterStyles from "../../../../scss/modules/pages/game/search/Filters.mod
 export default function Filters({ games, onFilter }) {
   const router = useRouter();
 
-  // States controlled by router changes
+  // States below are controlled by router changes
   const [checkedGenres, setCheckedGenres] = useState([]); // Genre checkboxes state
   const [checkedDiscount, setCheckedDiscount] = useState(); // Discount checkbox state
+  const [shouldExpandGenres, setShouldExpandGenres] = useState();
 
   const { genres, isLoading, isError } = useGenre();
 
@@ -23,6 +24,7 @@ export default function Filters({ games, onFilter }) {
           .map(genre => genre.toLowerCase());
 
         setCheckedGenres(genresArr);
+        setShouldExpandGenres(true);
 
         filteredGames = filteredGames.filter((game) => {
           const gameGenres = game.genre.map((gameGenre) => gameGenre.toLowerCase());
@@ -34,6 +36,7 @@ export default function Filters({ games, onFilter }) {
         });
       } else {
         setCheckedGenres([]);
+        setShouldExpandGenres(false);
       }
       // Filter by discount
       if (router.query.discounted) {
@@ -112,7 +115,7 @@ export default function Filters({ games, onFilter }) {
             checked={checkedDiscount || false}
           />
         </form>
-        <Accordion title="Categorias">
+        <Accordion title="Categorias" expand={shouldExpandGenres}>
           <form>
             {genres.map((genre, index) => {
               return (
@@ -148,31 +151,51 @@ export default function Filters({ games, onFilter }) {
   }
 }
 
-function Accordion({ title, children }) {
+function Accordion({ title, children, expand }) {
   const [chevron, setChevron] = useState("right");
   const accordionBodyRef = React.createRef();
   const headerRef = React.createRef();
 
-  function handleOnClick() {
+  function toggleChevron() {
+    const accordionBody = accordionBodyRef.current;
+    
+    if (accordionBody.classList.contains(filterStyles["show-body"])) {
+      setChevron("down");
+    } else {
+      setChevron("right")
+    }
+  }
+
+  function toggleExpandAccordion() {
     // Toggle accordion body visibility
     const accordionBody = accordionBodyRef.current;
     accordionBody.classList.toggle(filterStyles["show-body"]);
 
-    // Toggle chevron icon
-    if (chevron === "right") {
-      setChevron("down")
-    } else {
-      setChevron("right")
-    }
+    toggleChevron();
 
     headerRef.current.classList.toggle(filterStyles.active);
   }
+
+  function expandAccordion() {
+    const accordionBody = accordionBodyRef.current;
+    accordionBody.classList.add(filterStyles["show-body"]);
+
+    toggleChevron();
+
+    headerRef.current.classList.add(filterStyles.active);
+  }
+
+  useEffect(() => {
+    if (expand) {
+      expandAccordion();
+    }
+  }, [expand])
 
   return (
     <div className={`${filterStyles.accordion}`}>
       <Button
         className={`${filterStyles["accordion-header"]}`}
-        onClick={handleOnClick}
+        onClick={toggleExpandAccordion}
         ref={headerRef}
       ><i className={`bi bi-chevron-${chevron}`}></i> {title}</Button>
       <div

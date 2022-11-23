@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Alert, Container } from 'react-bootstrap';
 import Footer from '../components/Footer';
@@ -8,18 +9,90 @@ import SubHeader from '../components/SubHeader';
 import useGame from '../hooks/useGame';
 
 export default function Home() {
+  const router = useRouter();
   const { games, isLoading, isError } = useGame();
   const [outdoorGames, setOutdoorGames] = useState();
-  const [section1Games, setSection1Games] = useState();
-  const [section2Games, setSection2Games] = useState();
+  const outdoorSize = 4; // Number of outdoor games
+  const [recentlyAddedGames, setRecentlyAddedGames] = useState();
+  const recentlyAddedGamesSize = 5; // Number of cards
+  const [discountedGames, setDiscountedGames] = useState();
+  const discountedGamesSize = 5;
+  const [rpgGames, setRpgGames] = useState();
+  const rpgGamesSize = 5;
 
   useEffect(() => {
     if (games) {
-      setOutdoorGames(games.slice(0, 4));
-      setSection1Games(games.slice(0, 5));
-      setSection2Games(games.slice(5, 10));
+      const outdoorGamesArr = [];
+      const discountedGamesArr = [];
+      const recentlyAddedGamesArr = [];
+      const rpgGamesArr = [];
+
+      // Iterates through games until all arrays above are filled, then it stops
+      games.every((game) => {
+        const genresArr = game.genre.map((genre) => genre.toLowerCase())
+        const isDiscountActive = game.isDiscountActive;
+        const tagsArr = game.tag.map((tag) => tag.toLowerCase());
+
+        if (isDiscountActive && discountedGamesArr.length < recentlyAddedGamesSize + 1) {
+          discountedGamesArr.push(game);
+        }
+
+        if (tagsArr.includes("recently added")) {
+          if (recentlyAddedGamesArr.length < recentlyAddedGamesSize + 1) {
+            recentlyAddedGamesArr.push(game);
+          }
+          if (outdoorGamesArr.length < outdoorSize + 1) {
+            outdoorGamesArr.push(game);
+          }
+        }
+
+        if (genresArr.includes("rpg") && rpgGamesArr.length < rpgGamesSize + 1) {
+          rpgGamesArr.push(game);
+        }
+
+        if (
+          discountedGamesArr.length === recentlyAddedGamesSize && 
+          recentlyAddedGamesArr.length === discountedGamesSize &&
+          outdoorGamesArr.length === outdoorSize) {
+          return false;
+        }
+
+        return true;
+      })
+
+      setOutdoorGames(outdoorGamesArr);
+      setRecentlyAddedGames(recentlyAddedGamesArr);
+      setDiscountedGames(discountedGamesArr);
+      setRpgGames(rpgGamesArr);
     }
-  }, [games])
+  }, [games]);
+
+  const sectionOnClick = {
+    recentlyAdded: function (e) {
+      router.push({
+        pathname: "/game",
+        query: {
+          tags: "recently added"
+        }
+      })
+    },
+    discounted: function (e) {
+      router.push({
+        pathname: "/game",
+        query: {
+          discounted: true
+        }
+      })
+    },
+    rpg: function (e) {
+      router.push({
+        pathname: "/game",
+        query: {
+          genres: "rpg"
+        }
+      })
+    }
+  }
 
   if (isLoading) {
     return (
@@ -43,14 +116,21 @@ export default function Home() {
         <Header activeKey={"/"} />
         <div className="mb-auto pb-4 pt-4">
           <SubHeader />
-          <Outdoor games={outdoorGames} gamesLength={4}/>
-          <Section
-            title="Adicionados Recentemente"
-            games={section1Games}
-          />
+          <Outdoor games={outdoorGames} size={4} />
           <Section
             title="Promoção"
-            games={section2Games}
+            games={discountedGames}
+            onClick={sectionOnClick.discounted}
+          />
+          <Section
+            title="RPG"
+            games={rpgGames}
+            onClick={sectionOnClick.rpg}
+          />
+          <Section
+            title="Adicionados Recentemente"
+            games={recentlyAddedGames}
+            onClick={sectionOnClick.recentlyAdded}
           />
         </div>
         <Footer />

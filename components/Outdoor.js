@@ -4,7 +4,7 @@ import { Button, Container, Image } from "react-bootstrap";
 import { brlCurrencyFormatter } from "../global";
 import outdoor from '../scss/modules/Outdoor.module.scss';
 
-export default function Outdoor({ games, gamesLength }) {
+export default function Outdoor({ games, size }) {
   const [index, setIndex] = useState(0);
   const [timer, setTimer] = useState();
   const interval = 6000; // Outdoor timer interval
@@ -13,7 +13,7 @@ export default function Outdoor({ games, gamesLength }) {
     // Sets the initial timer
     setTimer(
       setInterval(() => {
-        setIndex(prevVal => prevVal + 1 <= gamesLength - 1 ? prevVal + 1 : 0);
+        setIndex(prevVal => prevVal + 1 <= size - 1 ? prevVal + 1 : 0);
       }, interval)
     );
 
@@ -52,7 +52,7 @@ export default function Outdoor({ games, gamesLength }) {
         <div className={outdoor["small-game-card"]}>
           <Image src={game.imgUrl.cover} />
           <div
-            className={outdoor.bar + " " + (index === 0 ? outdoor["bar-show"] : "")}
+            className={`${outdoor.bar} ${index === 0 ? outdoor["bar-show"] : ""}`}
           ></div>
           <div className={outdoor["title-container"]}>
             <span className={outdoor.title}>{game.name}</span>
@@ -69,7 +69,7 @@ export default function Outdoor({ games, gamesLength }) {
     clearInterval(timer);
     setTimer(
       setInterval(() => {
-        setIndex(prevVal => prevVal + 1 <= gamesLength - 1 ? prevVal + 1 : 0);
+        setIndex(prevVal => prevVal + 1 <= size - 1 ? prevVal + 1 : 0);
       }, interval)
     );
   }
@@ -81,7 +81,7 @@ export default function Outdoor({ games, gamesLength }) {
       <Container className="mt-4">
         <div className={outdoor.outdoor}>
           <div className={outdoor["outdoor-img"]}>
-            {games.slice(0, gamesLength).map((game, index) => {
+            {games.slice(0, size).map((game, index) => {
               return (
                 <Image
                   src={game.imgUrl.artwork[0]}
@@ -103,7 +103,7 @@ export default function Outdoor({ games, gamesLength }) {
             <Button className={`${outdoor["btn"]}`}>Comprar</Button>
           </div>
           <div className={outdoor["cards-grid"]}>
-            {games.slice(0, gamesLength).map((game, index) => getSmallGameCard(game, index))}
+            {games.slice(0, size).map((game, index) => getSmallGameCard(game, index))}
           </div>
         </div>
       </Container>
