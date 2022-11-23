@@ -38,6 +38,10 @@ $body-bg: colors.$kv-primary-900;
 $body-color: colors.$kv-text-on-primary;
 $theme-colors: map-merge($theme-colors, $kv-colors);
 
+// Removes box-shadow and border when checkbox are focused
+$form-check-input-focus-box-shadow: none;
+$form-check-input-focus-border: none;
+
 @import "../node_modules/bootstrap/scss/root";
 @import "../node_modules/bootstrap/scss/reboot";
 @import "../node_modules/bootstrap/scss/type";

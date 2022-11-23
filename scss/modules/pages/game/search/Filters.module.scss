@@ -33,7 +33,6 @@
 .accordion-body {
   height: 0;
   overflow: hidden;
-  border-radius: 10px;
   background-color: inherit;
 
   font-size: 1em;
@@ -46,8 +45,17 @@
 .checkbox {
   color: colors.$kv-text-on-primary !important;
   font-size: 1.1em;
-
   input {
     background-color: colors.$kv-primary-800 !important;
+
+    &:hover~label {
+      text-decoration: underline;
+    }
+  }
+
+  label {
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

@@ -113,6 +113,7 @@ export default function Filters({ games, onFilter }) {
             label="Promoção"
             onChange={(e) => filter.onChangeDiscounted(e.target.checked)}
             checked={checkedDiscount || false}
+            id="discounted"
           />
         </form>
         <Accordion title="Categorias" expand={shouldExpandGenres}>
@@ -126,6 +127,7 @@ export default function Filters({ games, onFilter }) {
                   onChange={(e) => filter.onChangeGenre(genre, e.target.checked)}
                   checked={checkedGenres.includes(genre.name.toLowerCase())}
                   key={index}
+                  id={genre.name}
                 />
               );
             })}
