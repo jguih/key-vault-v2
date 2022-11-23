@@ -16,35 +16,42 @@
   background-color: colors.$kv-primary-900 !important;
   border: none !important;
   margin-bottom: 2px;
-  padding: 0px;
   opacity: 0.8;
 
   font-size: 1.2em;
 
   &:hover {
     opacity: 1;
+    background-color: colors.$kv-primary-800 !important;
   }
 
   &.active {
     opacity: 1;
+    background-color: colors.$kv-primary-700 !important;
   }
 }
 
 .accordion-body {
   height: 0;
-  overflow: hidden;
+  transition: height 0.2s ease-out;
+
+  overflow: auto;
+  overflow-x: hidden;
   background-color: inherit;
+  @include custom.scrollbar;
 
   font-size: 1em;
 }
 
 .show-body {
-  height: auto;
+  height: 20vh;
+  transition: height 0.2s ease-in;
 }
 
 .checkbox {
   color: colors.$kv-text-on-primary !important;
-  font-size: 1.1em;
+  font-size: 1.2em;
+  
   input {
     background-color: colors.$kv-primary-800 !important;
 
