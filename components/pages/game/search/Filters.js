@@ -6,55 +6,72 @@ import filterStyles from "../../../../scss/modules/pages/game/search/Filters.mod
 
 export default function Filters({ games, onFilter }) {
   const router = useRouter();
-  const [genresFilterMap, setGenresFilterMap] = useState(new Map());
+  const [checkedGenres, setCheckedGenres] = useState([]);
   const { genres, isLoading, isError } = useGenre();
 
   useEffect(() => {
+    let filteredGames = games;
     if (router.isReady) {
-      // Gets initial data from the URL
-      // Initial genre 
+
       if (router.query.genres) {
-        setGenresFilterMap(ArrToMap(router.query.genres.split(".")));
-      }
-    }
-  }, [router])
+        const genresArr = router.query.genres.split(".")
+          .map(genre => genre.toLowerCase());
 
-  useEffect(() => {
-    if (genresFilterMap) {
+        setCheckedGenres(genresArr);
+        console.log(router.query.genres)
 
-      const [filter, genresArr] = shouldFilterByGenre();
-
-      if (filter) {
-        // Gets an array of current checked genres
-        let genresNameArr = [];
-        genresArr.forEach(genre => {
-          if (genre[1]) {
-            genresNameArr.push(genre[0].toLowerCase());
-          }
-        });
-
-        const filteredGames = games.filter((game) => {
+        filteredGames = filteredGames.filter((game) => {
           const gameGenres = game.genre.map((gameGenre) => gameGenre.toLowerCase());
           // Return true if every genresNameArr genre is included in gameGenres
-          return genresNameArr.every((genreName) => {
+          return genresArr.every((genreName) => {
             // Return true if genresNameArr genre is included in gameGenres
             return gameGenres.includes(genreName);
           })
         });
-        onFilter(filteredGames);
-      } else {
-        // If no filters are applied, simply return all games
-        onFilter(games);
+
       }
+      onFilter(filteredGames);
     }
-  }, [genresFilterMap, games])
+  }, [router, games]);
 
   const filter = {
-    onChangeGenresFilterMap: function (genre, checked) {
-      const _genres = new Map(genresFilterMap);
-      _genres.set(genre, checked);
-      setGenresFilterMap(_genres);
+    onChangeGenre: function (genre, checked) {
+      const genreName = genre.name.toLowerCase();
+
+      let myQuery;
+      if (checked) {
+        // Adding genre to URL
+        if (router.query.genres) {
+          myQuery = {
+            ...router.query,
+            genres: router.query.genres + "." + genreName
+          }
+        } else {
+          myQuery = {
+            ...router.query,
+            genres: genreName
+          }
+        }
+      } else {
+        // Removing genre from URL
+        let genresArr = router.query.genres.split(".");
+        genresArr = genresArr.map((genre) => genre.toLowerCase());
+        const newGenres = genresArr.filter((genre) => genre !== genreName);
+
+        myQuery = {
+          ...router.query,
+          genres: newGenres.join(".")
+        }
+      }
+      router.push({
+        pathname: "/game",
+        query: myQuery
+      })
     },
+    getCheckedGenre: function (genre) {
+      const genreName = genre.name.toLowerCase();
+      return checkedGenres ? checkedGenres.includes(genreName) : false;
+    }
   };
 
   if (genres) {
@@ -67,10 +84,8 @@ export default function Filters({ games, onFilter }) {
                 <Form.Check
                   type="checkbox"
                   label={genre.name}
-                  onChange={
-                    (e) => filter.onChangeGenresFilterMap(genre.name, e.target.checked)
-                  }
-                  checked={genresFilterMap.get(genre.name) || false}
+                  onChange={(e) => filter.onChangeGenre(genre, e.target.checked)}
+                  defaultChecked={filter.getCheckedGenre(genre)}
                   key={index}
                 />
               );
@@ -95,26 +110,24 @@ export default function Filters({ games, onFilter }) {
       </div>
     );
   }
-
-  function shouldFilterByGenre() {
-    let filter = false;
-
-    const genresArr = Array.from(genresFilterMap);
-    genresArr.forEach(genre => {
-      // If there's any true value inside genresArr games will be filtered
-      if (genre[1]) {
-        filter = true;
-        return;
-      }
-    });
-
-    return [filter, genresArr];
-  }
 }
 
 function Accordion({ title, children }) {
   const [chevron, setChevron] = useState("right");
   const accordionBodyRef = React.createRef();
+
+  function handleOnClick() {
+    // Toggle accordion body visibility
+    const accordionBody = accordionBodyRef.current;
+    accordionBody.classList.toggle(filterStyles["show-body"]);
+
+    // Toggle chevron icon
+    if (chevron === "right") {
+      setChevron("down")
+    } else {
+      setChevron("right")
+    }
+  }
 
   return (
     <div className={`${filterStyles.accordion}`}>
@@ -130,29 +143,5 @@ function Accordion({ title, children }) {
       </div>
     </div>
   );
-
-  function handleOnClick() {
-    // Toggle accordion body visibility
-    const accordionBody = accordionBodyRef.current;
-    accordionBody.classList.toggle(filterStyles["show-body"]);
-
-    // Toggle chevron icon
-    if (chevron === "right") {
-      setChevron("down")
-    } else {
-      setChevron("right")
-    }
-  }
 }
 
-function ArrToMap(Arr) {
-  const map = new Map();
-  if (Arr) {
-    Arr.forEach((value) => {
-      if (value) {
-        map.set(value, true);
-      }
-    })
-  };
-  return map;
-}

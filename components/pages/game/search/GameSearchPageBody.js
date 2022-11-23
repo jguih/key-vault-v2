@@ -8,30 +8,41 @@ import { useRouter } from "next/router";
 
 export default function GameSearchBody() {
   const router = useRouter();
-  const [entry, setEntry] = useState();
+  const entry = router.query.entry;
   const { games, isLoading, isError } = useGameByNameContains(entry);
   // FilteredGames is controlled by the Filter component!
   // 'games' will be used as a fallback to FilteredGames
   const [filteredGames, setFilteredGames] = useState();
 
-  useEffect(() => {
-    if (router.isReady) {
-      // Gets initial data from the URL
-      // Initial entry
-      setEntry(router.query.entry);
-    }
-  }, [router])
-
-  useEffect(() => {
-    console.log(filteredGames)
-  }, [filteredGames])
-
   const mySearchBar = {
+    timeout: null,
     handleOnChange: function (e) {
-      setEntry(e.target.value);
+      clearTimeout(this.timeout);
+
+      this.timeout = setTimeout(() => {
+        const myQuery = {
+          ...router.query,
+          entry: e.target.value
+        }
+  
+        router.push({
+          pathname: "/game",
+          query: myQuery
+        })
+      }, 600);
     },
     handleOnSubmit: function (e) {
       e.preventDefault();
+
+      const myQuery = {
+        ...router.query,
+        entry: e.target.querySelector("input").value.toString()
+      }
+
+      router.push({
+        pathname: "/game",
+        query: myQuery
+      })
     }
   }
 
@@ -55,7 +66,7 @@ export default function GameSearchBody() {
             {getResults()}
           </span>
           <MySearchBar
-            value={entry}
+            defaultValue={entry}
             onSubmit={(e) => mySearchBar.handleOnSubmit(e)}
             onChange={(e) => mySearchBar.handleOnChange(e)}
           />
@@ -75,7 +86,7 @@ export default function GameSearchBody() {
   }
 }
 
-function MySearchBar({ value, onSubmit, onChange }) {
+function MySearchBar({ defaultValue, onSubmit, onChange }) {
   return (
     <form action="/game" onSubmit={onSubmit}>
       <InputGroup className={`${bodyStyles["input-group"]}`}>
@@ -84,7 +95,7 @@ function MySearchBar({ value, onSubmit, onChange }) {
           type="text"
           placeholder="Buscar"
           name="entry"
-          value={value || ""}
+          defaultValue={defaultValue}
           onChange={(e) => onChange(e)}
         />
         <InputGroup.Text className={`${bodyStyles["input-group-text"]} p-0`}>
