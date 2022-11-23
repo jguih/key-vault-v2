@@ -6,6 +6,10 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+
+  form {
+    padding-left: 10px;
+  }
 }
 
 .accordion {
