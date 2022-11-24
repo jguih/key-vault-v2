@@ -1,10 +1,11 @@
-import { Button, Container, Form, InputGroup } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import GamesGrid from "./GamesGrid";
 import bodyStyles from "../../../../scss/modules/pages/game/search/GameSearchPageBody.module.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useGameByNameContains from '../../../../hooks/useGameByNameContains';
 import Filters from "./Filters";
 import { useRouter } from "next/router";
+import SearchBar from "../../../ui/SearchBar";
 
 export default function GameSearchBody() {
   const router = useRouter();
@@ -70,7 +71,7 @@ export default function GameSearchBody() {
           <span className={`${bodyStyles["results"]}`}>
             {getResults()}
           </span>
-          <MySearchBar
+          <SearchBar
             defaultValue={entry}
             onSubmit={(e) => mySearchBar.handleOnSubmit(e)}
             onChange={(e) => mySearchBar.handleOnChange(e)}
@@ -89,30 +90,4 @@ export default function GameSearchBody() {
       </Container>
     );
   }
-}
-
-function MySearchBar({ defaultValue, onSubmit, onChange }) {
-  return (
-    <form onSubmit={onSubmit}>
-      <InputGroup className={`${bodyStyles["input-group"]}`}>
-        <Form.Control
-          className={`${bodyStyles["form-control"]}`}
-          type="text"
-          placeholder="Buscar"
-          name="entry"
-          defaultValue={defaultValue}
-          onChange={(e) => onChange(e)}
-        />
-        <InputGroup.Text className={`${bodyStyles["input-group-text"]} p-0`}>
-          <Button
-            className={`${bodyStyles["button"]}`}
-            variant={""}
-            type="submit"
-          >
-            <i className={`bi bi-search`}></i>
-          </Button>
-        </InputGroup.Text>
-      </InputGroup>
-    </form>
-  );
 }

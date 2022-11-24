@@ -5,6 +5,7 @@
 @mixin scrollbar {
   &::-webkit-scrollbar {
     height: 8px;
+    width: 8px;
     border-radius: 10px;
     background-color: colors.$kv-scrollbar-background;
   }

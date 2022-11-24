@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Button, Container, Image } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
+import Image from "next/image";
 import { brlCurrencyFormatter } from "../global";
 import outdoor from '../scss/modules/Outdoor.module.scss';
 
@@ -10,6 +11,8 @@ export default function Outdoor({ games, size }) {
   const interval = 6000; // Outdoor timer interval
 
   useEffect(() => {
+    clearInterval(timer);
+    
     // Sets the initial timer
     setTimer(
       setInterval(() => {
@@ -18,7 +21,7 @@ export default function Outdoor({ games, size }) {
     );
 
     return () => clearInterval(timer);
-  }, []);
+  }, [games, size]);
 
   useEffect(() => {
     // Updates the current outdoor image
@@ -50,7 +53,13 @@ export default function Outdoor({ games, size }) {
         onClick={() => handleOnClick(index)}
       >
         <div className={outdoor["small-game-card"]}>
-          <Image src={game.imgUrl.cover} />
+          <Image
+            src={game.imgUrl.cover}
+            alt=""
+            fill
+            priority
+            sizes="30vw"
+          />
           <div
             className={`${outdoor.bar} ${index === 0 ? outdoor["bar-show"] : ""}`}
           ></div>
@@ -85,6 +94,10 @@ export default function Outdoor({ games, size }) {
               return (
                 <Image
                   src={game.imgUrl.artwork[0]}
+                  fill
+                  priority
+                  alt=""
+                  sizes="100vw"
                   key={index}
                   className={index === 0 ? outdoor["img-show"] : ""}
                 />

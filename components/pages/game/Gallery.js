@@ -45,7 +45,7 @@ export default function Gallery({ screenshots, alt }) {
         />
       )
     }
-  }, [screenshots])
+  }, [screenshots, alt])
 
   return (
     <div className={gallery.container}>

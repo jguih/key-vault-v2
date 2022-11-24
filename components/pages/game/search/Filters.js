@@ -10,7 +10,6 @@ export default function Filters({ games, onFilter }) {
   // States below are controlled by router changes
   const [checkedGenres, setCheckedGenres] = useState([]); // Genre checkboxes state
   const [checkedDiscount, setCheckedDiscount] = useState(); // Discount checkbox state
-  const [shouldExpandGenres, setShouldExpandGenres] = useState();
 
   const { genres, isLoading, isError } = useGenre();
 
@@ -24,7 +23,6 @@ export default function Filters({ games, onFilter }) {
           .map(genre => genre.toLowerCase());
 
         setCheckedGenres(genresArr);
-        setShouldExpandGenres(true);
 
         filteredGames = filteredGames.filter((game) => {
           const gameGenres = game.genre.map((gameGenre) => gameGenre.toLowerCase());
@@ -36,7 +34,6 @@ export default function Filters({ games, onFilter }) {
         });
       } else {
         setCheckedGenres([]);
-        setShouldExpandGenres(false);
       }
       // Filter by discount
       if (router.query.discounted) {
@@ -48,17 +45,16 @@ export default function Filters({ games, onFilter }) {
       } else {
         setCheckedDiscount(false);
       }
-
-      onFilter(filteredGames);
     }
-  }, [router, games]);
+    onFilter(filteredGames);
+  }, [router, games, onFilter]);
 
   const filter = {
-    onChangeGenre: function (genre, checked) {
+    onChangeGenre: function (genre, e) {
       const genreName = genre.name.toLowerCase();
 
       let myQuery = { ...router.query };
-      if (checked) {
+      if (e.target.checked) {
         // Adding genre to URL
         if (router.query.genres) {
           myQuery.genres = router.query.genres + "." + genreName;
@@ -74,6 +70,7 @@ export default function Filters({ games, onFilter }) {
           delete myQuery.genres;
         }
       }
+      delete myQuery.page;
       router.push({
         pathname: "/game",
         query: myQuery
@@ -84,9 +81,9 @@ export default function Filters({ games, onFilter }) {
       console.log(genreName, checkedGenres.includes(genreName))
       return checkedGenres.includes(genreName);
     },
-    onChangeDiscounted: function (checked) {
+    onChangeDiscounted: function (e) {
       let myQuery = { ...router.query };
-      if (checked) {
+      if (e.target.checked) {
         // Adding 'discounted=true' to URL
         myQuery = {
           ...router.query,
@@ -96,6 +93,7 @@ export default function Filters({ games, onFilter }) {
         // Removing 'discounted=true' from URL
         delete myQuery.discounted;
       }
+      delete myQuery.page;
       router.push({
         pathname: "/game",
         query: myQuery
@@ -111,11 +109,12 @@ export default function Filters({ games, onFilter }) {
             className={`${filterStyles.checkbox}`}
             type="checkbox"
             label="Promoção"
-            onChange={(e) => filter.onChangeDiscounted(e.target.checked)}
+            onChange={(e) => filter.onChangeDiscounted(e)}
             checked={checkedDiscount || false}
+            id="discounted"
           />
         </form>
-        <Accordion title="Categorias" expand={shouldExpandGenres}>
+        <Accordion title="Categorias" expand={checkedGenres.length > 0}>
           <form>
             {genres.map((genre, index) => {
               return (
@@ -123,9 +122,10 @@ export default function Filters({ games, onFilter }) {
                   className={`${filterStyles.checkbox}`}
                   type="checkbox"
                   label={genre.name}
-                  onChange={(e) => filter.onChangeGenre(genre, e.target.checked)}
+                  onChange={(e) => filter.onChangeGenre(genre, e)}
                   checked={checkedGenres.includes(genre.name.toLowerCase())}
                   key={index}
+                  id={genre.name}
                 />
               );
             })}

@@ -1,5 +1,5 @@
 import card from '../scss/modules/GameCard.module.scss'
-import { Image } from 'react-bootstrap';
+import Image from 'next/image';
 import { brlCurrencyFormatter } from '../global';
 
 export default function GameCard({ name, imgUrl, platforms, price, discount, isDiscountActive }) {
@@ -8,7 +8,11 @@ export default function GameCard({ name, imgUrl, platforms, price, discount, isD
       <div className={card["card-img"]}>
         <Image
           src={imgUrl}
-        ></Image>
+          fill
+          priority
+          alt=""
+          sizes="30vw"
+        />
       </div>
       <div className={card.info}>
         <div className={card["name-platform-wrapper"]}>
@@ -21,9 +25,9 @@ export default function GameCard({ name, imgUrl, platforms, price, discount, isD
             })}
           </div>
         </div>
-        <PriceContainer 
-          price={price} 
-          discount={discount} 
+        <PriceContainer
+          price={price}
+          discount={discount}
           isDiscountActive={isDiscountActive}
         />
       </div>
