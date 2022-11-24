@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Container, Offcanvas, Button } from 'react-bootstrap';
-import header from '../scss/modules/Header.module.scss'
+import header from '../scss/modules/Header.module.scss';
+import useGenre from "../hooks/useGenre";
+import SimpleDropDown from './ui/SimpleDropDown';
 
 export default function Header({ activeKey }) {
   const [show, setShow] = useState(false);
@@ -63,6 +65,8 @@ export default function Header({ activeKey }) {
 }
 
 function MyOffcanvas({ show, handleClose, activeKey }) {
+  const {genres, isLoading, isError} = useGenre();
+
   return (
     <>
       <Offcanvas
@@ -104,6 +108,22 @@ function MyOffcanvas({ show, handleClose, activeKey }) {
             </Link>
           </nav>
           <hr></hr>
+          <SimpleDropDown title="Categorias">
+            {genres ? genres.map((genre, index) => {
+              return (
+                <Link
+                  href={{
+                    pathname: "/game",
+                    query: { genres: genre.name.toLowerCase() }
+                  }}
+                  className="w-100 d-block ps-3 pe-3 pt-1 pb-1"
+                  key={index}
+                >
+                  {genre.name}
+                </Link>
+              )
+            }) : ""}
+          </SimpleDropDown>
         </Offcanvas.Body>
       </Offcanvas>
     </>
