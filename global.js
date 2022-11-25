@@ -23,6 +23,11 @@ export const brlCurrencyFormatter =
     minimumFractionDigits: 2,
   });
 
+export const decimalFormatter = 
+  Intl.NumberFormat('pt-BR', {
+    minimumFractionDigits: 2
+  });
+
 // Creates a game card from game object
 export function createGameCard(game) {
   return (
