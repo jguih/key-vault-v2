@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useMemo, useReducer, useState } from "react";
 import { errorsActions, useGameFormErrors } from "./useGameFormErrors";
 
 export const imgTypes = {
@@ -80,11 +80,10 @@ const initialValues = {
 
 export function useGameForm() {
   const [game, dispatchGame] = useReducer(gameReducer, initialValues);
-  const [error, dispatchErr] = useGameFormErrors();
-
-  useEffect(() => {
-    console.log(error)
-  }, [error])
+  const {error, dispatchError, validate} = useGameFormErrors();
+  const validateAll = useMemo(() => {
+    return validate.all();
+  }, [error]);
 
   const field = (name, options) => {
     return {
@@ -96,21 +95,10 @@ export function useGameForm() {
           field: e.target.name,
           payload: e.target.value
         })
-
-        if (options?.required && !e.target.value) {
-          dispatchErr({
-            type: errorsActions.AddFieldError,
-            name: name,
-            payload: {
-              message: "Campo Obrigatório!"
-            }
-          })
-        } else if (e.target.value && error.field?.[name]) {
-          dispatchErr({
-            type: errorsActions.RemoveFieldError,
-            name: name
-          })
-        }
+        validate.field(name, options, e);
+      },
+      onBlur: (e) => {
+        validate.field(name, options, e);
       },
       required: options?.required || false
     }
@@ -118,11 +106,11 @@ export function useGameForm() {
 
   const genre = (genre) => {
     return {
-      name: genre.name,
+      name: "genres",
+      id: genre.name,
       checked: game.genre.includes(genre.id),
       label: genre.name,
       type: "checkbox",
-      id: genre.name,
       onChange: (e) => {
         dispatchGame({
           type: gameActions.ToggleGenre,
@@ -136,10 +124,10 @@ export function useGameForm() {
   const isDiscountActive = (name) => {
     return {
       name: name,
+      id: name,
       checked: game.isDiscountActive,
       label: name,
       type: "checkbox",
-      id: name,
       onChange: (e) => {
         dispatchGame({
           type: gameActions.ToggleIsDiscountActive,
@@ -153,78 +141,38 @@ export function useGameForm() {
     return {
       name: name,
       onKeyDown: (e) => {
-        if (e.keyCode === 13 && e.target.value) {
-          try {
-            const validURL = new URL(e.target.value)
-            // Dispatch game with valid URL
-            dispatchGame({
-              type: gameActions.AddImg,
-              payload: {
-                type: type,
-                url: validURL.href
-              }
-            })
-            // Clear field
-            e.target.value = null;
-            // Remove error if URL is valid, if there is any
-            if (error.urlField[name]) {
-              dispatchErr({
-                type: errorsActions.RemoveUrlError,
-                name: name
-              })
+        const [valid, validURL] = validate.urlField(name, e);
+
+        if (valid) {
+          dispatchGame({
+            type: gameActions.AddImg,
+            payload: {
+              type: type,
+              url: validURL.href
             }
-          } catch (err) {
-            // Dispatch an error
-            if (!error.urlField[name]) {
-              dispatchErr({
-                type: errorsActions.AddUrlError,
-                name: name,
-                payload: {
-                  message: "URL Inválida!"
-                }
-              })
-            }
-          }
-        } else if (e.keyCode === 13) {
-          if (error.urlField[name]) {
-            dispatchErr({
-              type: errorsActions.RemoveUrlError,
-              name: name
-            })
-          }
+          })
+          // Clear urlField
+          e.target.value = null;
         }
       },
       onBlur: (e) => {
-        if (!e.target.value) {
-          if (error.urlField[name]) {
-            dispatchErr({
-              type: errorsActions.RemoveUrlError,
-              name: name
-            })
-          }
-        } else {
-          try {
-            const validURL = new URL(e.target.value)
-          } catch (err) {
-            // Dispatch error if not already present
-            if (!error.urlField[name]) {
-              dispatchErr({
-                type: errorsActions.AddUrlError,
-                name: name,
-                payload: {
-                  message: "URL Inválida!"
-                }
-              })
-            }
-          }
-        }
+        validate.urlField(name, e, { onBlur: true });
       }
     }
   }
 
-  const handleSubmit = () => {
-    // ...
-    console.log(game);
+  const handleSubmit = (formRef) => {
+    // Visit all input fields and blur them to check for errors
+    formRef.current.querySelectorAll("input").forEach(input => {
+      input.focus();
+      input.blur();
+    });
+
+    if (validateAll && game !== initialValues) {
+      // All fields are valid and ready to be submitted
+      // ...
+      console.log(game);
+    }
   }
 
   return {

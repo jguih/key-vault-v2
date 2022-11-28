@@ -91,16 +91,16 @@ export function FloatingTextArea({ label, ...props }) {
   );
 }
 
-export function InputGroup({ label, startLabel, endLabel, ...props }) {
+export function InputGroup({ label, startLabel, endLabel, children, ...props }) {
   return (
-    <>
+    <div className="mb-3">
       {label ?
         <label
           htmlFor={props.id || props.name}
           className="form-label"
         >{label}</label> : null}
 
-      <div className="input-group mb-3">
+      <div className="input-group mb-1">
         {startLabel ?
           <span
             className={`input-group-text ${styles["input-group-text"]}`}
@@ -114,7 +114,8 @@ export function InputGroup({ label, startLabel, endLabel, ...props }) {
           >{endLabel}</span> : null
         }
       </div>
-    </>
+      {children}
+    </div>
   );
 }
 

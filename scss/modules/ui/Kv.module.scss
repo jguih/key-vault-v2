@@ -124,10 +124,6 @@
     box-shadow: 0px 0px 0px 2px colors.$kv-secondary-800 !important;
     border-color: colors.$kv-secondary-800 !important;
   }
-
-  &:invalid {
-    border-bottom: 1px solid colors.$kv-error !important;
-  }
 }
 
 .input-group-text {
@@ -143,29 +139,4 @@
     box-shadow: 0px 0px 0px 2px colors.$kv-secondary-700 !important;
     border-color: colors.$kv-secondary-800 !important;
   }
-}
-
-// Tabs/Tab
-.tabs {
-  margin-bottom: 16px;
-
-  --bs-nav-tabs-border-width: 1px;
-  --bs-nav-tabs-border-color: #dee2e6;
-  --bs-nav-tabs-border-radius: 0.375rem;
-  --bs-nav-tabs-link-hover-border-color: white;
-  --bs-nav-tabs-link-active-color: #{colors.$kv-text-on-primary};
-  --bs-nav-tabs-link-active-bg: #{colors.$kv-secondary-800};
-  --bs-nav-tabs-link-active-border-color: white;
-  border-bottom: var(--bs-nav-tabs-border-width) solid var(--bs-nav-tabs-border-color);
-
-  --bs-nav-link-padding-x: 1rem;
-  --bs-nav-link-padding-y: 0.5rem;
-  --bs-nav-link-font-weight: ;
-  --bs-nav-link-color: #{colors.$kv-text-on-primary};
-  --bs-nav-link-hover-color: #{colors.$kv-text-on-primary};
-  --bs-nav-link-disabled-color: #6c757d;
-}
-
-.tab {
-  color: colors.$kv-text-on-primary !important;
 }

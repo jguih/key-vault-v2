@@ -5,13 +5,14 @@ import styles from "../../scss/modules/pages/admin/Admin.module.scss";
 import useGenre from '../../hooks/useGenre';
 import * as Kv from '../../components/ui/Kv';
 import { gameActions, imgTypes, useGameForm } from '../../hooks/useGameForm';
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import Image from 'next/image';
 
 export default function Admin() {
 
   const { game, dispatchGame, register, handleSubmit, error } = useGameForm();
   const { genres, isLoading, isError } = useGenre();
+  const formRef = React.createRef();
 
   if (!genres) return;
 
@@ -23,7 +24,7 @@ export default function Admin() {
             src={image.url}
             alt=""
             fill
-            sizes="25vw"
+            sizes="50vw"
             priority
             key={index}
           />
@@ -46,12 +47,16 @@ export default function Admin() {
       <Header activeKey={""} />
       <div className="mb-auto pb-4 pt-4">
         <Container>
-          <form onSubmit={() => { return false }} noValidate>
+          <form noValidate ref={formRef}>
             <div className="d-flex justify-content-between">
               <div><h3 className='m-0'>{game.name}</h3></div>
               <div className="d-flex gap-2">
                 <Button type="button" variant="igdb">IGDB</Button>
-                <Button type="button" variant="kv-secondary-800" onClick={handleSubmit}>Salvar</Button>
+                <Button 
+                  type="button" 
+                  variant="kv-secondary-800" 
+                  onClick={() => handleSubmit(formRef)}
+                >Salvar</Button>
               </div>
             </div>
             <hr></hr>
@@ -70,30 +75,41 @@ export default function Admin() {
               label="Descrição"
               placeholder="Descrição"
               style={{ height: 200 + "px" }}
-            />
+            >
+              {error.field?.description ? 
+                <p className={`${styles.error}`}>{error.field.description.message}</p> : null}
+            </Kv.FloatingTextArea>
             <Kv.FloatingInput
               {...register.field("developer", { required: true })}
               type="text"
               label="Desenvolvedor"
               placeholder="Desenvolvedor"
-            />
+            >
+              {error.field?.developer ?
+                <p className={`${styles.error}`}>{error.field.developer.message}</p> : null}
+            </Kv.FloatingInput>
             <Kv.FloatingInput
               {...register.field("publisher", { required: true })}
               type="text"
               label="Distribuidor"
               placeholder="Distribuidor"
-            />
+            >
+              {error.field?.publisher ?
+                <p className={`${styles.error}`}>{error.field.publisher.message}</p> : null}
+            </Kv.FloatingInput>
             <Row>
               <Col>
                 <Kv.InputGroup
-                  {...register.field("price")}
+                  {...register.field("price", { required: true })}
                   type="number"
                   step={0.01}
                   label="Preço"
                   startLabel="R$"
-                  required
                   min={0}
-                />
+                >
+                  {error.field?.price ? 
+                    <p className={`${styles.error}`}>{error.field.price.message}</p> : null}
+                </Kv.InputGroup>
               </Col>
               <Col>
                 <Kv.InputGroup
