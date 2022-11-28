@@ -25,7 +25,8 @@ export const brlCurrencyFormatter =
 
 export const decimalFormatter = 
   Intl.NumberFormat('pt-BR', {
-    minimumFractionDigits: 2
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
   });
 
 // Creates a game card from game object

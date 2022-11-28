@@ -550,17 +550,17 @@
     "imgUrl": {
       "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5g1e.png",
       "artwork": [
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6ab.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6cz.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6d0.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6d1.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6a9.jpg"
+        "https://images.igdb.com/igdb/image/upload/t_1080p/ar6ab.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_1080p/ar6cz.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_1080p/ar6d0.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_1080p/ar6d1.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_1080p/ar6a9.jpg"
       ],
       "screenshot": [
-        "https://images.igdb.com/igdb/image/upload/t_original/sc78ey.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sc78ew.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sc78ex.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sc78ev.jpg"
+        "https://images.igdb.com/igdb/image/upload/t_1080p/sc78ey.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_1080p/sc78ew.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_1080p/sc78ex.jpg",
+        "https://images.igdb.com/igdb/image/upload/t_1080p/sc78ev.jpg"
       ]
     },
     "description": [

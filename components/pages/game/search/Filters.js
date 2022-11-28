@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import useGenre from "../../../../hooks/useGenre";
 import filterStyles from "../../../../scss/modules/pages/game/search/Filters.module.scss";
+import * as Kv from "../../../ui/Kv";
 
 export default function Filters({ games, onFilter }) {
   const router = useRouter();
@@ -105,8 +106,7 @@ export default function Filters({ games, onFilter }) {
     return (
       <div className={`${filterStyles.container}`}>
         <form>
-          <Form.Check
-            className={`${filterStyles.checkbox}`}
+          <Kv.Checkbox
             type="checkbox"
             label="Promoção"
             onChange={(e) => filter.onChangeDiscounted(e)}
@@ -114,12 +114,11 @@ export default function Filters({ games, onFilter }) {
             id="discounted"
           />
         </form>
-        <Accordion title="Categorias" expand={checkedGenres.length > 0}>
+        <Kv.Accordion title="Categorias" expand={checkedGenres.length > 0}>
           <form>
             {genres.map((genre, index) => {
               return (
-                <Form.Check
-                  className={`${filterStyles.checkbox}`}
+                <Kv.Checkbox
                   type="checkbox"
                   label={genre.name}
                   onChange={(e) => filter.onChangeGenre(genre, e)}
@@ -130,81 +129,23 @@ export default function Filters({ games, onFilter }) {
               );
             })}
           </form>
-        </Accordion>
-        <Accordion title="Modos de Jogo">
+        </Kv.Accordion>
+        <Kv.Accordion title="Modos de Jogo">
 
-        </Accordion>
-        <Accordion title="Plataformas">
+        </Kv.Accordion>
+        <Kv.Accordion title="Plataformas">
 
-        </Accordion>
-        <Accordion title="Preço">
+        </Kv.Accordion>
+        <Kv.Accordion title="Preço">
 
-        </Accordion>
-        <Accordion title="Data de Lançamento">
+        </Kv.Accordion>
+        <Kv.Accordion title="Data de Lançamento">
 
-        </Accordion>
-        <Accordion title="Idiomas">
+        </Kv.Accordion>
+        <Kv.Accordion title="Idiomas">
 
-        </Accordion>
+        </Kv.Accordion>
       </div>
     );
   }
 }
-
-function Accordion({ title, children, expand }) {
-  const [chevron, setChevron] = useState("right");
-  const accordionBodyRef = React.createRef();
-  const headerRef = React.createRef();
-
-  function toggleChevron() {
-    const accordionBody = accordionBodyRef.current;
-    
-    if (accordionBody.classList.contains(filterStyles["show-body"])) {
-      setChevron("down");
-    } else {
-      setChevron("right")
-    }
-  }
-
-  function toggleExpandAccordion() {
-    // Toggle accordion body visibility
-    const accordionBody = accordionBodyRef.current;
-    accordionBody.classList.toggle(filterStyles["show-body"]);
-
-    toggleChevron();
-
-    headerRef.current.classList.toggle(filterStyles.active);
-  }
-
-  function expandAccordion() {
-    const accordionBody = accordionBodyRef.current;
-    accordionBody.classList.add(filterStyles["show-body"]);
-
-    toggleChevron();
-
-    headerRef.current.classList.add(filterStyles.active);
-  }
-
-  useEffect(() => {
-    if (expand) {
-      expandAccordion();
-    }
-  }, [expand])
-
-  return (
-    <div className={`${filterStyles.accordion}`}>
-      <Button
-        className={`${filterStyles["accordion-header"]}`}
-        onClick={toggleExpandAccordion}
-        ref={headerRef}
-      ><i className={`bi bi-chevron-${chevron}`}></i> {title}</Button>
-      <div
-        className={`${filterStyles["accordion-body"]}`}
-        ref={accordionBodyRef}
-      >
-        {children}
-      </div>
-    </div>
-  );
-}
-

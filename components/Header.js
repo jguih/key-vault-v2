@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Container, Offcanvas, Button } from 'react-bootstrap';
 import header from '../scss/modules/Header.module.scss';
 import useGenre from "../hooks/useGenre";
-import SimpleDropDown from './ui/SimpleDropDown';
+import * as Kv from "./ui/Kv";
 
 export default function Header({ activeKey }) {
   const [show, setShow] = useState(false);
@@ -108,7 +108,7 @@ function MyOffcanvas({ show, handleClose, activeKey }) {
             </Link>
           </nav>
           <hr></hr>
-          <SimpleDropDown title="Categorias">
+          <Kv.SimpleDropDown title="Categorias">
             {genres ? genres.map((genre, index) => {
               return (
                 <Link
@@ -123,7 +123,7 @@ function MyOffcanvas({ show, handleClose, activeKey }) {
                 </Link>
               )
             }) : ""}
-          </SimpleDropDown>
+          </Kv.SimpleDropDown>
         </Offcanvas.Body>
       </Offcanvas>
     </>
