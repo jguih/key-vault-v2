@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "singleplayer"
+  },
+  {
+    "id": 2,
+    "name": "multiplayer"
+  },
+  {
+    "id": 3,
+    "name": "co-op"
+  }
+]

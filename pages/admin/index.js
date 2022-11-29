@@ -2,16 +2,17 @@ import { Button, Col, Container, Row, Tab, Tabs } from 'react-bootstrap';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import styles from "../../scss/modules/pages/admin/Admin.module.scss";
-import useGenre from '../../hooks/useGenre';
+import useData from '../../hooks/useData';
 import * as Kv from '../../components/ui/Kv';
 import { gameActions, imgTypes, useGameForm } from '../../hooks/useGameForm';
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
+import LanguageSupport from '../../components/ui/LanguageSupport';
 
 export default function Admin() {
 
   const { game, dispatchGame, register, handleSubmit, error } = useGameForm();
-  const { genres, isLoading, isError } = useGenre();
+  const { data } = useData();
   const formRef = React.createRef();
 
   function Img(image, index) {
@@ -37,7 +38,7 @@ export default function Admin() {
     );
   }
 
-  if (!genres) return;
+  if (!data.defined) return;
 
   return (
     <div className="d-flex flex-column justify-content-between h-100">
@@ -76,7 +77,7 @@ export default function Admin() {
                 <p className={`${styles.error}`}>{error.field.description.message}</p> : null}
             </Kv.FloatingTextArea>
             <Kv.FloatingInput
-              {...register.field("releaseDate", {required: true, max: "9999-12-31"})}
+              {...register.field("releaseDate", { required: true, max: "9999-12-31" })}
               type="date"
               label="Data de Lançamento"
               placeholder="Data de Lançamento"
@@ -135,8 +136,8 @@ export default function Admin() {
             <hr></hr>
             <Row>
               <Col>
-                <Kv.Accordion title="Categorias" expand={game.genre.length > 0}>
-                  {genres.map((genre, index) => {
+                <Kv.Accordion title="Categorias" expand={game["game_genre"].length > 0}>
+                  {data.genres.map((genre, index) => {
                     return (
                       <Kv.Checkbox
                         {...register.genre(genre)}
@@ -157,7 +158,7 @@ export default function Admin() {
             <div className="mb-3">
               <h3 className="mb-3">Cover</h3>
               <div className={`${styles["img-container"]}`}>
-                {game.image.map((image, index) => {
+                {game["game_image"].map((image, index) => {
                   if (image.type === imgTypes.Cover) {
                     return Img(image, index);
                   }
@@ -177,7 +178,7 @@ export default function Admin() {
             <div className="mb-3">
               <h3 className="mb-3">Screenshots</h3>
               <div className={`${styles["img-container"]}`}>
-                {game.image.map((image, index) => {
+                {game["game_image"].map((image, index) => {
                   if (image.type === imgTypes.Screenshot) {
                     return Img(image, index);
                   }
@@ -197,7 +198,7 @@ export default function Admin() {
             <div className="mb-3">
               <h3 className="mb-3">Artwork</h3>
               <div className={`${styles["img-container"]}`}>
-                {game.image.map((image, index) => {
+                {game["game_image"].map((image, index) => {
                   if (image.type === imgTypes.Artwork) {
                     return Img(image, index);
                   }
@@ -215,9 +216,8 @@ export default function Admin() {
             </Kv.FloatingInput>
             <hr></hr>
             <div>
-              {game.language_support.map((language_support, index) => {
-                
-              })}
+              <h3>Idiomas</h3>
+              <LanguageSupport languageSupport={game["game_language_support"]}/>
             </div>
           </form>
         </Container>

@@ -1,10 +1,11 @@
 import Link from "next/link";
 import GameCard from "./components/GameCard";
+import { imgTypes } from "./hooks/useGameForm";
 
 // Generate platform icons based on it name
-export function getPlatformsIcons(platforms) {
-  if (platforms) {
-    return platforms.map((platform, index) => {
+export function getPlatformsIcons(platformsName) {
+  if (platformsName) {
+    return platformsName.map((platform, index) => {
       const _platform = platform.toLowerCase();
 
       if (_platform === "windows") {
@@ -38,8 +39,8 @@ export function createGameCard(game) {
         price={game.price}
         discount={game.discount}
         isDiscountActive={game.isDiscountActive}
-        platforms={getPlatformsIcons(game.platforms)}
-        imgUrl={game.imgUrl.cover}
+        platformsNameArr={getPlatformsIcons(game["game_platform"].map(p => p.name))}
+        imgUrl={game["game_image"].filter(img => img.type === imgTypes.Cover)[0].url}
       />
     </Link>
   );

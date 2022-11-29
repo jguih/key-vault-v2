@@ -13,9 +13,9 @@ function getGameTitle(title) {
   }
 }
 
-export default function Title({ title, platforms }) {
+export default function Title({ title, platformsName }) {
   const gameTitle = getGameTitle(title);
-  const platformIcons = getPlatformsIcons(platforms);
+  const platformIcons = getPlatformsIcons(platformsName);
 
   return (
     <Container className="mt-4 mb-4">

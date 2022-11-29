@@ -1,0 +1,45 @@
+@use '../../colors' as colors;
+@use '../../custom' as custom;
+@use '../../breakpoints' as breakpoints;
+
+.language-support-container {
+  font-size: 1rem;
+  hr {
+    border: 1px solid colors.$kv-primary-700;
+    margin: 8px 0;
+    border-radius: 10px;
+    opacity: 1;
+  }
+}
+
+.legend-container,
+.language-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.legend,
+.language {
+  font-size: 1.2em;
+
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.language-container {
+  p {
+    margin: 0;
+    font-size: 1.2em;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// Used for invisible icons
+.invisible {
+  visibility: hidden;
+}

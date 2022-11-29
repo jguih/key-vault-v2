@@ -13,8 +13,6 @@ export default function Home() {
   const { games, isLoading, isError } = useGame();
   const [outdoorGames, setOutdoorGames] = useState();
   const outdoorSize = 4; // Number of outdoor games
-  const [recentlyAddedGames, setRecentlyAddedGames] = useState();
-  const recentlyAddedGamesSize = 5; // Number of cards
   const [discountedGames, setDiscountedGames] = useState();
   const discountedGamesSize = 5;
   const [rpgGames, setRpgGames] = useState();
@@ -24,26 +22,19 @@ export default function Home() {
     if (games) {
       const outdoorGamesArr = [];
       const discountedGamesArr = [];
-      const recentlyAddedGamesArr = [];
       const rpgGamesArr = [];
 
       // Iterates through games until all arrays above are filled, then it stops
       games.every((game) => {
-        const genresArr = game.genre.map((genre) => genre.toLowerCase())
+        const genresArr = game["game_genre"].map((genre) => genre.name.toLowerCase())
         const isDiscountActive = game.isDiscountActive;
-        const tagsArr = game.tag.map((tag) => tag.toLowerCase());
 
-        if (isDiscountActive && discountedGamesArr.length < recentlyAddedGamesSize + 1) {
-          discountedGamesArr.push(game);
+        if (outdoorGamesArr.length < outdoorSize + 1) {
+          outdoorGamesArr.push(game);
         }
 
-        if (tagsArr.includes("recently added")) {
-          if (recentlyAddedGamesArr.length < recentlyAddedGamesSize + 1) {
-            recentlyAddedGamesArr.push(game);
-          }
-          if (outdoorGamesArr.length < outdoorSize + 1) {
-            outdoorGamesArr.push(game);
-          }
+        if (isDiscountActive && discountedGamesArr.length < discountedGamesSize + 1) {
+          discountedGamesArr.push(game);
         }
 
         if (genresArr.includes("rpg") && rpgGamesArr.length < rpgGamesSize + 1) {
@@ -51,8 +42,7 @@ export default function Home() {
         }
 
         if (
-          discountedGamesArr.length === recentlyAddedGamesSize && 
-          recentlyAddedGamesArr.length === discountedGamesSize &&
+          discountedGamesArr.length === discountedGamesSize && 
           outdoorGamesArr.length === outdoorSize) {
           return false;
         }
@@ -61,7 +51,6 @@ export default function Home() {
       })
 
       setOutdoorGames(outdoorGamesArr);
-      setRecentlyAddedGames(recentlyAddedGamesArr);
       setDiscountedGames(discountedGamesArr);
       setRpgGames(rpgGamesArr);
     }
@@ -126,11 +115,6 @@ export default function Home() {
             title="RPG"
             games={rpgGames}
             onClick={sectionOnClick.rpg}
-          />
-          <Section
-            title="Adicionados Recentemente"
-            games={recentlyAddedGames}
-            onClick={sectionOnClick.recentlyAdded}
           />
         </div>
         <Footer />

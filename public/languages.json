@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "enUS_name": "english",
+    "ptBR_name": "inglês"
+  },
+  {
+    "id": 2,
+    "enUS_name": "portuguese",
+    "ptBR_name": "português"
+  }
+]

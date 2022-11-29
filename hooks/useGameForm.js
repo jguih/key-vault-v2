@@ -26,15 +26,15 @@ const gameReducer = (state, action) => {
       };
 
     case gameActions.ToggleGenre:
-      let genres = state.genre;
+      let genres = state["game_genre"];
       if (action.checked) {
         genres.push(action.payload);
       } else {
-        genres = genres.filter(genre => genre !== action.payload);
+        genres = genres.filter(genre => genre.id !== action.payload.id);
       }
       return {
         ...state,
-        genre: genres
+        game_genre: genres
       }
 
     case gameActions.ToggleIsDiscountActive:
@@ -46,15 +46,15 @@ const gameReducer = (state, action) => {
     case gameActions.AddImg:
       return {
         ...state,
-        image: [...state.image, action.payload]
+        game_image: [...state["game_image"], action.payload]
       }
 
     case gameActions.RemoveImg:
-      let images = state.image;
+      let images = state["game_image"];
       images = images.filter(image => image != action.payload);
       return {
         ...state,
-        image: images
+        game_image: images
       }
 
     default:
@@ -71,12 +71,12 @@ const initialValues = {
   price: "",
   discount: "",
   isDiscountActive: false,
-  language_support: [],
-  system_requirement: [],
-  platform: [],
-  genre: [],
-  gamemode: [],
-  image: [],
+  game_language_support: [],
+  game_system_requirements: [],
+  game_platform: [],
+  game_genre: [],
+  game_gamemode: [],
+  game_image: [],
 }
 
 const sample = {
@@ -88,23 +88,46 @@ const sample = {
   price: "250.00",
   discount: "20",
   isDiscountActive: true,
-  language_support: [
+  game_language_support: [
     {
-      language_id: 1,
+      language: {
+        id: 1,
+        enUS_name: "english",
+        ptBR_name: "inglês"
+      },
       audio: true,
+      subtitles: true,
+      interface: true
+    },
+    {
+      language: {
+        id: 2,
+        enUS_name: "portuguese",
+        ptBR_name: "português"
+      },
+      audio: false,
       subtitles: true,
       interface: true
     }
   ],
-  system_requirement: [],
-  platform: [],
-  genre: [
-    1, 
-    2, 
-    3
+  game_system_requirements: [],
+  game_platform: [],
+  game_genre: [
+    {
+      id: 1,
+      name: "RPG"
+    },
+    {
+      id: 2,
+      name: "FPS"
+    },
+    {
+      id: 3,
+      name: "Shooter"
+    }
   ],
-  gamemode: [],
-  image: [
+  game_gamemode: [],
+  game_image: [
     {
       type: "cover",
       url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r77.png"
@@ -164,14 +187,14 @@ export function useGameForm() {
     return {
       name: "genres",
       id: genre.name,
-      checked: game.genre.includes(genre.id),
+      checked: game["game_genre"].map(genre => genre.id).includes(genre.id),
       label: genre.name,
       type: "checkbox",
       onChange: (e) => {
         dispatchGame({
           type: gameActions.ToggleGenre,
           checked: e.target.checked,
-          payload: genre.id
+          payload: genre
         })
       },
     }

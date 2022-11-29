@@ -26,7 +26,7 @@ export default function Filters({ games, onFilter }) {
         setCheckedGenres(genresArr);
 
         filteredGames = filteredGames.filter((game) => {
-          const gameGenres = game.genre.map((gameGenre) => gameGenre.toLowerCase());
+          const gameGenres = game["game_genre"].map((gameGenre) => gameGenre.name.toLowerCase());
           // Return true if every genresArr genre is included in gameGenres
           return genresArr.every((genreName) => {
             // Return true if genresArr genre is included in gameGenres
@@ -122,7 +122,7 @@ export default function Filters({ games, onFilter }) {
                   type="checkbox"
                   label={genre.name}
                   onChange={(e) => filter.onChangeGenre(genre, e)}
-                  checked={checkedGenres.includes(genre.name.toLowerCase())}
+                  checked={checkedGenres?.includes(genre.name.toLowerCase()) || false}
                   key={index}
                   id={genre.name}
                 />

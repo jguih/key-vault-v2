@@ -9,6 +9,7 @@ import SystemReq from "./SystemReq";
 import LanguageGamemodeCard from "./LanguageGamemodeCard";
 import SubHeader from "../../SubHeader";
 import Title from "./Title";
+import { imgTypes } from "../../../hooks/useGameForm";
 
 export default function Content({ name }) {
   const { currentGame, isLoading, isError } = useGameByName(name);
@@ -30,12 +31,15 @@ export default function Content({ name }) {
   }
 
   if (currentGame) {
-    const screenshots = currentGame.imgUrl.screenshot;
-    const cover = currentGame.imgUrl.cover;
-    const artworks = currentGame.imgUrl.artwork;
+    const screenshot = currentGame["game_image"]?.filter(img => img.type === imgTypes.Screenshot);
+    const screenshotUrl = screenshot?.map(s => s.url);
+    const cover = currentGame["game_image"]?.filter(img => img.type === imgTypes.Cover);
+    const coverUrl = cover?.map(c => c.url);
+    const artwork = currentGame["game_image"]?.filter(img => img.type === imgTypes.Artwork);
+    const artworkUrl = artwork?.map(a => a.url);
     // Takes the shortest string as the short description
     let shortDescription = "";
-    if (currentGame.description.length > 0) {
+    if (currentGame.description?.length > 0) {
       shortDescription = currentGame.description
         .reduce((accumulator, current) => {
           return accumulator.length <= current.length ? accumulator : current;
@@ -43,30 +47,30 @@ export default function Content({ name }) {
     }
     const description = currentGame.description;
     const releaseDate = currentGame.releaseDate;
-    const developer = currentGame.developer.join(", ");
-    const publisher = currentGame.publisher.join(", ");
-    const genre = currentGame.genre;
+    const developer = currentGame.developer?.join(", ");
+    const publisher = currentGame.publisher?.join(", ");
+    const genre = currentGame["game_genre"];
     const price = currentGame.price;
     const discount = currentGame.discount;
     const isDiscountActive = currentGame.isDiscountActive;
     const name = currentGame.name;
-    const sysReq = currentGame.sysReq;
-    const gamemode = currentGame.gamemode;
-    const languageSupport = currentGame.languageSupport;
-    const platforms = currentGame.platforms;
+    const sysReq = currentGame["game_system_requirements"];
+    const gamemode = currentGame["game_gamemode"];
+    const languageSupport = currentGame["game_language_support"];
+    const platform = currentGame["game_platform"];
 
     return (
       <Container className="mt-4 mb-4">
         <SubHeader />
         <Title
           title={name}
-          platforms={platforms}
+          platformsName={platform?.map(p => p.name)}
         />
         <div className={gpBodyStyles.container}>
           <div className={gpBodyStyles.left}>
-            <Gallery screenshots={screenshots.concat(artworks)} alt={name + " image"} />
+            <Gallery screenshots={screenshotUrl.concat(artworkUrl)} alt="" />
             <SaleCard
-              coverUrl={cover}
+              coverUrl={cover[0]?.url}
               title={name}
               price={price}
               discount={discount}
@@ -82,16 +86,16 @@ export default function Content({ name }) {
           </div>
           <div className={gpBodyStyles.right}>
             <DescriptionCard
-              coverUrl={artworks[0]}
+              coverUrl={artwork[0]?.url}
               description={shortDescription}
               releaseDate={releaseDate}
               developer={developer}
               publisher={publisher}
-              genre={genre}
-              alt={name + " image"}
+              genreNameArr={genre?.map(genre => genre.name)}
+              alt=""
             />
             <LanguageGamemodeCard
-              gamemode={gamemode}
+              gamemodeName={gamemode?.map(g => g.name)}
               languageSupport={languageSupport}
             />
           </div>

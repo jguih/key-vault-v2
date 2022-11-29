@@ -1,3 +1,4 @@
+import React from 'react';
 import { SSRProvider } from 'react-bootstrap';
 import '../scss/global.scss';
 import ErrorBoundary from "./ErrorBoundary";
