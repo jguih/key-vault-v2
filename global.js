@@ -15,6 +15,7 @@ export function getPlatformsIcons(platformsName) {
       }
     });
   }
+  return [];
 }
 
 export const brlCurrencyFormatter =
@@ -35,12 +36,12 @@ export function createGameCard(game) {
   return (
     <Link href={`/game/${(game.name.toLowerCase().replaceAll(" ", "-"))}`} key={game.id}>
       <GameCard
-        name={game.name}
-        price={game.price}
-        discount={game.discount}
-        isDiscountActive={game.isDiscountActive}
-        platformsNameArr={getPlatformsIcons(game["game_platform"].map(p => p.name))}
-        imgUrl={game["game_image"].filter(img => img.type === imgTypes.Cover)[0].url}
+        name={game.name || "InvalidName"}
+        price={game.price || 0}
+        discount={game.discount || 0}
+        isDiscountActive={game.isDiscountActive || false}
+        platformsNameArr={getPlatformsIcons(game["game_platform"]?.map(p => p.name))}
+        imgUrl={game["game_image"]?.filter(img => img.type === imgTypes.Cover)[0].url || ""}
       />
     </Link>
   );

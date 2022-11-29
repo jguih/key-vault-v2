@@ -26,11 +26,11 @@ export default function Filters({ games, onFilter }) {
         setCheckedGenres(genresArr);
 
         filteredGames = filteredGames.filter((game) => {
-          const gameGenres = game["game_genre"].map((gameGenre) => gameGenre.name.toLowerCase());
+          const gameGenres = game["game_genre"]?.map((gameGenre) => gameGenre.name.toLowerCase());
           // Return true if every genresArr genre is included in gameGenres
-          return genresArr.every((genreName) => {
+          return genresArr?.every((genreName) => {
             // Return true if genresArr genre is included in gameGenres
-            return gameGenres.includes(genreName);
+            return gameGenres?.includes(genreName) || false;
           })
         });
       } else {

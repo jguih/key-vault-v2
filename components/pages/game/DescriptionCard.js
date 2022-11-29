@@ -22,8 +22,8 @@ export default function DescriptionCard({ coverUrl, description, releaseDate, de
       </p>
       <hr />
       <div>
-        {genreNameArr.length > 0 ? <h5>CATEGORIA/GÊNERO</h5> : null}
-        {genreNameArr.map((genre, index) => {
+        {genreNameArr?.length > 0 ? <h5>CATEGORIA/GÊNERO</h5> : null}
+        {genreNameArr?.map((genre, index) => {
           return (
             <div className={descCard.badge} key={index}>
               {genre.toUpperCase()}

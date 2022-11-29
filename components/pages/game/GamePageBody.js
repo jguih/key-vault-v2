@@ -68,16 +68,16 @@ export default function Content({ name }) {
         />
         <div className={gpBodyStyles.container}>
           <div className={gpBodyStyles.left}>
-            <Gallery screenshots={screenshotUrl.concat(artworkUrl)} alt="" />
+            <Gallery screenshots={screenshotUrl?.concat(artworkUrl)} alt="" />
             <SaleCard
-              coverUrl={cover[0]?.url}
+              coverUrl={cover?.[0]?.url}
               title={name}
               price={price}
               discount={discount}
               isDiscountActive={isDiscountActive}
             />
             <Description
-              description={description}
+              description={description ?? ""}
             />
             <hr></hr>
             <SystemReq
@@ -86,7 +86,7 @@ export default function Content({ name }) {
           </div>
           <div className={gpBodyStyles.right}>
             <DescriptionCard
-              coverUrl={artwork[0]?.url}
+              coverUrl={artwork?.[0]?.url}
               description={shortDescription}
               releaseDate={releaseDate}
               developer={developer}

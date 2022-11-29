@@ -26,7 +26,7 @@ export default function Home() {
 
       // Iterates through games until all arrays above are filled, then it stops
       games.every((game) => {
-        const genresArr = game["game_genre"].map((genre) => genre.name.toLowerCase())
+        const genresArr = game["game_genre"]?.map((genre) => genre.name.toLowerCase())
         const isDiscountActive = game.isDiscountActive;
 
         if (outdoorGamesArr.length < outdoorSize + 1) {
@@ -37,7 +37,7 @@ export default function Home() {
           discountedGamesArr.push(game);
         }
 
-        if (genresArr.includes("rpg") && rpgGamesArr.length < rpgGamesSize + 1) {
+        if (genresArr?.includes("rpg") && rpgGamesArr.length < rpgGamesSize + 1) {
           rpgGamesArr.push(game);
         }
 

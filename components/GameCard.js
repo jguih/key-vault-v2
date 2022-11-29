@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { brlCurrencyFormatter } from '../global';
 
 export default function GameCard({ name, imgUrl, platformsNameArr, price, discount, isDiscountActive }) {
+  console.log(platformsNameArr)
   return (
     <div className={card.card}>
       <div className={card["card-img"]}>
