@@ -6,7 +6,7 @@ export default function useLanguage() {
   const { data, error } = useSWR('http://localhost:3000/languages.json', fetcher);
 
   return {
-    genres: data,
+    languages: data,
     isLoading: !error && !data,
     isError: error
   }

@@ -1,0 +1,119 @@
+@use '../../../custom' as custom;
+@use '../../../colors' as colors;
+@use '../../../breakpoints' as breakpoints;
+
+.container {
+  hr {
+    margin: 1.2rem 0px;
+
+    border: 2px solid colors.$kv-primary-800;
+    border-radius: 10px;
+    opacity: 1;
+  }
+}
+
+.ImgURL-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+
+  cursor: pointer;
+
+  border-radius: 10px;
+
+  &:hover {
+    background-color: colors.$kv-primary-800;
+  }
+
+  &:active {
+    background-color: colors.$kv-primary-700;
+  }
+}
+
+.ImgURL-btn {
+  background-color: inherit;
+  color: colors.$kv-text-on-primary;
+  border: none;
+  border-radius: 12px;
+  padding: 4px 8px;
+
+  position: absolute;
+  right: 0;
+
+  &:hover {
+    color: colors.$kv-secondary-800;
+  }
+}
+
+.ImgURL-url {
+  width: 95%;
+  padding: 6px 4px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.img-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding-bottom: 10px;
+
+  overflow: auto;
+  overflow-y: hidden;
+
+  @include custom.scrollbar;
+}
+
+.img-wrapper {
+  position: relative;
+  padding-bottom: 30%;
+  padding-left: 25%;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  img {
+    border-radius: custom.$img-border-radius;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  button {
+    position: absolute;
+    border-radius: 10px;
+    background-color: inherit;
+    border: none;
+    visibility: hidden;
+    right: 5px;
+    top: 5px;
+    padding: 4px 8px;
+    background-color: colors.$kv-primary-800;
+    color: colors.$kv-text-on-primary;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:active {
+      background-color: colors.$kv-primary-700;
+    }
+  }
+
+  &:hover button {
+    visibility: visible;
+  }
+}
+
+.error {
+  color: colors.$kv-error;
+}

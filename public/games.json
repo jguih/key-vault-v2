@@ -2,26 +2,49 @@
   {
     "id": 1,
     "name": "S.T.A.L.K.E.R. 2: Heart of Chernobyl",
-    "platforms": [
-      "Steam"
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
     ],
     "price": 200.00,
     "discount": 0.5,
     "isDiscountActive": true,
-    "imgUrl": {
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5pxn.png",
-      "artwork": [
-        "https://images.igdb.com/igdb/image/upload/t_original/arcna.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar88j.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar88i.jpg"
-      ],
-      "screenshot": [
-        "https://images.igdb.com/igdb/image/upload/t_original/scaht2.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/scaht7.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/scaht6.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/scaht5.jpg"
-      ]
-    },
+    "game_image": [
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5pxn.png"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/arcna.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar88j.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar88i.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scaht2.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scaht7.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scaht6.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scaht5.jpg"
+      }
+    ],
     "description": [
       "S.T.A.L.K.E.R 2 is a unique blend of FPS, immersive sim and horror with a really thick atmosphere. One of the biggest open-worlds to date is yours to explore — along with an epic branching story with multiple endings. S.T.A.L.K.E.R. stands for (Scavengers, Trespassers, Adventurers, Loners, Killers, Explorers and Robbers)."
     ],
@@ -32,16 +55,21 @@
     "publisher": [
       "GSC Game World"
     ],
-    "genre": [
-      "Adventure",
-      "RPG",
-      "Shooter",
-      "Action",
-      "Horror",
-      "Open World",
-      "Survival"
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "RPG"
+      },
+      {
+        "id": 2,
+        "name": "FPS"
+      },
+      {
+        "id": 3,
+        "name": "Shooter"
+      }
     ],
-    "sysReq": [
+    "game_system_requirements": [
       {
         "type": "minimum",
         "so": "Windows",
@@ -65,42 +93,30 @@
         "other": ""
       }
     ],
-    "gamemode": [
-      "singleplayer"
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "singleplayer"
+      }
     ],
-    "languageSupport": [
+    "game_language_support": [
       {
-        "enUSName": "portuguese",
-        "ptBRName": "português",
-        "audio": false,
-        "subtitles": false,
-        "interface": true
-      },
-      {
-        "enUSName": "english",
-        "ptBRName": "inglês",
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
         "audio": true,
         "subtitles": true,
         "interface": true
       },
       {
-        "enUSName": "arabic",
-        "ptBRName": "árabe",
-        "audio": true,
-        "subtitles": false,
-        "interface": false
-      },
-      {
-        "enUSName": "chinese (simplified)",
-        "ptBRName": "chinês (simplificado)",
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese",
+          "ptBR_name": "português"
+        },
         "audio": false,
-        "subtitles": true,
-        "interface": true
-      },
-      {
-        "enUSName": "spanish",
-        "ptBRName": "espanhol",
-        "audio": true,
         "subtitles": true,
         "interface": true
       }
@@ -112,26 +128,49 @@
   {
     "id": 2,
     "name": "You Suck at Parking",
-    "platforms": [
-      "Steam"
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
     ],
     "price": 99.99,
     "discount": 0.5,
     "isDiscountActive": false,
-    "imgUrl": {
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co59yn.png",
-      "artwork": [
-        "https://images.igdb.com/igdb/image/upload/t_original/ar1vee.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar1r1i.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sccs5f.jpg"
-      ],
-      "screenshot": [
-        "https://images.igdb.com/igdb/image/upload/t_original/sccs5f.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sccs5e.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sccs5d.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sccs5c.jpg"
-      ]
-    },
+    "game_image": [
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co59yn.png"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1vee.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1r1i.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sccs5f.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sccs5f.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sccs5e.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sccs5d.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sccs5c.jpg"
+      }
+    ],
     "description": [
       "Drive, drift, and park in You Suck at Parking, the simple and accessible yet challenging game where parking is more important than your driving skills. Collect cars, learn new mechanics, challenge the world, and customize your ride in this ever-evolving parking simulator."
     ],
@@ -142,14 +181,21 @@
     "publisher": [
       "Happy Volcano"
     ],
-    "genre": [
-      "Arcade",
-      "Indie",
-      "Racing",
-      "Action",
-      "Comedy"
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "RPG"
+      },
+      {
+        "id": 2,
+        "name": "FPS"
+      },
+      {
+        "id": 3,
+        "name": "Shooter"
+      }
     ],
-    "sysReq": [
+    "game_system_requirements": [
       {
         "type": "minimum",
         "so": "Windows",
@@ -173,74 +219,85 @@
         "other": ""
       }
     ],
-    "gamemode": [
-      "singleplayer",
-      "multiplayer"
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "singleplayer"
+      },
+      {
+        "id": 2,
+        "name": "multiplayer"
+      }
     ],
-    "languageSupport": [
+    "game_language_support": [
       {
-        "enUSName": "portuguese",
-        "ptBRName": "português",
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese",
+          "ptBR_name": "português"
+        },
         "audio": false,
         "subtitles": false,
         "interface": true
       },
       {
-        "enUSName": "english",
-        "ptBRName": "inglês",
-        "audio": true,
-        "subtitles": true,
-        "interface": true
-      },
-      {
-        "enUSName": "arabic",
-        "ptBRName": "árabe",
-        "audio": true,
-        "subtitles": false,
-        "interface": false
-      },
-      {
-        "enUSName": "chinese (simplified)",
-        "ptBRName": "chinês (simplificado)",
-        "audio": false,
-        "subtitles": true,
-        "interface": true
-      },
-      {
-        "enUSName": "spanish",
-        "ptBRName": "espanhol",
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
         "audio": true,
         "subtitles": true,
         "interface": true
       }
-    ],
-    "tag": [
-      "recently added"
     ]
   },
   {
     "id": 3,
     "name": "Scorn",
-    "platforms": [
-      "Steam"
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
     ],
     "price": 150.00,
     "discount": 0.2,
     "isDiscountActive": true,
-    "imgUrl": {
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4v5c.png",
-      "artwork": [
-        "https://images.igdb.com/igdb/image/upload/t_original/ar7dp.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar7do.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ezq5wfc1nj3jmiyhdvu4.jpg"
-      ],
-      "screenshot": [
-        "https://images.igdb.com/igdb/image/upload/t_original/ezq5wfc1nj3jmiyhdvu4.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/vgpnyascxdbuoomvyd18.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/fmyt3ahdungh6ngyqiqe.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/uyqvqq7sreuce3mfq927.jpg"
-      ]
-    },
+    "game_image": [
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4v5c.png"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar7dp.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar7do.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ezq5wfc1nj3jmiyhdvu4.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ezq5wfc1nj3jmiyhdvu4.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/vgpnyascxdbuoomvyd18.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/fmyt3ahdungh6ngyqiqe.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/uyqvqq7sreuce3mfq927.jpg"
+      }
+    ],
     "description": [
       "Scorn is an atmospheric first person horror adventure game set in a nightmarish universe of odd forms and somber tapestry. It is designed around an idea of \"being thrown into the world\". Isolated and lost inside this dream-like world you will explore different interconnected regions in a non-linear fashion. The unsettling environment is a character itself. Every location contains its own theme (story), puzzles and characters that are integral in creating a cohesive lived in world. Throughout the game you will open up new areas, acquire different skill sets, weapons, various items and try to comprehend the sights presented to you."
     ],
@@ -252,13 +309,21 @@
       "Kepler Interactive",
       "Ebb Software"
     ],
-    "genre": [
-      "Adventure",
-      "Indie",
-      "Action",
-      "Horror"
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "RPG"
+      },
+      {
+        "id": 2,
+        "name": "FPS"
+      },
+      {
+        "id": 3,
+        "name": "Shooter"
+      }
     ],
-    "sysReq": [
+    "game_system_requirements": [
       {
         "type": "minimum",
         "so": "Windows",
@@ -282,71 +347,73 @@
         "other": ""
       }
     ],
-    "gamemode": [
-      "singleplayer"
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "singleplayer"
+      }
     ],
-    "languageSupport": [
+    "game_language_support": [
       {
-        "enUSName": "portuguese",
-        "ptBRName": "português",
-        "audio": false,
-        "subtitles": false,
-        "interface": true
-      },
-      {
-        "enUSName": "english",
-        "ptBRName": "inglês",
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
         "audio": true,
         "subtitles": true,
         "interface": true
       },
       {
-        "enUSName": "arabic",
-        "ptBRName": "árabe",
-        "audio": true,
-        "subtitles": false,
-        "interface": false
-      },
-      {
-        "enUSName": "chinese (simplified)",
-        "ptBRName": "chinês (simplificado)",
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese",
+          "ptBR_name": "português"
+        },
         "audio": false,
-        "subtitles": true,
-        "interface": true
-      },
-      {
-        "enUSName": "spanish",
-        "ptBRName": "espanhol",
-        "audio": true,
         "subtitles": true,
         "interface": true
       }
-    ],
-    "tag": [
-      "recently added"
     ]
   },
   {
     "id": 4,
     "name": "There Is No Light",
-    "platforms": [
-      "Steam"
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
     ],
     "price": 200.00,
     "discount": 0.1,
     "isDiscountActive": false,
-    "imgUrl": {
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2m22.png",
-      "artwork": [
-        "https://images.igdb.com/igdb/image/upload/t_original/ar1bu1.jpg"
-      ],
-      "screenshot": [
-        "https://images.igdb.com/igdb/image/upload/t_original/scip83.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sccrmz.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sccrmy.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sccrmx.jpg"
-      ]
-    },
+    "game_image": [
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2m22.png"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1bu1.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scip83.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sccrmz.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sccrmy.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sccrmx.jpg"
+      }
+    ],
     "description": [
       "There Is No Light is a brutal action-adventure set in a grim underground world ruled by the mysterious Church of the Great Hand. Blast your way through the hordes of enemies, fight dangerous bosses and explore the world the way you want."
     ],
@@ -357,15 +424,21 @@
     "publisher": [
       "HypeTrain Digital"
     ],
-    "genre": [
-      "Adventure",
-      "Indie",
-      "RPG",
-      "Action",
-      "Fantasy",
-      "Horror"
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "RPG"
+      },
+      {
+        "id": 2,
+        "name": "FPS"
+      },
+      {
+        "id": 3,
+        "name": "Shooter"
+      }
     ],
-    "sysReq": [
+    "game_system_requirements": [
       {
         "type": "minimum",
         "so": "Windows",
@@ -389,71 +462,73 @@
         "other": ""
       }
     ],
-    "gamemode": [
-      "singleplayer"
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "singleplayer"
+      }
     ],
-    "languageSupport": [
+    "game_language_support": [
       {
-        "enUSName": "portuguese",
-        "ptBRName": "português",
-        "audio": false,
-        "subtitles": false,
-        "interface": true
-      },
-      {
-        "enUSName": "english",
-        "ptBRName": "inglês",
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
         "audio": true,
         "subtitles": true,
         "interface": true
       },
       {
-        "enUSName": "arabic",
-        "ptBRName": "árabe",
-        "audio": true,
-        "subtitles": false,
-        "interface": false
-      },
-      {
-        "enUSName": "chinese (simplified)",
-        "ptBRName": "chinês (simplificado)",
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese",
+          "ptBR_name": "português"
+        },
         "audio": false,
-        "subtitles": true,
-        "interface": true
-      },
-      {
-        "enUSName": "spanish",
-        "ptBRName": "espanhol",
-        "audio": true,
         "subtitles": true,
         "interface": true
       }
-    ],
-    "tag": [
-      "recently added"
     ]
   },
   {
     "id": 5,
     "name": "Metal: Hellsinger",
-    "platforms": [
-      "Steam"
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
     ],
     "price": 110.00,
     "discount": 0.4,
     "isDiscountActive": false,
-    "imgUrl": {
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5jf5.png",
-      "artwork": [
-        "https://images.igdb.com/igdb/image/upload/t_original/ar708.jpg"
-      ],
-      "screenshot": [
-        "https://images.igdb.com/igdb/image/upload/t_original/sc8bfm.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sc8bfp.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sc8bfn.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sc8bfl.jpg"
-      ]
-    },
+    "game_image": [
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5jf5.png"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar708.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8bfm.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8bfp.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8bfn.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8bfl.jpg"
+      }
+    ],
     "description": [
       "Strike terror into the hearts of demons and devils as you fight your way through eight Hells. Metal: Hellsinger is a rhythm FPS, brimming with diabolical enemies, powerful weapons, and metal music. Set out on an infernal journey in order to achieve the purest of goals: Vengeance."
     ],
@@ -465,12 +540,21 @@
       "Funcom",
       "Level Infinite"
     ],
-    "genre": [
-      "Adventure",
-      "Music",
-      "Shooter"
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "RPG"
+      },
+      {
+        "id": 2,
+        "name": "FPS"
+      },
+      {
+        "id": 3,
+        "name": "Shooter"
+      }
     ],
-    "sysReq": [
+    "game_system_requirements": [
       {
         "type": "minimum",
         "so": "Windows",
@@ -494,75 +578,89 @@
         "other": ""
       }
     ],
-    "gamemode": [
-      "singleplayer"
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "singleplayer"
+      }
     ],
-    "languageSupport": [
+    "game_language_support": [
       {
-        "enUSName": "portuguese",
-        "ptBRName": "português",
-        "audio": false,
-        "subtitles": false,
-        "interface": true
-      },
-      {
-        "enUSName": "english",
-        "ptBRName": "inglês",
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
         "audio": true,
         "subtitles": true,
         "interface": true
       },
       {
-        "enUSName": "arabic",
-        "ptBRName": "árabe",
-        "audio": true,
-        "subtitles": false,
-        "interface": false
-      },
-      {
-        "enUSName": "chinese (simplified)",
-        "ptBRName": "chinês (simplificado)",
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese",
+          "ptBR_name": "português"
+        },
         "audio": false,
-        "subtitles": true,
-        "interface": true
-      },
-      {
-        "enUSName": "spanish",
-        "ptBRName": "espanhol",
-        "audio": true,
         "subtitles": true,
         "interface": true
       }
-    ],
-    "tag": [
-      "recently added"
     ]
   },
   {
     "id": 6,
     "name": "Overwatch 2",
-    "platforms": [
-      "Steam"
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
     ],
     "price": 200.00,
     "discount": 1,
     "isDiscountActive": true,
-    "imgUrl": {
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5g1e.png",
-      "artwork": [
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6ab.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6cz.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6d0.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6d1.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ar6a9.jpg"
-      ],
-      "screenshot": [
-        "https://images.igdb.com/igdb/image/upload/t_original/sc78ey.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sc78ew.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sc78ex.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sc78ev.jpg"
-      ]
-    },
+    "game_image": [
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5g1e.png"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar6ab.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar6cz.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar6d0.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar6d1.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar6a9.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc78ey.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc78ew.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc78ex.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc78ev.jpg"
+      }
+    ],
     "description": [
       "Reunite and stand together in a new age of heroes. Overwatch 2 builds on an award-winning foundation of epic competitive play, and challenges the world’s heroes to team up, power up, and take on an overwhelming outbreak of threats around the globe."
     ],
@@ -573,10 +671,13 @@
     "publisher": [
       "Blizzard Entertainment"
     ],
-    "genre": [
-      "Shooter"
+    "game_genre": [
+      {
+        "id": 3,
+        "name": "Shooter"
+      }
     ],
-    "sysReq": [
+    "game_system_requirements": [
       {
         "type": "minimum",
         "so": "Windows",
@@ -600,460 +701,45 @@
         "other": ""
       }
     ],
-    "gamemode": [
-      "singleplayer",
-      "multiplayer",
-      "co-op"
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "singleplayer"
+      },
+      {
+        "id": 2,
+        "name": "multiplayer"
+      },
+      {
+        "id": 3,
+        "name": "co-op"
+      }
     ],
-    "languageSupport": [
+    "game_language_support": [
       {
-        "enUSName": "portuguese",
-        "ptBRName": "português",
-        "audio": false,
-        "subtitles": false,
-        "interface": true
-      },
-      {
-        "enUSName": "english",
-        "ptBRName": "inglês",
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
         "audio": true,
         "subtitles": true,
         "interface": true
       },
       {
-        "enUSName": "arabic",
-        "ptBRName": "árabe",
-        "audio": true,
-        "subtitles": false,
-        "interface": false
-      },
-      {
-        "enUSName": "chinese (simplified)",
-        "ptBRName": "chinês (simplificado)",
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese",
+          "ptBR_name": "português"
+        },
         "audio": false,
-        "subtitles": true,
-        "interface": true
-      },
-      {
-        "enUSName": "spanish",
-        "ptBRName": "espanhol",
-        "audio": true,
         "subtitles": true,
         "interface": true
       }
-    ],
-    "tag": []
+    ]
   },
   {
     "id": 7,
-    "name": "Ghost Song",
-    "platforms": [
-      "Steam"
-    ],
-    "price": 200.00,
-    "discount": 0.5,
-    "isDiscountActive": false,
-    "imgUrl": {
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4koz.png",
-      "artwork": [
-        "https://images.igdb.com/igdb/image/upload/t_original/ar1kx3.jpg"
-      ],
-      "screenshot": [
-        "https://images.igdb.com/igdb/image/upload/t_original/scg8vp.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/scg8vo.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/scg8vn.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/scg8vm.jpg"
-      ]
-    },
-    "description": [
-      "On the desolate moon of Lorian V, a long-dormant Deadsuit awakens from slumber. Journey beneath the surface on an atmospheric 2D adventure of self-discovery, ancient mysteries, and cosmic terror. Explore winding caverns and acquire new abilities to unearth this alien world’s long-buried secrets."
-    ],
-    "releaseDate": "Nov 03, 2022",
-    "developer": [
-      "Old Moon Games"
-    ],
-    "publisher": [
-      "Humble Games"
-    ],
-    "genre": [
-      "Adventure",
-      "Indie",
-      "Platform",
-      "RPG"
-    ],
-    "sysReq": [
-      {
-        "type": "minimum",
-        "so": "Windows",
-        "storage": "62Gb",
-        "cpu": "i5 12400f",
-        "ram": "16Gb DDR4",
-        "gpu": "GTX 1070",
-        "directx": "11",
-        "internet": "",
-        "other": ""
-      },
-      {
-        "type": "recommended",
-        "so": "Windows",
-        "storage": "62GB",
-        "cpu": "i7 12700k",
-        "ram": "16GB DDR4",
-        "gpu": "RTX 2070",
-        "directx": "",
-        "internet": "",
-        "other": ""
-      }
-    ],
-    "gamemode": [
-      "singleplayer"
-    ],
-    "languageSupport": [
-      {
-        "enUSName": "portuguese",
-        "ptBRName": "português",
-        "audio": false,
-        "subtitles": false,
-        "interface": true
-      },
-      {
-        "enUSName": "english",
-        "ptBRName": "inglês",
-        "audio": true,
-        "subtitles": true,
-        "interface": true
-      },
-      {
-        "enUSName": "arabic",
-        "ptBRName": "árabe",
-        "audio": true,
-        "subtitles": false,
-        "interface": false
-      },
-      {
-        "enUSName": "chinese (simplified)",
-        "ptBRName": "chinês (simplificado)",
-        "audio": false,
-        "subtitles": true,
-        "interface": true
-      },
-      {
-        "enUSName": "spanish",
-        "ptBRName": "espanhol",
-        "audio": true,
-        "subtitles": true,
-        "interface": true
-      }
-    ],
-    "tag": []
-  },
-  {
-    "id": 8,
-    "name": "God of War Ragnarök",
-    "platforms": [
-      "Steam"
-    ],
-    "price": 200.00,
-    "discount": 0.5,
-    "isDiscountActive": false,
-    "imgUrl": {
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.png",
-      "artwork": [
-        "https://images.igdb.com/igdb/image/upload/t_original/ar1qdg.jpg"
-      ],
-      "screenshot": [
-        "https://images.igdb.com/igdb/image/upload/t_original/rm35ytrytuka9qkylqyk.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/ywrkjcrbeemmb51flsfj.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/qseegzssgetrybgbplrv.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/jvdoaxza3cawklvof1sl.jpg"
-      ]
-    },
-    "description": [
-      "God of War: Ragnarök is the ninth installment in the God of War series and the sequel to 2018's God of War. Continuing with the Norse mythology theme, the game is set in ancient Norway and feature series protagonists Kratos, the former Greek God of War, and his young son Atreus. The game is expected to kick off the events of Ragnarök, where Kratos and Atreus must journey to each of the Nine Realms in search of answers as they prepare for the prophesied battle that will end the world."
-    ],
-    "releaseDate": "Nov 09, 2022",
-    "developer": [
-      "SIE Santa Monica Studio"
-    ],
-    "publisher": [
-      "Sony Interactive Entertainment"
-    ],
-    "genre": [
-      "Adventure",
-      "Hack and Slash"
-    ],
-    "sysReq": [
-      {
-        "type": "minimum",
-        "so": "Windows",
-        "storage": "62Gb",
-        "cpu": "i5 12400f",
-        "ram": "16Gb DDR4",
-        "gpu": "GTX 1070",
-        "directx": "11",
-        "internet": "",
-        "other": ""
-      },
-      {
-        "type": "recommended",
-        "so": "Windows",
-        "storage": "62GB",
-        "cpu": "i7 12700k",
-        "ram": "16GB DDR4",
-        "gpu": "RTX 2070",
-        "directx": "",
-        "internet": "",
-        "other": ""
-      }
-    ],
-    "gamemode": [
-      "singleplayer"
-    ],
-    "languageSupport": [
-      {
-        "enUSName": "portuguese",
-        "ptBRName": "português",
-        "audio": false,
-        "subtitles": false,
-        "interface": true
-      },
-      {
-        "enUSName": "english",
-        "ptBRName": "inglês",
-        "audio": true,
-        "subtitles": true,
-        "interface": true
-      },
-      {
-        "enUSName": "arabic",
-        "ptBRName": "árabe",
-        "audio": true,
-        "subtitles": false,
-        "interface": false
-      },
-      {
-        "enUSName": "chinese (simplified)",
-        "ptBRName": "chinês (simplificado)",
-        "audio": false,
-        "subtitles": true,
-        "interface": true
-      },
-      {
-        "enUSName": "spanish",
-        "ptBRName": "espanhol",
-        "audio": true,
-        "subtitles": true,
-        "interface": true
-      }
-    ],
-    "tag": []
-  },
-  {
-    "id": 9,
-    "name": "Persona 5 Royal",
-    "platforms": [
-      "Steam"
-    ],
-    "price": 100.00,
-    "discount": 0.1,
-    "isDiscountActive": true,
-    "imgUrl": {
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1nic.png",
-      "artwork": [
-        "https://images.igdb.com/igdb/image/upload/t_original/ar616.jpg"
-      ],
-      "screenshot": [
-        "https://images.igdb.com/igdb/image/upload/t_original/sc6vps.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sc6vpt.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sc6vpu.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/sc6vpw.jpg"
-      ]
-    },
-    "description": [
-      "An enhanced version of Persona 5 with some new characters and a third semester added to the game. Released Internationally in 2020."
-    ],
-    "releaseDate": "Oct 31, 2019",
-    "developer": [
-      "Atlus"
-    ],
-    "publisher": [
-      "Atlus",
-      "Atlus USA"
-    ],
-    "genre": [
-      "Adventure",
-      "RPG",
-      "TBS"
-    ],
-    "sysReq": [
-      {
-        "type": "minimum",
-        "so": "Windows",
-        "storage": "62Gb",
-        "cpu": "i5 12400f",
-        "ram": "16Gb DDR4",
-        "gpu": "GTX 1070",
-        "directx": "11",
-        "internet": "",
-        "other": ""
-      },
-      {
-        "type": "recommended",
-        "so": "Windows",
-        "storage": "62GB",
-        "cpu": "i7 12700k",
-        "ram": "16GB DDR4",
-        "gpu": "RTX 2070",
-        "directx": "",
-        "internet": "",
-        "other": ""
-      }
-    ],
-    "gamemode": [
-      "singleplayer"
-    ],
-    "languageSupport": [
-      {
-        "enUSName": "portuguese",
-        "ptBRName": "português",
-        "audio": false,
-        "subtitles": false,
-        "interface": true
-      },
-      {
-        "enUSName": "english",
-        "ptBRName": "inglês",
-        "audio": true,
-        "subtitles": true,
-        "interface": true
-      },
-      {
-        "enUSName": "arabic",
-        "ptBRName": "árabe",
-        "audio": true,
-        "subtitles": false,
-        "interface": false
-      },
-      {
-        "enUSName": "chinese (simplified)",
-        "ptBRName": "chinês (simplificado)",
-        "audio": false,
-        "subtitles": true,
-        "interface": true
-      },
-      {
-        "enUSName": "spanish",
-        "ptBRName": "espanhol",
-        "audio": true,
-        "subtitles": true,
-        "interface": true
-      }
-    ],
-    "tag": []
-  },
-  {
-    "id": 10,
-    "name": "Uncharted: Legacy of Thieves Collection",
-    "platforms": [
-      "Steam"
-    ],
-    "price": 200.00,
-    "discount": 0.3,
-    "isDiscountActive": true,
-    "imgUrl": {
-      "cover": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3swl.png",
-      "artwork": [
-        "https://images.igdb.com/igdb/image/upload/t_original/ar1atv.jpg"
-      ],
-      "screenshot": [
-        "https://images.igdb.com/igdb/image/upload/t_original/scf374.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/scf373.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/scf372.jpg",
-        "https://images.igdb.com/igdb/image/upload/t_original/scf371.jpg"
-      ]
-    },
-    "description": [
-      "Are You Ready To Seek Your Fortune?",
-      "Seek your fortune and leave your mark on the map in the UNCHARTED: Legacy of Thieves Collection. Uncover the thrilling cinematic storytelling and the largest blockbuster action set pieces in the UNCHARTED franchise, packed with all the wit, cunning, and over the top moments of the beloved thieves – Nathan Drake and Chloe Frazer.",
-      "In an experience delivered by award winning developer Naughty Dog can, the UNCHARTED: Legacy of Thieves Collection includes the two critically-acclaimed, globe-trotting single player adventures from UNCHARTED 4: A Thief’s End and UNCHARTED: The Lost Legacy. Each story is filled with laughs, drama, high octane combat, and a sense of wonder – remastered to be even more immersive."
-    ],
-    "releaseDate": "Oct 19, 2022",
-    "developer": [
-      "Naughty Dog"
-    ],
-    "publisher": [
-      "Sony Interactive Entertainment",
-      "Naughty Dog"
-    ],
-    "genre": [
-      "Adventure",
-      "Shooter",
-      "RPG"
-    ],
-    "sysReq": [
-      {
-        "type": "minimum",
-        "so": "Windows",
-        "storage": "62GB",
-        "cpu": "i5 12400f",
-        "ram": "16Gb DDR4",
-        "gpu": "GTX 1070",
-        "directx": "11",
-        "internet": "",
-        "other": ""
-      },
-      {
-        "type": "recommended",
-        "so": "Windows",
-        "storage": "62GB",
-        "cpu": "i7 12700k",
-        "ram": "16GB DDR4",
-        "gpu": "RTX 2070",
-        "directx": "",
-        "internet": "",
-        "other": ""
-      }
-    ],
-    "gamemode": [
-      "singleplayer"
-    ],
-    "languageSupport": [
-      {
-        "enUSName": "portuguese",
-        "ptBRName": "português",
-        "audio": false,
-        "subtitles": false,
-        "interface": true
-      },
-      {
-        "enUSName": "english",
-        "ptBRName": "inglês",
-        "audio": true,
-        "subtitles": true,
-        "interface": true
-      },
-      {
-        "enUSName": "arabic",
-        "ptBRName": "árabe",
-        "audio": true,
-        "subtitles": false,
-        "interface": false
-      },
-      {
-        "enUSName": "chinese (simplified)",
-        "ptBRName": "chinês (simplificado)",
-        "audio": false,
-        "subtitles": true,
-        "interface": true
-      },
-      {
-        "enUSName": "spanish",
-        "ptBRName": "espanhol",
-        "audio": true,
-        "subtitles": true,
-        "interface": true
-      }
-    ],
-    "tag": []
+    "name": "Teste"
   }
 ]

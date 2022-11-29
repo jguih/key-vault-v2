@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import useGenre from '../hooks/useGenre';
 import SearchBar from './ui/SearchBar';
-import SimpleDropDown from './ui/SimpleDropDown';
+import * as Kv from "./ui/Kv";
 
 export default function SubHeader({ activeKey }) {
   const router = useRouter();
@@ -31,25 +31,26 @@ export default function SubHeader({ activeKey }) {
       <Container className={subHeader.container}>
         <SearchBar onSubmit={handleOnSubmit} />
         <div className={`${subHeader["responsive-dropdown"]}`}>
-          <SimpleDropDown title="Navegar">
+          <Kv.SimpleDropDown title="Navegar">
             <Link
-              href={`/discounted`}
-              target="_blank"
+              href={{
+                pathname: "/game",
+                query: { discounted: true }
+              }}
               className={`${(activeKey === 0 ? subHeader.active : "")} w-100 d-block ps-3 pe-3 pt-1 pb-1`}
             >
               Promoções
             </Link>
             <Link
-              href={`/recently-added`}
-              target="_blank"
+              href={`/game`}
               className={`${(activeKey === 0 ? subHeader.active : "")} w-100 d-block ps-3 pe-3 pt-1 pb-1`}
             >
               Novidades
             </Link>
-          </SimpleDropDown>
+          </Kv.SimpleDropDown>
         </div>
         <div className={`${subHeader["genre-dropdown"]}`}>
-          <SimpleDropDown title="Categorias">
+          <Kv.SimpleDropDown title="Categorias">
             {genres ? genres.map((genre, index) => {
               return (
                 <Link
@@ -64,7 +65,7 @@ export default function SubHeader({ activeKey }) {
                 </Link>
               )
             }) : ""}
-          </SimpleDropDown>
+          </Kv.SimpleDropDown>
         </div>
         <nav>
           <Link
@@ -79,7 +80,6 @@ export default function SubHeader({ activeKey }) {
           <Link
             href={{
               pathname: "/game",
-              query: { tags: "recently added" }
             }}
             className={`${(activeKey === 1 ? subHeader.active : "")}`}
           >

@@ -1,0 +1,142 @@
+@use '../../colors' as colors;
+@use '../../custom' as custom;
+
+// Accordion
+.accordion {
+  font-size: 1rem;
+}
+
+.accordion-header {
+  background-color: colors.$kv-primary-900 !important;
+  border: none !important;
+  margin-bottom: 2px;
+  opacity: 0.8;
+  width: 100%;
+
+  text-align: start;
+  font-size: 1.2em;
+
+  &:hover {
+    opacity: 1;
+    background-color: colors.$kv-primary-800 !important;
+  }
+
+  &.active {
+    opacity: 1;
+    background-color: colors.$kv-primary-700 !important;
+  }
+}
+
+.accordion-body {
+  height: 0;
+  transition: height 0.2s ease-out;
+
+  overflow: auto;
+  overflow-x: hidden;
+  background-color: inherit;
+  @include custom.scrollbar;
+
+  font-size: 1em;
+  overscroll-behavior: contain;
+}
+
+.show-body {
+  height: 250px;
+  transition: height 0.2s ease-in;
+}
+
+// Checkbox
+.checkbox {
+  color: colors.$kv-text-on-primary !important;
+  font-size: 1.2em;
+
+  input {
+    background-color: colors.$kv-primary-800 !important;
+
+    &:hover~label {
+      text-decoration: underline;
+    }
+  }
+
+  label {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Dropdown
+.dropdown {
+  visibility: visible;
+}
+
+.dropdown-toggle {
+  font-size: 1.2em;
+  background-color: colors.$kv-primary-900 !important;
+  border: none !important;
+
+  &:hover {
+    background-color: colors.$kv-primary-800 !important;
+  }
+
+  &:active {
+    background-color: colors.$kv-primary-700 !important;
+  }
+}
+
+.dropdown-menu {
+  background-color: colors.$kv-primary-800 !important;
+
+  .dropdown-item {
+    font-size: 1.1em;
+    color: colors.$kv-text-on-primary !important;
+    padding: 0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: colors.$kv-primary-700 !important;
+      color: colors.$kv-text-on-primary;
+    }
+
+    &:active {
+      background-color: colors.$kv-primary-500 !important;
+    }
+
+  }
+
+  a {
+    text-decoration: none;
+    color: colors.$kv-text-on-primary;
+  }
+}
+
+// Form
+.form-control {
+  background-color: colors.$kv-primary-800 !important;
+  color: colors.$kv-text-on-primary !important;
+
+  &:active {
+    background-color: colors.$kv-primary-800 !important;
+    color: colors.$kv-text-on-primary !important;
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 0px 2px colors.$kv-secondary-800 !important;
+    border-color: colors.$kv-secondary-800 !important;
+  }
+}
+
+.input-group-text {
+  background-color: colors.$kv-primary-700 !important;
+  color: colors.$kv-text-on-primary !important;
+
+  &:active {
+    background-color: colors.$kv-primary-700 !important;
+    color: colors.$kv-text-on-primary !important;
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 0px 2px colors.$kv-secondary-700 !important;
+    border-color: colors.$kv-secondary-800 !important;
+  }
+}

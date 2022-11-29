@@ -2,7 +2,8 @@ import card from '../scss/modules/GameCard.module.scss'
 import Image from 'next/image';
 import { brlCurrencyFormatter } from '../global';
 
-export default function GameCard({ name, imgUrl, platforms, price, discount, isDiscountActive }) {
+export default function GameCard({ name, imgUrl, platformsNameArr, price, discount, isDiscountActive }) {
+  console.log(platformsNameArr)
   return (
     <div className={card.card}>
       <div className={card["card-img"]}>
@@ -18,9 +19,9 @@ export default function GameCard({ name, imgUrl, platforms, price, discount, isD
         <div className={card["name-platform-wrapper"]}>
           <div className={card.name}>{name}</div>
           <div className={card["platforms-container"]}>
-            {[...platforms].map((platform, index) => {
+            {[...platformsNameArr]?.map((name, index) => {
               return (
-                <span className={card.platform} key={index}>{platform}</span>
+                <span className={card.platform} key={index}>{name}</span>
               );
             })}
           </div>

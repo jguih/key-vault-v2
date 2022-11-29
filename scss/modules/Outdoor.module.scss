@@ -84,6 +84,7 @@ $small-gap: 4px;
 
 .small-game-card {
   background-color: colors.$kv-primary-800;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
   position: relative;
   border-radius: custom.$img-border-radius;
   padding-bottom: 133%;
