@@ -1,9 +1,13 @@
 import useGenre from "./useGenre"
 import useLanguage from "./useLanguage";
+import useGamemode from "./useGamemode";
+import usePlatform from "./usePlatform"
 
 export default function useData() {
-  const {genres, isLoading: isLoadingGenres, isError: isErrorGenres} = useGenre();
-  const {languages, isLoading: isLoadingLanguages, isError: isErrorLanguages} = useLanguage();
+  const { genres, isLoading: isLoadingGenres, isError: isErrorGenres } = useGenre();
+  const { languages, isLoading: isLoadingLanguages, isError: isErrorLanguages } = useLanguage();
+  const { gamemodes, isLoading: isLoadingGamemodes, isError: isErrorGamemodes } = useGamemode();
+  const { platforms, isLoading: isLoadingPlatforms, isError: isErrorPlatforms } = usePlatform();
 
   return {
     data: {
@@ -13,7 +17,13 @@ export default function useData() {
       languages: languages,
       isLoadingLanguages: isLoadingLanguages,
       isErrorLanguages: isErrorLanguages,
-      defined: genres !== undefined && languages !== undefined, 
-    } 
+      gamemodes: gamemodes,
+      isLoadingGamemodes: isLoadingGamemodes,
+      isErrorGamemodes: isErrorGamemodes,
+      platforms: platforms,
+      isLoadingPlatforms: isLoadingPlatforms,
+      isErrorPlatforms: isErrorPlatforms,
+      defined: genres !== undefined && languages !== undefined && gamemodes !== undefined && platforms !== undefined,
+    }
   }
 }

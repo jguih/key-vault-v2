@@ -114,7 +114,7 @@ export default function Filters({ games, onFilter }) {
             id="discounted"
           />
         </form>
-        <Kv.Accordion title="Categorias" expand={checkedGenres.length > 0}>
+        <Kv.Accordion title="Categorias" expand={checkedGenres.length > 0} bodyHeight={250}>
           <form>
             {genres.map((genre, index) => {
               return (
@@ -130,19 +130,19 @@ export default function Filters({ games, onFilter }) {
             })}
           </form>
         </Kv.Accordion>
-        <Kv.Accordion title="Modos de Jogo">
+        <Kv.Accordion title="Modos de Jogo" bodyHeight={250}>
 
         </Kv.Accordion>
-        <Kv.Accordion title="Plataformas">
+        <Kv.Accordion title="Plataformas" bodyHeight={250}>
 
         </Kv.Accordion>
-        <Kv.Accordion title="Preço">
+        <Kv.Accordion title="Preço" bodyHeight={250}>
 
         </Kv.Accordion>
-        <Kv.Accordion title="Data de Lançamento">
+        <Kv.Accordion title="Data de Lançamento" bodyHeight={250}>
 
         </Kv.Accordion>
-        <Kv.Accordion title="Idiomas">
+        <Kv.Accordion title="Idiomas" bodyHeight={250}>
 
         </Kv.Accordion>
       </div>

@@ -9,7 +9,7 @@
 .accordion-header {
   background-color: colors.$kv-primary-900 !important;
   border: none !important;
-  margin-bottom: 2px;
+  margin-bottom: 8px;
   opacity: 0.8;
   width: 100%;
 
@@ -40,11 +40,6 @@
   overscroll-behavior: contain;
 }
 
-.show-body {
-  height: 250px;
-  transition: height 0.2s ease-in;
-}
-
 // Checkbox
 .checkbox {
   color: colors.$kv-text-on-primary !important;
@@ -61,6 +56,9 @@
   label {
     &:hover {
       text-decoration: underline;
+    }
+    &:hover i {
+      color: colors.$kv-secondary-800;
     }
   }
 }

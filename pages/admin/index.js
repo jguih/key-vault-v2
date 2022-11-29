@@ -136,8 +136,12 @@ export default function Admin() {
             <hr></hr>
             <Row>
               <Col>
-                <Kv.Accordion title="Categorias" expand={game["game_genre"].length > 0}>
-                  {data.genres.map((genre, index) => {
+                <Kv.Accordion
+                  title="Categorias"
+                  expand={game["game_genre"]?.length > 0 ?? false}
+                  bodyHeight={250}
+                >
+                  {data.genres?.map((genre, index) => {
                     return (
                       <Kv.Checkbox
                         {...register.genre(genre)}
@@ -148,10 +152,36 @@ export default function Admin() {
                 </Kv.Accordion>
               </Col>
               <Col>
-                <Kv.Accordion title="Gamemodes"></Kv.Accordion>
+                <Kv.Accordion
+                  title="Gamemodes"
+                  expand={game["game_gamemode"]?.length > 0 ?? false}
+                  bodyHeight={250}
+                >
+                  {data.gamemodes?.map((gamemode, index) => {
+                    return (
+                      <Kv.Checkbox
+                        {...register.gamemode(gamemode)}
+                        key={index}
+                      />
+                    )
+                  })}
+                </Kv.Accordion>
               </Col>
               <Col>
-                <Kv.Accordion title="Plataformas"></Kv.Accordion>
+                <Kv.Accordion
+                  title="Plataformas"
+                  expand={game["game_platform"]?.length > 0 ?? false}
+                  bodyHeight={250}
+                >
+                  {data.platforms?.map((platform, index) => {
+                    return (
+                      <Kv.Checkbox
+                        {...register.platform(platform)}
+                        key={index}
+                      />
+                    )
+                  })}
+                </Kv.Accordion>
               </Col>
             </Row>
             <hr></hr>
@@ -217,7 +247,7 @@ export default function Admin() {
             <hr></hr>
             <div>
               <h3>Idiomas</h3>
-              <LanguageSupport languageSupport={game["game_language_support"]}/>
+              <LanguageSupport languageSupport={game["game_language_support"]} />
             </div>
           </form>
         </Container>

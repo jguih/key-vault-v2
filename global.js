@@ -2,20 +2,57 @@ import Link from "next/link";
 import GameCard from "./components/GameCard";
 import { imgTypes } from "./hooks/useGameForm";
 
-// Generate platform icons based on it name
-export function getPlatformsIcons(platformsName) {
-  if (platformsName) {
-    return platformsName.map((platform, index) => {
-      const _platform = platform.toLowerCase();
+// Generate platform icons based on its name
+export function getPlatformsIcons(platformsName, options) {
+  const validate = (platform) => {
+    if (platform === "windows") {
+      return (
+        <>
+          <i className="bi bi-windows me-1"></i>
+          {options?.withName ? "Windows" : null}
+        </>
+      );
+    } else if (platform === "steam") {
+      return (
+        <>
+          <i className="bi bi-steam me-1"></i>
+          {options?.withName? "Steam" : null}
+        </>
+      );
+    }
+  }
 
-      if (_platform === "windows") {
-        return <i className="bi bi-windows" key={index}></i>;
-      } else if (_platform === "steam") {
-        return <i className="bi bi-steam" key={index}></i>
-      }
-    });
+  if (platformsName) {
+    if (Array.isArray(platformsName)) {
+      return platformsName.map((platform) => validate(platform) );
+    } else {
+      return validate(platformsName);
+    }
   }
   return [];
+}
+
+
+
+export function getGamemode(name) {
+  switch (name?.toLowerCase()) {
+    case "singleplayer":
+      return (
+        <><i className="bi bi-person-fill me-1"></i>Singleplayer</>
+      );
+    case "multiplayer":
+      return (
+        <><i className="bi bi-people-fill me-1"></i>Multiplayer</>
+      );
+    case "co-op":
+      return (
+        <><i className="bi bi-people-fill me-1"></i>Co-op</>
+      );
+    default:
+      return (
+        <><i className="bi bi-person-fill me-1"></i>Singleplayer</>
+      );
+  }
 }
 
 export const brlCurrencyFormatter =
@@ -25,7 +62,7 @@ export const brlCurrencyFormatter =
     minimumFractionDigits: 2,
   });
 
-export const decimalFormatter = 
+export const decimalFormatter =
   Intl.NumberFormat('pt-BR', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
@@ -45,4 +82,8 @@ export function createGameCard(game) {
       />
     </Link>
   );
+}
+
+export function toFirstUpperCase(string) {
+  return string?.[0].toUpperCase() + string?.slice(1);
 }

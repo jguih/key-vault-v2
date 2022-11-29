@@ -2,45 +2,31 @@ import React, { useEffect, useState } from "react";
 import { Button, Dropdown, Form, Tab, Tabs } from "react-bootstrap";
 import styles from "../../scss/modules/ui/Kv.module.scss";
 
-export function Accordion({ title, children, expand }) {
+export function Accordion({ title, children, expand, bodyHeight }) {
   const [chevron, setChevron] = useState("right");
-  const accordionBodyRef = React.createRef();
+  const [bodyExpand, setBodyExpand] = useState(expand);
   const headerRef = React.createRef();
 
-  function toggleChevron() {
-    const accordionBody = accordionBodyRef.current;
-
-    if (accordionBody.classList.contains(styles["show-body"])) {
+  useEffect(() => {
+    if (bodyExpand) {
       setChevron("down");
+      headerRef.current.classList.add(styles.active);
     } else {
       setChevron("right")
+      headerRef.current.classList.remove(styles.active);
     }
-  }
-
-  function toggleExpandAccordion() {
-    // Toggle accordion body visibility
-    const accordionBody = accordionBodyRef.current;
-    accordionBody.classList.toggle(styles["show-body"]);
-
-    toggleChevron();
-
-    headerRef.current.classList.toggle(styles.active);
-  }
-
-  function expandAccordion() {
-    const accordionBody = accordionBodyRef.current;
-    accordionBody.classList.add(styles["show-body"]);
-
-    toggleChevron();
-
-    headerRef.current.classList.add(styles.active);
-  }
+  }, [bodyExpand])
 
   useEffect(() => {
     if (expand) {
-      expandAccordion();
+      setBodyExpand(expand)
     }
   }, [expand])
+
+  function toggleExpandAccordion() {
+    // Toggle accordion body visibility
+    setBodyExpand(state => !state);
+  }
 
   return (
     <div className={`${styles.accordion}`}>
@@ -53,7 +39,9 @@ export function Accordion({ title, children, expand }) {
       </Button>
       <div
         className={`${styles["accordion-body"]}`}
-        ref={accordionBodyRef}
+        style={
+          {height: `${bodyExpand ? bodyHeight : 0}px`,
+          transition: "height" + 0.2+"s" + "ease-in"}}
       >
         {children}
       </div>

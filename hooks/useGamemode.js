@@ -6,7 +6,7 @@ export default function useGamemode() {
   const { data, error } = useSWR('http://localhost:3000/gamemodes.json', fetcher);
 
   return {
-    genres: data,
+    gamemodes: data,
     isLoading: !error && !data,
     isError: error
   }

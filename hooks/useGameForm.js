@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useReducer, useState } from "react";
-import { brlCurrencyFormatter } from "../global";
+import { brlCurrencyFormatter, getGamemode, getPlatformsIcons, toFirstUpperCase } from "../global";
 import { errorsActions, useGameFormErrors } from "./useGameFormErrors";
 
 export const imgTypes = {
@@ -11,6 +11,8 @@ export const imgTypes = {
 export const gameActions = {
   AddFieldValue: "TEXT-INPUT",
   ToggleGenre: "TOGGLE-GENRE",
+  ToggleGamemode: "TOGGLE-GAMEMODE",
+  TogglePlatform: "TOGGLE-PLATFORM",
   ToggleIsDiscountActive: "TOGGLE-IS-DISCOUNT-ACTIVE",
   AddImg: "ADD-IMG",
   RemoveImg: "REMOVE-IMG",
@@ -35,6 +37,30 @@ const gameReducer = (state, action) => {
       return {
         ...state,
         game_genre: genres
+      }
+
+    case gameActions.ToggleGamemode:
+      let gamemodes = state["game_gamemode"];
+      if (action.checked) {
+        gamemodes.push(action.payload);
+      } else {
+        gamemodes = gamemodes.filter(g => g.id !== action.payload.id);
+      }
+      return {
+        ...state,
+        game_gamemode: gamemodes
+      }
+
+    case gameActions.TogglePlatform:
+      let platforms = state["game_platform"];
+      if (action.checked) {
+        platforms.push(action.payload);
+      } else {
+        platforms = platforms.filter(p => p.id !== action.payload.id);
+      }
+      return {
+        ...state,
+        game_platform: platforms
       }
 
     case gameActions.ToggleIsDiscountActive:
@@ -111,7 +137,12 @@ const sample = {
     }
   ],
   game_system_requirements: [],
-  game_platform: [],
+  game_platform: [
+    {
+      "id": 1,
+      "name": "steam"
+    }
+  ],
   game_genre: [
     {
       id: 1,
@@ -126,7 +157,12 @@ const sample = {
       name: "Shooter"
     }
   ],
-  game_gamemode: [],
+  game_gamemode: [
+    {
+      "id": 1,
+      "name": "singleplayer"
+    }
+  ],
   game_image: [
     {
       type: "cover",
@@ -187,8 +223,8 @@ export function useGameForm() {
     return {
       name: "genres",
       id: genre.name,
-      checked: game["game_genre"].map(genre => genre.id).includes(genre.id),
-      label: genre.name,
+      checked: game["game_genre"]?.map(genre => genre.id)?.includes(genre.id) ?? false,
+      label: toFirstUpperCase(genre.name),
       type: "checkbox",
       onChange: (e) => {
         dispatchGame({
@@ -197,6 +233,40 @@ export function useGameForm() {
           payload: genre
         })
       },
+    }
+  }
+
+  const gamemode = (gamemode) => {
+    return {
+      name: "gamemodes",
+      id: gamemode.name,
+      checked: game["game_gamemode"]?.map(g => g.id)?.includes(gamemode.id) ?? false,
+      label: getGamemode(toFirstUpperCase(gamemode.name)),
+      type: "checkbox",
+      onChange: (e) => {
+        dispatchGame({
+          type: gameActions.ToggleGamemode,
+          checked: e.target.checked,
+          payload: gamemode
+        })
+      }
+    }
+  }
+
+  const platform = (platform) => {
+    return {
+      name: "platforms",
+      id: platform.name,
+      checked: game["game_platform"]?.map(p => p.id)?.includes(platform.id) ?? false,
+      label: getPlatformsIcons(platform.name, { withName: true }),
+      type: "checkbox",
+      onChange: (e) => {
+        dispatchGame({
+          type: gameActions.TogglePlatform,
+          checked: e.target.checked,
+          payload: platform
+        })
+      }
     }
   }
 
@@ -255,7 +325,7 @@ export function useGameForm() {
   return {
     game,
     dispatchGame,
-    register: { field, genre, isDiscountActive, urlField },
+    register: { field, genre, isDiscountActive, urlField, gamemode, platform },
     handleSubmit,
     error
   }
