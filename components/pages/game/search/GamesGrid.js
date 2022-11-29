@@ -16,13 +16,11 @@ function getGameCard(game, index) {
 }
 
 export default function GamesGrid({ games }) {
-  if (!games) return;
-
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 4; // Total n of games per page
   const totalCount = useMemo(() => { // Total n of games
-    return games.length;
+    return games?.length;
   }, [games]);
   const totalPageCount = useMemo(() => { // Total n of pages
     return Math.ceil(totalCount / pageSize);
@@ -31,7 +29,7 @@ export default function GamesGrid({ games }) {
   const currentGames = useMemo(() => {
     const firstGameIndex = (currentPage - 1) * pageSize;
     const lastGameIndex = firstGameIndex + pageSize;
-    return games.slice(firstGameIndex, lastGameIndex);
+    return games?.slice(firstGameIndex, lastGameIndex);
   }, [currentPage, games]);
 
   useEffect(() => {
@@ -45,6 +43,8 @@ export default function GamesGrid({ games }) {
       setCurrentPage(pageN);
     }
   }, [router])
+
+  if (!games) return;
 
   function onPageChange(page) {
     const myQuery = {

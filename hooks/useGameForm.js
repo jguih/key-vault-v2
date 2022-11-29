@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useReducer, useState } from "react";
+import { brlCurrencyFormatter } from "../global";
 import { errorsActions, useGameFormErrors } from "./useGameFormErrors";
 
 export const imgTypes = {
@@ -8,7 +9,7 @@ export const imgTypes = {
 }
 
 export const gameActions = {
-  TextInput: "TEXT-INPUT",
+  AddFieldValue: "TEXT-INPUT",
   ToggleGenre: "TOGGLE-GENRE",
   ToggleIsDiscountActive: "TOGGLE-IS-DISCOUNT-ACTIVE",
   AddImg: "ADD-IMG",
@@ -18,7 +19,7 @@ export const gameActions = {
 const gameReducer = (state, action) => {
   switch (action.type) {
 
-    case gameActions.TextInput:
+    case gameActions.AddFieldValue:
       return {
         ...state,
         [action.field]: action.payload,
@@ -68,39 +69,94 @@ const initialValues = {
   publisher: "",
   releaseDate: "",
   price: "",
-  discount: 0,
+  discount: "",
   isDiscountActive: false,
   language_support: [],
   system_requirement: [],
   platform: [],
-  image: [],
   genre: [],
   gamemode: [],
+  image: [],
+}
+
+const sample = {
+  name: "Spider Man",
+  description: "Homem Aranha",
+  developer: "Sony",
+  publisher: "Sony",
+  releaseDate: "2022-06-22",
+  price: "250.00",
+  discount: "20",
+  isDiscountActive: true,
+  language_support: [
+    {
+      language_id: 1,
+      audio: true,
+      subtitles: true,
+      interface: true
+    }
+  ],
+  system_requirement: [],
+  platform: [],
+  genre: [
+    1, 
+    2, 
+    3
+  ],
+  gamemode: [],
+  image: [
+    {
+      type: "cover",
+      url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r77.png"
+    },
+    {
+      type: "artwork",
+      url: "https://images.igdb.com/igdb/image/upload/t_original/xyrkou2h4zxjnmitk8gi.jpg"
+    },
+    {
+      type: "screenshot",
+      url: "https://images.igdb.com/igdb/image/upload/t_original/nofld5l3txxuqhp7j8cc.jpg"
+    }
+  ],
 }
 
 export function useGameForm() {
-  const [game, dispatchGame] = useReducer(gameReducer, initialValues);
-  const {error, dispatchError, validate} = useGameFormErrors();
-  const validateAll = useMemo(() => {
-    return validate.all();
-  }, [error]);
+  const [game, dispatchGame] = useReducer(gameReducer, sample);
+  const { error, dispatchError, validate } = useGameFormErrors();
 
   const field = (name, options) => {
     return {
       name: name,
-      value: game[name],
+      value: game[name] || "",
       onChange: (e) => {
         dispatchGame({
-          type: gameActions.TextInput,
+          type: gameActions.AddFieldValue,
           field: e.target.name,
           payload: e.target.value
         })
-        validate.field(name, options, e);
+        validate.field(name, e, options);
       },
       onBlur: (e) => {
-        validate.field(name, options, e);
+        validate.field(name, e, options);
       },
-      required: options?.required || false
+      onInvalid: (e) => {
+        e.preventDefault();
+        validate.field(name, e, options);
+      },
+      onKeyDown: (e) => {
+        // Prevents user from submitting form when ENTER key pressed
+        if (e.keyCode === 13) {
+          e.preventDefault();
+        }
+        // Prevents user from typing '-' if options.min is set to 0
+        if (options?.min === 0 && (e.keyCode === 189 || e.keyCode === 109)) {
+          e.preventDefault();
+        }
+      },
+      required: options?.required || false,
+      max: options?.max || "",
+      min: options?.min || "",
+      step: options?.step || "",
     }
   };
 
@@ -125,13 +181,13 @@ export function useGameForm() {
     return {
       name: name,
       id: name,
-      checked: game.isDiscountActive,
+      checked: game.discount > 0 ? game.isDiscountActive : false,
       label: name,
       type: "checkbox",
       onChange: (e) => {
         dispatchGame({
           type: gameActions.ToggleIsDiscountActive,
-          checked: e.target.checked
+          checked: game.discount > 0 ? e.target.checked : false
         })
       }
     }
@@ -141,6 +197,10 @@ export function useGameForm() {
     return {
       name: name,
       onKeyDown: (e) => {
+        if (e.keyCode === 13) {
+          e.preventDefault();
+        }
+
         const [valid, validURL] = validate.urlField(name, e);
 
         if (valid) {
@@ -161,18 +221,12 @@ export function useGameForm() {
     }
   }
 
-  const handleSubmit = (formRef) => {
-    // Visit all input fields and blur them to check for errors
-    formRef.current.querySelectorAll("input").forEach(input => {
-      input.focus();
-      input.blur();
-    });
-
-    if (validateAll && game !== initialValues) {
-      // All fields are valid and ready to be submitted
-      // ...
-      console.log(game);
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("...submitting");
+    // All fields are valid and ready to be submitted
+    // ...
+    console.log(game);
   }
 
   return {

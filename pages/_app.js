@@ -1,11 +1,14 @@
 import { SSRProvider } from 'react-bootstrap';
 import '../scss/global.scss';
+import ErrorBoundary from "./ErrorBoundary";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <SSRProvider>
-      <Component {...pageProps} />
-    </SSRProvider>
+    <ErrorBoundary>
+      <SSRProvider>
+        <Component {...pageProps} />
+      </SSRProvider>
+    </ErrorBoundary>
   );
 }
 

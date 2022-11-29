@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 
 export const errorsActions = {
   AddUrlError: "ADD-IMG-ERROR",
@@ -17,7 +17,7 @@ const errorsReducer = (state, action) => {
           [action.name]: action.payload
         }
       }
-    
+
     case errorsActions.RemoveUrlError:
       const urlErr = state.urlField;
       delete urlErr[action.name];
@@ -34,7 +34,7 @@ const errorsReducer = (state, action) => {
           [action.name]: action.payload
         }
       }
-    
+
     case errorsActions.RemoveFieldError:
       const fieldErr = state.field;
       delete fieldErr[action.name];
@@ -43,7 +43,7 @@ const errorsReducer = (state, action) => {
         field: fieldErr
       }
 
-    default: 
+    default:
       return state;
   }
 }
@@ -56,37 +56,84 @@ const initialValues = {
 export function useGameFormErrors() {
   const [error, dispatchError] = useReducer(errorsReducer, initialValues);
 
+  useEffect(() => {
+    console.log(error)
+  }, [error])
+
   const validate = {
     all: () => {
       return (
-        Object.keys(error.urlField).length === 0 && 
+        Object.keys(error.urlField).length === 0 &&
         Object.keys(error.field).length === 0
       );
     },
-    field: (fieldName, options, e) => {
+    field: (fieldName, e, options) => {
+      const validity = e.target.validity;
       let valid = true;
-    
-      if (options?.required && !e.target.value) {
+
+      if (validity.valueMissing) {
         valid = false;
         if (!error.field?.[fieldName]) {
           dispatchError({
             type: errorsActions.AddFieldError,
             name: fieldName,
             payload: {
+              type: "required",
               message: "Campo Obrigatório!"
             }
           });
         }
-      } else if (options?.required && e.target.value) {
-        valid = true;
-        if (error.field?.[fieldName]) {
+      }
+
+      if (validity.rangeOverflow) {
+        valid = false;
+        if (!error.field?.[fieldName]) {
           dispatchError({
-            type: errorsActions.RemoveFieldError,
-            name: fieldName
+            type: errorsActions.AddFieldError,
+            name: fieldName,
+            payload: {
+              type: "rangeOverflow",
+              message: `Não deve exceder ${options.max}`
+            }
           });
         }
       }
-    
+
+      if (validity.rangeUnderflow) {
+        valid = false;
+        if (!error.field?.[fieldName]) {
+          dispatchError({
+            type: errorsActions.AddFieldError,
+            name: fieldName,
+            payload: {
+              type: "rangeUnderflow",
+              message: `Não deve ser menor que ${options.min}`
+            }
+          });
+        }
+      }
+
+      if (validity.stepMismatch) {
+        valid = false;
+        if (!error.field?.[fieldName]) {
+          dispatchError({
+            type: errorsActions.AddFieldError,
+            name: fieldName,
+            payload: {
+              type: "stepMismatch",
+              message: "Valor inválido!"
+            }
+          });
+        }
+      }
+
+      if (error.field?.[fieldName] && valid) {
+        dispatchError({
+          type: errorsActions.RemoveFieldError,
+          name: fieldName
+        });
+      }
+
       return valid;
     },
     urlField: (fieldName, e, options) => {
@@ -94,10 +141,10 @@ export function useGameFormErrors() {
       let validURL;
 
       // If ENTER is pressed or onBlur event triggered AND value is defined
-      if ( (e.keyCode === 13 || options?.onBlur) && e.target.value) {
+      if ((e.keyCode === 13 || options?.onBlur) && e.target.value) {
         try {
           validURL = new URL(e.target.value);
-          
+
           valid = true;
           if (error.urlField[fieldName]) {
             dispatchError({
@@ -111,6 +158,7 @@ export function useGameFormErrors() {
               type: errorsActions.AddUrlError,
               name: fieldName,
               payload: {
+                type: "invalid url",
                 message: "URL Inválida!"
               }
             })
@@ -130,7 +178,7 @@ export function useGameFormErrors() {
   }
 
   return {
-    error, 
+    error,
     dispatchError,
     validate
   };

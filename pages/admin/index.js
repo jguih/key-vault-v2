@@ -14,48 +14,44 @@ export default function Admin() {
   const { genres, isLoading, isError } = useGenre();
   const formRef = React.createRef();
 
-  if (!genres) return;
-
-  const GetImg = (image, index, imgType) => {
-    if (image.type === imgType) {
-      return (
-        <div className={`${styles["img-wrapper"]}`} key={index}>
-          <Image
-            src={image.url}
-            alt=""
-            fill
-            sizes="50vw"
-            priority
-            key={index}
-          />
-          <button
-            type="button"
-            onClick={() => {
-              dispatchGame({
-                type: gameActions.RemoveImg,
-                payload: image
-              })
-            }}
-          ><i className="bi bi-x-lg"></i></button>
-        </div>
-      );
-    }
+  function Img(image, index) {
+    return (
+      <div className={`${styles["img-wrapper"]}`} key={index}>
+        <Image
+          src={image.url}
+          alt=""
+          fill
+          sizes="50vw"
+          priority
+        />
+        <button
+          type="button"
+          onClick={() => {
+            dispatchGame({
+              type: gameActions.RemoveImg,
+              payload: image
+            })
+          }}
+        ><i className="bi bi-x-lg"></i></button>
+      </div>
+    );
   }
+
+  if (!genres) return;
 
   return (
     <div className="d-flex flex-column justify-content-between h-100">
       <Header activeKey={""} />
       <div className="mb-auto pb-4 pt-4">
-        <Container>
-          <form noValidate ref={formRef}>
+        <Container className={`${styles.container}`}>
+          <form ref={formRef} onSubmit={handleSubmit}>
             <div className="d-flex justify-content-between">
               <div><h3 className='m-0'>{game.name}</h3></div>
               <div className="d-flex gap-2">
                 <Button type="button" variant="igdb">IGDB</Button>
-                <Button 
-                  type="button" 
-                  variant="kv-secondary-800" 
-                  onClick={() => handleSubmit(formRef)}
+                <Button
+                  type="submit"
+                  variant="kv-secondary-800"
                 >Salvar</Button>
               </div>
             </div>
@@ -76,9 +72,18 @@ export default function Admin() {
               placeholder="Descrição"
               style={{ height: 200 + "px" }}
             >
-              {error.field?.description ? 
+              {error.field?.description ?
                 <p className={`${styles.error}`}>{error.field.description.message}</p> : null}
             </Kv.FloatingTextArea>
+            <Kv.FloatingInput
+              {...register.field("releaseDate", {required: true, max: "9999-12-31"})}
+              type="date"
+              label="Data de Lançamento"
+              placeholder="Data de Lançamento"
+            >
+              {error.field?.releaseDate ?
+                <p className={`${styles.error}`}>{error.field.releaseDate.message}</p> : null}
+            </Kv.FloatingInput>
             <Kv.FloatingInput
               {...register.field("developer", { required: true })}
               type="text"
@@ -100,27 +105,25 @@ export default function Admin() {
             <Row>
               <Col>
                 <Kv.InputGroup
-                  {...register.field("price", { required: true })}
+                  {...register.field("price", { required: true, min: "0", step: "0.01" })}
                   type="number"
-                  step={0.01}
                   label="Preço"
                   startLabel="R$"
-                  min={0}
                 >
-                  {error.field?.price ? 
+                  {error.field?.price ?
                     <p className={`${styles.error}`}>{error.field.price.message}</p> : null}
                 </Kv.InputGroup>
               </Col>
               <Col>
                 <Kv.InputGroup
-                  {...register.field("discount")}
+                  {...register.field("discount", { required: true, max: "100", min: "0", step: "1" })}
                   type="number"
                   label="Desconto"
                   endLabel="%"
-                  required
-                  min={0}
-                  max={100}
-                />
+                >
+                  {error.field?.discount ?
+                    <p className={`${styles.error}`}>{error.field.discount.message}</p> : null}
+                </Kv.InputGroup>
               </Col>
               <Col sm="auto">
                 <Kv.BtnCheck
@@ -155,7 +158,9 @@ export default function Admin() {
               <h3 className="mb-3">Cover</h3>
               <div className={`${styles["img-container"]}`}>
                 {game.image.map((image, index) => {
-                  return GetImg(image, index, imgTypes.Cover);
+                  if (image.type === imgTypes.Cover) {
+                    return Img(image, index);
+                  }
                 })}
               </div>
             </div>
@@ -164,15 +169,18 @@ export default function Admin() {
               type="text"
               label="URL"
               placeholder="URL"
-            />
-            {error.urlField?.cover ?
-              <p className={`${styles.error}`}>{error.urlField.cover.message}</p> : null}
+            >
+              {error.urlField?.cover ?
+                <p className={`${styles.error}`}>{error.urlField.cover.message}</p> : null}
+            </Kv.FloatingInput>
             <hr></hr>
             <div className="mb-3">
               <h3 className="mb-3">Screenshots</h3>
               <div className={`${styles["img-container"]}`}>
                 {game.image.map((image, index) => {
-                  return GetImg(image, index, imgTypes.Screenshot);
+                  if (image.type === imgTypes.Screenshot) {
+                    return Img(image, index);
+                  }
                 })}
               </div>
             </div>
@@ -181,15 +189,18 @@ export default function Admin() {
               type="text"
               label="URL"
               placeholder="URL"
-            />
-            {error.urlField?.screenshot ?
-              <p className={`${styles.error}`}>{error.urlField.screenshot.message}</p> : null}
+            >
+              {error.urlField?.screenshot ?
+                <p className={`${styles.error}`}>{error.urlField.screenshot.message}</p> : null}
+            </Kv.FloatingInput>
             <hr></hr>
             <div className="mb-3">
               <h3 className="mb-3">Artwork</h3>
               <div className={`${styles["img-container"]}`}>
                 {game.image.map((image, index) => {
-                  return GetImg(image, index, imgTypes.Artwork);
+                  if (image.type === imgTypes.Artwork) {
+                    return Img(image, index);
+                  }
                 })}
               </div>
             </div>
@@ -198,9 +209,16 @@ export default function Admin() {
               type="text"
               label="URL"
               placeholder="URL"
-            />
-            {error.urlField?.artwork ?
-              <p className={`${styles.error}`}>{error.urlField.artwork.message}</p> : null}
+            >
+              {error.urlField?.artwork ?
+                <p className={`${styles.error}`}>{error.urlField.artwork.message}</p> : null}
+            </Kv.FloatingInput>
+            <hr></hr>
+            <div>
+              {game.language_support.map((language_support, index) => {
+                
+              })}
+            </div>
           </form>
         </Container>
       </div>

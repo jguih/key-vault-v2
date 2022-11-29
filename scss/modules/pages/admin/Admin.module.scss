@@ -2,6 +2,16 @@
 @use '../../../colors' as colors;
 @use '../../../breakpoints' as breakpoints;
 
+.container {
+  hr {
+    margin: 1.2rem 0px;
+
+    border: 2px solid colors.$kv-primary-800;
+    border-radius: 10px;
+    opacity: 1;
+  }
+}
+
 .ImgURL-container {
   display: flex;
   flex-direction: row;
@@ -63,7 +73,7 @@
   position: relative;
   padding-bottom: 30%;
   padding-left: 25%;
-  
+
   &:hover {
     filter: brightness(1.1);
   }
