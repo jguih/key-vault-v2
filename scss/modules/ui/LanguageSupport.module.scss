@@ -5,10 +5,37 @@
 .language-support-container {
   font-size: 1rem;
   hr {
-    border: 1px solid colors.$kv-primary-700;
+    border: 1px solid colors.$kv-primary-800;
     margin: 8px 0;
     border-radius: 10px;
     opacity: 1;
+  }
+}
+
+.primary {
+  color: colors.$kv-text-on-primary;
+}
+
+.secondary {
+  .legend {
+    i {
+      color: colors.$kv-secondary-800 !important;
+    }
+  }
+  hr {
+    border: 1px solid colors.$kv-secondary-800 !important;
+  }
+}
+
+.hover {
+  .language-container {
+    &:hover {
+      background-color: colors.$kv-primary-800;
+      padding-left: 4px;
+      padding-right: 4px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
   }
 }
 

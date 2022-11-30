@@ -124,7 +124,7 @@ export function BtnCheck({ label, invisibleLabel, ...props }) {
   );
 }
 
-export function SimpleDropDown({ title, children }) {
+export function SimpleDropDown({ title, children, variant }) {
   const [content, setContent] = useState();
 
   useEffect(() => {
@@ -157,7 +157,8 @@ export function SimpleDropDown({ title, children }) {
   }, [title, children])
 
   return (
-    <Dropdown className={`${styles.dropdown}`}>
+    <Dropdown 
+      className={`${styles.dropdown} ${variant === "secondary" ? styles["dropdown-secondary"] : ""}`}>
       <Dropdown.Toggle className={`${styles["dropdown-toggle"]}`}>
         <span>{title || "Dropdown"}</span>
       </Dropdown.Toggle>

@@ -8,5 +8,15 @@
     "id": 2,
     "enUS_name": "portuguese",
     "ptBR_name": "português"
+  },
+  {
+    "id": 3,
+    "enUS_name": "spanish",
+    "ptBR_name": "espanhol"
+  },
+  {
+    "id": 4,
+    "enUS_name": "chinese",
+    "ptBR_name": "chinês"
   }
 ]

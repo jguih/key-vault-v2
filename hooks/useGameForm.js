@@ -16,6 +16,27 @@ export const gameActions = {
   ToggleIsDiscountActive: "TOGGLE-IS-DISCOUNT-ACTIVE",
   AddImg: "ADD-IMG",
   RemoveImg: "REMOVE-IMG",
+  AddGameLanguageSupport: "ADD-GAME-LANGUAGE-SUPPORT",
+  RemoveGameLanguageSupport: "REMOVE-GAME-LANGUAGE-SUPPORT"
+}
+
+function validateLanguageSupport(languageSupport) {
+  if (Object.keys(languageSupport.language).length === 0 ||
+    !languageSupport.hasOwnProperty("audio") ||
+    !languageSupport.hasOwnProperty("subtitles") ||
+    !languageSupport.hasOwnProperty("interface")) {
+    return false;
+  }
+  if (languageSupport.audio !== true && languageSupport.audio !== false) {
+    return false;
+  }
+  if (languageSupport.subtitles !== true && languageSupport.subtitles !== false) {
+    return false;
+  }
+  if (languageSupport.interface !== true && languageSupport.interface !== false) {
+    return false;
+  }
+  return true;
 }
 
 const gameReducer = (state, action) => {
@@ -81,6 +102,26 @@ const gameReducer = (state, action) => {
       return {
         ...state,
         game_image: images
+      }
+
+    case gameActions.AddGameLanguageSupport:
+      if (!validateLanguageSupport(action.payload)) return state;
+      return {
+        ...state,
+        game_language_support: [
+          ...state["game_language_support"],
+          action.payload
+        ]
+      }
+
+    case gameActions.RemoveGameLanguageSupport:
+      if (!validateLanguageSupport(action.payload)) return state;
+      let languageSupport = state["game_language_support"];
+      languageSupport = languageSupport
+        .filter(ls => ls.language.id !== action.payload.language.id);
+      return {
+        ...state,
+        game_language_support: languageSupport
       }
 
     default:
@@ -208,7 +249,7 @@ export function useGameForm() {
           e.preventDefault();
         }
         // Prevents user from typing '-' if options.min is set to 0
-        if (options?.min === 0 && (e.keyCode === 189 || e.keyCode === 109)) {
+        if (options?.min === "0" && (e.keyCode === 189 || e.keyCode === 109)) {
           e.preventDefault();
         }
       },

@@ -70,15 +70,15 @@
 
 .dropdown-toggle {
   font-size: 1.2em;
-  background-color: colors.$kv-primary-900 !important;
+  background-color: colors.$kv-primary-800 !important;
   border: none !important;
 
   &:hover {
-    background-color: colors.$kv-primary-800 !important;
+    background-color: colors.$kv-primary-700 !important;
   }
 
   &:active {
-    background-color: colors.$kv-primary-700 !important;
+    background-color: colors.$kv-primary-600 !important;
   }
 }
 
@@ -97,7 +97,7 @@
     }
 
     &:active {
-      background-color: colors.$kv-primary-500 !important;
+      background-color: colors.$kv-primary-600 !important;
     }
 
   }
@@ -105,6 +105,20 @@
   a {
     text-decoration: none;
     color: colors.$kv-text-on-primary;
+  }
+}
+
+.dropdown-secondary {
+  .dropdown-toggle {
+    background-color: colors.$kv-secondary-800 !important;
+
+    &:hover {
+      background-color: colors.$kv-secondary-700 !important;
+    }
+
+    &:active {
+      background-color: colors.$kv-secondary-600 !important;
+    }
   }
 }
 

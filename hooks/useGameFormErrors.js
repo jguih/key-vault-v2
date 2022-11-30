@@ -61,12 +61,6 @@ export function useGameFormErrors() {
   }, [error])
 
   const validate = {
-    all: () => {
-      return (
-        Object.keys(error.urlField).length === 0 &&
-        Object.keys(error.field).length === 0
-      );
-    },
     field: (fieldName, e, options) => {
       const validity = e.target.validity;
       let valid = true;
