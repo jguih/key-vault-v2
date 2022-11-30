@@ -1,15 +1,10 @@
-import { useEffect, useMemo, useReducer, useState } from "react";
-import { brlCurrencyFormatter, getGamemode, getPlatformsIcons, toFirstUpperCase } from "../global";
-import { errorsActions, useGameFormErrors } from "./useGameFormErrors";
-
-export const imgTypes = {
-  Cover: "cover",
-  Screenshot: "screenshot",
-  Artwork: "artwork"
-}
+import { useReducer } from "react";
+import { GameFields, GameSystemRequirements, getFullDate, getGamemode, getIGDBImageURL, getPlatformsIcons, IGDBImageSize, imgTypes, toFirstUpperCase } from "../global";
+import { sample } from "./sample";
+import { useGameFormErrors } from "./useGameFormErrors";
 
 export const gameActions = {
-  AddFieldValue: "TEXT-INPUT",
+  AddFieldValue: "ADD-FIELD-VALUE",
   ToggleGenre: "TOGGLE-GENRE",
   ToggleGamemode: "TOGGLE-GAMEMODE",
   TogglePlatform: "TOGGLE-PLATFORM",
@@ -17,7 +12,9 @@ export const gameActions = {
   AddImg: "ADD-IMG",
   RemoveImg: "REMOVE-IMG",
   AddGameLanguageSupport: "ADD-GAME-LANGUAGE-SUPPORT",
-  RemoveGameLanguageSupport: "REMOVE-GAME-LANGUAGE-SUPPORT"
+  RemoveGameLanguageSupport: "REMOVE-GAME-LANGUAGE-SUPPORT",
+  AddSysReqFieldValue: "ADD-SYSTEM-REQUIREMENTS-FIELD-VALUE",
+  Reset: "RESET",
 }
 
 function validateLanguageSupport(languageSupport) {
@@ -91,6 +88,11 @@ const gameReducer = (state, action) => {
       }
 
     case gameActions.AddImg:
+      if (!action.payload.hasOwnProperty("type")) return state;
+      if (!action.payload.hasOwnProperty("url")) return state;
+      if (action.payload.type !== imgTypes.Cover &&
+        action.payload.type !== imgTypes.Screenshot &&
+        action.payload.type !== imgTypes.Artwork) return state;
       return {
         ...state,
         game_image: [...state["game_image"], action.payload]
@@ -124,104 +126,81 @@ const gameReducer = (state, action) => {
         game_language_support: languageSupport
       }
 
+    case gameActions.AddSysReqFieldValue:
+      let minimmumSysReq = state["game_system_requirements"]
+        .filter(gsr => gsr.type === GameSystemRequirements.Minimum);
+      let recommendedSysReq = state["game_system_requirements"]
+        .filter(gsr => gsr.type === GameSystemRequirements.Recommended);
+      if (action.sysType === GameSystemRequirements.Minimum) {
+        // Invalid Field
+        if (!minimmumSysReq[0].hasOwnProperty(`${action.field}`)) return state;
+
+        minimmumSysReq[0][action.field] = action.payload;
+      } else if (action.sysType === GameSystemRequirements.Recommended) {
+        // Invalid Field
+        if (!minimmumSysReq[0].hasOwnProperty(`${action.field}`)) return state;
+
+        recommendedSysReq[0][action.field] = action.payload;
+      } else { // Invalid type
+        return state;
+      }
+      return {
+        ...state,
+        game_system_requirements: minimmumSysReq.concat(recommendedSysReq)
+      }
+
+      case gameActions.Reset:
+        return {
+          ...initialValues
+        }
+
     default:
       return state;
   }
 }
 
 const initialValues = {
-  name: "",
-  description: "",
-  developer: "",
-  publisher: "",
-  releaseDate: "",
-  price: "",
-  discount: "",
-  isDiscountActive: false,
-  game_language_support: [],
-  game_system_requirements: [],
-  game_platform: [],
-  game_genre: [],
-  game_gamemode: [],
-  game_image: [],
-}
-
-const sample = {
-  name: "Spider Man",
-  description: "Homem Aranha",
-  developer: "Sony",
-  publisher: "Sony",
-  releaseDate: "2022-06-22",
-  price: "250.00",
-  discount: "20",
-  isDiscountActive: true,
-  game_language_support: [
+  [GameFields.name]: "",
+  [GameFields.description]: "",
+  [GameFields.developer]: "",
+  [GameFields.publisher]: "",
+  [GameFields.releaseDate]: "",
+  [GameFields.price]: "",
+  [GameFields.discount]: "",
+  [GameFields.isDiscountActive]: false,
+  [GameFields.GameLanguageSupport]: [],
+  [GameFields.GameSystemRequirements]: [
     {
-      language: {
-        id: 1,
-        enUS_name: "english",
-        ptBR_name: "inglês"
-      },
-      audio: true,
-      subtitles: true,
-      interface: true
+      [GameFields.GameSystemRequirementsFields.type]: "minimum",
+      [GameFields.GameSystemRequirementsFields.so]: "",
+      [GameFields.GameSystemRequirementsFields.storage]: "",
+      [GameFields.GameSystemRequirementsFields.cpu]: "",
+      [GameFields.GameSystemRequirementsFields.memory]: "",
+      [GameFields.GameSystemRequirementsFields.gpu]: "",
+      [GameFields.GameSystemRequirementsFields.directx]: "",
+      [GameFields.GameSystemRequirementsFields.internet]: "",
+      [GameFields.GameSystemRequirementsFields.other]: ""
     },
     {
-      language: {
-        id: 2,
-        enUS_name: "portuguese",
-        ptBR_name: "português"
-      },
-      audio: false,
-      subtitles: true,
-      interface: true
+      [GameFields.GameSystemRequirementsFields.type]: "recommended",
+      [GameFields.GameSystemRequirementsFields.so]: "",
+      [GameFields.GameSystemRequirementsFields.storage]: "",
+      [GameFields.GameSystemRequirementsFields.cpu]: "",
+      [GameFields.GameSystemRequirementsFields.memory]: "",
+      [GameFields.GameSystemRequirementsFields.gpu]: "",
+      [GameFields.GameSystemRequirementsFields.directx]: "",
+      [GameFields.GameSystemRequirementsFields.internet]: "",
+      [GameFields.GameSystemRequirementsFields.other]: ""
     }
   ],
-  game_system_requirements: [],
-  game_platform: [
-    {
-      "id": 1,
-      "name": "steam"
-    }
-  ],
-  game_genre: [
-    {
-      id: 1,
-      name: "RPG"
-    },
-    {
-      id: 2,
-      name: "FPS"
-    },
-    {
-      id: 3,
-      name: "Shooter"
-    }
-  ],
-  game_gamemode: [
-    {
-      "id": 1,
-      "name": "singleplayer"
-    }
-  ],
-  game_image: [
-    {
-      type: "cover",
-      url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r77.png"
-    },
-    {
-      type: "artwork",
-      url: "https://images.igdb.com/igdb/image/upload/t_original/xyrkou2h4zxjnmitk8gi.jpg"
-    },
-    {
-      type: "screenshot",
-      url: "https://images.igdb.com/igdb/image/upload/t_original/nofld5l3txxuqhp7j8cc.jpg"
-    }
-  ],
+  [GameFields.GamePlatform]: [],
+  [GameFields.GameGenre]: [],
+  [GameFields.GameGamemode]: [],
+  [GameFields.GameImage]: [],
 }
 
 export function useGameForm() {
-  const [game, dispatchGame] = useReducer(gameReducer, sample);
+  const [game, dispatchGame] = useReducer(gameReducer, initialValues);
   const { error, dispatchError, validate } = useGameFormErrors();
 
   const field = (name, options) => {
@@ -264,7 +243,7 @@ export function useGameForm() {
     return {
       name: "genres",
       id: genre.name,
-      checked: game["game_genre"]?.map(genre => genre.id)?.includes(genre.id) ?? false,
+      checked: game[GameFields.GameGenre]?.map(genre => genre.id)?.includes(genre.id) ?? false,
       label: toFirstUpperCase(genre.name),
       type: "checkbox",
       onChange: (e) => {
@@ -281,7 +260,7 @@ export function useGameForm() {
     return {
       name: "gamemodes",
       id: gamemode.name,
-      checked: game["game_gamemode"]?.map(g => g.id)?.includes(gamemode.id) ?? false,
+      checked: game[GameFields.GameGamemode]?.map(g => g.id)?.includes(gamemode.id) ?? false,
       label: getGamemode(toFirstUpperCase(gamemode.name)),
       type: "checkbox",
       onChange: (e) => {
@@ -298,7 +277,7 @@ export function useGameForm() {
     return {
       name: "platforms",
       id: platform.name,
-      checked: game["game_platform"]?.map(p => p.id)?.includes(platform.id) ?? false,
+      checked: game[GameFields.GamePlatform]?.map(p => p.id)?.includes(platform.id) ?? false,
       label: getPlatformsIcons(platform.name, { withName: true }),
       type: "checkbox",
       onChange: (e) => {
@@ -355,19 +334,117 @@ export function useGameForm() {
     }
   }
 
+  const sysReqField = (name, type) => {
+    return {
+      name: name,
+      label: toFirstUpperCase(name),
+      value: game[GameFields.GameSystemRequirements].filter(gsr => gsr.type === type)[0][name],
+      onChange: (e) => {
+        dispatchGame({
+          type: gameActions.AddSysReqFieldValue,
+          sysType: type,
+          field: e.target.name,
+          payload: e.target.value
+        })
+      },
+      onKeyDown: (e) => {
+        if (e.keyCode === 13) {
+          e.preventDefault();
+        }
+      }
+    };
+  }
+
+  const dispatchIGDBGame = (data) => {
+    const game = data.game;
+    const artworks = game.artworks?.map(artwork => {
+      return {
+        type: imgTypes.Artwork,
+        url: getIGDBImageURL(IGDBImageSize.original, artwork["image_id"])
+      };
+    });
+    const cover = {
+      type: imgTypes.Cover,
+      url: getIGDBImageURL(IGDBImageSize.cover_big, game.cover?.["image_id"])
+    }
+    const screenshots = game.screenshots?.map(screenshot => {
+      return {
+        type: imgTypes.Screenshot,
+        url: getIGDBImageURL(IGDBImageSize.original, screenshot["image_id"])
+      };
+    })
+    const firstReleaseDate = getFullDate(game["first_release_date"]);
+    console.log(firstReleaseDate)
+    const gamemodes = game["game_modes"]?.map(gm => gm.name);
+    const genres = game.genres?.map(g => g.name);
+    const name = game.name;
+    const summary = game.summary;
+
+    dispatchGame({
+      type: gameActions.Reset
+    })
+
+    dispatchGame({
+      type: gameActions.AddFieldValue,
+      field: GameFields.name,
+      payload: name || ""
+    })
+
+    dispatchGame({
+      type: gameActions.AddFieldValue,
+      field: GameFields.description,
+      payload: summary || ""
+    })
+    
+    dispatchGame({
+      type: gameActions.AddFieldValue,
+      field: GameFields.releaseDate,
+      payload: firstReleaseDate || ""
+    })
+
+    artworks?.forEach(artwork => {
+      dispatchGame({
+        type: gameActions.AddImg,
+        payload: artwork
+      })
+    })
+
+    dispatchGame({
+      type: gameActions.AddImg,
+      payload: cover
+    })
+
+    screenshots?.forEach(screenshot => {
+      dispatchGame({
+        type: gameActions.AddImg,
+        payload: screenshot
+      })
+    })
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("...submitting");
     // All fields are valid and ready to be submitted
     // ...
-    console.log(game);
+    const gameJson = JSON.stringify(game, null, 2);
+    console.log(gameJson);
   }
 
   return {
     game,
     dispatchGame,
-    register: { field, genre, isDiscountActive, urlField, gamemode, platform },
+    register: {
+      field,
+      genre,
+      isDiscountActive,
+      urlField,
+      gamemode,
+      platform,
+      sysReqField
+    },
     handleSubmit,
-    error
+    error,
+    dispatchIGDBGame
   }
 }

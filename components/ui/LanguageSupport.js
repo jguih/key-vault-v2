@@ -6,11 +6,11 @@ export default function LanguageSupport({ title, languageSupport, variant, onCli
 
   function getLanguageSupport(language_support, index) {
     const ptBRName =
-      language_support.language["ptBR_name"]?.[0]?.toUpperCase() +
-      language_support.language["ptBR_name"]?.slice(1);
-    const _audio = language_support.audio;
-    const _interface = language_support.interface;
-    const _subtitles = language_support.subtitles;
+      language_support.language?.["ptBR_name"]?.[0]?.toUpperCase() +
+      language_support.language?.["ptBR_name"]?.slice(1) || "";
+    const _audio = language_support.audio || false;
+    const _interface = language_support.interface || false;
+    const _subtitles = language_support.subtitles || false;
 
     return (
       <div 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Dropdown, Form, Tab, Tabs } from "react-bootstrap";
+import { Button, Col, Dropdown, Form, Row, Tab, Tabs } from "react-bootstrap";
 import styles from "../../scss/modules/ui/Kv.module.scss";
 
 export function Accordion({ title, children, expand, bodyHeight }) {
@@ -40,8 +40,10 @@ export function Accordion({ title, children, expand, bodyHeight }) {
       <div
         className={`${styles["accordion-body"]}`}
         style={
-          {height: `${bodyExpand ? bodyHeight : 0}px`,
-          transition: "height" + 0.2+"s" + "ease-in"}}
+          {
+            height: `${bodyExpand ? bodyHeight : 0}px`,
+            transition: "height" + 0.2 + "s" + "ease-in"
+          }}
       >
         {children}
       </div>
@@ -76,6 +78,22 @@ export function FloatingTextArea({ label, ...props }) {
       <textarea className={`form-control ${styles["form-control"]}`} {...props} />
       <label htmlFor={props.name || props.id}>{label}</label>
     </div>
+  );
+}
+
+export function FormControl({label, children, ...props}) {
+  return (
+    <>
+      <Row>
+        <Col sm="2">
+          <label htmlFor={props.id || props.name} className="col-form-label">{label}</label>
+        </Col>
+        <Col className="mb-1">
+          <input className={`form-control ${styles["form-control"]}`} {...props} />
+        </Col>
+        {children}
+      </Row>
+    </>
   );
 }
 
@@ -154,10 +172,10 @@ export function SimpleDropDown({ title, children, variant }) {
         );
       }
     }
-  }, [title, children])
+  }, [children])
 
   return (
-    <Dropdown 
+    <Dropdown
       className={`${styles.dropdown} ${variant === "secondary" ? styles["dropdown-secondary"] : ""}`}>
       <Dropdown.Toggle className={`${styles["dropdown-toggle"]}`}>
         <span>{title || "Dropdown"}</span>
@@ -166,21 +184,5 @@ export function SimpleDropDown({ title, children, variant }) {
         {content}
       </Dropdown.Menu>
     </Dropdown>
-  );
-}
-
-export function CustomTabs({ children, ...props }) {
-  return (
-    <Tabs {...props} className={`${styles.tabs}`}>
-      {children}
-    </Tabs>
-  );
-}
-
-export function CustomTab({children, ...props}) {
-  return (
-    <Tab {...props} className={`${styles.tab}`}>
-      {children}
-    </Tab>
   );
 }

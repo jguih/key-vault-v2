@@ -2,9 +2,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import Image from "next/image";
-import { brlCurrencyFormatter } from "../global";
+import { brlCurrencyFormatter, imgTypes } from "../global";
 import outdoor from '../scss/modules/Outdoor.module.scss';
-import { imgTypes } from "../hooks/useGameForm";
 
 export default function Outdoor({ games, size }) {
   const [index, setIndex] = useState(0);

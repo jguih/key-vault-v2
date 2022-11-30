@@ -9,7 +9,7 @@ import SystemReq from "./SystemReq";
 import LanguageGamemodeCard from "./LanguageGamemodeCard";
 import SubHeader from "../../SubHeader";
 import Title from "./Title";
-import { imgTypes } from "../../../hooks/useGameForm";
+import { imgTypes } from "../../../global";
 
 export default function Content({ name }) {
   const { currentGame, isLoading, isError } = useGameByName(name);
