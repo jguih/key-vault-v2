@@ -86,7 +86,7 @@ export default function Content({ name }) {
           </div>
           <div className={gpBodyStyles.right}>
             <DescriptionCard
-              coverUrl={artwork?.[0]?.url}
+              coverUrl={cover?.[0]?.url}
               description={shortDescription}
               releaseDate={releaseDate}
               developer={developer}

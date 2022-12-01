@@ -1,6 +1,7 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { GameFields, GameSystemRequirements, getFullDate, getGamemode, getIGDBImageURL, getPlatformsIcons, IGDBImageSize, imgTypes, toFirstUpperCase } from "../global";
 import { sample } from "./sample";
+import useData from "./useData";
 import { useGameFormErrors } from "./useGameFormErrors";
 
 export const gameActions = {
@@ -46,9 +47,11 @@ const gameReducer = (state, action) => {
       };
 
     case gameActions.ToggleGenre:
-      let genres = state["game_genre"];
+      let genres = state[GameFields.GameGenre];
       if (action.checked) {
-        genres.push(action.payload);
+        if (!genres.map(g => g.id).includes(action.payload.id)) {
+          genres.push(action.payload);
+        }
       } else {
         genres = genres.filter(genre => genre.id !== action.payload.id);
       }
@@ -58,9 +61,11 @@ const gameReducer = (state, action) => {
       }
 
     case gameActions.ToggleGamemode:
-      let gamemodes = state["game_gamemode"];
+      let gamemodes = state[GameFields.GameGamemode];
       if (action.checked) {
-        gamemodes.push(action.payload);
+        if (!gamemodes.map(g => g.id).includes(action.payload.id)) {
+          gamemodes.push(action.payload);
+        }
       } else {
         gamemodes = gamemodes.filter(g => g.id !== action.payload.id);
       }
@@ -149,10 +154,46 @@ const gameReducer = (state, action) => {
         game_system_requirements: minimmumSysReq.concat(recommendedSysReq)
       }
 
-      case gameActions.Reset:
-        return {
-          ...initialValues
-        }
+    case gameActions.Reset:
+      return {
+        [GameFields.name]: "",
+        [GameFields.description]: "",
+        [GameFields.developer]: "",
+        [GameFields.publisher]: "",
+        [GameFields.releaseDate]: "",
+        [GameFields.price]: "",
+        [GameFields.discount]: "",
+        [GameFields.isDiscountActive]: false,
+        [GameFields.GameLanguageSupport]: [],
+        [GameFields.GameSystemRequirements]: [
+          {
+            [GameFields.GameSystemRequirementsFields.type]: "minimum",
+            [GameFields.GameSystemRequirementsFields.so]: "",
+            [GameFields.GameSystemRequirementsFields.storage]: "",
+            [GameFields.GameSystemRequirementsFields.cpu]: "",
+            [GameFields.GameSystemRequirementsFields.memory]: "",
+            [GameFields.GameSystemRequirementsFields.gpu]: "",
+            [GameFields.GameSystemRequirementsFields.directx]: "",
+            [GameFields.GameSystemRequirementsFields.internet]: "",
+            [GameFields.GameSystemRequirementsFields.other]: ""
+          },
+          {
+            [GameFields.GameSystemRequirementsFields.type]: "recommended",
+            [GameFields.GameSystemRequirementsFields.so]: "",
+            [GameFields.GameSystemRequirementsFields.storage]: "",
+            [GameFields.GameSystemRequirementsFields.cpu]: "",
+            [GameFields.GameSystemRequirementsFields.memory]: "",
+            [GameFields.GameSystemRequirementsFields.gpu]: "",
+            [GameFields.GameSystemRequirementsFields.directx]: "",
+            [GameFields.GameSystemRequirementsFields.internet]: "",
+            [GameFields.GameSystemRequirementsFields.other]: ""
+          }
+        ],
+        [GameFields.GamePlatform]: [],
+        [GameFields.GameGenre]: [],
+        [GameFields.GameGamemode]: [],
+        [GameFields.GameImage]: [],
+      }
 
     default:
       return state;
@@ -202,15 +243,17 @@ const initialValues = {
 export function useGameForm() {
   const [game, dispatchGame] = useReducer(gameReducer, initialValues);
   const { error, dispatchError, validate } = useGameFormErrors();
+  const { data } = useData();
 
   const field = (name, options) => {
     return {
-      name: name,
+      name: "field",
+      id: name,
       value: game[name] || "",
       onChange: (e) => {
         dispatchGame({
           type: gameActions.AddFieldValue,
-          field: e.target.name,
+          field: name,
           payload: e.target.value
         })
         validate.field(name, e, options);
@@ -232,6 +275,7 @@ export function useGameForm() {
           e.preventDefault();
         }
       },
+      spellCheck: "false",
       required: options?.required || false,
       max: options?.max || "",
       min: options?.min || "",
@@ -355,8 +399,12 @@ export function useGameForm() {
     };
   }
 
-  const dispatchIGDBGame = (data) => {
-    const game = data.game;
+  const dispatchIGDBGame = (gameData, func) => {
+    if (!gameData || !gameData.game ||
+      !gameData.languageSupport || !gameData.involvedCompanies) {
+      return;
+    }
+    const game = gameData.game;
     const artworks = game.artworks?.map(artwork => {
       return {
         type: imgTypes.Artwork,
@@ -374,11 +422,26 @@ export function useGameForm() {
       };
     })
     const firstReleaseDate = getFullDate(game["first_release_date"]);
-    console.log(firstReleaseDate)
-    const gamemodes = game["game_modes"]?.map(gm => gm.name);
-    const genres = game.genres?.map(g => g.name);
+    const gamemodesNameArr = game["game_modes"]?.map(gm => gm.name.toLowerCase());
+    const matchGamemodes = data.gamemodes
+      ?.filter(gamemode => gamemodesNameArr.includes(gamemode.name.toLowerCase()));
+    const genresNameArr = game.genres?.map(g => g.name.toLowerCase());
+    // Every genre that matches both IGDB game and KeyVault's database
+    const matchGenres = data.genres
+      ?.filter(genre => genresNameArr.includes(genre.name.toLowerCase()));
     const name = game.name;
     const summary = game.summary;
+
+    const kvGenresNameArr = data.genres?.map(g => g.name.toLowerCase());
+    const kvGamemodesNameArr = data.gamemodes?.map(g => g.name.toLowerCase());
+    // Values that were not found in current KeyVault's database, 
+    // but were present in the IGDB game
+    const notFound = {
+      genres: genresNameArr
+        ?.filter(genreName => !kvGenresNameArr?.includes(genreName)),
+      gamemodes: gamemodesNameArr
+        ?.filter(gamemodeName => !kvGamemodesNameArr?.includes(gamemodeName)),
+    }
 
     dispatchGame({
       type: gameActions.Reset
@@ -395,7 +458,7 @@ export function useGameForm() {
       field: GameFields.description,
       payload: summary || ""
     })
-    
+
     dispatchGame({
       type: gameActions.AddFieldValue,
       field: GameFields.releaseDate,
@@ -420,6 +483,24 @@ export function useGameForm() {
         payload: screenshot
       })
     })
+
+    matchGenres?.forEach(genre => {
+      dispatchGame({
+        type: gameActions.ToggleGenre,
+        payload: genre,
+        checked: true
+      })
+    })
+
+    matchGamemodes?.forEach(gamemode => {
+      dispatchGame({
+        type: gameActions.ToggleGamemode,
+        payload: gamemode,
+        checked: true
+      })
+    })
+
+    if (func) func();
   }
 
   const handleSubmit = (e) => {

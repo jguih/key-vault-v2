@@ -10,6 +10,7 @@ export default function SearchBar({ defaultValue, onSubmit, onChange }) {
           type="text"
           placeholder="Buscar"
           name="entry"
+          spellCheck="false"
           defaultValue={defaultValue ? defaultValue : null}
           onChange={onChange ? (e) => onChange(e) : null}
         />

@@ -37,6 +37,7 @@ export default function GameSearchBody() {
     },
     handleOnSubmit: function (e) {
       e.preventDefault();
+      clearTimeout(this.timeout);
       
       let myQuery = { ...router.query };
       if (e.target.querySelector("input").value) {

@@ -1,11 +1,11 @@
 export default async function handler(req, res) {
-  const { name } = req.query;
-  
+  const { id } = req.query;
+
   let data;
-  if (name) {
+  if (id) {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://api.igdb.com/v4/games", {
+        const response = await fetch("https://api.igdb.com/v4/involved_companies", {
           method: "POST",
           headers: {
             'Client-ID': process.env.TWITCH_CLIENT_ID,
@@ -13,16 +13,11 @@ export default async function handler(req, res) {
           },
           body:
            `fields 
-              name,
-              artworks.image_id,
-              cover.image_id,
-              screenshots.image_id,
-              first_release_date,
-              game_modes.name,
-              summary,
-              genres.name;
-            where version_parent = null; 
-            search "${name}";`
+              developer,
+              publisher,
+              company.*,
+              game;
+            where game = ${id};`
         });
         data = await response.json();
       } catch (error) {

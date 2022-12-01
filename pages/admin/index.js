@@ -1,4 +1,4 @@
-import { Button, CloseButton, Col, Container, Modal, Row, Spinner } from 'react-bootstrap';
+import { Alert, Button, CloseButton, Col, Container, Modal, Row, Spinner } from 'react-bootstrap';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import styles from "../../scss/modules/pages/admin/Admin.module.scss";
@@ -11,11 +11,15 @@ import LanguageSupport from '../../components/ui/LanguageSupport';
 import { GameFields, GameSystemRequirements, getFullDate, getIGDBImageURL, IGDBImageSize, imgTypes, toFirstUpperCase } from '../../global';
 import SearchBar from '../../components/ui/SearchBar';
 import useIGDBGame from '../../hooks/IGDB/useIGDBGame';
+import useIGDBLanguageSupports from '../../hooks/IGDB/useIGDBLanguageSupports';
+import useIGDBInvolvedCompanies from '../../hooks/IGDB/useIGDBInvolvedCompanies';
 
 const GameContext = React.createContext();
 
 export default function Admin() {
-  const { game, dispatchGame, register, handleSubmit, error, dispatchIGDBGame } = useGameForm();
+  const { 
+    game, dispatchGame, register, handleSubmit, error, dispatchIGDBGame 
+  } = useGameForm();
   const { data } = useData();
   const validLanguages = useMemo(() => {
     // Current language support languages id array
@@ -42,7 +46,6 @@ export default function Admin() {
     }
   }
 
-
   if (!data.defined) return;
 
   return (
@@ -61,28 +64,63 @@ export default function Admin() {
 
 function IgdbModal() {
   const [searchParam, setSearchParam] = useState();
-  const { games, error, isLoading } = useIGDBGame(searchParam);
+  const { games, error, isLoading: isGameLoading } = useIGDBGame(searchParam);
+  const [currentGame, setCurrentGame] = useState();
+  const {
+    data: languageSupport,
+    error: isLSError,
+    isLoading: isLSLoading
+  } = useIGDBLanguageSupports(currentGame?.id);
+  const {
+    data: involvedCompanies,
+    error: isICError,
+    isLoading: isICLoading
+  } = useIGDBInvolvedCompanies(currentGame?.id);
+  const currentGameData = useMemo(() => {
+    if (!isLSLoading && !isICLoading) {
+      return {
+        game: currentGame,
+        languageSupport,
+        involvedCompanies
+      };
+    }
+  }, [isLSLoading, isICLoading])
   const gc = useContext(GameContext);
 
-  let timeout;
-  function handleChange(e) {
-    e.preventDefault();
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      setSearchParam(e.target.value);
-    }, 1000);
+  useEffect(() => {
+    if (currentGameData && currentGameData.game && 
+      currentGameData.languageSupport && currentGameData.involvedCompanies) {
+      gc.dispatchIGDBGame(currentGameData, gc.modal.closeIGDBModal);
+    }
+  }, [currentGameData])
+
+  const searchBar = {
+    timeout: null,
+    handleChange: function (e) {
+      e.preventDefault();
+      clearTimeout(this.timeout);
+
+      this.timeout = setTimeout(() => {
+        setSearchParam(e.target.value);
+      }, 1000);
+    },
+    handleSubmit: function (e) {
+      e.preventDefault();
+      clearTimeout(this.timeout);
+
+      setSearchParam(e.target.querySelector("input").value);
+    }
   }
 
   function getGameCard(game, index) {
     const fullDate = getFullDate(game["first_release_date"]);
-    
+
     return (
-      <div 
-        className={`${styles["igdb-game-card-container"]}`} 
+      <div
+        className={`${styles["igdb-game-card-container"]}`}
         key={index}
         onClick={() => {
-          gc.dispatchIGDBGame({game});
-          gc.modal.closeIGDBModal();
+          setCurrentGame(game);
         }}
       >
         <div className={`${styles["card-img-wrapper"]}`}>
@@ -100,10 +138,10 @@ function IgdbModal() {
             {game?.genres?.map(genre => genre.name).join(", ")}
           </p>
           <p>
-            {fullDate ? 
+            {fullDate ?
               <>
                 <strong> Data de Lançamento: </strong>{fullDate}
-              </> : null }
+              </> : null}
           </p>
         </div>
       </div>
@@ -117,22 +155,26 @@ function IgdbModal() {
         <CloseButton variant="white" onClick={gc?.modal.closeIGDBModal} />
       </Modal.Header>
       <Modal.Body>
-        <div className="m-auto" style={{width: "fit-content"}}>
+        <div className="m-auto" style={{ width: "fit-content" }}>
           <SearchBar
-            onChange={handleChange}
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSearchParam(e.target.value)
-            }}
+            onChange={(e) => searchBar.handleChange(e)}
+            onSubmit={(e) => searchBar.handleSubmit(e)}
+            focus
           />
         </div>
         <div className='mt-3'>
-          {isLoading ? 
+          {isGameLoading ?
             <div className='d-flex align-items-center justify-content-center'>
               <span className='fw-bold'>Loading...</span>
-              <Spinner animation='border'/>
-            </div> : 
-            games ? games.map((game, index) => getGameCard(game, index)) : null}
+              <Spinner animation='border' />
+            </div>
+            : games?.length > 0 ?
+              games.map((game, index) => getGameCard(game, index))
+              : searchParam ?
+                <Alert variant='info' className='text-center'>
+                  Nenhum Jogo Encontrado :/
+                </Alert>
+                : null}
         </div>
       </Modal.Body>
     </Modal>

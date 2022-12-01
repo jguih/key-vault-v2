@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 
-export default function useIGDBGame(name) {
-  const [games, setGames] = useState();
+export default function useIGDBInvolvedCompanies(id) {
+  const [data, setData] = useState();
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState();
 
   useEffect(() => {
-    if (name) {
+    if (id) {
       const fetchData = async () => {
         try {
           setIsLoading(true);
-          const response = await fetch("http://localhost:3000/api/igdb/"+name, {
+          const response = await fetch("http://localhost:3000/api/igdb/involved_companies/"+id, {
             method: "POST",
             header: new Headers({
               'Accept': 'application/json'
@@ -18,7 +18,7 @@ export default function useIGDBGame(name) {
           });
           const data = await response.json();
 
-          setGames(data);
+          setData(data);
           setIsLoading(false);
         } catch (error) {
           setError(error);
@@ -27,15 +27,10 @@ export default function useIGDBGame(name) {
       };
       fetchData();
     }
-  }, [name])
+  }, [id])
 
   return {
-    games: games
-      ?.sort(function(a, b){
-        const bdate = new Date(new Date().getTime() + b["first_release_date"]);
-        const adate = new Date(new Date().getTime() + a["first_release_date"]);
-        return bdate - adate;
-      }),
+    data,
     error,
     isLoading
   }

@@ -56,10 +56,6 @@ const initialValues = {
 export function useGameFormErrors() {
   const [error, dispatchError] = useReducer(errorsReducer, initialValues);
 
-  useEffect(() => {
-    console.log(error)
-  }, [error])
-
   const validate = {
     field: (fieldName, e, options) => {
       const validity = e.target.validity;
@@ -87,7 +83,7 @@ export function useGameFormErrors() {
             name: fieldName,
             payload: {
               type: "rangeOverflow",
-              message: `Não deve exceder ${options.max}`
+              message: `Não deve exceder ${options?.max}`
             }
           });
         }
@@ -101,7 +97,7 @@ export function useGameFormErrors() {
             name: fieldName,
             payload: {
               type: "rangeUnderflow",
-              message: `Não deve ser menor que ${options.min}`
+              message: `Não deve ser menor que ${options?.min}`
             }
           });
         }
