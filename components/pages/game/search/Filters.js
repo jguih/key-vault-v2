@@ -15,8 +15,8 @@ export default function Filters({ games, onFilter }) {
   const { genres, isLoading, isError } = useGenre();
 
   useEffect(() => {
-    let filteredGames = games;
-    if (router.isReady) {
+    if (router.isReady && games) {
+      let filteredGames = games;
       // Filter by genre
       if (router.query.genres) {
         // Get genres from URL
@@ -46,8 +46,8 @@ export default function Filters({ games, onFilter }) {
       } else {
         setCheckedDiscount(false);
       }
+      onFilter(filteredGames);
     }
-    onFilter(filteredGames);
   }, [router, games, onFilter]);
 
   const filter = {
@@ -79,7 +79,6 @@ export default function Filters({ games, onFilter }) {
     },
     getCheckedGenre: function (genre) {
       const genreName = genre.name.toLowerCase();
-      console.log(genreName, checkedGenres.includes(genreName))
       return checkedGenres.includes(genreName);
     },
     onChangeDiscounted: function (e) {

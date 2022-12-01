@@ -37,7 +37,7 @@ export default function Home() {
           discountedGamesArr.push(game);
         }
 
-        if (genresArr?.includes("rpg") && rpgGamesArr.length < rpgGamesSize + 1) {
+        if (genresArr?.includes("role-playing (rpg)") && rpgGamesArr.length < rpgGamesSize + 1) {
           rpgGamesArr.push(game);
         }
 
@@ -77,7 +77,7 @@ export default function Home() {
       router.push({
         pathname: "/game",
         query: {
-          genres: "rpg"
+          genres: "Role-playing (RPG)"
         }
       })
     }

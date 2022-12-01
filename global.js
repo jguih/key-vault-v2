@@ -62,29 +62,29 @@ export function getFullDate(milliseconds) {
 
 // Generate platform icons based on its name
 export function getPlatformsIcons(platformsName, options) {
-  const validate = (platform) => {
+  const validate = (platform, index) => {
     if (platform === "windows") {
       return (
-        <>
+        <span key={index}>
           <i className="bi bi-windows me-1"></i>
           {options?.withName ? "Windows" : null}
-        </>
+        </span>
       );
     } else if (platform === "steam") {
       return (
-        <>
+        <span key={index}>
           <i className="bi bi-steam me-1"></i>
           {options?.withName ? "Steam" : null}
-        </>
+        </span>
       );
     }
   }
 
   if (platformsName) {
     if (Array.isArray(platformsName)) {
-      return platformsName.map((platform) => validate(platform));
+      return platformsName.map((platform, index) => validate(platform, index));
     } else {
-      return validate(platformsName);
+      return validate(platformsName, 1);
     }
   }
   return [];
@@ -100,7 +100,7 @@ export function getGamemode(name) {
       return (
         <><i className="bi bi-people-fill me-1"></i>Multiplayer</>
       );
-    case "co-op":
+    case "co-operative":
       return (
         <><i className="bi bi-people-fill me-1"></i>Co-op</>
       );

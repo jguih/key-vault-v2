@@ -38,13 +38,16 @@
 
   font-size: 1em;
   overscroll-behavior: contain;
+
+  @include custom.disable-select;
 }
 
 // Checkbox
 .checkbox {
   color: colors.$kv-text-on-primary !important;
   font-size: 1.2em;
-
+  @include custom.disable-select;
+  
   input {
     background-color: colors.$kv-primary-800 !important;
 

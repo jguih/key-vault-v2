@@ -1,3 +1,4 @@
+import { GameFields } from "../../../global";
 import styleSystemReq from "../../../scss/modules/pages/game/SystemReq.module.scss";
 
 export default function SystemReq({ sysReq }) {
@@ -7,6 +8,25 @@ export default function SystemReq({ sysReq }) {
   const minSysReq = sysReq.filter((req) => req.type.toLowerCase() === "minimum");
   const recSysReq = sysReq.filter((req) => req.type.toLowerCase() === "recommended");
 
+  function isReqEmpty() {
+    const gameSystemRequirements = sysReq;
+    let isReqEmpty = true;
+    gameSystemRequirements.forEach(gsr => {
+      if (gsr[GameFields.GameSystemRequirementsFields.so] !== "" ||
+        gsr[GameFields.GameSystemRequirementsFields.storage] !== "" ||
+        gsr[GameFields.GameSystemRequirementsFields.cpu] !== "" ||
+        gsr[GameFields.GameSystemRequirementsFields.memory] !== "" ||
+        gsr[GameFields.GameSystemRequirementsFields.gpu] !== "" ||
+        gsr[GameFields.GameSystemRequirementsFields.directx] !== "" ||
+        gsr[GameFields.GameSystemRequirementsFields.internet] !== "" ||
+        gsr[GameFields.GameSystemRequirementsFields.other] !== "") {
+        isReqEmpty = false;
+      }
+    })
+    return isReqEmpty;
+  }
+
+  if (!isReqEmpty())
   return (
     <div className={`${styleSystemReq.container}`}>
       <h3>System Requirements</h3>

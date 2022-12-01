@@ -45,20 +45,14 @@
         "url": "https://images.igdb.com/igdb/image/upload/t_original/scaht5.jpg"
       }
     ],
-    "description": [
-      "S.T.A.L.K.E.R 2 is a unique blend of FPS, immersive sim and horror with a really thick atmosphere. One of the biggest open-worlds to date is yours to explore — along with an epic branching story with multiple endings. S.T.A.L.K.E.R. stands for (Scavengers, Trespassers, Adventurers, Loners, Killers, Explorers and Robbers)."
-    ],
+    "description": "S.T.A.L.K.E.R 2 is a unique blend of FPS, immersive sim and horror with a really thick atmosphere. One of the biggest open-worlds to date is yours to explore — along with an epic branching story with multiple endings. S.T.A.L.K.E.R. stands for (Scavengers, Trespassers, Adventurers, Loners, Killers, Explorers and Robbers).",
     "releaseDate": "Dec 2023",
-    "developer": [
-      "GSC Game World"
-    ],
-    "publisher": [
-      "GSC Game World"
-    ],
+    "developer": "GSC Game World",
+    "publisher": "GSC Game World",
     "game_genre": [
       {
         "id": 1,
-        "name": "RPG"
+        "name": "Role-playing (RPG)"
       },
       {
         "id": 2,
@@ -120,9 +114,6 @@
         "subtitles": true,
         "interface": true
       }
-    ],
-    "tag": [
-      "recently added"
     ]
   },
   {
@@ -171,20 +162,14 @@
         "url": "https://images.igdb.com/igdb/image/upload/t_original/sccs5c.jpg"
       }
     ],
-    "description": [
-      "Drive, drift, and park in You Suck at Parking, the simple and accessible yet challenging game where parking is more important than your driving skills. Collect cars, learn new mechanics, challenge the world, and customize your ride in this ever-evolving parking simulator."
-    ],
+    "description": "Drive, drift, and park in You Suck at Parking, the simple and accessible yet challenging game where parking is more important than your driving skills. Collect cars, learn new mechanics, challenge the world, and customize your ride in this ever-evolving parking simulator.",
     "releaseDate": "Sep 14, 2022",
-    "developer": [
-      "Happy Volcano"
-    ],
-    "publisher": [
-      "Happy Volcano"
-    ],
+    "developer": "Happy Volcano",
+    "publisher": "Happy Volcano",
     "game_genre": [
       {
         "id": 1,
-        "name": "RPG"
+        "name": "Role-playing (RPG)"
       },
       {
         "id": 2,
@@ -298,21 +283,14 @@
         "url": "https://images.igdb.com/igdb/image/upload/t_original/uyqvqq7sreuce3mfq927.jpg"
       }
     ],
-    "description": [
-      "Scorn is an atmospheric first person horror adventure game set in a nightmarish universe of odd forms and somber tapestry. It is designed around an idea of \"being thrown into the world\". Isolated and lost inside this dream-like world you will explore different interconnected regions in a non-linear fashion. The unsettling environment is a character itself. Every location contains its own theme (story), puzzles and characters that are integral in creating a cohesive lived in world. Throughout the game you will open up new areas, acquire different skill sets, weapons, various items and try to comprehend the sights presented to you."
-    ],
+    "description": "Scorn is an atmospheric first person horror adventure game set in a nightmarish universe of odd forms and somber tapestry. It is designed around an idea of \"being thrown into the world\". Isolated and lost inside this dream-like world you will explore different interconnected regions in a non-linear fashion. The unsettling environment is a character itself. Every location contains its own theme (story), puzzles and characters that are integral in creating a cohesive lived in world. Throughout the game you will open up new areas, acquire different skill sets, weapons, various items and try to comprehend the sights presented to you.",
     "releaseDate": "Oct 14, 2022",
-    "developer": [
-      "Ebb Software"
-    ],
-    "publisher": [
-      "Kepler Interactive",
-      "Ebb Software"
-    ],
+    "developer": "Ebb Software",
+    "publisher": "Kepler Interactive, Ebb Software",
     "game_genre": [
       {
         "id": 1,
-        "name": "RPG"
+        "name": "Role-playing (RPG)"
       },
       {
         "id": 2,
@@ -414,20 +392,14 @@
         "url": "https://images.igdb.com/igdb/image/upload/t_original/sccrmx.jpg"
       }
     ],
-    "description": [
-      "There Is No Light is a brutal action-adventure set in a grim underground world ruled by the mysterious Church of the Great Hand. Blast your way through the hordes of enemies, fight dangerous bosses and explore the world the way you want."
-    ],
+    "description": "There Is No Light is a brutal action-adventure set in a grim underground world ruled by the mysterious Church of the Great Hand. Blast your way through the hordes of enemies, fight dangerous bosses and explore the world the way you want.",
     "releaseDate": "Sep 19, 2022",
-    "developer": [
-      "Zelart"
-    ],
-    "publisher": [
-      "HypeTrain Digital"
-    ],
+    "developer": "Zelart",
+    "publisher": "HypeTrain Digital",
     "game_genre": [
       {
         "id": 1,
-        "name": "RPG"
+        "name": "Role-playing (RPG)"
       },
       {
         "id": 2,
@@ -529,21 +501,14 @@
         "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8bfl.jpg"
       }
     ],
-    "description": [
-      "Strike terror into the hearts of demons and devils as you fight your way through eight Hells. Metal: Hellsinger is a rhythm FPS, brimming with diabolical enemies, powerful weapons, and metal music. Set out on an infernal journey in order to achieve the purest of goals: Vengeance."
-    ],
+    "description": "Strike terror into the hearts of demons and devils as you fight your way through eight Hells. Metal: Hellsinger is a rhythm FPS, brimming with diabolical enemies, powerful weapons, and metal music. Set out on an infernal journey in order to achieve the purest of goals: Vengeance.",
     "releaseDate": "Sep 15, 2022",
-    "developer": [
-      "The Outsiders"
-    ],
-    "publisher": [
-      "Funcom",
-      "Level Infinite"
-    ],
+    "developer": "The Outsiders",
+    "publisher": "Funcom, Level Infinite",
     "game_genre": [
       {
         "id": 1,
-        "name": "RPG"
+        "name": "Role-playing (RPG)"
       },
       {
         "id": 2,
@@ -661,16 +626,10 @@
         "url": "https://images.igdb.com/igdb/image/upload/t_original/sc78ev.jpg"
       }
     ],
-    "description": [
-      "Reunite and stand together in a new age of heroes. Overwatch 2 builds on an award-winning foundation of epic competitive play, and challenges the world’s heroes to team up, power up, and take on an overwhelming outbreak of threats around the globe."
-    ],
+    "description": "Reunite and stand together in a new age of heroes. Overwatch 2 builds on an award-winning foundation of epic competitive play, and challenges the world’s heroes to team up, power up, and take on an overwhelming outbreak of threats around the globe.",
     "releaseDate": "Oct 04, 2022",
-    "developer": [
-      "Blizzard Entertainment"
-    ],
-    "publisher": [
-      "Blizzard Entertainment"
-    ],
+    "developer": "Blizzard Entertainment",
+    "publisher": "Blizzard Entertainment",
     "game_genre": [
       {
         "id": 3,
@@ -739,7 +698,127 @@
     ]
   },
   {
-    "id": 7,
-    "name": "Teste"
+    "name": "Overwatch",
+    "description": "Join the fight for the future in the world of Overwatch and choose your hero from a diverse cast of soldiers, scientists, adventurers, and oddities. Bend time, defy physics, and unleash a dizzying array of extraordinary powers and weapons. Engage your enemies in iconic locations from around the globe in the ultimate team-based shooter.",
+    "developer": "Blizzard Entertainment",
+    "publisher": "Square Enix, Blizzard Entertainment",
+    "releaseDate": "2022-11-01",
+    "price": "120",
+    "discount": "0",
+    "isDiscountActive": false,
+    "game_language_support": [],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 3,
+        "name": "Shooter"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 2,
+        "name": "multiplayer"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/gqbpldwxhitzizhxzmx9.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/cldakfotwjdsfwfkn9gj.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/qjcgg0m5lowv188ucf1e.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/homvmiusrvdbuwgbqapz.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/kqnizlzzwwqfccrb4pj1.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ta1z6plfw5r6xrwwcymg.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/qix3yskantk4uj0to7xm.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/un1ngd2k0nv9uubxx04f.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/czewovccy0apzha5ix9q.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/rdxnyuuvvbuo0cxlbblh.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar6iz.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1rcb.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/xcyoi025lvvwnnrdargv.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/qyardon47coclwtjfwwr.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/bpcshm1ryzyf4nwu0rkt.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/aq1xangaqzrlhgetcrop.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ao0jpev6qtvqlftjlhv5.jpg"
+      }
+    ],
+    "id": 7
   }
 ]

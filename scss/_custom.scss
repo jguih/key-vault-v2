@@ -38,4 +38,11 @@
   box-shadow: 3px 5px rgba(0, 0, 0, 0.4);
 }
 
+@mixin disable-select {
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
 $img-border-radius: 10px;

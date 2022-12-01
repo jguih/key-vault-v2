@@ -11,12 +11,42 @@
   },
   {
     "id": 3,
-    "enUS_name": "spanish",
-    "ptBR_name": "espanhol"
+    "enUS_name": "spanish (spain)",
+    "ptBR_name": "espanhol (espanha)"
   },
   {
     "id": 4,
-    "enUS_name": "chinese",
-    "ptBR_name": "chinês"
+    "enUS_name": "chinese (simplified)",
+    "ptBR_name": "chinês (simplificado)"
+  },
+  {
+    "id": 5,
+    "enUS_name": "german",
+    "ptBR_name": "alemão"
+  },
+  {
+    "id": 6,
+    "enUS_name": "dutch",
+    "ptBR_name": "holandês"
+  },
+  {
+    "id": 7,
+    "enUS_name": "russian",
+    "ptBR_name": "russo"
+  },
+  {
+    "id": 8,
+    "enUS_name": "turkish",
+    "ptBR_name": "turco"
+  },
+  {
+    "id": 9,
+    "enUS_name": "czech",
+    "ptBR_name": "tcheco"
+  },
+  {
+    "id": 10,
+    "enUS_name": "chinese (traditional)",
+    "ptBR_name": "chinês (tradicional)"
   }
 ]

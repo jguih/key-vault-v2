@@ -1,7 +1,6 @@
 import Gallery from "./Gallery";
 import gpBodyStyles from "../../../scss/modules/pages/game/GamePageBody.module.scss"
 import { Container, Alert } from "react-bootstrap";
-import useGameByName from "../../../hooks/useGameByName";
 import DescriptionCard from "./DescriptionCard";
 import SaleCard from "./SaleCard";
 import Description from "./Description";
@@ -10,9 +9,24 @@ import LanguageGamemodeCard from "./LanguageGamemodeCard";
 import SubHeader from "../../SubHeader";
 import Title from "./Title";
 import { imgTypes } from "../../../global";
+import useGame from "../../../hooks/useGame";
+import { useEffect, useState } from "react";
 
 export default function Content({ name }) {
-  const { currentGame, isLoading, isError } = useGameByName(name);
+  const { games, isLoading, isError } = useGame();
+  const [currentGame, setCurrentGame] = useState();
+
+  useEffect(() => {
+    // Waits for games and name to be defined
+    if (games && name) {
+      // Gets the current game
+      games.forEach((game) => {
+        if (game.name.toLowerCase() === name) {
+          setCurrentGame(game);
+        }
+      });
+    }
+  }, [games, name]);
 
   if (isLoading) {
     return (
@@ -37,18 +51,12 @@ export default function Content({ name }) {
     const coverUrl = cover?.map(c => c.url);
     const artwork = currentGame["game_image"]?.filter(img => img.type === imgTypes.Artwork);
     const artworkUrl = artwork?.map(a => a.url);
-    // Takes the shortest string as the short description
-    let shortDescription = "";
-    if (currentGame.description?.length > 0) {
-      shortDescription = currentGame.description
-        .reduce((accumulator, current) => {
-          return accumulator.length <= current.length ? accumulator : current;
-        });
-    }
+    const shortDescription = new String(currentGame.description)?.split(". ")[0];
     const description = currentGame.description;
     const releaseDate = currentGame.releaseDate;
-    const developer = currentGame.developer?.join(", ");
-    const publisher = currentGame.publisher?.join(", ");
+    console.log(currentGame.developer)
+    const developer = currentGame.developer;
+    const publisher = currentGame.publisher;
     const genre = currentGame["game_genre"];
     const price = currentGame.price;
     const discount = currentGame.discount;
@@ -70,7 +78,7 @@ export default function Content({ name }) {
           <div className={gpBodyStyles.left}>
             <Gallery screenshots={screenshotUrl?.concat(artworkUrl)} alt="" />
             <SaleCard
-              coverUrl={cover?.[0]?.url}
+              coverUrl={coverUrl[0]}
               title={name}
               price={price}
               discount={discount}
@@ -86,7 +94,7 @@ export default function Content({ name }) {
           </div>
           <div className={gpBodyStyles.right}>
             <DescriptionCard
-              coverUrl={cover?.[0]?.url}
+              coverUrl={coverUrl[0]}
               description={shortDescription}
               releaseDate={releaseDate}
               developer={developer}

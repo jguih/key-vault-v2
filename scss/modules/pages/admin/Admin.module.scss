@@ -13,7 +13,7 @@
 
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
   }
-  padding-bottom: 500px;
+  padding-bottom: 20vh;
 }
 
 .ImgURL-container {
@@ -164,10 +164,10 @@
   display: grid;
   grid-template-columns: 25% 75%;
   padding: 6px;
+  border-radius: custom.$img-border-radius;
 
   &:hover {
     background-color: colors.$kv-primary-800;
-    border-radius: custom.$img-border-radius;
   }
 
   &:hover img {
@@ -176,6 +176,10 @@
 
   &:focus {
     background-color: colors.$kv-secondary-800;
+  }
+
+  &:active {
+    background-color: colors.$igdb;
   }
 
   cursor: pointer;
@@ -207,6 +211,19 @@
   }
 }
 
+.igdb-card-active {
+  background-color: colors.$igdb;
+
+  &:hover {
+    background-color: colors.$igdb;
+  }
+}
+
+.highlight {
+  border: 2px solid colors.$kv-error;
+  border-radius: 12px;
+  padding: 8px;
+}
 
 @media screen and (max-width: breakpoints.$sm) {
   .add-language-support-container {

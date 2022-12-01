@@ -8,6 +8,7 @@ export default function useGame() {
   return {
     games: data,
     isLoading: !error && !data,
-    isError: error
+    isError: error,
+    names: data?.map(d => d.name.toLowerCase())
   }
 }

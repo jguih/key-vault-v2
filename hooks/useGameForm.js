@@ -1,8 +1,8 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { GameFields, GameSystemRequirements, getFullDate, getGamemode, getIGDBImageURL, getPlatformsIcons, IGDBImageSize, imgTypes, toFirstUpperCase } from "../global";
-import { sample } from "./sample";
 import useData from "./useData";
-import { useGameFormErrors } from "./useGameFormErrors";
+import { errorsActions, useGameFormErrors } from "./useGameFormErrors";
+import useGame from "./useGame";
 
 export const gameActions = {
   AddFieldValue: "ADD-FIELD-VALUE",
@@ -100,11 +100,11 @@ const gameReducer = (state, action) => {
         action.payload.type !== imgTypes.Artwork) return state;
       return {
         ...state,
-        game_image: [...state["game_image"], action.payload]
+        game_image: [...state[GameFields.GameImage], action.payload]
       }
 
     case gameActions.RemoveImg:
-      let images = state["game_image"];
+      let images = state[GameFields.GameImage];
       images = images.filter(image => image != action.payload);
       return {
         ...state,
@@ -113,17 +113,20 @@ const gameReducer = (state, action) => {
 
     case gameActions.AddGameLanguageSupport:
       if (!validateLanguageSupport(action.payload)) return state;
+      const currentLs = state[GameFields.GameLanguageSupport];
+      const currentLsLanguageIds = currentLs.map(ls => ls.language.id);
+      if (currentLsLanguageIds.includes(action.payload.language.id)) return state;
       return {
         ...state,
         game_language_support: [
-          ...state["game_language_support"],
+          ...state[GameFields.GameLanguageSupport],
           action.payload
         ]
       }
 
     case gameActions.RemoveGameLanguageSupport:
       if (!validateLanguageSupport(action.payload)) return state;
-      let languageSupport = state["game_language_support"];
+      let languageSupport = state[GameFields.GameLanguageSupport];
       languageSupport = languageSupport
         .filter(ls => ls.language.id !== action.payload.language.id);
       return {
@@ -162,7 +165,7 @@ const gameReducer = (state, action) => {
         [GameFields.publisher]: "",
         [GameFields.releaseDate]: "",
         [GameFields.price]: "",
-        [GameFields.discount]: "",
+        [GameFields.discount]: "0",
         [GameFields.isDiscountActive]: false,
         [GameFields.GameLanguageSupport]: [],
         [GameFields.GameSystemRequirements]: [
@@ -207,7 +210,7 @@ const initialValues = {
   [GameFields.publisher]: "",
   [GameFields.releaseDate]: "",
   [GameFields.price]: "",
-  [GameFields.discount]: "",
+  [GameFields.discount]: "0",
   [GameFields.isDiscountActive]: false,
   [GameFields.GameLanguageSupport]: [],
   [GameFields.GameSystemRequirements]: [
@@ -244,6 +247,18 @@ export function useGameForm() {
   const [game, dispatchGame] = useReducer(gameReducer, initialValues);
   const { error, dispatchError, validate } = useGameFormErrors();
   const { data } = useData();
+  const [isIgdbDispatched, setIsIgdbDispatched] = useState(false);
+  const [igdbNotFound, setIgdbNotFound] = useState({});
+  const {games, isLoading, isError, names} = useGame();
+
+  useEffect(() => {
+    if (isIgdbDispatched) {
+      document.getElementsByName("field").forEach(e => {
+        e.focus();
+        e.blur();
+      })
+    }
+  }, [isIgdbDispatched])
 
   const field = (name, options) => {
     return {
@@ -257,9 +272,29 @@ export function useGameForm() {
           payload: e.target.value
         })
         validate.field(name, e, options);
+        if (name === GameFields.name && names?.includes(e.target.value.toLowerCase())) {
+          dispatchError({
+            type: errorsActions.AddFieldError,
+            name: name,
+            payload: {
+              type: "invalid name",
+              message: "Jogo já existe!"
+            }
+          })
+        }
       },
       onBlur: (e) => {
         validate.field(name, e, options);
+        if (name === GameFields.name && names?.includes(e.target.value.toLowerCase())) {
+          dispatchError({
+            type: errorsActions.AddFieldError,
+            name: name,
+            payload: {
+              type: "invalid name",
+              message: "Jogo já existe!"
+            }
+          })
+        }
       },
       onInvalid: (e) => {
         e.preventDefault();
@@ -423,6 +458,7 @@ export function useGameForm() {
     })
     const firstReleaseDate = getFullDate(game["first_release_date"]);
     const gamemodesNameArr = game["game_modes"]?.map(gm => gm.name.toLowerCase());
+    // Every gamemode that matches both IGDB game and KeyVault's database
     const matchGamemodes = data.gamemodes
       ?.filter(gamemode => gamemodesNameArr.includes(gamemode.name.toLowerCase()));
     const genresNameArr = game.genres?.map(g => g.name.toLowerCase());
@@ -432,8 +468,38 @@ export function useGameForm() {
     const name = game.name;
     const summary = game.summary;
 
+    const languageSupport = gameData.languageSupport;
+    const languageSupportArr = languageSupport
+      ?.map(ls => {
+        return {
+          name: ls.language.name.toLowerCase(),
+          type: ls["language_support_type"].name.toLowerCase()
+        }
+      });
+    const languageSupportNamesArr = languageSupportArr?.map(l => l.name.toLowerCase());
+    const matchLanguages = data.languages
+      ?.filter(l => languageSupportNamesArr.includes(l["enUS_name"].toLowerCase()));
+    const matchLanguageSupport = matchLanguages.map(ml => {
+      const ls = languageSupportArr?.filter(ls => ls.name === ml["enUS_name"]);
+      return {
+        language: {
+          ...ml
+        },
+        audio: ls.map(ls => ls.type).includes("audio"),
+        subtitles: ls.map(ls => ls.type).includes("subtitles"),
+        interface: ls.map(ls => ls.type).includes("interface")
+      }
+    })
+
+    const involvedCompanies = gameData.involvedCompanies;
+    const developersNameArr = involvedCompanies?.filter(ic => ic.developer === true)
+      ?.map(ic => ic.company.name);
+    const publisherNameArr = involvedCompanies?.filter(ic => ic.publisher === true)
+      ?.map(ic => ic.company.name);
+
     const kvGenresNameArr = data.genres?.map(g => g.name.toLowerCase());
     const kvGamemodesNameArr = data.gamemodes?.map(g => g.name.toLowerCase());
+    const kvLanguagesNameArr = data.languages?.map(l => l["enUS_name"].toLowerCase());
     // Values that were not found in current KeyVault's database, 
     // but were present in the IGDB game
     const notFound = {
@@ -441,7 +507,10 @@ export function useGameForm() {
         ?.filter(genreName => !kvGenresNameArr?.includes(genreName)),
       gamemodes: gamemodesNameArr
         ?.filter(gamemodeName => !kvGamemodesNameArr?.includes(gamemodeName)),
+      languages: new Set(languageSupportNamesArr
+        ?.filter(l => !kvLanguagesNameArr?.includes(l)))
     }
+    setIgdbNotFound(notFound);
 
     dispatchGame({
       type: gameActions.Reset
@@ -500,16 +569,46 @@ export function useGameForm() {
       })
     })
 
+    dispatchGame({
+      type: gameActions.AddFieldValue,
+      field: GameFields.developer,
+      payload: developersNameArr?.join(", ")
+    })
+
+    dispatchGame({
+      type: gameActions.AddFieldValue,
+      field: GameFields.publisher,
+      payload: publisherNameArr?.join(", ")
+    })
+
+    matchLanguageSupport?.forEach(mls => {
+      dispatchGame({
+        type: gameActions.AddGameLanguageSupport,
+        payload: mls
+      })
+    })
+
     if (func) func();
+    setIsIgdbDispatched(true);
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("...submitting");
+    if (Object.keys(error.field).length > 0 || Object.keys(error.urlField).length > 0) {
+      console.log("Error")
+      return
+    }
     // All fields are valid and ready to be submitted
-    // ...
+    game.id = games.length + 1;
     const gameJson = JSON.stringify(game, null, 2);
-    console.log(gameJson);
+    console.log(gameJson)
+    games.push(game);
+    dispatchGame({
+      type: gameActions.Reset
+    })
+    setIsIgdbDispatched(false);
+    setIgdbNotFound({});
   }
 
   return {
@@ -526,6 +625,8 @@ export function useGameForm() {
     },
     handleSubmit,
     error,
-    dispatchIGDBGame
+    dispatchIGDBGame,
+    isIgdbDispatched,
+    igdbNotFound
   }
 }

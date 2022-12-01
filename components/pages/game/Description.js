@@ -24,9 +24,7 @@ export default function Description({ description }) {
     return (
       <div className={`${styleDescription.container}`}>
         <h3>Sobre o Jogo</h3>
-        {description.map((description, index) => {
-          return <p key={index}>{description}</p>
-        })}
+        <p>{description}</p>
         <Button
           className={`${styleDescription["show-more-btn"]}`}
           onClick={() => handleOnClickShowMore()}

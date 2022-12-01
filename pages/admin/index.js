@@ -17,8 +17,8 @@ import useIGDBInvolvedCompanies from '../../hooks/IGDB/useIGDBInvolvedCompanies'
 const GameContext = React.createContext();
 
 export default function Admin() {
-  const { 
-    game, dispatchGame, register, handleSubmit, error, dispatchIGDBGame 
+  const {
+    game, dispatchGame, register, handleSubmit, error, dispatchIGDBGame, isIgdbDispatched, igdbNotFound
   } = useGameForm();
   const { data } = useData();
   const validLanguages = useMemo(() => {
@@ -38,6 +38,8 @@ export default function Admin() {
     error,
     data,
     dispatchIGDBGame,
+    isIgdbDispatched,
+    igdbNotFound,
     validLanguages,
     modal: {
       IGDBModal,
@@ -63,6 +65,7 @@ export default function Admin() {
 }
 
 function IgdbModal() {
+  const gc = useContext(GameContext);
   const [searchParam, setSearchParam] = useState();
   const { games, error, isLoading: isGameLoading } = useIGDBGame(searchParam);
   const [currentGame, setCurrentGame] = useState();
@@ -85,10 +88,10 @@ function IgdbModal() {
       };
     }
   }, [isLSLoading, isICLoading])
-  const gc = useContext(GameContext);
+  const [activeCard, setActiveCard] = useState(currentGame?.id);
 
   useEffect(() => {
-    if (currentGameData && currentGameData.game && 
+    if (currentGameData && currentGameData.game &&
       currentGameData.languageSupport && currentGameData.involvedCompanies) {
       gc.dispatchIGDBGame(currentGameData, gc.modal.closeIGDBModal);
     }
@@ -112,44 +115,12 @@ function IgdbModal() {
     }
   }
 
-  function getGameCard(game, index) {
-    const fullDate = getFullDate(game["first_release_date"]);
-
-    return (
-      <div
-        className={`${styles["igdb-game-card-container"]}`}
-        key={index}
-        onClick={() => {
-          setCurrentGame(game);
-        }}
-      >
-        <div className={`${styles["card-img-wrapper"]}`}>
-          <Image
-            src={getIGDBImageURL(IGDBImageSize.cover_big, game?.cover?.["image_id"])}
-            fill
-            priority
-            sizes="25vw"
-            alt=""
-          />
-        </div>
-        <div className={`${styles["card-text-content"]}`}>
-          <h4>{game?.name}</h4>
-          <p className={`${styles.genres}`}>
-            {game?.genres?.map(genre => genre.name).join(", ")}
-          </p>
-          <p>
-            {fullDate ?
-              <>
-                <strong> Data de Lançamento: </strong>{fullDate}
-              </> : null}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <Modal show={gc?.modal.IGDBModal} onHide={gc?.modal.closeIGDBModal} className={`${styles.modal}`}>
+    <Modal
+      show={gc?.modal.IGDBModal}
+      onHide={gc?.modal.closeIGDBModal}
+      className={`${styles.modal}`}
+    >
       <Modal.Header>
         <Modal.Title>IGDB</Modal.Title>
         <CloseButton variant="white" onClick={gc?.modal.closeIGDBModal} />
@@ -169,7 +140,17 @@ function IgdbModal() {
               <Spinner animation='border' />
             </div>
             : games?.length > 0 ?
-              games.map((game, index) => getGameCard(game, index))
+              games.map((game, index) => {
+                return (
+                  <IgdbGameCard
+                    game={game}
+                    onClickCard={() => setCurrentGame(game)}
+                    key={index}
+                    activeCard={activeCard}
+                    setActiveCard={setActiveCard}
+                  />
+                );
+              })
               : searchParam ?
                 <Alert variant='info' className='text-center'>
                   Nenhum Jogo Encontrado :/
@@ -181,8 +162,79 @@ function IgdbModal() {
   );
 }
 
+function IgdbGameCard({ game, onClickCard, activeCard, setActiveCard, ...props }) {
+  const fullDate = getFullDate(game["first_release_date"]);
+
+  return (
+    <div
+      className={`${styles["igdb-game-card-container"]} 
+        ${activeCard === game?.id ? styles["igdb-card-active"] : ""}`}
+      onClick={() => {
+        setActiveCard(game?.id);
+        onClickCard();
+      }}
+      {...props}
+    >
+      <div className={`${styles["card-img-wrapper"]}`}>
+        <Image
+          src={getIGDBImageURL(IGDBImageSize.cover_big, game?.cover?.["image_id"])}
+          fill
+          priority
+          sizes="25vw"
+          alt=""
+        />
+      </div>
+      <div className={`${styles["card-text-content"]}`}>
+        <h4>{game?.name}</h4>
+        <p className={`${styles.genres}`}>
+          {game?.genres?.map(genre => genre.name).join(", ")}
+        </p>
+        <p>
+          {fullDate ?
+            <>
+              <strong> Data de Lançamento: </strong>{fullDate}
+            </> : null}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function GameForm() {
   const gc = useContext(GameContext);
+  const languageSupportRef = React.createRef();
+  const systemReqRef = React.createRef();
+  const genreRef = React.createRef();
+  const gamemodeRef = React.createRef();
+  const platformsRef = React.createRef();
+  const imagesRef = React.createRef();
+
+  function isReqEmpty() {
+    const gameSystemRequirements = gc.game[GameFields.GameSystemRequirements];
+    let isReqEmpty = true;
+    gameSystemRequirements.forEach(gsr => {
+      if (gsr[GameFields.GameSystemRequirementsFields.so] !== "" ||
+        gsr[GameFields.GameSystemRequirementsFields.storage] !== "" ||
+        gsr[GameFields.GameSystemRequirementsFields.cpu] !== "" ||
+        gsr[GameFields.GameSystemRequirementsFields.memory] !== "" ||
+        gsr[GameFields.GameSystemRequirementsFields.gpu] !== "" ||
+        gsr[GameFields.GameSystemRequirementsFields.directx] !== "" ||
+        gsr[GameFields.GameSystemRequirementsFields.internet] !== "" ||
+        gsr[GameFields.GameSystemRequirementsFields.other] !== "") {
+        isReqEmpty = false;
+      }
+    })
+    return isReqEmpty;
+  }
+
+  const emptyFields = {
+    languageSupport: gc.game[GameFields.GameLanguageSupport].length === 0,
+    systemRequirements: isReqEmpty(),
+    genres: gc.game[GameFields.GameGenre].length === 0,
+    gamemodes: gc.game[GameFields.GameGamemode].length === 0,
+    platforms: gc.game[GameFields.GamePlatform].length === 0,
+    images: gc.game[GameFields.GameImage].length === 0
+  }
 
   function Img(image, index) {
     return (
@@ -226,6 +278,67 @@ function GameForm() {
         </div>
       </div>
       <hr></hr>
+      <div className='mb-3'>
+        {emptyFields.languageSupport ?
+          <Button
+            variant='danger'
+            onClick={() => {
+              languageSupportRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            }}
+          >
+            Idiomas
+          </Button> : null}
+        {emptyFields.images ?
+          <Button
+            variant='danger'
+            className='ms-1'
+            onClick={() => {
+              imagesRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            }}
+          >
+            Imagens
+          </Button> : null}
+        {emptyFields.systemRequirements ?
+          <Button
+            variant='danger'
+            className='ms-1'
+            onClick={() => {
+              systemReqRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            }}
+          >
+            Requisitos
+          </Button> : null}
+        {emptyFields.genres ?
+          <Button
+            variant='danger'
+            className='ms-1'
+            onClick={() => {
+              genreRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            }}
+          >
+            Categorias
+          </Button> : null}
+        {emptyFields.gamemodes ?
+          <Button
+            variant='danger'
+            className='ms-1'
+            onClick={() => {
+              gamemodeRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            }}
+          >
+            Game Modes
+          </Button> : null}
+        {emptyFields.platforms ?
+          <Button
+            variant='danger'
+            className='ms-1'
+            onClick={() => {
+              platformsRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            }}
+          >
+            Plataformas
+          </Button> : null}
+      </div>
       <Kv.FloatingInput
         {...gc?.register.field(GameFields.name, { required: true })}
         type="text"
@@ -277,7 +390,7 @@ function GameForm() {
           <p className={`${styles.error}`}>{gc?.error.field[GameFields.publisher].message}</p>
           : null}
       </Kv.FloatingInput>
-      <Row>
+      <Row className={`${gc.isIgdbDispatched ? styles.highlight : ""}`}>
         <Col>
           <Kv.InputGroup
             {...gc?.register.field(GameFields.price, { required: true, min: "0", step: "0.01" })}
@@ -312,11 +425,19 @@ function GameForm() {
       </Row>
       <h2 className="mt-4">Características</h2>
       <hr></hr>
+      {gc.igdbNotFound && gc.igdbNotFound.genres?.length > 0 ?
+        <p className={`${styles.error} mb-1`}>Categorias não encontradas:
+          {" "}{gc.igdbNotFound.genres?.join(" | ")}
+        </p> : null}
+      {gc.igdbNotFound && gc.igdbNotFound.gamemodes?.length > 0 ?
+        <p className={`${styles.error}`}>Game modes não encontradas:
+          {" "}{gc.igdbNotFound.gamemodes?.join(" | ")}
+        </p> : null}
       <Row>
-        <Col>
+        <Col ref={genreRef}>
           <Kv.Accordion
             title="Categorias"
-            expand={gc?.game[GameFields.GameGenre]?.length > 0 ?? false}
+            expand={!emptyFields.genres}
             bodyHeight={250}
           >
             {gc?.data.genres?.map((genre, index) => {
@@ -329,10 +450,10 @@ function GameForm() {
             })}
           </Kv.Accordion>
         </Col>
-        <Col>
+        <Col ref={gamemodeRef}>
           <Kv.Accordion
             title="Gamemodes"
-            expand={gc?.game[GameFields.GameGamemode]?.length > 0 ?? false}
+            expand={!emptyFields.gamemodes}
             bodyHeight={250}
           >
             {gc?.data.gamemodes?.map((gamemode, index) => {
@@ -345,10 +466,10 @@ function GameForm() {
             })}
           </Kv.Accordion>
         </Col>
-        <Col>
+        <Col className={`${gc.isIgdbDispatched ? styles.highlight : ""}`} ref={platformsRef}>
           <Kv.Accordion
             title="Plataformas"
-            expand={gc?.game[GameFields.GamePlatform]?.length > 0 ?? false}
+            expand={!emptyFields.platforms || gc.isIgdbDispatched}
             bodyHeight={250}
           >
             {gc?.data.platforms?.map((platform, index) => {
@@ -362,7 +483,7 @@ function GameForm() {
           </Kv.Accordion>
         </Col>
       </Row>
-      <Row className="mt-4">
+      <Row className={`${gc.isIgdbDispatched ? styles.highlight : ""} mt-4`} ref={systemReqRef}>
         <Col>
           <h3 className="mb-3 fw-normal">Requisítos Mínimos</h3>
           <Kv.FormControl
@@ -487,7 +608,7 @@ function GameForm() {
         {gc?.error.urlField?.cover ?
           <p className={`${styles.error}`}>{gc?.error.urlField.cover.message}</p> : null}
       </Kv.FloatingInput>
-      <div className="mb-3">
+      <div className="mb-3" ref={imagesRef}>
         <h3 className="mb-3 fw-normal">Screenshots</h3>
         <div className={`${styles["img-container"]}`}>
           {gc?.game[GameFields.GameImage].map((image, index) => {
@@ -527,7 +648,11 @@ function GameForm() {
       </Kv.FloatingInput>
       <h2 className="mt-4">Idiomas</h2>
       <hr></hr>
-      <div>
+      {gc.igdbNotFound && gc.igdbNotFound.languages ?
+        <p className={`${styles.error}`}>Idiomas não encontrados:
+          {" "}{Array.from(gc.igdbNotFound.languages).join(" | ")}
+        </p> : null}
+      <div ref={languageSupportRef}>
         <AddLanguageSupport />
       </div>
     </form>

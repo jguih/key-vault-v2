@@ -18,7 +18,7 @@ function getGameCard(game, index) {
 export default function GamesGrid({ games }) {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 4; // Total n of games per page
+  const pageSize = 20; // Total n of games per page
   const totalCount = useMemo(() => { // Total n of games
     return games?.length;
   }, [games]);

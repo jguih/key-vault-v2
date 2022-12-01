@@ -10,7 +10,7 @@ export default function LanguageGamemodeCard({ gamemodeName, languageSupport }) 
       <div className={`${lgCardStyles["gamemode-container"]}`}>
         <h3>Modos de Jogo</h3>
         {gamemodeName.map((name, index) => {
-          return <p>{getGamemode(name)}</p>;
+          return <p key={index}>{getGamemode(name)}</p>;
         })}
       </div>
       <LanguageSupport title={"Idiomas"} languageSupport={languageSupport} />
