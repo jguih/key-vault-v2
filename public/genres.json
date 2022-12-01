@@ -42,5 +42,17 @@
   {
     "id": 11,
     "name": "Adventure"
+  },
+  {
+    "id": 12,
+    "name": "Puzzle"
+  },
+  {
+    "id": 13,
+    "name": "Strategy"
+  },
+  {
+    "id": 14,
+    "name": "Platform"
   }
 ]

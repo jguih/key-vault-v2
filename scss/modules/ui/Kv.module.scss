@@ -63,6 +63,9 @@
     &:hover i {
       color: colors.$kv-secondary-800;
     }
+    &:hover svg {
+      color: colors.$kv-secondary-800;
+    }
   }
 }
 

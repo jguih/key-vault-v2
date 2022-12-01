@@ -33,7 +33,7 @@ export default function GamesGrid({ games }) {
   }, [currentPage, games]);
 
   useEffect(() => {
-    if (router.isReady) {
+    if (router.isReady && totalPageCount) {
       let pageN = 1;
       if (router.query.page) {
         if (pageN >= 1 && pageN <= totalPageCount) {
@@ -42,7 +42,7 @@ export default function GamesGrid({ games }) {
       }
       setCurrentPage(pageN);
     }
-  }, [router])
+  }, [router, totalPageCount])
 
   if (!games) return;
 

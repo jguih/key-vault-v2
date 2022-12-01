@@ -30,12 +30,7 @@ export default function useIGDBGame(name) {
   }, [name])
 
   return {
-    games: games
-      ?.sort(function(a, b){
-        const bdate = new Date(new Date().getTime() + b["first_release_date"]);
-        const adate = new Date(new Date().getTime() + a["first_release_date"]);
-        return bdate - adate;
-      }),
+    games: games,
     error,
     isLoading
   }

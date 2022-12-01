@@ -1,5 +1,6 @@
 import Link from "next/link";
 import GameCard from "./components/GameCard";
+import { Icon } from '@iconify/react';
 
 export const imgTypes = {
   Cover: "cover",
@@ -63,20 +64,30 @@ export function getFullDate(milliseconds) {
 // Generate platform icons based on its name
 export function getPlatformsIcons(platformsName, options) {
   const validate = (platform, index) => {
-    if (platform === "windows") {
-      return (
-        <span key={index}>
-          <i className="bi bi-windows me-1"></i>
-          {options?.withName ? "Windows" : null}
-        </span>
-      );
-    } else if (platform === "steam") {
-      return (
-        <span key={index}>
-          <i className="bi bi-steam me-1"></i>
-          {options?.withName ? "Steam" : null}
-        </span>
-      );
+    switch (platform) {
+      case "steam":
+        return (
+          <span key={index}>
+            <i className="bi bi-steam me-1"></i>
+            {options?.withName ? "Steam" : null}
+          </span>
+        );
+      
+      case "epic":
+        return (
+          <span key={index}>
+            <Icon icon="cib:epic-games" className="me-1" />
+            {options?.withName ? "Epic" : null}
+          </span>
+        );
+
+      case "gog":
+        return (
+          <span key={index}>
+            <Icon icon="simple-icons:gogdotcom" className="me-1"/>
+            {options?.withName ? "Gog" : null}
+          </span>
+        );
     }
   }
 
@@ -119,13 +130,13 @@ export const brlCurrencyFormatter =
   });
 
 export const decimalFormatter =
-  Intl.NumberFormat('pt-BR', {
+  Intl.NumberFormat('en-US', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
   });
 
 export const integerFormatter =
-  Intl.NumberFormat('pf-BR', {
+  Intl.NumberFormat('pt-BR', {
     minimumIntegerDigits: 2
   })
 

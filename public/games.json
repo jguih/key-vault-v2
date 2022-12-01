@@ -703,8 +703,8 @@
     "developer": "Blizzard Entertainment",
     "publisher": "Square Enix, Blizzard Entertainment",
     "releaseDate": "2022-11-01",
-    "price": "120",
-    "discount": "0",
+    "price": 120.00,
+    "discount": 0,
     "isDiscountActive": false,
     "game_language_support": [],
     "game_system_requirements": [
@@ -820,5 +820,4004 @@
       }
     ],
     "id": 7
+  },
+  {
+    "name": "Gotham Knights",
+    "description": "Introducing an original story set in DC’s Batman Universe, Gotham Knights offers a dynamic and interactive Gotham City where an exploding criminal element has swept through the streets. With the Belfry as their base of operations, this new era of heroes will solve mysteries that connect the darkest chapters in the city’s history and must defeat notorious villains in epic confrontations. Players must save Gotham from a descent into chaos and reinvent themselves into their own version of the Dark Knight.",
+    "developer": "WB Games Montréal",
+    "publisher": "WB Games",
+    "releaseDate": "2022-11-02",
+    "price": 120.00,
+    "discount": 0.2,
+    "isDiscountActive": true,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": true,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 2,
+        "name": "epic"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "Role-playing (RPG)"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      },
+      {
+        "id": 3,
+        "name": "co-operative"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1mrg.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3s9z.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8i4t.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8i4u.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8i4v.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8i4w.jpg"
+      }
+    ],
+    "id": 8
+  },
+  {
+    "name": "Call of Duty: Warzone 2.0",
+    "description": "Drop into the new map Al Mazrah in Call of Duty: Warzone 2.0",
+    "developer": "Infinity Ward",
+    "publisher": "Activision",
+    "releaseDate": "2022-11-03",
+    "price": 300.00,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 3,
+        "name": "Shooter"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      },
+      {
+        "id": 2,
+        "name": "multiplayer"
+      },
+      {
+        "id": 3,
+        "name": "co-operative"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5r6t.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixke.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixkf.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixkg.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixkh.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixki.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixkj.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixkk.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixkl.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixkm.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixkn.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixko.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixkp.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixkq.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixkr.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixks.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixkt.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scixku.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjt9r.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjt9s.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjt9t.jpg"
+      }
+    ],
+    "id": 9
+  },
+  {
+    "name": "Isle of Arrows",
+    "description": "Build an impenetrable fortress, tile by tile. Place buildings, build roads, and expand your isle to defend against waves of invaders in this roguelike fusion of tower defense and board game.",
+    "developer": "Gridpop",
+    "publisher": "Gridpop",
+    "releaseDate": "2022-11-02",
+    "price": 50.00,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 3,
+        "name": "gog"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 12,
+        "name": "Puzzle"
+      },
+      {
+        "id": 13,
+        "name": "Strategy"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1lty.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4o32.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scgoib.jpg"
+      }
+    ],
+    "id": 10
+  },
+  {
+    "name": "God of War",
+    "description": "God of War is the sequel to God of War III as well as a continuation of the canon God of War chronology. Unlike previous installments, this game focuses on Norse mythology and follows an older and more seasoned Kratos and his son Atreus in the years since the third game. It is in this harsh, unforgiving world that he must fight to survive… and teach his son to do the same.",
+    "developer": "SIE Santa Monica Studio",
+    "publisher": "Sony Interactive Entertainment",
+    "releaseDate": "2022-11-01",
+    "price": 200.00,
+    "discount": 0.2,
+    "isDiscountActive": true,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": true,
+        "subtitles": false,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 6,
+          "enUS_name": "dutch",
+          "ptBR_name": "holandês"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 7,
+          "enUS_name": "russian",
+          "ptBR_name": "russo"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 8,
+          "enUS_name": "turkish",
+          "ptBR_name": "turco"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 9,
+          "enUS_name": "czech",
+          "ptBR_name": "tcheco"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 10,
+          "enUS_name": "chinese (traditional)",
+          "ptBR_name": "chinês (tradicional)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "Role-playing (RPG)"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/mknszfnaifmhssbrmkpl.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/hsmqoanieausaehauyk7.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/m8vl75f1aunebleaa0zj.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/mzbexcviowvtbsgivzib.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/vpr6s4gboxxmnhkdmqdg.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/vmfdwfd36lh9eqiwtbtj.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/qk1zy9aqzgd3zovlsjmu.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ye6iswk51xxnhkzt9xt7.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/loxt6mwmxy1ax5wby1yc.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/tvl9vif6lw8sckkqyaj7.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/thhohfsqjs1x77gyjg7b.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/qseegzssgetrybgbplrv.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/rm35ytrytuka9qkylqyk.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ywrkjcrbeemmb51flsfj.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/jvdoaxza3cawklvof1sl.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/gpt3d0gpue5mat4kkso6.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/mzg7f3xx57sf8rt7tja8.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/nee23o7rtpaqbu8g7byx.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/o4mg2wvhlcikaogvvzqe.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/w5eazrrf4wdxjl4idfya.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/s2zdtxopibrfjbxvpj5h.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/wunlbofh23trw0u67gms.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/r7hpzsqic1bjwyzn1bnq.jpg"
+      }
+    ],
+    "id": 11
+  },
+  {
+    "name": "Marvel's Spider-Man",
+    "description": "Starring the world’s most iconic Super Hero, Spider-Man features the acrobatic abilities, improvisation and web-slinging that the wall-crawler is famous for, while also introducing elements never-before-seen in a Spider-Man game. From traversing with parkour and utilizing the environment, to new combat and blockbuster set pieces, it’s Spider-Man unlike any you’ve played before.",
+    "developer": "Insomniac Games",
+    "publisher": "Sony Interactive Entertainment",
+    "releaseDate": "2022-11-01",
+    "price": 200.00,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese",
+          "ptBR_name": "português"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 4,
+          "enUS_name": "chinese (simplified)",
+          "ptBR_name": "chinês (simplificado)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 6,
+          "enUS_name": "dutch",
+          "ptBR_name": "holandês"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 7,
+          "enUS_name": "russian",
+          "ptBR_name": "russo"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 8,
+          "enUS_name": "turkish",
+          "ptBR_name": "turco"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 9,
+          "enUS_name": "czech",
+          "ptBR_name": "tcheco"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 10,
+          "enUS_name": "chinese (traditional)",
+          "ptBR_name": "chinês (tradicional)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 11,
+        "name": "Adventure"
+      },
+      {
+        "id": 1,
+        "name": "Role-playing (RPG)"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/xyrkou2h4zxjnmitk8gi.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/qdf6gzojgbyqywysnntm.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/drtsnc0kypn8rzssuxpc.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/nplsp5hfioqmqhv32shz.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/b3vsiy5aicbgqznlff8o.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ukvwz28yd7tvokds2btf.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r77.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/gc3cpzbpddhfxj4nvaq1.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/inft7cmgvqcionq0jtrn.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/o25kbk0jom2uvfm37l62.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/fozp4i9v0b1w0uucoii8.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/fmjzieghsgjfks7akhhy.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/buzcfrd5g9umokl8eyy0.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/pegynjc4fge2jzwkqoqi.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ytkccnptotyzm9xuorks.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/bjoksdiwvkatzql3gi95.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/nofld5l3txxuqhp7j8cc.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/kzjckffwuqaemo5rx6uu.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/vfmpwxgrk6lubydwm4it.jpg"
+      }
+    ],
+    "id": 12
+  },
+  {
+    "name": "Sackboy: A Big Adventure",
+    "description": "Iconic PlayStation hero, Sackboy returns in an all-new 3D adventure with a deeply immersive and expressive control scheme. Players can go on this epic platforming journey solo-style, or they can team up with friends for collaborative, chaotic multiplayer fun.",
+    "developer": "Sumo Digital",
+    "publisher": "Sony Interactive Entertainment",
+    "releaseDate": "2022-11-02",
+    "price": 100.00,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 9,
+          "enUS_name": "czech",
+          "ptBR_name": "tcheco"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 3,
+        "name": "gog"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 11,
+        "name": "Adventure"
+      },
+      {
+        "id": 14,
+        "name": "Platform"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      },
+      {
+        "id": 3,
+        "name": "co-operative"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1cm7.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1cm8.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1cm9.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4522.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8bjh.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8bji.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8bjj.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8bjk.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8bjl.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8bjm.jpg"
+      }
+    ],
+    "id": 13
+  },
+  {
+    "name": "Pentiment",
+    "description": "A 16th-century narrative adventure set in Upper Bavaria, following Andreas Maler, a journeyman artist working in the bygone scriptorium of Kiersau Abbey during a time of great social unrest. While finishing his masterpiece, Andreas inadvertently becomes entangled in a series of murders that take place over 25 years. Peasants, thieves, craftsmen, monks, nuns, nobles, and even saints must be investigated and interrogated to expose the truth.",
+    "developer": "Obsidian Entertainment",
+    "publisher": "Xbox Game Studios",
+    "releaseDate": "2022-11-03",
+    "price": 30,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese (brazil)",
+          "ptBR_name": "português (brasil)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 3,
+        "name": "gog"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "Role-playing (RPG)"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1oje.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4v1e.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdna.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdnb.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdnc.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdnd.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdne.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdnf.jpg"
+      }
+    ],
+    "id": 14
+  },
+  {
+    "name": "Cuphead",
+    "description": "Cuphead is a classic run and gun action game heavily focused on boss battles. Inspired by cartoons of the 1930s, the visuals and audio are painstakingly created with the same techniques of the era, i.e. traditional cel animation (hand drawn & hand inked!), watercolor backgrounds, and original jazz recordings. Play as Cuphead or Mugman (in single player or co-op) as you traverse strange worlds, acquire new weapons, learn powerful super moves, and discover hidden secrets. Cuphead is all action, all the time.",
+    "developer": "Studio MDHR",
+    "publisher": "Studio MDHR",
+    "releaseDate": "2022-11-01",
+    "price": 50,
+    "discount": 0.2,
+    "isDiscountActive": true,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese (brazil)",
+          "ptBR_name": "português (brasil)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 4,
+          "enUS_name": "chinese (simplified)",
+          "ptBR_name": "chinês (simplificado)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 7,
+          "enUS_name": "russian",
+          "ptBR_name": "russo"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      },
+      {
+        "id": 2,
+        "name": "epic"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 3,
+        "name": "Shooter"
+      },
+      {
+        "id": 9,
+        "name": "Indie"
+      },
+      {
+        "id": 14,
+        "name": "Platform"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      },
+      {
+        "id": 2,
+        "name": "multiplayer"
+      },
+      {
+        "id": 3,
+        "name": "co-operative"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar6yk.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar6yl.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co49fq.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sqho6e7tv9verg6j1tvv.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/r9zt66wdgqohmhuukiir.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ec5tsfhl7wjabwjnsshs.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/eulkrcocd1zyuvvcv7k0.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sngyjwqwzzlciy0ko0sq.jpg"
+      }
+    ],
+    "id": 15
+  },
+  {
+    "name": "Metro Exodus",
+    "description": "Metro Exodus is an epic, story-driven first person shooter from 4A Games that blends deadly combat and stealth with exploration and survival horror in one of the most immersive game worlds ever created. Explore the Russian wilderness across vast, non-linear levels and follow a thrilling story-line that spans an entire year through spring, summer and autumn to the depths of nuclear winter. Inspired by the novels of Dmitry Glukhovsky, Metro Exodus continues Artyom’s story in the greatest Metro adventure yet.",
+    "developer": "4A Games",
+    "publisher": "Deep Silver",
+    "releaseDate": "2022-11-01",
+    "price": 150,
+    "discount": 0.1,
+    "isDiscountActive": true,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": true,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese (brazil)",
+          "ptBR_name": "português (brasil)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": true,
+        "subtitles": false,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 4,
+          "enUS_name": "chinese (simplified)",
+          "ptBR_name": "chinês (simplificado)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 9,
+          "enUS_name": "czech",
+          "ptBR_name": "tcheco"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 3,
+        "name": "Shooter"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/qy3wcpfqgxewbtzhzt5y.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/us1zxkl318auwirwfeud.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar4mv.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar4x4.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar4x5.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar4x6.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar4x7.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar4x8.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar4x9.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/arz6h.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1iuj.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ivyjv4twtzcbxysseq39.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/m5s43zybsvndbw4co9wj.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/qyeivoo2brivvaxcpmab.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/c3wpjcbt3octz1ruzdrn.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/leboegblh8lp15i83oc6.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/rrbditarbrhhuf103vop.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/jlf82vd9jdvzmy25ajd4.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/avwzl72kskcdxisnjlmr.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/hogwqc8g89mesbvzveob.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/gharx9quvnz62udseh9r.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc5qr2.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc5qr3.jpg"
+      }
+    ],
+    "id": 16
+  },
+  {
+    "name": "A Plague Tale: Innocence",
+    "description": "A Plague Tale: Innocence, on PlayStation 4, Xbox One and PC, tells the grim story of two siblings fighting together for survival in the darkest hours of History. This new video game from Asobo Studio sends you on an emotional journey through the 14th century France, with gameplay combining adventure, action and stealth, supported by a compelling story. Follow the young Amicia and her little brother Hugo, who face the brutality of a ravaged world as they discover their purpose to expose a dark secret. On the run from the Inquisition's soldiers, surrounded by unstoppable swarms of rats incarnating the Black Death, Amicia and Hugo will learn to know and trust each other as they struggle for their lives against all odds.",
+    "developer": "Asobo Studio",
+    "publisher": "Focus Entertainment",
+    "releaseDate": "2022-11-01",
+    "price": 150,
+    "discount": 0.1,
+    "isDiscountActive": true,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": true,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese (brazil)",
+          "ptBR_name": "português (brasil)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 4,
+          "enUS_name": "chinese (simplified)",
+          "ptBR_name": "chinês (simplificado)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 9,
+          "enUS_name": "czech",
+          "ptBR_name": "tcheco"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      },
+      {
+        "id": 2,
+        "name": "epic"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "Role-playing (RPG)"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/gfkheoygxkovwv63zgc2.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar4dg.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar4dh.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar5j3.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1lat.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/yl6vcx14pyvwfdf3epew.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/k3khlm09zsgqgoxyjhep.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/d59ib29eghvvoflzge8r.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ua97c9hmezzpqh2yw7aq.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sfznzvx3uuwj9crqpmxd.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/eb0ymcjeudzuocxp0prd.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/gpv5xlyade0lpkq9kmes.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc5jtd.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc5jte.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc5jtf.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc68wl.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc68wm.jpg"
+      }
+    ],
+    "id": 17
+  },
+  {
+    "name": "A Plague Tale: Requiem",
+    "description": "A Plague Tale: Requiem is an action-adventure game similar to its predecessor. The player assumes control of Amicia and must face against both soldiers from the French Inquisition and hordes of rats that are spreading the black plague. Gameplay is largely similar to the first game, though the combat system is significantly expanded. The game features a progression system in which the player will be awarded additional skills and abilities. Stealth players will unlock skills that allow them to sneak around more efficiently, while those who prefer a more lethal approach will unlock additional combat skills. Locations are also larger, giving players additional options to progress.",
+    "developer": "Asobo Studio",
+    "publisher": "Focus Entertainment",
+    "releaseDate": "2022-11-02",
+    "price": 200,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": true,
+        "subtitles": false,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese (brazil)",
+          "ptBR_name": "português (brasil)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 4,
+          "enUS_name": "chinese (simplified)",
+          "ptBR_name": "chinês (simplificado)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 7,
+          "enUS_name": "russian",
+          "ptBR_name": "russo"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 9,
+          "enUS_name": "czech",
+          "ptBR_name": "tcheco"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 10,
+          "enUS_name": "chinese (traditional)",
+          "ptBR_name": "chinês (tradicional)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      },
+      {
+        "id": 2,
+        "name": "epic"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "Role-playing (RPG)"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/aruiy.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5pwb.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9lu.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9lv.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9lw.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9lx.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9ly.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9lz.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9m0.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9m1.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9m2.jpg"
+      }
+    ],
+    "id": 18
+  },
+  {
+    "name": "Marvel Snap",
+    "description": "Marvel Snap: The fastest card battler in the multiverse!\n\nBuild your Marvel dream team in this fast-paced, action-packed, collectible card game available on Mobile and PC.",
+    "developer": "Second Dinner, Second Dinner",
+    "publisher": "Second Dinner, nuverse",
+    "releaseDate": "2022-11-02",
+    "price": 50,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese (brazil)",
+          "ptBR_name": "português (brasil)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 10,
+          "enUS_name": "chinese (traditional)",
+          "ptBR_name": "chinês (tradicional)"
+        },
+        "audio": true,
+        "subtitles": false,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 3,
+        "name": "gog"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 13,
+        "name": "Strategy"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 2,
+        "name": "multiplayer"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1xel.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5kkd.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sch7o5.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sch7o7.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sch7o9.jpg"
+      }
+    ],
+    "id": 19
+  },
+  {
+    "name": "Sonic Frontiers",
+    "description": "Worlds will collide in Sonic the Hedgehog’s newest adventure.\n\nAn experience like never before, accelerate to new heights and experience the thrill of high velocity open-zone freedom. Battle powerful enemies as you speed through the Starfall Islands - landscapes brimming with dense forests, overflowing waterfalls, sizzling deserts and more!",
+    "developer": "Sonic Team",
+    "publisher": "Sega",
+    "releaseDate": "2022-11-03",
+    "price": 200,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese (brazil)",
+          "ptBR_name": "português (brasil)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": true,
+        "subtitles": false,
+        "interface": false
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 2,
+        "name": "epic"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 11,
+        "name": "Adventure"
+      },
+      {
+        "id": 14,
+        "name": "Platform"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1p22.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5p52.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scf130.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scf131.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scf132.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scf133.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scf134.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scf135.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scf136.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scf137.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scf138.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scf139.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjsw4.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjsw5.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjsw6.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjsw7.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjsw8.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjsw9.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjswa.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjswb.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjswd.jpg"
+      }
+    ],
+    "id": 20
+  },
+  {
+    "name": "Signalis",
+    "description": "Signalis is a classic survival horror experience with a unique aesthetic, full of melancholic mystery. Investigate a dark secret, solve puzzles, fight off nightmarish creatures and navigate dystopian, surreal retrotech worlds as Elster, a technician Replika searching for her lost dreams.",
+    "developer": "rose-engine",
+    "publisher": "PLAYISM, Humble Games",
+    "releaseDate": "2022-11-03",
+    "price": 120,
+    "discount": 0.1,
+    "isDiscountActive": true,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 4,
+          "enUS_name": "chinese (simplified)",
+          "ptBR_name": "chinês (simplificado)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 7,
+          "enUS_name": "russian",
+          "ptBR_name": "russo"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 9,
+        "name": "Indie"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/arga5.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5si1.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/fofzalqb3kyoh5j25kqx.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/x8wm6icrxrsyxfm5nqof.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/tp2goqgwaen2fytcry5w.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/zigwxybzsknlbwcblj9r.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/tfbr9z0bojikmtcbgryn.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/n3sy5lf0er25ovdoy4ic.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/q7a6eppe1jxojrofkdis.jpg"
+      }
+    ],
+    "id": 21
+  },
+  {
+    "name": "Cyberpunk 2077",
+    "description": "Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality. You can customize your character’s cyberware, skillset and playstyle, and explore a vast city where the choices you make shape the story and the world around you.",
+    "developer": "CD Projekt RED",
+    "publisher": "CD Projekt RED",
+    "releaseDate": "2022-11-02",
+    "price": 200,
+    "discount": 0.5,
+    "isDiscountActive": true,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 9,
+          "enUS_name": "czech",
+          "ptBR_name": "tcheco"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "Windows 10 (64-bit)",
+        "storage": "70 GB of available space - SSD recommended (100 GB for offline installer)",
+        "cpu": "Intel Core i5-3570K or AMD FX-8310",
+        "memory": "8 GB RAM",
+        "gpu": "NVIDIA GeForce GTX 970 or AMD Radeon RX 470",
+        "directx": "12",
+        "internet": "",
+        "other": "Requires a 64-bit processor and operating system"
+      },
+      {
+        "type": "recommended",
+        "so": "Windows 10 (64-bit)",
+        "storage": "",
+        "cpu": "Intel Core i7-4790 or AMD Ryzen 3 3200G",
+        "memory": "12 GB RAM",
+        "gpu": "GTX 1060 6GB, GTX 1660 Super or Radeon RX 590",
+        "directx": "12",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      },
+      {
+        "id": 3,
+        "name": "gog"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "Role-playing (RPG)"
+      },
+      {
+        "id": 3,
+        "name": "Shooter"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      },
+      {
+        "id": 5,
+        "name": "Open World"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/v76vzx1jwsi05aarxv5r.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/laqjo2f5uv8ie9fdgtsc.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/j3edunidfkbuivcingaw.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ig0frvvkkz4jx7cyqt3f.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/pgrmxtckblxm3pfdu5hu.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/c6gonpyuhueh0eq38n8l.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/mqzaud5keolt57tmezrf.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/whzi8cruaewea9k2tbgn.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar4dl.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar4dm.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar682.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar6qv.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4hk8.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/quphnww1axg2mmsvxfux.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/jmi4y3q12o4uitdcaf7i.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/c6ruovzsugjlnlcmm8b0.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ydyq0pixly7vt29fnzci.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/lelfskpwy4slftl3qdeb.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/c7usjg7gpo8rs0bfjkph.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ybliaszwqkwui7djaou4.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ts8wtae3t6aghttvtt2s.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/vnv5cd9kvonsjvazpotx.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/w4plqrhe04byymfksmux.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ubbe5gewccx5ig3xy30t.jpg"
+      }
+    ],
+    "id": 22
+  },
+  {
+    "name": "No Man's Sky",
+    "description": "Inspired by the adventure and imagination that we love from classic science-fiction, No Man's Sky presents you with a galaxy to explore, filled with unique planets and lifeforms, and constant danger and action.\n\nIn No Man's Sky, every star is the light of a distant sun, each orbited by planets filled with life, and you can go to any of them you choose. Fly smoothly from deep space to planetary surfaces, with no loading screens, and no limits. In this infinite procedurally generated universe, you'll discover places and creatures that no other players have seen before - and perhaps never will again.",
+    "developer": "Hello Games",
+    "publisher": "505 Games, Hello Games, Sony Interactive Entertainment",
+    "releaseDate": "2022-11-01",
+    "price": 180,
+    "discount": 0.5,
+    "isDiscountActive": true,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 4,
+          "enUS_name": "chinese (simplified)",
+          "ptBR_name": "chinês (simplificado)"
+        },
+        "audio": true,
+        "subtitles": false,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 6,
+          "enUS_name": "dutch",
+          "ptBR_name": "holandês"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 10,
+          "enUS_name": "chinese (traditional)",
+          "ptBR_name": "chinês (tradicional)"
+        },
+        "audio": true,
+        "subtitles": false,
+        "interface": false
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      },
+      {
+        "id": 3,
+        "name": "gog"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "Role-playing (RPG)"
+      },
+      {
+        "id": 9,
+        "name": "Indie"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      },
+      {
+        "id": 5,
+        "name": "Open World"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      },
+      {
+        "id": 2,
+        "name": "multiplayer"
+      },
+      {
+        "id": 3,
+        "name": "co-operative"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/s81kuicumnoogbv7pmel.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/vg61reygvduwka9pv7by.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5j66.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/slbfwlrvqjrgvrvfghrk.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/xufkotfn5udk2aijb6f0.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/kmyailnbyy0afbyqdfxn.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/byull3k2xzfndgivkdlw.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/o0pqdynpsv7vvziaxwzr.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/hlv3vnzamh1l3pdc2omn.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/wihfvjowvwt4lx0qw5eo.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/s6p3zqbfof7kncyp7ocf.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/bynzojxiouy00pqw1utm.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/mdhzsdazyj8vyht9wnnj.jpg"
+      }
+    ],
+    "id": 23
+  },
+  {
+    "name": "Project Zomboid",
+    "description": "Project Zomboid is the ultimate in zombie survival. Alone or in MP: you loot, build, craft, fight, farm and fish in a struggle to survive. A hardcore RPG skillset, a vast map, a massively customisable sandbox and a cute tutorial raccoon await the unwary. So how will you die?",
+    "developer": "The Indie Stone",
+    "publisher": "The Indie Stone",
+    "releaseDate": "2022-11-06",
+    "price": 50,
+    "discount": 0.1,
+    "isDiscountActive": true,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 4,
+          "enUS_name": "chinese (simplified)",
+          "ptBR_name": "chinês (simplificado)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 9,
+          "enUS_name": "czech",
+          "ptBR_name": "tcheco"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      },
+      {
+        "id": 3,
+        "name": "gog"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "Role-playing (RPG)"
+      },
+      {
+        "id": 9,
+        "name": "Indie"
+      },
+      {
+        "id": 5,
+        "name": "Open World"
+      },
+      {
+        "id": 3,
+        "name": "Shooter"
+      },
+      {
+        "id": 4,
+        "name": "Looter"
+      },
+      {
+        "id": 6,
+        "name": "Action"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      },
+      {
+        "id": 13,
+        "name": "Strategy"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      },
+      {
+        "id": 2,
+        "name": "multiplayer"
+      },
+      {
+        "id": 3,
+        "name": "co-operative"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3whw.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ihmtywjhagxtdzzf1wrw.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/azl53mddtmnoupegcc63.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/wxr4asuf7y3xgtund8fq.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/oz61k4a9f4hdftsnemyb.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/j5yft14sj5hchgjy0nzl.jpg"
+      }
+    ],
+    "id": 24
+  },
+  {
+    "name": "Stellaris",
+    "description": "Explore a galaxy full of wonders in this sci-fi grand strategy game from Paradox Development Studios. Interact with diverse alien races, discover strange new worlds with unexpected events and expand the reach of your empire. Each new adventure holds almost limitless possibilities.",
+    "developer": "Paradox Development Studio",
+    "publisher": "Paradox Interactive, DMM GAMES LLC.",
+    "releaseDate": "2022-11-01",
+    "price": 50,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese (brazil)",
+          "ptBR_name": "português (brasil)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 4,
+          "enUS_name": "chinese (simplified)",
+          "ptBR_name": "chinês (simplificado)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 7,
+          "enUS_name": "russian",
+          "ptBR_name": "russo"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      },
+      {
+        "id": 3,
+        "name": "gog"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 13,
+        "name": "Strategy"
+      },
+      {
+        "id": 6,
+        "name": "Action"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      },
+      {
+        "id": 2,
+        "name": "multiplayer"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar6jr.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r75.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/b9zz6xuutknvweouvlt4.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/vjwn281k9zrhwvu7jcex.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ntfg5ntyk3r1ju0kiykj.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/tliym8xjupy2fyoxdzy9.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ozowqbqpr1ou3vrebag0.jpg"
+      }
+    ],
+    "id": 25
+  },
+  {
+    "name": "The Witcher 3: Wild Hunt",
+    "description": "RPG and sequel to The Witcher 2 (2011), The Witcher 3 follows witcher Geralt of Rivia as he seeks out his former lover and his young subject while intermingling with the political workings of the wartorn Northern Kingdoms. Geralt has to fight monsters and deal with people of all sorts in order to solve complex problems and settle contentious disputes, each ranging from the personal to the world-changing.",
+    "developer": "CD Projekt RED",
+    "publisher": "cdp.pl, WB Games, Spike ChunSoft, Bandai Namco Entertainment",
+    "releaseDate": "2022-11-01",
+    "price": 120,
+    "discount": 0.8,
+    "isDiscountActive": true,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 7,
+          "enUS_name": "russian",
+          "ptBR_name": "russo"
+        },
+        "audio": true,
+        "subtitles": false,
+        "interface": false
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "Role-playing (RPG)"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      },
+      {
+        "id": 5,
+        "name": "Open World"
+      },
+      {
+        "id": 4,
+        "name": "Looter"
+      },
+      {
+        "id": 6,
+        "name": "Action"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/wljha2ztkh9uuoq3vqvr.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/focpusrcrxothhcspvva.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/noyr6v8gapsogymbwgc8.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/lvtyjjjuouwq3wbgmoom.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/dvyikxjxejnkhjaofzmt.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/pj5z48so48o73xqqzbfp.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/xblqrzuujkvqniqxyxuu.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/nzx7paeacyvpviji6022.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/p6lhjientc4g7rnq6mhs.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/azw3q6ggnru4hwmlansb.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/tlmn8xicoz0j7j2ahxvy.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/pwhylsl5nx0bgj5lz2ok.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/rwznddfodf1x5mmj8zva.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/mnljdjtrh44x4snmierh.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/em1y2ugcwy2myuhvb9db.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/usxccsncekxg0wd1v6ee.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/z5t0yuhyiiui1ickwhgj.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/farvemmmxav0bgt6wx7t.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sciabd.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sciabe.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sciabf.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sciabg.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sciabh.jpg"
+      }
+    ],
+    "id": 26
+  },
+  {
+    "name": "Fallout 4",
+    "description": "Bethesda Game Studios welcome you to the world of Fallout 4, their most ambitious game ever, and the next generation of open-world gaming. As the sole survivor of Vault 111, you enter a world destroyed by nuclear war. Every second is a fight for survival, and every choice is yours. Only you can rebuild and determine the fate of the Wasteland. Welcome home.",
+    "developer": "Bethesda Game Studios",
+    "publisher": "Bethesda Softworks",
+    "releaseDate": "2022-11-01",
+    "price": 100.98,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 7,
+          "enUS_name": "russian",
+          "ptBR_name": "russo"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": false
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "Role-playing (RPG)"
+      },
+      {
+        "id": 3,
+        "name": "Shooter"
+      },
+      {
+        "id": 4,
+        "name": "Looter"
+      },
+      {
+        "id": 5,
+        "name": "Open World"
+      },
+      {
+        "id": 12,
+        "name": "Puzzle"
+      },
+      {
+        "id": 6,
+        "name": "Action"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/oijpwwhepxar54ca14mm.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/wnxnggjfva6xwpo7avud.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/dacuo9fv8pl97utvlj6c.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/tlirsixxj9skczqyxlsz.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/cyhl4l49l08mkwtus2y4.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/bkrnaoqfkr6ny5lsqkbm.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ghzmnonsjvxmmlegilny.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar74j.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1yc6.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/twgwp1xobnae4kbky2hw.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ufocunt4ze1rjomybg2h.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/xqhildldpukjvj9gcfmt.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/whhptvhci1bdoqolofjo.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/acrxfc2grr69wfbql8ax.jpg"
+      }
+    ],
+    "id": 27
+  },
+  {
+    "name": "Fallout 76",
+    "description": "Bethesda Game Studios welcome you to Fallout 76. Twenty-five years after the bombs fall you and your fellow Vault Dwellers, chosen from the nation’s best and brightest, emerge into post-nuclear America on Reclamation Day, 2102. Play solo or join together as you explore, quest, build, and triumph against the wasteland’s greatest threats. Explore a vast wasteland, devastated by nuclear war, in this open-world multiplayer addition to the Fallout story. Experience the largest, most dynamic world ever created in the legendary Fallout universe.",
+    "developer": "Bethesda Game Studios",
+    "publisher": "Bethesda Softworks",
+    "releaseDate": "2022-11-01",
+    "price": 200,
+    "discount": 0.5,
+    "isDiscountActive": true,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": true,
+        "subtitles": false,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      },
+      {
+        "id": 3,
+        "name": "gog"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "Role-playing (RPG)"
+      },
+      {
+        "id": 3,
+        "name": "Shooter"
+      },
+      {
+        "id": 5,
+        "name": "Open World"
+      },
+      {
+        "id": 6,
+        "name": "Action"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      },
+      {
+        "id": 2,
+        "name": "FPS"
+      },
+      {
+        "id": 4,
+        "name": "Looter"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 2,
+        "name": "multiplayer"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/mivixczbhw5m7tckbbd9.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar5qx.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar5qy.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar7y9.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar7ya.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar7yb.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar7yc.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1yc4.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/mfrt5ebad0hfgh019bfm.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ftxjtsbifgl3xo98nbpb.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/tvzsd22vjayreghdylpv.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/jbs0qqb8nk7oacoj3skk.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/mfokv0tac9ojvy29zrbb.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/pszco1r7lgkye5hger1d.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/o86xudtpn5wgwesx7w8p.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/w5rkvvin33pbwfiypfdv.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/cdczbyjrjg6zlz0nmg1c.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/lz4knudlzeh8fbp0es65.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/eokyxxm5ubys1erddpie.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc5iru.jpg"
+      }
+    ],
+    "id": 28
+  },
+  {
+    "name": "Dragon Age: Origins",
+    "description": "Dragon Age: Origins is a third-person role-playing game described as a spiritual successor to Baldur's Gate and Neverwinter Nights franchises. Players create their own character by customizing gender and appearance as well as choosing a race and class. Combat is in real time with the ability to pause at any moment: tactical options include an editor which allows the player to give the AI detailed instructions on how to behave in every possible situation. Although the main storyline is the same for every character created, the game features six unique prologues, two for each race. Dragon Age: Origins received critical acclaim upon release, with praise mostly directed at its story, setting, characters, music and combat system.",
+    "developer": "BioWare Edmonton",
+    "publisher": "Electronic Arts",
+    "releaseDate": "2022-11-05",
+    "price": 100.99,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 3,
+        "name": "gog"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "Role-playing (RPG)"
+      },
+      {
+        "id": 5,
+        "name": "Open World"
+      },
+      {
+        "id": 6,
+        "name": "Action"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/jrumdkrrox09wbtblrka.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/xhahdcnpsahtgns7h92b.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/rmcbdgugjqhju6jzdam1.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/odygfakctk6ketrvctec.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/uvvkftrgvsej3kua5obd.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/lvfjdzdbfdxp3v0m5xve.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/zbvxbwlvzvrgvld6cm9b.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ztpg1ue1lwc73dd4ui1p.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar7xv.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mvs.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjh55.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjh56.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjh57.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjh58.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjh59.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scjh5a.jpg"
+      }
+    ],
+    "id": 29
+  },
+  {
+    "name": "Forza Horizon 4",
+    "description": "Dynamic seasons change everything at the world’s greatest automotive festival. Go it alone or team up with others to explore beautiful and historic Britain in a shared open world. Collect, modify and drive over 450 cars. Race, stunt, create and explore – choose your own path to become a Horizon Superstar.",
+    "developer": "Playground Games",
+    "publisher": "Xbox Game Studios",
+    "releaseDate": "2022-11-01",
+    "price": 200.99,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese (brazil)",
+          "ptBR_name": "português (brasil)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 4,
+          "enUS_name": "chinese (simplified)",
+          "ptBR_name": "chinês (simplificado)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 9,
+          "enUS_name": "czech",
+          "ptBR_name": "tcheco"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": false
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 8,
+        "name": "Racing"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      },
+      {
+        "id": 12,
+        "name": "Puzzle"
+      },
+      {
+        "id": 5,
+        "name": "Open World"
+      },
+      {
+        "id": 6,
+        "name": "Action"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      },
+      {
+        "id": 2,
+        "name": "multiplayer"
+      },
+      {
+        "id": 3,
+        "name": "co-operative"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar5kg.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2e1a.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8fvc.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8fvd.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8fve.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8fvf.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8fvg.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8fvh.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8fvi.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8fvj.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8fvk.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8fvl.jpg"
+      }
+    ],
+    "id": 30
+  },
+  {
+    "name": "Forza Horizon 5",
+    "description": "Your Ultimate Horizon Adventure awaits! Explore the vibrant and ever-evolving open-world landscapes of Mexico with limitless, fun driving action in hundreds of the world’s greatest cars.",
+    "developer": "Playground Games",
+    "publisher": "Xbox Game Studios",
+    "releaseDate": "2022-11-02",
+    "price": 250.99,
+    "discount": 0.1,
+    "isDiscountActive": true,
+    "game_language_support": [],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 8,
+        "name": "Racing"
+      },
+      {
+        "id": 5,
+        "name": "Open World"
+      },
+      {
+        "id": 6,
+        "name": "Action"
+      },
+      {
+        "id": 7,
+        "name": "Arcade"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      },
+      {
+        "id": 12,
+        "name": "Puzzle"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      },
+      {
+        "id": 2,
+        "name": "multiplayer"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/aruoz.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3ofx.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scahhi.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scahhj.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scahhk.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scahhl.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scahhm.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scahhn.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scahho.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scahhp.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scahhq.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scahhr.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scahhs.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scbtkx.jpg"
+      }
+    ],
+    "id": 31
   }
 ]

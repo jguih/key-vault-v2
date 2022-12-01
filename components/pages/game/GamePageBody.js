@@ -21,7 +21,7 @@ export default function Content({ name }) {
     if (games && name) {
       // Gets the current game
       games.forEach((game) => {
-        if (game.name.toLowerCase() === name) {
+        if (game.name.toLowerCase().replaceAll(" ", "-") === name) {
           setCurrentGame(game);
         }
       });
@@ -54,7 +54,6 @@ export default function Content({ name }) {
     const shortDescription = new String(currentGame.description)?.split(". ")[0];
     const description = currentGame.description;
     const releaseDate = currentGame.releaseDate;
-    console.log(currentGame.developer)
     const developer = currentGame.developer;
     const publisher = currentGame.publisher;
     const genre = currentGame["game_genre"];

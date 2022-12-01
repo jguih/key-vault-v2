@@ -2,5 +2,13 @@
   {
     "id": 1,
     "name": "steam"
+  },
+  {
+    "id": 2,
+    "name": "epic"
+  },
+  {
+    "id": 3,
+    "name": "gog"
   }
 ]

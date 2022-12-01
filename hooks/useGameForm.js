@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
-import { GameFields, GameSystemRequirements, getFullDate, getGamemode, getIGDBImageURL, getPlatformsIcons, IGDBImageSize, imgTypes, toFirstUpperCase } from "../global";
+import { decimalFormatter, GameFields, GameSystemRequirements, getFullDate, getGamemode, getIGDBImageURL, getPlatformsIcons, IGDBImageSize, imgTypes, toFirstUpperCase } from "../global";
 import useData from "./useData";
 import { errorsActions, useGameFormErrors } from "./useGameFormErrors";
 import useGame from "./useGame";
@@ -594,13 +594,16 @@ export function useGameForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("...submitting");
     if (Object.keys(error.field).length > 0 || Object.keys(error.urlField).length > 0) {
       console.log("Error")
       return
     }
     // All fields are valid and ready to be submitted
-    game.id = games.length + 1;
+    game.id = games[games.length - 1].id + 1;
+    const price = game[GameFields.price];
+    const discount = game[GameFields.discount];
+    game[GameFields.price] = Number.parseFloat(price);
+    game[GameFields.discount] = Number.parseInt(discount)/100;
     const gameJson = JSON.stringify(game, null, 2);
     console.log(gameJson)
     games.push(game);
