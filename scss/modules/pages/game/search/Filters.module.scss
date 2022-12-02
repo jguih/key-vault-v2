@@ -11,3 +11,12 @@
     padding-left: 10px;
   }
 }
+
+.end-label {
+  color: colors.$kv-text-on-primary;
+  padding: 0px 0.5em;
+  border-radius: 100px;
+  &:hover {
+    background-color: colors.$kv-secondary-600;
+  }
+}

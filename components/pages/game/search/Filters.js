@@ -1,35 +1,67 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { GameFields, getGamemode, toFirstUpperCase } from "../../../../global";
+import { GameFields, getGamemode, getPlatformsIcons, toFirstUpperCase } from "../../../../global";
 import useData from "../../../../hooks/useData";
-import filterStyles from "../../../../scss/modules/pages/game/search/Filters.module.scss";
+import useGame from "../../../../hooks/useGame";
+import styles from "../../../../scss/modules/pages/game/search/Filters.module.scss";
 import * as Kv from "../../../ui/Kv";
 
-export default function Filters({ games, onFilter }) {
+export default function Filters({ onFilter }) {
   const router = useRouter();
   const { data } = useData();
+  const { games, isLoading, isError } = useGame();
 
   // States below are controlled by router changes
   const [checkedGenres, setCheckedGenres] = useState([]); // Genre checkboxes state
   const [checkedDiscount, setCheckedDiscount] = useState(); // Discount checkbox state
   const [checkedGamemodes, setCheckedGamemodes] = useState([]); // Game mode checkboxes state
+  const [checkedPlatforms, setCheckedPlatforms] = useState([]); // Platform checkboxes state
+  const [checkedLanguages, setCheckedLanguages] = useState([]); // Languages checkboxes state
 
   useEffect(() => {
     if (router.isReady && games) {
-      let filteredGames = games;
+      let filteredGames = games
+        ?.sort((gameA, gameB) => {
+          if (gameA.name < gameB.name) {
+            return -1;
+          }
+          if (gameA.name > gameB.name) {
+            return 1;
+          }
+          return 0
+        });
+      // Filter by entry
+      if (router.query.entry) {
+        const entry = router.query.entry;
+        // Filter games that matches the name exactly
+        const games1 = filteredGames.filter((game) => {
+          if (entry) {
+            return game.name.toLowerCase().includes(entry.toLowerCase());
+          }
+        })
+        // Filter games that contains all name characters
+        // Also include all games if entry is undefined
+        const games2 = filteredGames.filter((game) => {
+          if (entry) {
+            const nameArr = entry.toLowerCase().split("");
+            return nameArr.every((char) => game.name.toLowerCase().includes(char));
+          } else return true;
+        })
+        filteredGames = [...new Set(games1.concat(games2))];
+      }
       // Filter by genre
       if (router.query.genres) {
         // Get genres from URL
         const genresArr = router.query.genres.split(".")
           .map(genre => genre.toLowerCase());
-          
+
         setCheckedGenres(genresArr);
 
         filteredGames = filteredGames.filter((game) => {
           const gameGenres = game[GameFields.GameGenre]
             ?.map((gameGenre) => gameGenre.name.toLowerCase());
           // Return true if every genresArr genre is included in gameGenres
-          return genresArr?.every((genreName) => {
+          return genresArr.every((genreName) => {
             // Return true if genresArr genre is included in gameGenres
             return gameGenres?.includes(genreName);
           })
@@ -57,12 +89,46 @@ export default function Filters({ games, onFilter }) {
         filteredGames = filteredGames.filter((game) => {
           const gameGamemodes = game[GameFields.GameGamemode]
             ?.map(g => g.name.toLowerCase());
-          return gamemodesArr?.every(gamemodeName => {
+          return gamemodesArr.every(gamemodeName => {
             return gameGamemodes?.includes(gamemodeName);
           })
         })
       } else {
         setCheckedGamemodes([]);
+      }
+      // Filter by platforms
+      if (router.query.platforms) {
+        const platformsArr = router.query.platforms.split(".")
+          .map(p => p.toLowerCase());
+
+        setCheckedPlatforms(platformsArr);
+
+        filteredGames = filteredGames.filter((game) => {
+          const gamePlatforms = game[GameFields.GamePlatform]
+            ?.map(g => g.name.toLowerCase());
+          return platformsArr.every(platformName => {
+            return gamePlatforms?.includes(platformName);
+          })
+        })
+      } else {
+        setCheckedPlatforms([]);
+      }
+      // Filter by languages
+      if (router.query.languages) {
+        const languagesArr = router.query.languages.split(".")
+          .map(l => l.toLowerCase());
+
+        setCheckedLanguages(languagesArr);
+
+        filteredGames = filteredGames.filter((game) => {
+          const gameLanguages = game[GameFields.GameLanguageSupport]
+            ?.map(ls => ls.language)?.map(l => l["ptBR_name"]?.toLowerCase());
+          return languagesArr.every(languageName => {
+            return gameLanguages?.includes(languageName);
+          })
+        })
+      } else {
+        setCheckedLanguages([]);
       }
       onFilter(filteredGames);
     }
@@ -70,7 +136,9 @@ export default function Filters({ games, onFilter }) {
 
   const filter = {
     onChangeGenre: function (genre, e) {
-      const genreName = genre.name.toLowerCase();
+      e.preventDefault();
+      const genreName = genre.name?.toLowerCase();
+      if (!genreName) return;
 
       let myQuery = { ...router.query };
       if (e.target.checked) {
@@ -95,11 +163,29 @@ export default function Filters({ games, onFilter }) {
         query: myQuery
       })
     },
-    getCheckedGenre: function (genre) {
-      const genreName = genre.name.toLowerCase();
+    shouldCheckGenre: function (genre) {
+      const genreName = genre?.name?.toLowerCase();
       return checkedGenres.includes(genreName);
     },
+    getGenreEndLabel: function () {
+      if (checkedGenres?.length > 0) {
+        return (
+          <p className={`${styles["end-label"]} m-0`}>
+            {checkedGenres.length}
+          </p>
+        )
+      } else return;
+    },
+    onClickGenreEndLabel: function () {
+      let myQuery = { ...router.query };
+      delete myQuery.genres;
+      router.push({
+        pathname: "/game",
+        query: myQuery
+      })
+    },
     onChangeDiscounted: function (e) {
+      e.preventDefault();
       let myQuery = { ...router.query };
       if (e.target.checked) {
         // Adding 'discounted=true' to URL
@@ -118,8 +204,10 @@ export default function Filters({ games, onFilter }) {
       })
     },
     onChangeGamemode: function (gamemode, e) {
-      const gamemodeName = gamemode.name.toLowerCase();
-      
+      e.preventDefault();
+      const gamemodeName = gamemode.name?.toLowerCase();
+      if (!gamemodeName) return;
+
       let myQuery = { ...router.query };
       if (e.target.checked) {
         if (router.query.gamemodes) {
@@ -140,65 +228,214 @@ export default function Filters({ games, onFilter }) {
         pathname: "/game",
         query: myQuery
       })
+    },
+    shouldCheckGamemode: (gamemode) => {
+      const gamemodeName = gamemode?.name?.toLowerCase();
+      return checkedGamemodes?.includes(gamemodeName);
+    },
+    getGamemodeEndLabel: function () {
+      if (checkedGamemodes?.length > 0) {
+        return (
+          <p className={`${styles["end-label"]} m-0`}>
+            {checkedGamemodes.length}
+          </p>
+        )
+      } else return;
+    },
+    onClickGamemodeEndLabel: function () {
+      let myQuery = { ...router.query };
+      delete myQuery.gamemodes;
+      router.push({
+        pathname: "/game",
+        query: myQuery
+      })
+    },
+    onChangePlatform: function (platform, e) {
+      e.preventDefault();
+      const platformName = platform.name?.toLowerCase();
+      if (!platformName) return;
+
+      let myQuery = { ...router.query };
+      if (e.target.checked) {
+        if (router.query.platforms) {
+          myQuery.platforms = router.query.platforms + "." + platformName;
+        } else {
+          myQuery.platforms = platformName;
+        }
+      } else {
+        const newPlatforms = checkedPlatforms.filter((p) => p !== platformName);
+        if (newPlatforms.length > 0) {
+          myQuery.platforms = newPlatforms.join(".");
+        } else {
+          delete myQuery.platforms;
+        }
+      }
+      delete myQuery.page;
+      router.push({
+        pathname: "/game",
+        query: myQuery
+      })
+    },
+    shouldCheckPlatform: function (platform) {
+      const platformName = platform?.name?.toLowerCase();
+      return checkedPlatforms.includes(platformName);
+    },
+    getPlatformEndLabel: function () {
+      if (checkedPlatforms?.length > 0) {
+        return (
+          <p className={`${styles["end-label"]} m-0`}>
+            {checkedPlatforms.length}
+          </p>
+        )
+      } else return;
+    },
+    onClickPlatformEndLabel: function () {
+      let myQuery = { ...router.query };
+      delete myQuery.platforms;
+      router.push({
+        pathname: "/game",
+        query: myQuery
+      })
+    },
+    onChangeLanguage: function (language, e) {
+      e.preventDefault();
+      const languageName = language["ptBR_name"]?.toLowerCase();
+      if (!languageName) return;
+
+      let myQuery = { ...router.query };
+      if (e.target.checked) {
+        if (router.query.languages) {
+          myQuery.languages = router.query.languages + "." + languageName;
+        } else {
+          myQuery.languages = languageName;
+        }
+      } else {
+        const newLanguages = checkedLanguages.filter((p) => p !== languageName);
+        if (newLanguages.length > 0) {
+          myQuery.languages = newLanguages.join(".");
+        } else {
+          delete myQuery.languages;
+        }
+      }
+      delete myQuery.page;
+      router.push({
+        pathname: "/game",
+        query: myQuery
+      })
+    },  
+    shouldCheckLanguage: function (language) {
+      const languageName = language?.["ptBR_name"]?.toLowerCase();
+      return checkedLanguages.includes(languageName);
+    },
+    getLanguageEndLabel: function () {
+      if (checkedLanguages?.length > 0) {
+        return (
+          <p className={`${styles["end-label"]} m-0`}>
+            {checkedLanguages.length}
+          </p>
+        )
+      } else return;
+    },
+    onClickLanguageEndLabel: function () {
+      let myQuery = { ...router.query };
+      delete myQuery.languages;
+      router.push({
+        pathname: "/game",
+        query: myQuery
+      })
     }
   };
 
   if (!data) return;
 
   return (
-    <div className={`${filterStyles.container}`}>
-      <form>
-        <Kv.Checkbox
-          type="checkbox"
-          label="Promoção"
-          onChange={(e) => filter.onChangeDiscounted(e)}
-          checked={checkedDiscount || false}
-          id="discounted"
-        />
-      </form>
-      <Kv.Accordion title="Categorias" expand={checkedGenres?.length > 0} bodyHeight={400}>
-        <form>
-          {data.genres?.map((genre, index) => {
-            return (
-              <Kv.Checkbox
-                type="checkbox"
-                label={genre.name}
-                onChange={(e) => filter.onChangeGenre(genre, e)}
-                checked={checkedGenres?.includes(genre.name.toLowerCase())}
-                key={index}
-                id={genre.name}
-              />
-            );
-          })}
-        </form>
+    <div className={`${styles.container} sticky-top pt-3`}>
+      <Kv.Checkbox
+        type="checkbox"
+        label="Promoção"
+        onChange={(e) => filter.onChangeDiscounted(e)}
+        checked={checkedDiscount || false}
+        id="discounted"
+      />
+      <Kv.Accordion
+        title="Categorias"
+        expand={checkedGenres?.length > 0}
+        bodyHeight={400}
+        endLabel={filter.getGenreEndLabel()}
+        onClickEndLabel={() => filter.onClickGenreEndLabel()}
+      >
+        {data.genres?.map((genre, index) => {
+          return (
+            <Kv.Checkbox
+              type="checkbox"
+              label={genre.name}
+              onChange={(e) => filter.onChangeGenre(genre, e)}
+              checked={filter.shouldCheckGenre(genre)}
+              key={index}
+              id={genre.name}
+            />
+          );
+        })}
       </Kv.Accordion>
-      <Kv.Accordion title="Modos de Jogo" expand={checkedGamemodes?.length > 0} bodyHeight={100}>
-        <form>
-          {data.gamemodes?.map((gamemode, index) => {
-            return (
-              <Kv.Checkbox
-                type="checkbox"
-                label={getGamemode(gamemode.name)}
-                onChange={(e) => filter.onChangeGamemode(gamemode, e)}
-                checked={checkedGamemodes?.includes(gamemode.name.toLowerCase())}
-                key={index}
-                id={gamemode.name}
-              />
-            );
-          })}
-        </form>
+      <Kv.Accordion
+        title="Modos de Jogo"
+        expand={checkedGamemodes?.length > 0}
+        bodyHeight={100}
+        endLabel={filter.getGamemodeEndLabel()}
+        onClickEndLabel={() => filter.onClickGamemodeEndLabel()}
+      >
+        {data.gamemodes?.map((gamemode, index) => {
+          return (
+            <Kv.Checkbox
+              type="checkbox"
+              label={getGamemode(gamemode.name)}
+              onChange={(e) => filter.onChangeGamemode(gamemode, e)}
+              checked={filter.shouldCheckGamemode(gamemode)}
+              key={index}
+              id={gamemode.name}
+            />
+          );
+        })}
       </Kv.Accordion>
-      <Kv.Accordion title="Plataformas" bodyHeight={250}>
-
+      <Kv.Accordion
+        title="Plataformas"
+        expand={checkedPlatforms?.length > 0}
+        bodyHeight={100}
+        endLabel={filter.getPlatformEndLabel()}
+        onClickEndLabel={() => filter.onClickPlatformEndLabel()}
+      >
+        {data.platforms?.map((platform, index) => {
+          return (
+            <Kv.Checkbox
+              type="checkbox"
+              label={getPlatformsIcons(platform.name, { withName: true })}
+              onChange={(e) => filter.onChangePlatform(platform, e)}
+              checked={filter.shouldCheckPlatform(platform)}
+              key={index}
+              id={platform.name}
+            />
+          );
+        })}
       </Kv.Accordion>
-      <Kv.Accordion title="Preço" bodyHeight={250}>
-
-      </Kv.Accordion>
-      <Kv.Accordion title="Data de Lançamento" bodyHeight={250}>
-
-      </Kv.Accordion>
-      <Kv.Accordion title="Idiomas" bodyHeight={250}>
-
+      <Kv.Accordion
+        title="Idiomas"
+        expand={checkedLanguages?.length > 0}
+        bodyHeight={320}
+        endLabel={filter.getLanguageEndLabel()}
+        onClickEndLabel={() => filter.onClickLanguageEndLabel()}
+      >
+        {data.languages?.map((language, index) => {
+          return (
+            <Kv.Checkbox
+              type="checkbox"
+              label={toFirstUpperCase(language["ptBR_name"])}
+              onChange={(e) => filter.onChangeLanguage(language, e)}
+              checked={filter.shouldCheckLanguage(language)}
+              key={index}
+              id={language["ptBR_name"]}
+            />
+          );
+        })}
       </Kv.Accordion>
     </div>
   );

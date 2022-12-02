@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import usePagination from "../../hooks/usePagination";
 import { Pagination as BsPagination } from "react-bootstrap";
-import paginationStyles from "../../scss/modules/ui/Pagination.module.scss";
+import styles from "../../scss/modules/ui/Pagination.module.scss";
 
-export default function KvPagination({
+export default function Pagination({
   pageSize = 30,
   totalCount,
   currentPage,
@@ -33,7 +33,7 @@ export default function KvPagination({
   return (
     <div>
       {
-        <BsPagination className={`${paginationStyles.pagination}`}>
+        <BsPagination className={`${styles.pagination}`}>
           {items.map((item, index) => {
             if (item === "PREV") {
               return currentPage !== 1 ? 

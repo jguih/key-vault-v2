@@ -77,7 +77,7 @@ export default function Content({ name }) {
           <div className={gpBodyStyles.left}>
             <Gallery screenshots={screenshotUrl?.concat(artworkUrl)} alt="" />
             <SaleCard
-              coverUrl={coverUrl[0]}
+              coverUrl={coverUrl?.[0]}
               title={name}
               price={price}
               discount={discount}
@@ -93,7 +93,7 @@ export default function Content({ name }) {
           </div>
           <div className={gpBodyStyles.right}>
             <DescriptionCard
-              coverUrl={coverUrl[0]}
+              coverUrl={coverUrl?.[0]}
               description={shortDescription}
               releaseDate={releaseDate}
               developer={developer}

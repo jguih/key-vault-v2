@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import Image from "next/image";
-import { brlCurrencyFormatter, imgTypes } from "../global";
+import { brlCurrencyFormatter, imgTypes, GameFields } from "../global";
 import outdoor from '../scss/modules/Outdoor.module.scss';
 
 export default function Outdoor({ games, size }) {
@@ -46,6 +46,9 @@ export default function Outdoor({ games, size }) {
   }, [index])
 
   function getSmallGameCard(game, index) {
+    const cover = game[GameFields.GameImage]
+      ?.filter(img => img.type === imgTypes.Cover)
+      ?.map(img => img.url);
     return (
       <div
         className={outdoor.item}
@@ -54,7 +57,7 @@ export default function Outdoor({ games, size }) {
       >
         <div className={outdoor["small-game-card"]}>
           <Image
-            src={game["game_image"].filter(img => img.type === imgTypes.Cover)[0].url}
+            src={cover?.[0] || ""}
             alt=""
             fill
             priority
@@ -91,9 +94,16 @@ export default function Outdoor({ games, size }) {
       <div className={outdoor.outdoor}>
         <div className={outdoor["outdoor-img"]}>
           {games.slice(0, size).map((game, index) => {
+            const artworks = game[GameFields.GameImage]
+              ?.filter(img => img.type === imgTypes.Artwork)
+              ?.map(img => img.url);
+            const screenshots = game[GameFields.GameImage]
+              ?.filter(img => img.type === imgTypes.Screenshot)
+              ?.map(img => img.url);
             return (
               <Image
-                src={game["game_image"].filter(img => img.type === imgTypes.Artwork)[0].url}
+                src={artworks?.length > 0 ? artworks[0] : 
+                  screenshots?.length > 0 ? screenshots[0] : ""}
                 fill
                 priority
                 alt=""

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Col, Dropdown, Form, Row, Tab, Tabs } from "react-bootstrap";
 import styles from "../../scss/modules/ui/Kv.module.scss";
 
-export function Accordion({ title, children, expand, bodyHeight }) {
+export function Accordion({ title, children, expand, bodyHeight, endLabel, onClickEndLabel }) {
   const [chevron, setChevron] = useState("right");
   const [bodyExpand, setBodyExpand] = useState(expand);
   const headerRef = React.createRef();
@@ -35,7 +35,14 @@ export function Accordion({ title, children, expand, bodyHeight }) {
         onClick={toggleExpandAccordion}
         ref={headerRef}
       >
-        <i className={`bi bi-chevron-${chevron}`}></i> {title}
+        <div className="m-0 d-flex justify-content-between">
+          <span>
+            <i className={`bi bi-chevron-${chevron}`}></i> {title}
+          </span>
+          <span onClick={onClickEndLabel}>
+            {endLabel}
+          </span>
+        </div>
       </Button>
       <div
         className={`${styles["accordion-body"]}`}

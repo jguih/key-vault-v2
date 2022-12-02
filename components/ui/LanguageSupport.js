@@ -1,13 +1,13 @@
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import { toFirstUpperCase } from "../../global";
 import styles from "../../scss/modules/ui/LanguageSupport.module.scss"
 
 export default function LanguageSupport({ title, languageSupport, variant, onClickLanguage, ...props }) {
   if (!languageSupport) return;
-
+  if (Array.isArray(languageSupport) && languageSupport?.length === 0) return;
+  
   function getLanguageSupport(language_support, index) {
-    const ptBRName =
-      language_support.language?.["ptBR_name"]?.[0]?.toUpperCase() +
-      language_support.language?.["ptBR_name"]?.slice(1) || "";
+    const ptBRName = toFirstUpperCase(language_support.language?.["ptBR_name"]);
     const _audio = language_support.audio || false;
     const _interface = language_support.interface || false;
     const _subtitles = language_support.subtitles || false;
@@ -67,8 +67,10 @@ export default function LanguageSupport({ title, languageSupport, variant, onCli
       </>
     )
   }
+
   let validProps = props;
   delete validProps.className;
+
   return (
     <div
       className={`${styles["language-support-container"]} 
@@ -85,7 +87,7 @@ export default function LanguageSupport({ title, languageSupport, variant, onCli
       </div>
       <hr />
       {Array.isArray(languageSupport) ?
-        languageSupport.map((language_support, index) => {
+        languageSupport?.map((language_support, index) => {
           return getLanguageSupport(language_support, index)
         }) : getLanguageSupport(languageSupport)}
     </div>

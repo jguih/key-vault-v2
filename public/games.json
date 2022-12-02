@@ -46,7 +46,7 @@
       }
     ],
     "description": "S.T.A.L.K.E.R 2 is a unique blend of FPS, immersive sim and horror with a really thick atmosphere. One of the biggest open-worlds to date is yours to explore — along with an epic branching story with multiple endings. S.T.A.L.K.E.R. stands for (Scavengers, Trespassers, Adventurers, Loners, Killers, Explorers and Robbers).",
-    "releaseDate": "Dec 2023",
+    "releaseDate": "2023-12-01",
     "developer": "GSC Game World",
     "publisher": "GSC Game World",
     "game_genre": [
@@ -163,7 +163,7 @@
       }
     ],
     "description": "Drive, drift, and park in You Suck at Parking, the simple and accessible yet challenging game where parking is more important than your driving skills. Collect cars, learn new mechanics, challenge the world, and customize your ride in this ever-evolving parking simulator.",
-    "releaseDate": "Sep 14, 2022",
+    "releaseDate": "2022-09-14",
     "developer": "Happy Volcano",
     "publisher": "Happy Volcano",
     "game_genre": [
@@ -284,7 +284,7 @@
       }
     ],
     "description": "Scorn is an atmospheric first person horror adventure game set in a nightmarish universe of odd forms and somber tapestry. It is designed around an idea of \"being thrown into the world\". Isolated and lost inside this dream-like world you will explore different interconnected regions in a non-linear fashion. The unsettling environment is a character itself. Every location contains its own theme (story), puzzles and characters that are integral in creating a cohesive lived in world. Throughout the game you will open up new areas, acquire different skill sets, weapons, various items and try to comprehend the sights presented to you.",
-    "releaseDate": "Oct 14, 2022",
+    "releaseDate": "2022-10-14",
     "developer": "Ebb Software",
     "publisher": "Kepler Interactive, Ebb Software",
     "game_genre": [
@@ -393,7 +393,7 @@
       }
     ],
     "description": "There Is No Light is a brutal action-adventure set in a grim underground world ruled by the mysterious Church of the Great Hand. Blast your way through the hordes of enemies, fight dangerous bosses and explore the world the way you want.",
-    "releaseDate": "Sep 19, 2022",
+    "releaseDate": "2022-09-19",
     "developer": "Zelart",
     "publisher": "HypeTrain Digital",
     "game_genre": [
@@ -502,7 +502,7 @@
       }
     ],
     "description": "Strike terror into the hearts of demons and devils as you fight your way through eight Hells. Metal: Hellsinger is a rhythm FPS, brimming with diabolical enemies, powerful weapons, and metal music. Set out on an infernal journey in order to achieve the purest of goals: Vengeance.",
-    "releaseDate": "Sep 15, 2022",
+    "releaseDate": "2022-09-15",
     "developer": "The Outsiders",
     "publisher": "Funcom, Level Infinite",
     "game_genre": [
@@ -627,7 +627,7 @@
       }
     ],
     "description": "Reunite and stand together in a new age of heroes. Overwatch 2 builds on an award-winning foundation of epic competitive play, and challenges the world’s heroes to team up, power up, and take on an overwhelming outbreak of threats around the globe.",
-    "releaseDate": "Oct 04, 2022",
+    "releaseDate": "2022-10-04",
     "developer": "Blizzard Entertainment",
     "publisher": "Blizzard Entertainment",
     "game_genre": [
@@ -671,7 +671,7 @@
       },
       {
         "id": 3,
-        "name": "co-op"
+        "name": "co-operative"
       }
     ],
     "game_language_support": [
@@ -702,7 +702,7 @@
     "description": "Join the fight for the future in the world of Overwatch and choose your hero from a diverse cast of soldiers, scientists, adventurers, and oddities. Bend time, defy physics, and unleash a dizzying array of extraordinary powers and weapons. Engage your enemies in iconic locations from around the globe in the ultimate team-based shooter.",
     "developer": "Blizzard Entertainment",
     "publisher": "Square Enix, Blizzard Entertainment",
-    "releaseDate": "2022-11-01",
+    "releaseDate": "2016-05-01",
     "price": 120.00,
     "discount": 0,
     "isDiscountActive": false,
@@ -826,7 +826,7 @@
     "description": "Introducing an original story set in DC’s Batman Universe, Gotham Knights offers a dynamic and interactive Gotham City where an exploding criminal element has swept through the streets. With the Belfry as their base of operations, this new era of heroes will solve mysteries that connect the darkest chapters in the city’s history and must defeat notorious villains in epic confrontations. Players must save Gotham from a descent into chaos and reinvent themselves into their own version of the Dark Knight.",
     "developer": "WB Games Montréal",
     "publisher": "WB Games",
-    "releaseDate": "2022-11-02",
+    "releaseDate": "2022-10-21",
     "price": 120.00,
     "discount": 0.2,
     "isDiscountActive": true,
@@ -945,7 +945,7 @@
     "description": "Drop into the new map Al Mazrah in Call of Duty: Warzone 2.0",
     "developer": "Infinity Ward",
     "publisher": "Activision",
-    "releaseDate": "2022-11-03",
+    "releaseDate": "2022-11-16",
     "price": 300.00,
     "discount": 0,
     "isDiscountActive": false,
@@ -1093,7 +1093,7 @@
     "description": "Build an impenetrable fortress, tile by tile. Place buildings, build roads, and expand your isle to defend against waves of invaders in this roguelike fusion of tower defense and board game.",
     "developer": "Gridpop",
     "publisher": "Gridpop",
-    "releaseDate": "2022-11-02",
+    "releaseDate": "2022-09-08",
     "price": 50.00,
     "discount": 0,
     "isDiscountActive": false,
@@ -1196,7 +1196,7 @@
     "description": "God of War is the sequel to God of War III as well as a continuation of the canon God of War chronology. Unlike previous installments, this game focuses on Norse mythology and follows an older and more seasoned Kratos and his son Atreus in the years since the third game. It is in this harsh, unforgiving world that he must fight to survive… and teach his son to do the same.",
     "developer": "SIE Santa Monica Studio",
     "publisher": "Sony Interactive Entertainment",
-    "releaseDate": "2022-11-01",
+    "releaseDate": "2018-04-20",
     "price": 200.00,
     "discount": 0.2,
     "isDiscountActive": true,
@@ -1433,7 +1433,7 @@
     "description": "Starring the world’s most iconic Super Hero, Spider-Man features the acrobatic abilities, improvisation and web-slinging that the wall-crawler is famous for, while also introducing elements never-before-seen in a Spider-Man game. From traversing with parkour and utilizing the environment, to new combat and blockbuster set pieces, it’s Spider-Man unlike any you’ve played before.",
     "developer": "Insomniac Games",
     "publisher": "Sony Interactive Entertainment",
-    "releaseDate": "2022-11-01",
+    "releaseDate": "2018-09-07",
     "price": 200.00,
     "discount": 0,
     "isDiscountActive": false,
@@ -1670,7 +1670,7 @@
     "description": "Iconic PlayStation hero, Sackboy returns in an all-new 3D adventure with a deeply immersive and expressive control scheme. Players can go on this epic platforming journey solo-style, or they can team up with friends for collaborative, chaotic multiplayer fun.",
     "developer": "Sumo Digital",
     "publisher": "Sony Interactive Entertainment",
-    "releaseDate": "2022-11-02",
+    "releaseDate": "2020-11-12",
     "price": 100.00,
     "discount": 0,
     "isDiscountActive": false,
@@ -1805,7 +1805,7 @@
     "description": "A 16th-century narrative adventure set in Upper Bavaria, following Andreas Maler, a journeyman artist working in the bygone scriptorium of Kiersau Abbey during a time of great social unrest. While finishing his masterpiece, Andreas inadvertently becomes entangled in a series of murders that take place over 25 years. Peasants, thieves, craftsmen, monks, nuns, nobles, and even saints must be investigated and interrogated to expose the truth.",
     "developer": "Obsidian Entertainment",
     "publisher": "Xbox Game Studios",
-    "releaseDate": "2022-11-03",
+    "releaseDate": "2022-11-15",
     "price": 30,
     "discount": 0,
     "isDiscountActive": false,
@@ -1938,7 +1938,7 @@
     "description": "Cuphead is a classic run and gun action game heavily focused on boss battles. Inspired by cartoons of the 1930s, the visuals and audio are painstakingly created with the same techniques of the era, i.e. traditional cel animation (hand drawn & hand inked!), watercolor backgrounds, and original jazz recordings. Play as Cuphead or Mugman (in single player or co-op) as you traverse strange worlds, acquire new weapons, learn powerful super moves, and discover hidden secrets. Cuphead is all action, all the time.",
     "developer": "Studio MDHR",
     "publisher": "Studio MDHR",
-    "releaseDate": "2022-11-01",
+    "releaseDate": "2017-09-29",
     "price": 50,
     "discount": 0.2,
     "isDiscountActive": true,
@@ -2097,7 +2097,7 @@
     "description": "Metro Exodus is an epic, story-driven first person shooter from 4A Games that blends deadly combat and stealth with exploration and survival horror in one of the most immersive game worlds ever created. Explore the Russian wilderness across vast, non-linear levels and follow a thrilling story-line that spans an entire year through spring, summer and autumn to the depths of nuclear winter. Inspired by the novels of Dmitry Glukhovsky, Metro Exodus continues Artyom’s story in the greatest Metro adventure yet.",
     "developer": "4A Games",
     "publisher": "Deep Silver",
-    "releaseDate": "2022-11-01",
+    "releaseDate": "2019-02-15",
     "price": 150,
     "discount": 0.1,
     "isDiscountActive": true,
@@ -2300,7 +2300,7 @@
     "description": "A Plague Tale: Innocence, on PlayStation 4, Xbox One and PC, tells the grim story of two siblings fighting together for survival in the darkest hours of History. This new video game from Asobo Studio sends you on an emotional journey through the 14th century France, with gameplay combining adventure, action and stealth, supported by a compelling story. Follow the young Amicia and her little brother Hugo, who face the brutality of a ravaged world as they discover their purpose to expose a dark secret. On the run from the Inquisition's soldiers, surrounded by unstoppable swarms of rats incarnating the Black Death, Amicia and Hugo will learn to know and trust each other as they struggle for their lives against all odds.",
     "developer": "Asobo Studio",
     "publisher": "Focus Entertainment",
-    "releaseDate": "2022-11-01",
+    "releaseDate": "2019-04-14",
     "price": 150,
     "discount": 0.1,
     "isDiscountActive": true,
@@ -2483,7 +2483,7 @@
     "description": "A Plague Tale: Requiem is an action-adventure game similar to its predecessor. The player assumes control of Amicia and must face against both soldiers from the French Inquisition and hordes of rats that are spreading the black plague. Gameplay is largely similar to the first game, though the combat system is significantly expanded. The game features a progression system in which the player will be awarded additional skills and abilities. Stealth players will unlock skills that allow them to sneak around more efficiently, while those who prefer a more lethal approach will unlock additional combat skills. Locations are also larger, giving players additional options to progress.",
     "developer": "Asobo Studio",
     "publisher": "Focus Entertainment",
-    "releaseDate": "2022-11-02",
+    "releaseDate": "2022-10-17",
     "price": 200,
     "discount": 0,
     "isDiscountActive": false,
@@ -2672,7 +2672,7 @@
     "description": "Marvel Snap: The fastest card battler in the multiverse!\n\nBuild your Marvel dream team in this fast-paced, action-packed, collectible card game available on Mobile and PC.",
     "developer": "Second Dinner, Second Dinner",
     "publisher": "Second Dinner, nuverse",
-    "releaseDate": "2022-11-02",
+    "releaseDate": "2022-10-17",
     "price": 50,
     "discount": 0,
     "isDiscountActive": false,
@@ -2779,7 +2779,7 @@
     "description": "Worlds will collide in Sonic the Hedgehog’s newest adventure.\n\nAn experience like never before, accelerate to new heights and experience the thrill of high velocity open-zone freedom. Battle powerful enemies as you speed through the Starfall Islands - landscapes brimming with dense forests, overflowing waterfalls, sizzling deserts and more!",
     "developer": "Sonic Team",
     "publisher": "Sega",
-    "releaseDate": "2022-11-03",
+    "releaseDate": "2022-11-07",
     "price": 200,
     "discount": 0,
     "isDiscountActive": false,
@@ -2964,7 +2964,7 @@
     "description": "Signalis is a classic survival horror experience with a unique aesthetic, full of melancholic mystery. Investigate a dark secret, solve puzzles, fight off nightmarish creatures and navigate dystopian, surreal retrotech worlds as Elster, a technician Replika searching for her lost dreams.",
     "developer": "rose-engine",
     "publisher": "PLAYISM, Humble Games",
-    "releaseDate": "2022-11-03",
+    "releaseDate": "2022-10-26",
     "price": 120,
     "discount": 0.1,
     "isDiscountActive": true,
@@ -3111,7 +3111,7 @@
     "description": "Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality. You can customize your character’s cyberware, skillset and playstyle, and explore a vast city where the choices you make shape the story and the world around you.",
     "developer": "CD Projekt RED",
     "publisher": "CD Projekt RED",
-    "releaseDate": "2022-11-02",
+    "releaseDate": "2020-12-08",
     "price": 200,
     "discount": 0.5,
     "isDiscountActive": true,
@@ -3310,7 +3310,7 @@
     "description": "Inspired by the adventure and imagination that we love from classic science-fiction, No Man's Sky presents you with a galaxy to explore, filled with unique planets and lifeforms, and constant danger and action.\n\nIn No Man's Sky, every star is the light of a distant sun, each orbited by planets filled with life, and you can go to any of them you choose. Fly smoothly from deep space to planetary surfaces, with no loading screens, and no limits. In this infinite procedurally generated universe, you'll discover places and creatures that no other players have seen before - and perhaps never will again.",
     "developer": "Hello Games",
     "publisher": "505 Games, Hello Games, Sony Interactive Entertainment",
-    "releaseDate": "2022-11-01",
+    "releaseDate": "2016-08-08",
     "price": 180,
     "discount": 0.5,
     "isDiscountActive": true,
@@ -3493,7 +3493,7 @@
     "description": "Project Zomboid is the ultimate in zombie survival. Alone or in MP: you loot, build, craft, fight, farm and fish in a struggle to survive. A hardcore RPG skillset, a vast map, a massively customisable sandbox and a cute tutorial raccoon await the unwary. So how will you die?",
     "developer": "The Indie Stone",
     "publisher": "The Indie Stone",
-    "releaseDate": "2022-11-06",
+    "releaseDate": "2013-11-07",
     "price": 50,
     "discount": 0.1,
     "isDiscountActive": true,
@@ -3664,7 +3664,7 @@
     "description": "Explore a galaxy full of wonders in this sci-fi grand strategy game from Paradox Development Studios. Interact with diverse alien races, discover strange new worlds with unexpected events and expand the reach of your empire. Each new adventure holds almost limitless possibilities.",
     "developer": "Paradox Development Studio",
     "publisher": "Paradox Interactive, DMM GAMES LLC.",
-    "releaseDate": "2022-11-01",
+    "releaseDate": "2016-05-08",
     "price": 50,
     "discount": 0,
     "isDiscountActive": false,
@@ -3821,7 +3821,7 @@
     "description": "RPG and sequel to The Witcher 2 (2011), The Witcher 3 follows witcher Geralt of Rivia as he seeks out his former lover and his young subject while intermingling with the political workings of the wartorn Northern Kingdoms. Geralt has to fight monsters and deal with people of all sorts in order to solve complex problems and settle contentious disputes, each ranging from the personal to the world-changing.",
     "developer": "CD Projekt RED",
     "publisher": "cdp.pl, WB Games, Spike ChunSoft, Bandai Namco Entertainment",
-    "releaseDate": "2022-11-01",
+    "releaseDate": "2015-05-18",
     "price": 120,
     "discount": 0.8,
     "isDiscountActive": true,
@@ -4020,7 +4020,7 @@
     "description": "Bethesda Game Studios welcome you to the world of Fallout 4, their most ambitious game ever, and the next generation of open-world gaming. As the sole survivor of Vault 111, you enter a world destroyed by nuclear war. Every second is a fight for survival, and every choice is yours. Only you can rebuild and determine the fate of the Wasteland. Welcome home.",
     "developer": "Bethesda Game Studios",
     "publisher": "Bethesda Softworks",
-    "releaseDate": "2022-11-01",
+    "releaseDate": "2015-11-08",
     "price": 100.98,
     "discount": 0,
     "isDiscountActive": false,
@@ -4193,7 +4193,7 @@
     "description": "Bethesda Game Studios welcome you to Fallout 76. Twenty-five years after the bombs fall you and your fellow Vault Dwellers, chosen from the nation’s best and brightest, emerge into post-nuclear America on Reclamation Day, 2102. Play solo or join together as you explore, quest, build, and triumph against the wasteland’s greatest threats. Explore a vast wasteland, devastated by nuclear war, in this open-world multiplayer addition to the Fallout story. Experience the largest, most dynamic world ever created in the legendary Fallout universe.",
     "developer": "Bethesda Game Studios",
     "publisher": "Bethesda Softworks",
-    "releaseDate": "2022-11-01",
+    "releaseDate": "2018-11-13",
     "price": 200,
     "discount": 0.5,
     "isDiscountActive": true,
@@ -4388,7 +4388,7 @@
     "description": "Dragon Age: Origins is a third-person role-playing game described as a spiritual successor to Baldur's Gate and Neverwinter Nights franchises. Players create their own character by customizing gender and appearance as well as choosing a race and class. Combat is in real time with the ability to pause at any moment: tactical options include an editor which allows the player to give the AI detailed instructions on how to behave in every possible situation. Although the main storyline is the same for every character created, the game features six unique prologues, two for each race. Dragon Age: Origins received critical acclaim upon release, with praise mostly directed at its story, setting, characters, music and combat system.",
     "developer": "BioWare Edmonton",
     "publisher": "Electronic Arts",
-    "releaseDate": "2022-11-05",
+    "releaseDate": "2009-11-02",
     "price": 100.99,
     "discount": 0,
     "isDiscountActive": false,
@@ -4520,7 +4520,7 @@
     "description": "Dynamic seasons change everything at the world’s greatest automotive festival. Go it alone or team up with others to explore beautiful and historic Britain in a shared open world. Collect, modify and drive over 450 cars. Race, stunt, create and explore – choose your own path to become a Horizon Superstar.",
     "developer": "Playground Games",
     "publisher": "Xbox Game Studios",
-    "releaseDate": "2022-11-01",
+    "releaseDate": "2018-10-01",
     "price": 200.99,
     "discount": 0,
     "isDiscountActive": false,
@@ -4689,7 +4689,7 @@
     "description": "Your Ultimate Horizon Adventure awaits! Explore the vibrant and ever-evolving open-world landscapes of Mexico with limitless, fun driving action in hundreds of the world’s greatest cars.",
     "developer": "Playground Games",
     "publisher": "Xbox Game Studios",
-    "releaseDate": "2022-11-02",
+    "releaseDate": "2021-11-08",
     "price": 250.99,
     "discount": 0.1,
     "isDiscountActive": true,
@@ -4819,5 +4819,623 @@
       }
     ],
     "id": 31
+  },
+  {
+    "name": "The Callisto Protocol",
+    "description": "In this narrative-driven, third-person survival horror game set 300 years in the future, the player will take on the role of Jacob Lee – a victim of fate thrown into Black Iron Prison, a maximum-security penitentiary located on Jupiter's moon, Callisto. When inmates begin to transform into monstrous creatures, the prison is thrown into chaos.",
+    "developer": "Striking Distance Studios",
+    "publisher": "Krafton",
+    "releaseDate": "2022-12-01",
+    "price": 250,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese (brazil)",
+          "ptBR_name": "português (brasil)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 4,
+          "enUS_name": "chinese (simplified)",
+          "ptBR_name": "chinês (simplificado)"
+        },
+        "audio": true,
+        "subtitles": false,
+        "interface": false
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 2,
+        "name": "epic"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 3,
+        "name": "Shooter"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1nxf.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1nxg.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1nxh.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4ymo.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schtud.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schtue.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schtuf.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schtug.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schtuh.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schtui.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schtuj.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schtuk.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sciiad.jpg"
+      }
+    ],
+    "id": 32
+  },
+  {
+    "name": "Deliver Us Mars",
+    "description": "Deliver Us Mars is an atmospheric sci-fi adventure taking you on a suspense-fuelled, high-stakes mission to recover the ARK colony ships stolen by the mysterious Outward.",
+    "developer": "KeokeN Interactive",
+    "publisher": "Frontier Foundry",
+    "releaseDate": "2023-02-01",
+    "price": 58,
+    "discount": 0.1,
+    "isDiscountActive": true,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": false
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 2,
+        "name": "epic"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 9,
+        "name": "Indie"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1j7d.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co4kxj.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9bk.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9bl.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdzc.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdzd.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdze.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdzf.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdzg.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdzh.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdzi.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdzj.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdzk.jpg"
+      }
+    ],
+    "id": 33
+  },
+  {
+    "name": "Blacktail",
+    "description": "Become the witch of the woods in BLACKTAIL. Slavic myth comes to life in this first-person open world action adventure. Discover Yaga’s story and guide her along the path to become a fearsome guardian of the forest or the dark legend that haunts children’s nightmares.",
+    "developer": "The Parasite",
+    "publisher": "The Parasite",
+    "releaseDate": "2022-12-14",
+    "price": 100,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese (brazil)",
+          "ptBR_name": "português (brasil)"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": false
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 2,
+        "name": "epic"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "Role-playing (RPG)"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/arv0n.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co396p.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scagp9.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scagpa.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scagpb.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scagpc.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scagpd.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scagpe.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scagpf.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scagpg.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scagph.jpg"
+      }
+    ],
+    "id": 34
+  },
+  {
+    "name": "Tom Clancy's Rainbow Six Siege",
+    "description": "Inspired by the reality of counter terrorist operatives across the world, Rainbow Six Siege invites players to master the art of destruction. Intense close quarters confrontations, high lethality, tactics, team play, and explosive action are at the center of the experience. The multiplayer gameplay of Rainbow Six Siege sets a new bar for intense firefights and expert strategy in the rich legacy of past Rainbow Six games.",
+    "developer": "Ubisoft Montreal",
+    "publisher": "Ubisoft Montreal",
+    "releaseDate": "2015-11-30",
+    "price": 60,
+    "discount": 0.1,
+    "isDiscountActive": true,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese (brazil)",
+          "ptBR_name": "português (brasil)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": true,
+        "subtitles": false,
+        "interface": false
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 9,
+          "enUS_name": "czech",
+          "ptBR_name": "tcheco"
+        },
+        "audio": false,
+        "subtitles": false,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 2,
+        "name": "epic"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 3,
+        "name": "Shooter"
+      },
+      {
+        "id": 6,
+        "name": "Action"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      },
+      {
+        "id": 2,
+        "name": "multiplayer"
+      },
+      {
+        "id": 3,
+        "name": "co-operative"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/kldwdvefwtpf2hltlqrh.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ccxxhrm1lpf4lbphjspv.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/bgtav41xvllskaudfwiw.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/kfemtbpchdx2bf8nd8gs.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/dl2ztrwwo617tk4efqyf.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/owvihmtxiszrzsebmnil.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/urbea4fqeaprhm7yspew.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/pzdzstxdaybngxih7gwf.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/h0qlwbkae7sx7x2pzci7.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar4up.jpg"
+      },
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar4uq.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5cxf.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/uedjgwztllty0irrn5ql.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/fzp2sq9uolajhwfdutku.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ugcri831anamhe8e47n3.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/kpzd8v9dxqot9vubcas9.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/botbw3mw1ikiqixqszte.jpg"
+      }
+    ],
+    "id": 35
   }
 ]

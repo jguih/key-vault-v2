@@ -1,19 +1,10 @@
 import { useEffect, useState } from 'react';
 import { createGameCard } from '../../../../global';
-import usePagination from '../../../../hooks/usePagination';
 import gamesGridStyles from "../../../../scss/modules/pages/game/search/GamesGrid.module.scss"
-import { Alert, Button } from "react-bootstrap";
+import { Alert } from "react-bootstrap";
 import Pagination from '../../../ui/Pagination';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
-
-function getGameCard(game, index) {
-  return (
-    <div className={`${gamesGridStyles["card-wrapper"]}`} key={index}>
-      {createGameCard(game)}
-    </div>
-  );
-}
 
 export default function GamesGrid({ games }) {
   const router = useRouter();
@@ -57,6 +48,14 @@ export default function GamesGrid({ games }) {
     });
   }
 
+  function getGameCard(game, index) {
+    return (
+      <div className={`${gamesGridStyles["card-wrapper"]}`} key={index}>
+        {createGameCard(game)}
+      </div>
+    );
+  }
+
   if (currentGames.length > 0) {
     return (
       <div className={`${gamesGridStyles.container}`}>
@@ -73,8 +72,8 @@ export default function GamesGrid({ games }) {
     );
   } else {
     return (
-      <div className={`${gamesGridStyles.container}`}>
-        <Alert variant='dark'>Nenhum jogo encontrado :/</Alert>
+      <div className={`${gamesGridStyles.container} mt-3`}>
+        <Alert variant='kv-secondary-800'>Nenhum jogo encontrado :/</Alert>
       </div>
     );
   }

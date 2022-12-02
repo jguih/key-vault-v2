@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import Outdoor from '../components/Outdoor';
 import Section from '../components/Section';
 import SubHeader from '../components/SubHeader';
+import { GameFields } from '../global';
 import useGame from '../hooks/useGame';
 
 export default function Home() {
@@ -20,24 +21,29 @@ export default function Home() {
 
   useEffect(() => {
     if (games) {
+      const sortedGames = games
+        .sort((gameA, gameB) => {
+          return new Date(new Date(gameB[GameFields.releaseDate])) -
+          new Date(new Date(gameA[GameFields.releaseDate]))
+        });
       const outdoorGamesArr = [];
       const discountedGamesArr = [];
       const rpgGamesArr = [];
 
       // Iterates through games until all arrays above are filled, then it stops
-      games.every((game) => {
-        const genresArr = game["game_genre"]?.map((genre) => genre.name.toLowerCase())
+      sortedGames.every((game) => {
+        const genresArr = game[GameFields.GameGenre]?.map((genre) => genre.name.toLowerCase())
         const isDiscountActive = game.isDiscountActive;
 
         if (outdoorGamesArr.length < outdoorSize + 1) {
           outdoorGamesArr.push(game);
         }
 
-        if (isDiscountActive && discountedGamesArr.length < discountedGamesSize + 1) {
+        if (isDiscountActive && discountedGamesArr.length < discountedGamesSize) {
           discountedGamesArr.push(game);
         }
 
-        if (genresArr?.includes("role-playing (rpg)") && rpgGamesArr.length < rpgGamesSize + 1) {
+        if (genresArr?.includes("role-playing (rpg)") && rpgGamesArr.length < rpgGamesSize) {
           rpgGamesArr.push(game);
         }
 

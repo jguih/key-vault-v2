@@ -8,7 +8,7 @@ import { gameActions, useGameForm } from '../../hooks/useGameForm';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import LanguageSupport from '../../components/ui/LanguageSupport';
-import { GameFields, GameSystemRequirements, getFullDate, getIGDBImageURL, IGDBImageSize, imgTypes, toFirstUpperCase } from '../../global';
+import { GameFields, GameSystemRequirements, getUnixDate, getIGDBImageURL, IGDBImageSize, imgTypes, toFirstUpperCase } from '../../global';
 import SearchBar from '../../components/ui/SearchBar';
 import useIGDBGame from '../../hooks/IGDB/useIGDBGame';
 import useIGDBLanguageSupports from '../../hooks/IGDB/useIGDBLanguageSupports';
@@ -27,7 +27,7 @@ export default function Admin() {
     // Current valid languages that aren't in game["game_language_support"]
     return data?.languages?.filter(l => !currentLanguageSupportIds.includes(l.id))
   }, [game["game_language_support"], data])
-  const [IGDBModal, setIGDBModal] = useState();
+  const [IGDBModal, setIGDBModal] = useState(false);
   const showIGDBModal = () => setIGDBModal(true);
   const closeIGDBModal = () => setIGDBModal(false);
   const context = {
@@ -67,7 +67,7 @@ export default function Admin() {
 function IgdbModal() {
   const gc = useContext(GameContext);
   const [searchParam, setSearchParam] = useState();
-  const { games, error, isLoading: isGameLoading } = useIGDBGame(searchParam);
+  const { games: IGDBgames, error, isLoading: isIGDBGameLoading } = useIGDBGame(searchParam);
   const [currentGame, setCurrentGame] = useState();
   const {
     data: languageSupport,
@@ -117,13 +117,13 @@ function IgdbModal() {
 
   return (
     <Modal
-      show={gc?.modal.IGDBModal}
-      onHide={gc?.modal.closeIGDBModal}
+      show={gc.modal.IGDBModal}
+      onHide={gc.modal.closeIGDBModal}
       className={`${styles.modal}`}
     >
       <Modal.Header>
         <Modal.Title>IGDB</Modal.Title>
-        <CloseButton variant="white" onClick={gc?.modal.closeIGDBModal} />
+        <CloseButton variant="white" onClick={gc.modal.closeIGDBModal} />
       </Modal.Header>
       <Modal.Body>
         <div className="m-auto" style={{ width: "fit-content" }}>
@@ -134,16 +134,16 @@ function IgdbModal() {
           />
         </div>
         <div className='mt-3'>
-          {isGameLoading ?
+          {isIGDBGameLoading ?
             <div className='d-flex align-items-center justify-content-center'>
               <span className='fw-bold'>Loading...</span>
               <Spinner animation='border' />
             </div>
-            : games?.length > 0 ?
-              games.map((game, index) => {
+            : IGDBgames?.length > 0 ?
+              IGDBgames.map((game, index) => {
                 return (
                   <IgdbGameCard
-                    game={game}
+                    igdbGame={game}
                     onClickCard={() => setCurrentGame(game)}
                     key={index}
                     activeCard={activeCard}
@@ -162,22 +162,24 @@ function IgdbModal() {
   );
 }
 
-function IgdbGameCard({ game, onClickCard, activeCard, setActiveCard, ...props }) {
-  const fullDate = getFullDate(game["first_release_date"]);
+function IgdbGameCard({ igdbGame, onClickCard, activeCard, setActiveCard, ...props }) {
+  const [year, month, day] = getUnixDate(igdbGame["first_release_date"]);
+
+  if (!igdbGame) return;
 
   return (
     <div
       className={`${styles["igdb-game-card-container"]} 
-        ${activeCard === game?.id ? styles["igdb-card-active"] : ""}`}
+        ${activeCard === igdbGame.id ? styles["igdb-card-active"] : ""}`}
       onClick={() => {
-        setActiveCard(game?.id);
-        onClickCard();
+        setActiveCard?.(igdbGame.id);
+        onClickCard?.();
       }}
       {...props}
     >
       <div className={`${styles["card-img-wrapper"]}`}>
         <Image
-          src={getIGDBImageURL(IGDBImageSize.cover_big, game?.cover?.["image_id"])}
+          src={getIGDBImageURL(IGDBImageSize.cover_big, igdbGame.cover?.["image_id"])}
           fill
           priority
           sizes="25vw"
@@ -185,14 +187,14 @@ function IgdbGameCard({ game, onClickCard, activeCard, setActiveCard, ...props }
         />
       </div>
       <div className={`${styles["card-text-content"]}`}>
-        <h4>{game?.name}</h4>
+        <h4>{igdbGame.name}</h4>
         <p className={`${styles.genres}`}>
-          {game?.genres?.map(genre => genre.name).join(", ")}
+          {igdbGame.genres?.map(genre => genre.name).join(", ")}
         </p>
         <p>
-          {fullDate ?
+          {year && month && day ?
             <>
-              <strong> Data de Lançamento: </strong>{fullDate}
+              <strong> Data de Lançamento: </strong>{`${day}/${month}/${year}`}
             </> : null}
         </p>
       </div>
@@ -209,10 +211,12 @@ function GameForm() {
   const platformsRef = React.createRef();
   const imagesRef = React.createRef();
 
+  if (!gc) return;
+  
   function isReqEmpty() {
     const gameSystemRequirements = gc.game[GameFields.GameSystemRequirements];
     let isReqEmpty = true;
-    gameSystemRequirements.forEach(gsr => {
+    gameSystemRequirements?.forEach(gsr => {
       if (gsr[GameFields.GameSystemRequirementsFields.so] !== "" ||
         gsr[GameFields.GameSystemRequirementsFields.storage] !== "" ||
         gsr[GameFields.GameSystemRequirementsFields.cpu] !== "" ||
@@ -249,7 +253,7 @@ function GameForm() {
         <button
           type="button"
           onClick={() => {
-            gc?.dispatchGame({
+            gc.dispatchGame({
               type: gameActions.RemoveImg,
               payload: image
             })
@@ -260,15 +264,15 @@ function GameForm() {
   }
 
   return (
-    <form onSubmit={gc?.handleSubmit}>
+    <form onSubmit={gc.handleSubmit}>
       <div className="d-flex justify-content-between">
-        <h2 className="m-0">{gc?.game.name}</h2>
+        <h2 className="m-0">{gc.game.name}</h2>
         <div className="d-flex gap-2">
           <Button
             type="button"
             variant="igdb"
             className={`${styles.btn}`}
-            onClick={gc?.modal.showIGDBModal}
+            onClick={gc.modal.showIGDBModal}
           >IGDB</Button>
           <Button
             type="submit"
@@ -340,98 +344,98 @@ function GameForm() {
           </Button> : null}
       </div>
       <Kv.FloatingInput
-        {...gc?.register.field(GameFields.name, { required: true })}
+        {...gc.register.field(GameFields.name, { required: true })}
         type="text"
         label="Nome"
         placeholder="Nome"
       >
-        {gc?.error.field?.[GameFields.name] ?
+        {gc.error.field?.[GameFields.name] ?
           <p className={`${styles.error}`}>{gc?.error.field[GameFields.name].message}</p> : null}
       </Kv.FloatingInput>
       <Kv.FloatingTextArea
-        {...gc?.register.field(GameFields.description)}
+        {...gc.register.field(GameFields.description)}
         type="textarea"
         label="Descrição"
         placeholder="Descrição"
         style={{ height: 200 + "px" }}
       >
-        {gc?.error.field?.[GameFields.description] ?
+        {gc.error.field?.[GameFields.description] ?
           <p className={`${styles.error}`}>{gc?.error.field[GameFields.description].message}</p>
           : null}
       </Kv.FloatingTextArea>
       <Kv.FloatingInput
-        {...gc?.register.field(GameFields.releaseDate, { required: true, max: "9999-12-31" })}
+        {...gc.register.field(GameFields.releaseDate, { required: true, max: "9999-12-31" })}
         type="date"
         label="Data de Lançamento"
         placeholder="Data de Lançamento"
         style={{ colorScheme: "dark" }}
       >
-        {gc?.error.field?.[GameFields.releaseDate] ?
+        {gc.error.field?.[GameFields.releaseDate] ?
           <p className={`${styles.error}`}>{gc?.error.field[GameFields.releaseDate].message}</p>
           : null}
       </Kv.FloatingInput>
       <Kv.FloatingInput
-        {...gc?.register.field(GameFields.developer, { required: true })}
+        {...gc.register.field(GameFields.developer, { required: true })}
         type="text"
         label="Desenvolvedor"
         placeholder="Desenvolvedor"
       >
-        {gc?.error.field?.[GameFields.developer] ?
+        {gc.error.field?.[GameFields.developer] ?
           <p className={`${styles.error}`}>{gc?.error.field[GameFields.developer].message}</p>
           : null}
       </Kv.FloatingInput>
       <Kv.FloatingInput
-        {...gc?.register.field(GameFields.publisher, { required: true })}
+        {...gc.register.field(GameFields.publisher, { required: true })}
         type="text"
         label="Distribuidor"
         placeholder="Distribuidor"
       >
-        {gc?.error.field?.[GameFields.publisher] ?
+        {gc.error.field?.[GameFields.publisher] ?
           <p className={`${styles.error}`}>{gc?.error.field[GameFields.publisher].message}</p>
           : null}
       </Kv.FloatingInput>
       <Row className={`${gc.isIgdbDispatched ? styles.highlight : ""}`}>
         <Col>
           <Kv.InputGroup
-            {...gc?.register.field(GameFields.price, { required: true, min: "0", step: "0.01" })}
+            {...gc.register.field(GameFields.price, { required: true, min: "0", step: "0.01" })}
             type="number"
             label="Preço"
             startLabel="R$"
           >
-            {gc?.error.field?.[GameFields.price] ?
+            {gc.error.field?.[GameFields.price] ?
               <p className={`${styles.error}`}>{gc?.error.field[GameFields.price].message}</p>
               : null}
           </Kv.InputGroup>
         </Col>
         <Col>
           <Kv.InputGroup
-            {...gc?.register.field(GameFields.discount,
+            {...gc.register.field(GameFields.discount,
               { required: true, max: "100", min: "0", step: "1" })}
             type="number"
             label="Desconto"
             endLabel="%"
           >
-            {gc?.error.field?.[GameFields.discount] ?
+            {gc.error.field?.[GameFields.discount] ?
               <p className={`${styles.error}`}>{gc?.error.field[GameFields.discount].message}</p>
               : null}
           </Kv.InputGroup>
         </Col>
         <Col sm="auto">
           <Kv.BtnCheck
-            {...gc?.register.isDiscountActive("Desconto Ativo ?")}
+            {...gc.register.isDiscountActive("Desconto Ativo ?")}
             invisibleLabel
           />
         </Col>
       </Row>
       <h2 className="mt-4">Características</h2>
       <hr></hr>
-      {gc.igdbNotFound && gc.igdbNotFound.genres?.length > 0 ?
+      {gc.igdbNotFound?.genres?.length > 0 ?
         <p className={`${styles.error} mb-1`}>Categorias não encontradas:
-          {" "}{gc.igdbNotFound.genres?.join(" | ")}
+          {" "}{gc.igdbNotFound.genres.join(" | ")}
         </p> : null}
-      {gc.igdbNotFound && gc.igdbNotFound.gamemodes?.length > 0 ?
-        <p className={`${styles.error}`}>Game modes não encontradas:
-          {" "}{gc.igdbNotFound.gamemodes?.join(" | ")}
+      {gc.igdbNotFound?.gamemodes?.length > 0 ?
+        <p className={`${styles.error}`}>Game modes não encontrados:
+          {" "}{gc.igdbNotFound.gamemodes.join(" | ")}
         </p> : null}
       <Row>
         <Col ref={genreRef}>
@@ -440,10 +444,10 @@ function GameForm() {
             expand={!emptyFields.genres}
             bodyHeight={250}
           >
-            {gc?.data.genres?.map((genre, index) => {
+            {gc.data?.genres?.map((genre, index) => {
               return (
                 <Kv.Checkbox
-                  {...gc?.register.genre(genre)}
+                  {...gc.register.genre(genre)}
                   key={index}
                 />
               );
@@ -456,10 +460,10 @@ function GameForm() {
             expand={!emptyFields.gamemodes}
             bodyHeight={250}
           >
-            {gc?.data.gamemodes?.map((gamemode, index) => {
+            {gc.data?.gamemodes?.map((gamemode, index) => {
               return (
                 <Kv.Checkbox
-                  {...gc?.register.gamemode(gamemode)}
+                  {...gc.register.gamemode(gamemode)}
                   key={index}
                 />
               )
@@ -472,10 +476,10 @@ function GameForm() {
             expand={!emptyFields.platforms || gc.isIgdbDispatched}
             bodyHeight={250}
           >
-            {gc?.data.platforms?.map((platform, index) => {
+            {gc.data?.platforms?.map((platform, index) => {
               return (
                 <Kv.Checkbox
-                  {...gc?.register.platform(platform)}
+                  {...gc.register.platform(platform)}
                   key={index}
                 />
               )
@@ -485,102 +489,102 @@ function GameForm() {
       </Row>
       <Row className={`${gc.isIgdbDispatched ? styles.highlight : ""} mt-4`} ref={systemReqRef}>
         <Col>
-          <h3 className="mb-3 fw-normal">Requisítos Mínimos</h3>
+          <h3 className="mb-3 fw-normal">Requisitos Mínimos</h3>
           <Kv.FormControl
-            {...gc?.register.sysReqField(
+            {...gc.register.sysReqField(
               GameFields.GameSystemRequirementsFields.so,
               GameSystemRequirements.Minimum)}
             type="text"
           />
           <Kv.FormControl
-            {...gc?.register.sysReqField(
+            {...gc.register.sysReqField(
               GameFields.GameSystemRequirementsFields.storage,
               GameSystemRequirements.Minimum)}
             type="text"
           />
           <Kv.FormControl
-            {...gc?.register.sysReqField(
+            {...gc.register.sysReqField(
               GameFields.GameSystemRequirementsFields.cpu,
               GameSystemRequirements.Minimum)}
             type="text"
           />
           <Kv.FormControl
-            {...gc?.register.sysReqField(
+            {...gc.register.sysReqField(
               GameFields.GameSystemRequirementsFields.memory,
               GameSystemRequirements.Minimum)}
             type="text"
           />
           <Kv.FormControl
-            {...gc?.register.sysReqField(
+            {...gc.register.sysReqField(
               GameFields.GameSystemRequirementsFields.gpu,
               GameSystemRequirements.Minimum)}
             type="text"
           />
           <Kv.FormControl
-            {...gc?.register.sysReqField(
+            {...gc.register.sysReqField(
               GameFields.GameSystemRequirementsFields.directx,
               GameSystemRequirements.Minimum)}
             type="text"
           />
           <Kv.FormControl
-            {...gc?.register.sysReqField(
+            {...gc.register.sysReqField(
               GameFields.GameSystemRequirementsFields.internet,
               GameSystemRequirements.Minimum)}
             type="text"
           />
           <Kv.FormControl
-            {...gc?.register.sysReqField(
+            {...gc.register.sysReqField(
               GameFields.GameSystemRequirementsFields.other,
               GameSystemRequirements.Minimum)}
             type="text"
           />
         </Col>
         <Col>
-          <h3 className="mb-3 fw-normal">Requisítos Recomendados</h3>
+          <h3 className="mb-3 fw-normal">Requisitos Recomendados</h3>
           <Kv.FormControl
-            {...gc?.register.sysReqField(
+            {...gc.register.sysReqField(
               GameFields.GameSystemRequirementsFields.so,
               GameSystemRequirements.Recommended)}
             type="text"
           />
           <Kv.FormControl
-            {...gc?.register.sysReqField(
+            {...gc.register.sysReqField(
               GameFields.GameSystemRequirementsFields.storage,
               GameSystemRequirements.Recommended)}
             type="text"
           />
           <Kv.FormControl
-            {...gc?.register.sysReqField(
+            {...gc.register.sysReqField(
               GameFields.GameSystemRequirementsFields.cpu,
               GameSystemRequirements.Recommended)}
             type="text"
           />
           <Kv.FormControl
-            {...gc?.register.sysReqField(
+            {...gc.register.sysReqField(
               GameFields.GameSystemRequirementsFields.memory,
               GameSystemRequirements.Recommended)}
             type="text"
           />
           <Kv.FormControl
-            {...gc?.register.sysReqField(
+            {...gc.register.sysReqField(
               GameFields.GameSystemRequirementsFields.gpu,
               GameSystemRequirements.Recommended)}
             type="text"
           />
           <Kv.FormControl
-            {...gc?.register.sysReqField(
+            {...gc.register.sysReqField(
               GameFields.GameSystemRequirementsFields.directx,
               GameSystemRequirements.Recommended)}
             type="text"
           />
           <Kv.FormControl
-            {...gc?.register.sysReqField(
+            {...gc.register.sysReqField(
               GameFields.GameSystemRequirementsFields.internet,
               GameSystemRequirements.Recommended)}
             type="text"
           />
           <Kv.FormControl
-            {...gc?.register.sysReqField(
+            {...gc.register.sysReqField(
               GameFields.GameSystemRequirementsFields.other,
               GameSystemRequirements.Recommended)}
             type="text"
@@ -592,7 +596,7 @@ function GameForm() {
       <div className="mb-3">
         <h3 className="mb-3 fw-normal">Cover</h3>
         <div className={`${styles["img-container"]}`}>
-          {gc?.game[GameFields.GameImage].map((image, index) => {
+          {gc.game?.[GameFields.GameImage]?.map((image, index) => {
             if (image.type === imgTypes.Cover) {
               return Img(image, index);
             }
@@ -600,18 +604,18 @@ function GameForm() {
         </div>
       </div>
       <Kv.FloatingInput
-        {...gc?.register.urlField("cover", imgTypes.Cover)}
+        {...gc.register.urlField("cover", imgTypes.Cover)}
         type="text"
         label="URL"
         placeholder="URL"
       >
-        {gc?.error.urlField?.cover ?
-          <p className={`${styles.error}`}>{gc?.error.urlField.cover.message}</p> : null}
+        {gc.error.urlField?.cover ?
+          <p className={`${styles.error}`}>{gc.error.urlField.cover.message}</p> : null}
       </Kv.FloatingInput>
       <div className="mb-3" ref={imagesRef}>
         <h3 className="mb-3 fw-normal">Screenshots</h3>
         <div className={`${styles["img-container"]}`}>
-          {gc?.game[GameFields.GameImage].map((image, index) => {
+          {gc.game?.[GameFields.GameImage]?.map((image, index) => {
             if (image.type === imgTypes.Screenshot) {
               return Img(image, index);
             }
@@ -619,18 +623,18 @@ function GameForm() {
         </div>
       </div>
       <Kv.FloatingInput
-        {...gc?.register.urlField("screenshot", imgTypes.Screenshot)}
+        {...gc.register.urlField("screenshot", imgTypes.Screenshot)}
         type="text"
         label="URL"
         placeholder="URL"
       >
-        {gc?.error.urlField?.screenshot ?
+        {gc.error.urlField?.screenshot ?
           <p className={`${styles.error}`}>{gc?.error.urlField.screenshot.message}</p> : null}
       </Kv.FloatingInput>
       <div className="mb-3">
         <h3 className="mb-3 fw-normal">Artwork</h3>
         <div className={`${styles["img-container"]}`}>
-          {gc?.game[GameFields.GameImage].map((image, index) => {
+          {gc.game?.[GameFields.GameImage]?.map((image, index) => {
             if (image.type === imgTypes.Artwork) {
               return Img(image, index);
             }
@@ -638,17 +642,17 @@ function GameForm() {
         </div>
       </div>
       <Kv.FloatingInput
-        {...gc?.register.urlField("artwork", imgTypes.Artwork)}
+        {...gc.register.urlField("artwork", imgTypes.Artwork)}
         type="text"
         label="URL"
         placeholder="URL"
       >
-        {gc?.error.urlField?.artwork ?
+        {gc.error.urlField?.artwork ?
           <p className={`${styles.error}`}>{gc?.error.urlField.artwork.message}</p> : null}
       </Kv.FloatingInput>
       <h2 className="mt-4">Idiomas</h2>
       <hr></hr>
-      {gc.igdbNotFound && gc.igdbNotFound.languages ?
+      {gc.igdbNotFound?.languages?.length > 0 ?
         <p className={`${styles.error}`}>Idiomas não encontrados:
           {" "}{Array.from(gc.igdbNotFound.languages).join(" | ")}
         </p> : null}
@@ -661,7 +665,7 @@ function GameForm() {
 
 function AddLanguageSupport() {
   const gc = useContext(GameContext);
-  const [currentLanguage, setCurrentLanguage] = useState(gc?.validLanguages?.[0]);
+  const [currentLanguage, setCurrentLanguage] = useState(gc.validLanguages?.[0]);
   const [currentChecked, setCurrentChecked] = useState({
     audio: false,
     subtitles: false,
@@ -678,18 +682,18 @@ function AddLanguageSupport() {
 
 
   useEffect(() => {
-    if (gc?.validLanguages) {
-      setCurrentLanguage(gc?.validLanguages?.[0]);
+    if (gc.validLanguages) {
+      setCurrentLanguage(gc.validLanguages[0]);
     }
-  }, [gc?.validLanguages])
+  }, [gc.validLanguages])
 
   return (
     <>
       <LanguageSupport
-        languageSupport={gc?.game[GameFields.GameLanguageSupport]}
+        languageSupport={gc.game?.[GameFields.GameLanguageSupport]}
         variant="hover"
         onClickLanguage={(languageSupport) => {
-          gc?.dispatchGame({
+          gc.dispatchGame({
             type: gameActions.RemoveGameLanguageSupport,
             payload: languageSupport
           })
@@ -705,7 +709,7 @@ function AddLanguageSupport() {
 
         <div className="d-flex gap-4 align-items-center w-100 mb-2 mt-3 flex-wrap">
           <Kv.SimpleDropDown title={"Idioma"}>
-            {gc?.validLanguages?.map((language, index) => {
+            {gc.validLanguages?.map((language, index) => {
               return (
                 <p
                   className='ms-3 me-3 pt-1 pb-1'
@@ -720,7 +724,7 @@ function AddLanguageSupport() {
               label="Audio"
               name="languageSupport"
               id="audio"
-              disabled={gc?.validLanguages.length === 0}
+              disabled={gc.validLanguages?.length === 0}
               onChange={(e) => {
                 setCurrentChecked(state => ({ ...state, audio: e.target.checked }))
               }}
@@ -729,7 +733,7 @@ function AddLanguageSupport() {
               label="Legenda"
               name="languageSupport"
               id="subtitles"
-              disabled={gc?.validLanguages.length === 0}
+              disabled={gc.validLanguages?.length === 0}
               onChange={(e) => {
                 setCurrentChecked(state => ({ ...state, subtitles: e.target.checked }))
               }}
@@ -738,7 +742,7 @@ function AddLanguageSupport() {
               label="Interface"
               name="languageSupport"
               id="interface"
-              disabled={gc?.validLanguages.length === 0}
+              disabled={gc.validLanguages?.length === 0}
               onChange={(e) => {
                 setCurrentChecked(state => ({ ...state, interface: e.target.checked }))
               }}
@@ -748,7 +752,7 @@ function AddLanguageSupport() {
         <Button
           variant="kv-secondary-800"
           className={`${styles.btn} w-100`}
-          disabled={gc?.validLanguages.length === 0}
+          disabled={gc.validLanguages?.length === 0}
           onClick={() => {
             if (Object.keys(currentLanguageSupport.language).length === 0) return;
             gc.dispatchGame({
