@@ -10,7 +10,7 @@
     ],
     "price": 200.00,
     "discount": 0.5,
-    "isDiscountActive": true,
+    "isDiscountActive": false,
     "game_image": [
       {
         "type": "cover",
@@ -5437,5 +5437,557 @@
       }
     ],
     "id": 35
+  },
+  {
+    "name": "Hello Neighbor 2",
+    "description": "Hello Neighbor 2 is a stealth horror game where you're being stalked by a mysterious creature as you try to track down Mr. Peterson (The Neighbor) who has disappeared after the events of the first game. Play against an advanced, self-learning AI that tracks and adapts to your every move.",
+    "developer": "Eerie Guest Studios",
+    "publisher": "tinyBuild",
+    "releaseDate": "2022-12-05",
+    "price": 200,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese (brazil)",
+          "ptBR_name": "português (brasil)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 4,
+          "enUS_name": "chinese (simplified)",
+          "ptBR_name": "chinês (simplificado)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 9,
+        "name": "Indie"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      },
+      {
+        "id": 12,
+        "name": "Puzzle"
+      },
+      {
+        "id": 13,
+        "name": "Strategy"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/arrmm.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2e66.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8g7v.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8g7w.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8g7x.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8g7y.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8g7z.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8g80.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8g81.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8g82.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8g83.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8g84.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8g85.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sc8g86.jpg"
+      }
+    ],
+    "id": 36
+  },
+  {
+    "name": "High on Life",
+    "description": "From the mind of Justin Roiland (Rick and Morty, Solar Opposites) comes High On Life. Humanity is being threatened by an alien cartel who wants to use them as drugs. It’s up to you to rescue and partner with charismatic, talking guns, take down Garmantuous and his gang, and save the world!",
+    "developer": "Squanch Games",
+    "publisher": "Squanch Games",
+    "releaseDate": "2022-12-12",
+    "price": 150,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 5,
+          "enUS_name": "german",
+          "ptBR_name": "alemão"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 3,
+        "name": "gog"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 3,
+        "name": "Shooter"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1tg8.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co545v.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdmm.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdmn.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdmo.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdmp.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schdmq.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scifai.jpg"
+      }
+    ],
+    "id": 37
+  },
+  {
+    "name": "Moonshine Inc.",
+    "description": "Become the best moonshiner there ever was, with accurate distillation methods recreated. Fermentation and distillation are simulated using exact formulas. Remember, nothing is illegal till you get caught!",
+    "developer": "Klabater",
+    "publisher": "Klabater",
+    "releaseDate": "2022-12-01",
+    "price": 120,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese (brazil)",
+          "ptBR_name": "português (brasil)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 4,
+          "enUS_name": "chinese (simplified)",
+          "ptBR_name": "chinês (simplificado)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 13,
+        "name": "Strategy"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1j76.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co5oz8.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9y8.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9y9.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9ya.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9yb.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9yc.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9yd.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9ye.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9yg.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/scg9yh.jpg"
+      }
+    ],
+    "id": 38
+  },
+  {
+    "name": "Dragon Quest Treasures",
+    "description": "Dragon Quest Treasures is an all-new RPG spinoff starring Erik and Mia from Dragon Quest XI.",
+    "developer": "Armor Project",
+    "publisher": "Square Enix",
+    "releaseDate": "2022-12-08",
+    "price": 99.99,
+    "discount": 0,
+    "isDiscountActive": false,
+    "game_language_support": [
+      {
+        "language": {
+          "id": 1,
+          "enUS_name": "english",
+          "ptBR_name": "inglês"
+        },
+        "audio": true,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 2,
+          "enUS_name": "portuguese (brazil)",
+          "ptBR_name": "português (brasil)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 3,
+          "enUS_name": "spanish (spain)",
+          "ptBR_name": "espanhol (espanha)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      },
+      {
+        "language": {
+          "id": 4,
+          "enUS_name": "chinese (simplified)",
+          "ptBR_name": "chinês (simplificado)"
+        },
+        "audio": false,
+        "subtitles": true,
+        "interface": true
+      }
+    ],
+    "game_system_requirements": [
+      {
+        "type": "minimum",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      },
+      {
+        "type": "recommended",
+        "so": "",
+        "storage": "",
+        "cpu": "",
+        "memory": "",
+        "gpu": "",
+        "directx": "",
+        "internet": "",
+        "other": ""
+      }
+    ],
+    "game_platform": [
+      {
+        "id": 1,
+        "name": "steam"
+      }
+    ],
+    "game_genre": [
+      {
+        "id": 1,
+        "name": "Role-playing (RPG)"
+      },
+      {
+        "id": 11,
+        "name": "Adventure"
+      }
+    ],
+    "game_gamemode": [
+      {
+        "id": 1,
+        "name": "single player"
+      }
+    ],
+    "game_image": [
+      {
+        "type": "artwork",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/ar1p1x.jpg"
+      },
+      {
+        "type": "cover",
+        "url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co530n.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/sca4tr.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schmfx.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schmfy.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schmfz.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schmg0.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schmg1.jpg"
+      },
+      {
+        "type": "screenshot",
+        "url": "https://images.igdb.com/igdb/image/upload/t_original/schmg2.jpg"
+      }
+    ],
+    "id": 39
   }
 ]

@@ -257,6 +257,9 @@ export function useGameForm() {
         e.focus();
         e.blur();
       })
+
+      setIsIgdbDispatched(false);
+      setIgdbNotFound({});
     }
   }, [isIgdbDispatched])
 
@@ -440,7 +443,6 @@ export function useGameForm() {
     if (!gameData || !gameData?.game) return;
 
     const igdbGame = gameData.game;
-    console.log(gameData)
     const artworks = igdbGame.artworks?.map(artwork => {
       return {
         type: imgTypes.Artwork,
@@ -607,8 +609,10 @@ export function useGameForm() {
     const discount = game[GameFields.discount];
     game[GameFields.price] = Number.parseFloat(price);
     game[GameFields.discount] = Number.parseInt(discount) / 100;
+
     const gameJson = JSON.stringify(game, null, 2);
     console.log(gameJson)
+
     games.push(game);
     dispatchGame({
       type: gameActions.Reset

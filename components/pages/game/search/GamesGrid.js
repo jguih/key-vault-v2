@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { createGameCard } from '../../../../global';
-import gamesGridStyles from "../../../../scss/modules/pages/game/search/GamesGrid.module.scss"
-import { Alert } from "react-bootstrap";
-import Pagination from '../../../ui/Pagination';
+import styles from "../../../../scss/modules/pages/game/search/GamesGrid.module.scss"
+import { Alert, Dropdown } from "react-bootstrap";
+import { Pagination, TopPagination } from '../../../ui/Pagination';
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
+import * as Kv from "../../../ui/Kv";
 
 export default function GamesGrid({ games }) {
   const router = useRouter();
@@ -50,7 +51,7 @@ export default function GamesGrid({ games }) {
 
   function getGameCard(game, index) {
     return (
-      <div className={`${gamesGridStyles["card-wrapper"]}`} key={index}>
+      <div className={`${styles["card-wrapper"]}`} key={index}>
         {createGameCard(game)}
       </div>
     );
@@ -58,8 +59,31 @@ export default function GamesGrid({ games }) {
 
   if (currentGames.length > 0) {
     return (
-      <div className={`${gamesGridStyles.container}`}>
-        <div className={`${gamesGridStyles["games-grid"]}`}>
+      <div className={`${styles.container}`}>
+        <div className={`${styles.top} sticky-top pt-3`}>
+          <div className={`${styles["top-pagination"]}`}>
+            <TopPagination
+              currentPage={currentPage}
+              totalPageCount={totalPageCount}
+              onPageChange={(page) => onPageChange(page)}
+            />
+          </div>
+          <div className={`${styles["top-sort"]}`}>
+            <Kv.Dropdown variant="bg-900" title="Ordenar">
+              <Dropdown.Item 
+                active
+              > 
+                <p className='m-0'>Preço (Crescente)</p>
+              </Dropdown.Item>
+              <Dropdown.Item
+                
+              > 
+                <p className='m-0'>Preço (Decrescente)</p>
+              </Dropdown.Item>
+            </Kv.Dropdown>
+          </div>
+        </div>  
+        <div className={`${styles["games-grid"]}`}>
           {currentGames.map((game, index) => getGameCard(game, index))}
         </div>
         <Pagination
@@ -72,7 +96,7 @@ export default function GamesGrid({ games }) {
     );
   } else {
     return (
-      <div className={`${gamesGridStyles.container} mt-3`}>
+      <div className={`${styles.container} mt-3`}>
         <Alert variant='kv-secondary-800'>Nenhum jogo encontrado :/</Alert>
       </div>
     );

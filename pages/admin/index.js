@@ -1,4 +1,4 @@
-import { Alert, Button, CloseButton, Col, Container, Modal, Row, Spinner } from 'react-bootstrap';
+import { Alert, Button, CloseButton, Col, Container, Dropdown, Modal, Row, Spinner } from 'react-bootstrap';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import styles from "../../scss/modules/pages/admin/Admin.module.scss";
@@ -15,6 +15,7 @@ import useIGDBLanguageSupports from '../../hooks/IGDB/useIGDBLanguageSupports';
 import useIGDBInvolvedCompanies from '../../hooks/IGDB/useIGDBInvolvedCompanies';
 
 const GameContext = React.createContext();
+const formRef = React.createRef();
 
 export default function Admin() {
   const {
@@ -55,7 +56,7 @@ export default function Admin() {
       <IgdbModal />
       <div className="d-flex flex-column justify-content-between h-100">
         <Header activeKey={""} />
-        <Container className={`${styles.container} mb-auto pt-4`}>
+        <Container className={`${styles.container} mb-auto`}>
           <GameForm />
         </Container>
         <Footer />
@@ -212,7 +213,7 @@ function GameForm() {
   const imagesRef = React.createRef();
 
   if (!gc) return;
-  
+
   function isReqEmpty() {
     const gameSystemRequirements = gc.game[GameFields.GameSystemRequirements];
     let isReqEmpty = true;
@@ -264,9 +265,13 @@ function GameForm() {
   }
 
   return (
-    <form onSubmit={gc.handleSubmit}>
-      <div className="d-flex justify-content-between">
-        <h2 className="m-0">{gc.game.name}</h2>
+    <form onSubmit={gc.handleSubmit} ref={formRef}>
+      <div className="d-flex justify-content-between sticky-top pt-3">
+        <h2
+          className="m-0"
+          onClick={() => { formRef.current.scrollIntoView() }}
+          style={{cursor: "pointer"}}
+        >{gc.game.name}</h2>
         <div className="d-flex gap-2">
           <Button
             type="button"
@@ -708,17 +713,18 @@ function AddLanguageSupport() {
         </div>
 
         <div className="d-flex gap-4 align-items-center w-100 mb-2 mt-3 flex-wrap">
-          <Kv.SimpleDropDown title={"Idioma"}>
+          <Kv.Dropdown title="Selecionar">
             {gc.validLanguages?.map((language, index) => {
               return (
-                <p
-                  className='ms-3 me-3 pt-1 pb-1'
+                <Dropdown.Item
                   onClick={() => setCurrentLanguage(language)}
                   key={index}
-                >{toFirstUpperCase(language["ptBR_name"])}</p>
+                >
+                  {toFirstUpperCase(language["ptBR_name"])}
+                </Dropdown.Item>
               );
             })}
-          </Kv.SimpleDropDown>
+          </Kv.Dropdown>
           <div className="d-flex gap-4 align-items-center flex-wrap">
             <Kv.Checkbox
               label="Audio"

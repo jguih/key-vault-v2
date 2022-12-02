@@ -25,3 +25,16 @@
     color: colors.$kv-text-on-primary;
   }
 }
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.top-pagination,
+.top-sort {
+  background-color: colors.$kv-primary-900;
+  border-radius: 6px;
+}

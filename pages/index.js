@@ -12,53 +12,89 @@ import useGame from '../hooks/useGame';
 export default function Home() {
   const router = useRouter();
   const { games, isLoading, isError } = useGame();
-  const [outdoorGames, setOutdoorGames] = useState();
-  const outdoorSize = 4; // Number of outdoor games
-  const [discountedGames, setDiscountedGames] = useState();
+  const [sectionGames, setSectionGames] = useState({});
+  const outdoorSize = 4;
   const discountedGamesSize = 5;
-  const [rpgGames, setRpgGames] = useState();
   const rpgGamesSize = 5;
+  const upcomingGamesSize = 5;
+  const recentGamesSize = 10;
 
   useEffect(() => {
     if (games) {
-      const sortedGames = games
+      let sortedGames = games
         .sort((gameA, gameB) => {
           return new Date(new Date(gameB[GameFields.releaseDate])) -
-          new Date(new Date(gameA[GameFields.releaseDate]))
+            new Date(new Date(gameA[GameFields.releaseDate]))
         });
       const outdoorGamesArr = [];
+      const upcomingGamesArr = [];
+      const recentGamesArr = [];
+      let count = 0;
+
+      sortedGames.every((game) => {
+        if (new Date() <= new Date(game[GameFields.releaseDate])) {
+          // Future Games
+          if (upcomingGamesArr.length < upcomingGamesSize) {
+            upcomingGamesArr.push(game);
+          } else {
+            count++;
+          }
+        } else if (new Date() > new Date(game[GameFields.releaseDate])) {
+          // Most recent, excluding future games
+          if (outdoorGamesArr.length < outdoorSize) {
+            outdoorGamesArr.push(game);
+          } else if (recentGamesArr.length < recentGamesSize) {
+            recentGamesArr.push(game);
+          } else {
+            count++;
+          }
+        }
+        if (count === 2) return false;
+        return true;
+      });
+
+      count = 0;
       const discountedGamesArr = [];
       const rpgGamesArr = [];
+      sortedGames = sortedGames
+        .sort((gameA, gameB) => {
+          if (gameA.name < gameB.name) {
+            return -1;
+          }
+          if (gameA.name > gameB.name) {
+            return 1;
+          }
+          return 0
+        });
 
-      // Iterates through games until all arrays above are filled, then it stops
       sortedGames.every((game) => {
-        const genresArr = game[GameFields.GameGenre]?.map((genre) => genre.name.toLowerCase())
         const isDiscountActive = game.isDiscountActive;
+        const genresArr = game[GameFields.GameGenre]?.map((g) => g.name.toLowerCase())
 
-        if (outdoorGamesArr.length < outdoorSize + 1) {
-          outdoorGamesArr.push(game);
+        if (isDiscountActive) {
+          if (discountedGamesArr.length < discountedGamesSize) {
+            discountedGamesArr.push(game);
+          } else {
+            count++;
+          }
+        } else if (genresArr?.includes("role-playing (rpg)")) {
+          if (rpgGamesArr.length < rpgGamesSize) {
+            rpgGamesArr.push(game);
+          } else {
+            count++;
+          }
         }
-
-        if (isDiscountActive && discountedGamesArr.length < discountedGamesSize) {
-          discountedGamesArr.push(game);
-        }
-
-        if (genresArr?.includes("role-playing (rpg)") && rpgGamesArr.length < rpgGamesSize) {
-          rpgGamesArr.push(game);
-        }
-
-        if (
-          discountedGamesArr.length === discountedGamesSize && 
-          outdoorGamesArr.length === outdoorSize) {
-          return false;
-        }
-
+        if (count === 2) return false;
         return true;
-      })
+      });
 
-      setOutdoorGames(outdoorGamesArr);
-      setDiscountedGames(discountedGamesArr);
-      setRpgGames(rpgGamesArr);
+      setSectionGames({
+        outdoor: outdoorGamesArr,
+        discounted: discountedGamesArr,
+        rpg: rpgGamesArr,
+        upcoming: upcomingGamesArr,
+        recent: recentGamesArr
+      })
     }
   }, [games]);
 
@@ -67,7 +103,7 @@ export default function Home() {
       router.push({
         pathname: "/game",
         query: {
-          tags: "recently added"
+
         }
       })
     },
@@ -83,7 +119,7 @@ export default function Home() {
       router.push({
         pathname: "/game",
         query: {
-          genres: "Role-playing (RPG)"
+          genres: "role-playing (rpg)"
         }
       })
     }
@@ -111,15 +147,23 @@ export default function Home() {
         <Header activeKey={"/"} />
         <div className="mb-auto pb-4 pt-4">
           <SubHeader />
-          <Outdoor games={outdoorGames} size={4} />
+          <Outdoor games={sectionGames.outdoor} />
+          <Section
+            title="Chegando em Breve"
+            games={sectionGames.upcoming}
+          />
           <Section
             title="Promoção"
-            games={discountedGames}
+            games={sectionGames.discounted}
             onClick={sectionOnClick.discounted}
           />
           <Section
+            title="Adicionados Recentemente"
+            games={sectionGames.recent}
+          />
+          <Section
             title="RPG"
-            games={rpgGames}
+            games={sectionGames.rpg}
             onClick={sectionOnClick.rpg}
           />
         </div>

@@ -9,7 +9,6 @@ export default function GameCard({ name, imgUrl, platformsNameArr, price, discou
         <Image
           src={imgUrl}
           fill
-          priority
           alt=""
           sizes="30vw"
         />

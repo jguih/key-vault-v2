@@ -6,7 +6,7 @@ import useGenre from '../hooks/useGenre';
 import SearchBar from './ui/SearchBar';
 import * as Kv from "./ui/Kv";
 
-export default function SubHeader({ activeKey }) {
+export default function SubHeader() {
   const router = useRouter();
   const { genres, isLoading, isError } = useGenre();
 
@@ -26,67 +26,78 @@ export default function SubHeader({ activeKey }) {
     })
   }
 
+  function onClickGenre(genre) {
+    router.push({
+      pathname: "/game",
+      query: {
+        genres: genre.name.toLowerCase()
+      }
+    })
+  }
+
+  function onClickDiscounted() {
+    router.push({
+      pathname: "/game",
+      query: {
+        discounted: true
+      }
+    })
+  }
+
+  function onClickRecent() {
+    router.push({
+      pathname: "/game",
+      query: {
+        
+      }
+    })
+  }
+
   return (
-    <div className={subHeader["main-container"] + " sticky-top"}>
-      <Container className={subHeader.container}>
-        <SearchBar onSubmit={handleOnSubmit} />
-        <div className={`${subHeader["responsive-dropdown"]}`}>
-          <Kv.SimpleDropDown title="Navegar">
-            <Link
-              href={{
-                pathname: "/game",
-                query: { discounted: true }
-              }}
-              className={`${(activeKey === 0 ? subHeader.active : "")} w-100 d-block ps-3 pe-3 pt-1 pb-1`}
-            >
-              Promoções
-            </Link>
-            <Link
-              href={`/game`}
-              className={`${(activeKey === 0 ? subHeader.active : "")} w-100 d-block ps-3 pe-3 pt-1 pb-1`}
-            >
-              Novidades
-            </Link>
-          </Kv.SimpleDropDown>
-        </div>
-        <div className={`${subHeader["genre-dropdown"]}`}>
-          <Kv.SimpleDropDown title="Categorias">
-            {genres ? genres.map((genre, index) => {
-              return (
-                <Link
-                  href={{
-                    pathname: "/game",
-                    query: { genres: genre.name.toLowerCase() }
-                  }}
-                  className="w-100 d-block ps-3 pe-3 pt-1 pb-1"
-                  key={index}
-                >
-                  {genre.name}
-                </Link>
-              )
-            }) : ""}
-          </Kv.SimpleDropDown>
-        </div>
-        <nav>
-          <Link
-            href={{
-              pathname: "/game",
-              query: { discounted: true }
-            }}
-            className={`${(activeKey === 0 ? subHeader.active : "")}`}
-          >
+    <Container className={`${subHeader["main-container"]} sticky-top`}>
+      <SearchBar onSubmit={handleOnSubmit} />
+      <div className={`${subHeader["responsive-dropdown"]}`}>
+        <Kv.Dropdown title="Navegar">
+          <Dropdown.Item as="div" onClick={() => onClickDiscounted()}>
             Promoções
-          </Link>
-          <Link
-            href={{
-              pathname: "/game",
-            }}
-            className={`${(activeKey === 1 ? subHeader.active : "")}`}
-          >
+          </Dropdown.Item>
+          <Dropdown.Item as="div" onClick={() => onClickRecent()}>
             Novidades
-          </Link>
-        </nav>
-      </Container>
-    </div>
+          </Dropdown.Item>
+        </Kv.Dropdown>
+      </div>
+      <div className={`${subHeader["genre-dropdown"]}`}>
+        <Kv.Dropdown title="Categorias" variant="bg-900">
+          {genres ? genres.map((genre, index) => {
+            return (
+              <Dropdown.Item
+                as="div"
+                onClick={() => onClickGenre(genre)}
+                key={index}
+              >
+                {genre.name}
+              </Dropdown.Item>
+            )
+          }) : ""}
+        </Kv.Dropdown>
+      </div>
+      <nav>
+        <Link
+          href={{
+            pathname: "/game",
+            query: { discounted: true }
+          }}
+        >
+          Promoções
+        </Link>
+        <Link
+          href={{
+            pathname: "/game",
+          }}
+        >
+          Novidades
+        </Link>
+      </nav>
+    </Container>
   );
 }

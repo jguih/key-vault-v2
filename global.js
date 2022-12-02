@@ -142,7 +142,10 @@ export function createGameCard(game) {
       ?.filter(img => img.type === imgTypes.Cover)
       ?.map(img => img.url);
   return (
-    <Link href={`/game/${(game.name.toLowerCase().replaceAll(" ", "-"))}`} key={game.id}>
+    <Link 
+      href={`/game/${(game.name.toLowerCase().replaceAll(" ", "-"))}`} 
+      key={game.id}
+    >
       <GameCard
         name={game.name || "InvalidName"}
         price={game.price || 0}
@@ -156,5 +159,5 @@ export function createGameCard(game) {
 }
 
 export function toFirstUpperCase(string) {
-  return (string?.[0].toUpperCase() + string?.slice(1)) || "_Invalid";
+  return (string?.[0].toUpperCase() + string?.slice(1)) || "";
 }

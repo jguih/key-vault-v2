@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Dropdown, Form, Row, Tab, Tabs } from "react-bootstrap";
+import { Button, Col, Dropdown as BsDropdown, Form, Row } from "react-bootstrap";
 import styles from "../../scss/modules/ui/Kv.module.scss";
 
 export function Accordion({ title, children, expand, bodyHeight, endLabel, onClickEndLabel }) {
@@ -88,7 +88,7 @@ export function FloatingTextArea({ label, ...props }) {
   );
 }
 
-export function FormControl({label, children, ...props}) {
+export function FormControl({ label, children, ...props }) {
   return (
     <>
       <Row>
@@ -149,47 +149,23 @@ export function BtnCheck({ label, invisibleLabel, ...props }) {
   );
 }
 
-export function SimpleDropDown({ title, children, variant }) {
-  const [content, setContent] = useState();
-
-  useEffect(() => {
-    if (children) {
-      if (children.length > 1) {
-        setContent(
-          children.map((child, index) => {
-            return (
-              <Dropdown.Item
-                className={`${styles["dropdown-item"]}`}
-                as="div"
-                key={index}
-              >
-                {child}
-              </Dropdown.Item>
-            )
-          })
-        );
-      } else {
-        setContent(
-          <Dropdown.Item
-            className={`${styles["dropdown-item"]}`}
-            as="div"
-          >
-            {children}
-          </Dropdown.Item>
-        );
-      }
+export function Dropdown({ title, children, variant }) {
+  function getToggleClass() {
+    if (variant === "bg-900") {
+      return `${styles["dropdown-toggle-900"]}`
+    } else {
+      return `${styles["dropdown-toggle"]}`
     }
-  }, [children])
+  }
 
   return (
-    <Dropdown
-      className={`${styles.dropdown} ${variant === "secondary" ? styles["dropdown-secondary"] : ""}`}>
-      <Dropdown.Toggle className={`${styles["dropdown-toggle"]}`}>
-        <span>{title || "Dropdown"}</span>
-      </Dropdown.Toggle>
-      <Dropdown.Menu className={`${styles["dropdown-menu"]}`}>
-        {content}
-      </Dropdown.Menu>
-    </Dropdown>
+    <BsDropdown>
+      <BsDropdown.Toggle className={getToggleClass()}>
+        <span>{title}</span>
+      </BsDropdown.Toggle>
+      <BsDropdown.Menu className={`${styles["dropdown-menu"]}`}>
+        {children}
+      </BsDropdown.Menu>
+    </BsDropdown>
   );
 }

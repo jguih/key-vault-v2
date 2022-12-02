@@ -1,16 +1,21 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import Image from "next/image";
 import { brlCurrencyFormatter, imgTypes, GameFields } from "../global";
 import outdoor from '../scss/modules/Outdoor.module.scss';
 
-export default function Outdoor({ games, size }) {
+export default function Outdoor({ games }) {
   const [index, setIndex] = useState(0);
   const [timer, setTimer] = useState();
   const interval = 6000; // Outdoor timer interval
+  const size = useMemo(() => {
+    return games?.length;
+  }, [games]);
 
   useEffect(() => {
+    if (!size) return;
+
     clearInterval(timer);
 
     // Sets the initial timer
@@ -86,9 +91,14 @@ export default function Outdoor({ games, size }) {
     );
   }
 
-  if (!games) return
+  if (!games) return;
+  if (games?.length === 0) return;
 
-  const { name, price, discount, isDiscountActive } = games[index];
+  const name = games?.[index]?.name;
+  const price = games?.[index]?.price;
+  const discount = games?.[index]?.discount;
+  const isDiscountActive = games?.[index]?.isDiscountActive;
+
   return (
     <Container className="mt-4">
       <div className={outdoor.outdoor}>
@@ -115,7 +125,7 @@ export default function Outdoor({ games, size }) {
           })}
         </div>
         <div className={outdoor["outdoor-content"]}>
-          <Link href={`/game/${(name.toLowerCase().replaceAll(" ", "-"))}`}>
+          <Link href={`/game/${(name?.toLowerCase().replaceAll(" ", "-"))}`}>
             <p>{name}</p>
             <PriceContainer
               price={price}

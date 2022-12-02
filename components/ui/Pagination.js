@@ -3,7 +3,7 @@ import usePagination from "../../hooks/usePagination";
 import { Pagination as BsPagination } from "react-bootstrap";
 import styles from "../../scss/modules/ui/Pagination.module.scss";
 
-export default function Pagination({
+export function Pagination({
   pageSize = 30,
   totalCount,
   currentPage,
@@ -64,4 +64,30 @@ export default function Pagination({
       }
     </div>
   )
+}
+
+export function TopPagination({currentPage, totalPageCount, onPageChange}) {
+
+  function handleNext() {
+    onPageChange(
+      currentPage + 1 <= totalPageCount ? currentPage + 1 : currentPage
+    );
+  }
+  function handlePrev() {
+    onPageChange(
+      currentPage - 1 >= 1 ? currentPage - 1 : 1
+    );
+  }
+
+  return (
+    <BsPagination className={`${styles["top-pagination"]}`}>
+      <BsPagination.Prev onClick={handlePrev}/>
+      <p>{currentPage} of {" "}
+        <span onClick={() => onPageChange(totalPageCount)} className={`${styles["last-page"]}`}>
+          {totalPageCount}
+        </span>
+      </p>
+      <BsPagination.Next onClick={handleNext}/>
+    </BsPagination>
+  );
 }

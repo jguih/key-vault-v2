@@ -12,6 +12,12 @@ $container-font-size: 1em;
 
   font-size: 1rem; // Global font size
 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
   nav {
     display: flex;
     flex-direction: row;
@@ -54,37 +60,6 @@ $container-font-size: 1em;
   font-size: $container-font-size;
 }
 
-.input-group {
-  width: fit-content;
-  border-radius: 10px;
-  @include custom.shadow;
-
-  &:hover {
-    box-shadow: 0px 0px 10px colors.$kv-primary-800;
-  }
-
-  &:focus-within {
-    box-shadow: 0px 0px 10px colors.$kv-primary-500;
-  }
-}
-
-.form-control {
-  background-color: colors.$kv-primary-800 !important;
-  border: none !important;
-  color: colors.$kv-text-on-primary !important;
-
-  font-size: 1.2em !important;
-
-  &:focus {
-    box-shadow: none !important;
-  }
-}
-
-.input-group-text {
-  border: none !important;
-  background-color: colors.$kv-primary-800 !important;
-}
-
 .button {
   border: none !important;
   color: colors.$kv-text-on-primary !important;
@@ -92,6 +67,14 @@ $container-font-size: 1em;
 
 .responsive-dropdown {
   display: none;
+}
+
+.genre-dropdown {
+  cursor: pointer;
+  a {
+    text-decoration: none;
+    color: colors.$kv-text-on-primary;
+  }
 }
 
 // 0 to 768px
