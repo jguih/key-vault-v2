@@ -1,46 +1,32 @@
 import React, { useEffect, useState } from "react";
-import { Button, Dropdown, Form, Tab, Tabs } from "react-bootstrap";
+import { Button, Col, Dropdown as BsDropdown, Form, Row } from "react-bootstrap";
 import styles from "../../scss/modules/ui/Kv.module.scss";
 
-export function Accordion({ title, children, expand }) {
+export function Accordion({ title, children, expand, bodyHeight, endLabel, onClickEndLabel }) {
   const [chevron, setChevron] = useState("right");
-  const accordionBodyRef = React.createRef();
+  const [bodyExpand, setBodyExpand] = useState(expand);
   const headerRef = React.createRef();
 
-  function toggleChevron() {
-    const accordionBody = accordionBodyRef.current;
-
-    if (accordionBody.classList.contains(styles["show-body"])) {
+  useEffect(() => {
+    if (bodyExpand) {
       setChevron("down");
+      headerRef.current.classList.add(styles.active);
     } else {
       setChevron("right")
+      headerRef.current.classList.remove(styles.active);
     }
-  }
-
-  function toggleExpandAccordion() {
-    // Toggle accordion body visibility
-    const accordionBody = accordionBodyRef.current;
-    accordionBody.classList.toggle(styles["show-body"]);
-
-    toggleChevron();
-
-    headerRef.current.classList.toggle(styles.active);
-  }
-
-  function expandAccordion() {
-    const accordionBody = accordionBodyRef.current;
-    accordionBody.classList.add(styles["show-body"]);
-
-    toggleChevron();
-
-    headerRef.current.classList.add(styles.active);
-  }
+  }, [bodyExpand])
 
   useEffect(() => {
     if (expand) {
-      expandAccordion();
+      setBodyExpand(expand)
     }
   }, [expand])
+
+  function toggleExpandAccordion() {
+    // Toggle accordion body visibility
+    setBodyExpand(state => !state);
+  }
 
   return (
     <div className={`${styles.accordion}`}>
@@ -49,11 +35,22 @@ export function Accordion({ title, children, expand }) {
         onClick={toggleExpandAccordion}
         ref={headerRef}
       >
-        <i className={`bi bi-chevron-${chevron}`}></i> {title}
+        <div className="m-0 d-flex justify-content-between">
+          <span>
+            <i className={`bi bi-chevron-${chevron}`}></i> {title}
+          </span>
+          <span onClick={onClickEndLabel}>
+            {endLabel}
+          </span>
+        </div>
       </Button>
       <div
         className={`${styles["accordion-body"]}`}
-        ref={accordionBodyRef}
+        style={
+          {
+            height: `${bodyExpand ? bodyHeight : 0}px`,
+            transition: "height" + 0.2 + "s" + "ease-in"
+          }}
       >
         {children}
       </div>
@@ -88,6 +85,22 @@ export function FloatingTextArea({ label, ...props }) {
       <textarea className={`form-control ${styles["form-control"]}`} {...props} />
       <label htmlFor={props.name || props.id}>{label}</label>
     </div>
+  );
+}
+
+export function FormControl({ label, children, ...props }) {
+  return (
+    <>
+      <Row>
+        <Col sm="2">
+          <label htmlFor={props.id || props.name} className="col-form-label">{label}</label>
+        </Col>
+        <Col className="mb-1">
+          <input className={`form-control ${styles["form-control"]}`} {...props} />
+        </Col>
+        {children}
+      </Row>
+    </>
   );
 }
 
@@ -136,62 +149,23 @@ export function BtnCheck({ label, invisibleLabel, ...props }) {
   );
 }
 
-export function SimpleDropDown({ title, children }) {
-  const [content, setContent] = useState();
-
-  useEffect(() => {
-    if (children) {
-      if (children.length > 1) {
-        setContent(
-          children.map((child, index) => {
-            return (
-              <Dropdown.Item
-                className={`${styles["dropdown-item"]}`}
-                as="div"
-                key={index}
-              >
-                {child}
-              </Dropdown.Item>
-            )
-          })
-        );
-      } else {
-        setContent(
-          <Dropdown.Item
-            className={`${styles["dropdown-item"]}`}
-            as="div"
-          >
-            {children}
-          </Dropdown.Item>
-        );
-      }
+export function Dropdown({ title, children, variant }) {
+  function getToggleClass() {
+    if (variant === "bg-900") {
+      return `${styles["dropdown-toggle-900"]}`
+    } else {
+      return `${styles["dropdown-toggle"]}`
     }
-  }, [title, children])
+  }
 
   return (
-    <Dropdown className={`${styles.dropdown}`}>
-      <Dropdown.Toggle className={`${styles["dropdown-toggle"]}`}>
-        <span>{title || "Dropdown"}</span>
-      </Dropdown.Toggle>
-      <Dropdown.Menu className={`${styles["dropdown-menu"]}`}>
-        {content}
-      </Dropdown.Menu>
-    </Dropdown>
-  );
-}
-
-export function CustomTabs({ children, ...props }) {
-  return (
-    <Tabs {...props} className={`${styles.tabs}`}>
-      {children}
-    </Tabs>
-  );
-}
-
-export function CustomTab({children, ...props}) {
-  return (
-    <Tab {...props} className={`${styles.tab}`}>
-      {children}
-    </Tab>
+    <BsDropdown>
+      <BsDropdown.Toggle className={getToggleClass()}>
+        <span>{title}</span>
+      </BsDropdown.Toggle>
+      <BsDropdown.Menu className={`${styles["dropdown-menu"]}`}>
+        {children}
+      </BsDropdown.Menu>
+    </BsDropdown>
   );
 }

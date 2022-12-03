@@ -12,6 +12,33 @@
   }
 }
 
+.primary {
+  color: colors.$kv-text-on-primary;
+}
+
+.secondary {
+  .legend {
+    i {
+      color: colors.$kv-secondary-800 !important;
+    }
+  }
+  hr {
+    border: 1px solid colors.$kv-secondary-800 !important;
+  }
+}
+
+.hover {
+  .language-container {
+    &:hover {
+      background-color: colors.$kv-primary-800;
+      padding-left: 4px;
+      padding-right: 4px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
+}
+
 .legend-container,
 .language-container {
   display: flex;

@@ -2,6 +2,10 @@ import Image from "next/image";
 import descCard from "../../../scss/modules/pages/game/DescriptionCard.module.scss";
 
 export default function DescriptionCard({ coverUrl, description, releaseDate, developer, publisher, genreNameArr, alt }) {
+  const _releaseDate = releaseDate !== "" ? new Date(releaseDate) : null;
+  const year = _releaseDate?.getFullYear();
+  const month = ('0' + (_releaseDate?.getMonth() + 1)).slice(-2);
+  const day = ('0' + _releaseDate?.getDate()).slice(-2);
   return (
     <div className={descCard.container}>
       <div className={descCard["img-wrapper"]}>
@@ -16,7 +20,7 @@ export default function DescriptionCard({ coverUrl, description, releaseDate, de
       {description ? <p>{description}</p> : null}
       <hr />
       <p>
-        {releaseDate ? <><strong>Lançamento: </strong>{releaseDate}<br /></> : null}
+        {_releaseDate ? <><strong>Lançamento: </strong>{`${day}/${month}/${year}`}<br /></> : null}
         {developer ? <><strong>Desenvolvedor: </strong>{developer}<br /></> : null}
         {publisher ? <><strong>Distribuidor: </strong>{publisher}</> : null}
       </p>

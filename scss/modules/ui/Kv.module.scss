@@ -9,7 +9,7 @@
 .accordion-header {
   background-color: colors.$kv-primary-900 !important;
   border: none !important;
-  margin-bottom: 2px;
+  margin-bottom: 8px;
   opacity: 0.8;
   width: 100%;
 
@@ -38,17 +38,15 @@
 
   font-size: 1em;
   overscroll-behavior: contain;
-}
 
-.show-body {
-  height: 250px;
-  transition: height 0.2s ease-in;
+  @include custom.disable-select;
 }
 
 // Checkbox
 .checkbox {
   color: colors.$kv-text-on-primary !important;
   font-size: 1.2em;
+  @include custom.disable-select;
 
   input {
     background-color: colors.$kv-primary-800 !important;
@@ -62,52 +60,72 @@
     &:hover {
       text-decoration: underline;
     }
+
+    &:hover i {
+      color: colors.$kv-secondary-800;
+    }
+
+    &:hover svg {
+      color: colors.$kv-secondary-800;
+    }
   }
 }
 
 // Dropdown
-.dropdown {
-  visibility: visible;
+@mixin dropdown-menu($bg, $hover-bg, $active-bg) {
+  --bs-dropdown-color: white;
+  --bs-dropdown-bg: #{$bg};
+  --bs-dropdown-link-color: white;
+  --bs-dropdown-link-hover-color: white;
+  --bs-dropdown-link-hover-bg: #{$hover-bg};
+  --bs-dropdown-link-active-color: #fff;
+  --bs-dropdown-link-active-bg: #{$active-bg};
+  --bs-dropdown-font-size: 1.1em;
 }
 
-.dropdown-toggle {
-  font-size: 1.2em;
-  background-color: colors.$kv-primary-900 !important;
-  border: none !important;
-
-  &:hover {
-    background-color: colors.$kv-primary-800 !important;
-  }
-
-  &:active {
-    background-color: colors.$kv-primary-700 !important;
-  }
+@mixin dropdown-toggle($bg, $hover-bg, $active-bg) {
+  --bs-btn-color: white;
+  --bs-btn-bg: #{$bg};
+  --bs-btn-border-color: none;
+  --bs-btn-hover-color: white;
+  --bs-btn-hover-bg: #{$hover-bg};
+  --bs-btn-hover-border-color: none;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #{$active-bg};
+  --bs-btn-active-border-color: none;
+  --bs-btn-disabled-bg: gray;
+  --bs-btn-disabled-border-color: none;
+  --bs-btn-font-size: 1.2em;
 }
 
 .dropdown-menu {
-  background-color: colors.$kv-primary-800 !important;
+  @include dropdown-menu(
+    colors.$kv-primary-800,
+    colors.$kv-primary-700,
+    colors.$kv-secondary-800
+  );
+}
 
-  .dropdown-item {
-    font-size: 1.1em;
-    color: colors.$kv-text-on-primary !important;
-    padding: 0;
-    cursor: pointer;
+.dropdown-menu-900 {
+  @include dropdown-menu(
+    colors.$kv-primary-900, 
+    colors.$kv-primary-800,
+    colors.$kv-secondary-700
+  );
+}
 
-    &:hover {
-      background-color: colors.$kv-primary-700 !important;
-      color: colors.$kv-text-on-primary;
-    }
+.dropdown-toggle {
+  @include dropdown-toggle(
+    colors.$kv-primary-800, 
+    colors.$kv-primary-700,
+    colors.$kv-primary-600)
+}
 
-    &:active {
-      background-color: colors.$kv-primary-500 !important;
-    }
-
-  }
-
-  a {
-    text-decoration: none;
-    color: colors.$kv-text-on-primary;
-  }
+.dropdown-toggle-900 {
+  @include dropdown-toggle(
+    colors.$kv-primary-900, 
+    colors.$kv-primary-800,
+    colors.$kv-primary-700)
 }
 
 // Form

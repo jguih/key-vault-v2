@@ -7,6 +7,25 @@ export default function SystemReq({ sysReq }) {
   const minSysReq = sysReq.filter((req) => req.type.toLowerCase() === "minimum");
   const recSysReq = sysReq.filter((req) => req.type.toLowerCase() === "recommended");
 
+  function isReqEmpty() {
+    const gameSystemRequirements = sysReq;
+    let isReqEmpty = true;
+    gameSystemRequirements.forEach(gsr => {
+      if (gsr.so !== "" ||
+        gsr.storage !== "" ||
+        gsr.cpu !== "" ||
+        gsr.memory !== "" ||
+        gsr.gpu !== "" ||
+        gsr.directx !== "" ||
+        gsr.internet !== "" ||
+        gsr.other !== "") {
+        isReqEmpty = false;
+      }
+    })
+    return isReqEmpty;
+  }
+
+  if (!isReqEmpty())
   return (
     <div className={`${styleSystemReq.container}`}>
       <h3>System Requirements</h3>

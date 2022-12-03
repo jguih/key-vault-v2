@@ -108,7 +108,7 @@ function MyOffcanvas({ show, handleClose, activeKey }) {
             </Link>
           </nav>
           <hr></hr>
-          <Kv.SimpleDropDown title="Categorias">
+          <Kv.Dropdown title="Categorias">
             {genres ? genres.map((genre, index) => {
               return (
                 <Link
@@ -123,7 +123,7 @@ function MyOffcanvas({ show, handleClose, activeKey }) {
                 </Link>
               )
             }) : ""}
-          </Kv.SimpleDropDown>
+          </Kv.Dropdown>
         </Offcanvas.Body>
       </Offcanvas>
     </>

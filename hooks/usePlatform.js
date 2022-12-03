@@ -6,7 +6,7 @@ export default function usePlatform() {
   const { data, error } = useSWR('http://localhost:3000/platforms.json', fetcher);
 
   return {
-    genres: data,
+    platforms: data,
     isLoading: !error && !data,
     isError: error
   }

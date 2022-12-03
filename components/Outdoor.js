@@ -1,17 +1,21 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import Image from "next/image";
-import { brlCurrencyFormatter } from "../global";
+import { brlCurrencyFormatter, imgTypes } from "../global";
 import outdoor from '../scss/modules/Outdoor.module.scss';
-import { imgTypes } from "../hooks/useGameForm";
 
-export default function Outdoor({ games, size }) {
+export default function Outdoor({ games }) {
   const [index, setIndex] = useState(0);
   const [timer, setTimer] = useState();
   const interval = 6000; // Outdoor timer interval
+  const size = useMemo(() => {
+    return games?.length;
+  }, [games]);
 
   useEffect(() => {
+    if (!size) return;
+
     clearInterval(timer);
 
     // Sets the initial timer
@@ -47,6 +51,9 @@ export default function Outdoor({ games, size }) {
   }, [index])
 
   function getSmallGameCard(game, index) {
+    const cover = game["game_image"]
+      ?.filter(img => img.type === imgTypes.Cover)
+      ?.map(img => img.url);
     return (
       <div
         className={outdoor.item}
@@ -55,7 +62,7 @@ export default function Outdoor({ games, size }) {
       >
         <div className={outdoor["small-game-card"]}>
           <Image
-            src={game["game_image"].filter(img => img.type === imgTypes.Cover)[0].url}
+            src={cover?.[0] || ""}
             alt=""
             fill
             priority
@@ -84,17 +91,29 @@ export default function Outdoor({ games, size }) {
     );
   }
 
-  if (!games) return
+  if (!games) return;
+  if (games?.length === 0) return;
 
-  const { name, price, discount, isDiscountActive } = games[index];
+  const name = games?.[index]?.name;
+  const price = games?.[index]?.price;
+  const discount = games?.[index]?.discount;
+  const isDiscountActive = games?.[index]?.isDiscountActive;
+
   return (
     <Container className="mt-4">
       <div className={outdoor.outdoor}>
         <div className={outdoor["outdoor-img"]}>
           {games.slice(0, size).map((game, index) => {
+            const artworks = game["game_image"]
+              ?.filter(img => img.type === imgTypes.Artwork)
+              ?.map(img => img.url);
+            const screenshots = game["game_image"]
+              ?.filter(img => img.type === imgTypes.Screenshot)
+              ?.map(img => img.url);
             return (
               <Image
-                src={game["game_image"].filter(img => img.type === imgTypes.Artwork)[0].url}
+                src={artworks?.length > 0 ? artworks[0] : 
+                  screenshots?.length > 0 ? screenshots[0] : ""}
                 fill
                 priority
                 alt=""
@@ -106,7 +125,7 @@ export default function Outdoor({ games, size }) {
           })}
         </div>
         <div className={outdoor["outdoor-content"]}>
-          <Link href={`/game/${(name.toLowerCase().replaceAll(" ", "-"))}`}>
+          <Link href={`/game/${(name?.toLowerCase().replaceAll(" ", "-"))}`}>
             <p>{name}</p>
             <PriceContainer
               price={price}

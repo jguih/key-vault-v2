@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "RPG"
+    "name": "Role-playing (RPG)"
   },
   {
     "id": 2,
@@ -38,5 +38,21 @@
   {
     "id": 10,
     "name": "Comedy"
+  },
+  {
+    "id": 11,
+    "name": "Adventure"
+  },
+  {
+    "id": 12,
+    "name": "Puzzle"
+  },
+  {
+    "id": 13,
+    "name": "Strategy"
+  },
+  {
+    "id": 14,
+    "name": "Platform"
   }
 ]

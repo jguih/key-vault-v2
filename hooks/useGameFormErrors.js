@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useReducer } from "react";
 
 export const errorsActions = {
   AddUrlError: "ADD-IMG-ERROR",
@@ -56,17 +56,7 @@ const initialValues = {
 export function useGameFormErrors() {
   const [error, dispatchError] = useReducer(errorsReducer, initialValues);
 
-  useEffect(() => {
-    console.log(error)
-  }, [error])
-
   const validate = {
-    all: () => {
-      return (
-        Object.keys(error.urlField).length === 0 &&
-        Object.keys(error.field).length === 0
-      );
-    },
     field: (fieldName, e, options) => {
       const validity = e.target.validity;
       let valid = true;
@@ -93,7 +83,7 @@ export function useGameFormErrors() {
             name: fieldName,
             payload: {
               type: "rangeOverflow",
-              message: `Não deve exceder ${options.max}`
+              message: `Não deve exceder ${options?.max}`
             }
           });
         }
@@ -107,7 +97,7 @@ export function useGameFormErrors() {
             name: fieldName,
             payload: {
               type: "rangeUnderflow",
-              message: `Não deve ser menor que ${options.min}`
+              message: `Não deve ser menor que ${options?.min}`
             }
           });
         }
@@ -145,6 +135,12 @@ export function useGameFormErrors() {
         try {
           validURL = new URL(e.target.value);
 
+          if (validURL.host === "images.igdb.com") {
+            valid = true
+          } else {
+            throw 'invalid url'
+          }
+          
           valid = true;
           if (error.urlField[fieldName]) {
             dispatchError({

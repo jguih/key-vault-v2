@@ -18,10 +18,34 @@
 }
 
 .card-wrapper {
-  padding: 0 8px;
+  padding: 0 12px;
 
   a {
     text-decoration: none;
     color: colors.$kv-text-on-primary;
+  }
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.top-pagination,
+.top-sort {
+  background-color: colors.$kv-primary-900;
+  border-radius: 6px;
+}
+
+.top-sort {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+
+  p {
+    margin: 0;
+    padding-left: 12px;
   }
 }

@@ -2,9 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "react-bootstrap";
 import saleCard from "../../../scss/modules/pages/game/SaleCard.module.scss";
-import { brlCurrencyFormatter } from "../../../global";
+import { brlCurrencyFormatter, getPlatformsIcons } from "../../../global";
 
-export default function SaleCard({ coverUrl, title, price, discount, isDiscountActive }) {
+export default function SaleCard({ coverUrl, title, price, discount, isDiscountActive, platform }) {
   return (
     <div className={`${saleCard.container}`}>
       <div className={`${saleCard["img-wrapper"]}`}>
@@ -19,10 +19,20 @@ export default function SaleCard({ coverUrl, title, price, discount, isDiscountA
       <div className={`${saleCard["sale-info-container"]}`}>
         <h3>{title}</h3>
         <div className={`${saleCard["game-version"]}`}>Jogo Base</div>
-        <p>
-          <span className={`${saleCard["bold-500"]}`}>Ativação: </span>Steam <br />
-          Produto ativado através de <Link href={"/activation"} target="_blank">chave de ativação.</Link>
-        </p>
+        <div>
+          <p className="mb-2">
+            {platform ?
+              <>
+                <span className={`${saleCard["bold-500"]}`}>
+                  Ativação: {" "}
+                </span>
+                {getPlatformsIcons(platform, { withName: true })}
+              </> : null}
+          </p>
+          <p className="m-0">
+            Produto ativado através de <Link href={"/activation"} target="_blank">chave de ativação.</Link>
+          </p>
+        </div>
       </div>
       <div className={`${saleCard["price-btn-container"]}`}>
         <PriceContainer

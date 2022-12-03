@@ -3,13 +3,17 @@
 @use '../../../breakpoints' as breakpoints;
 
 .container {
+  font-size: 1rem;
   hr {
     margin: 1.2rem 0px;
 
-    border: 2px solid colors.$kv-primary-800;
+    border: 4px solid colors.$kv-primary-800;
     border-radius: 10px;
     opacity: 1;
+
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
   }
+  padding-bottom: 20vh;
 }
 
 .ImgURL-container {
@@ -116,4 +120,98 @@
 
 .error {
   color: colors.$kv-error;
+}
+
+.add-language-support-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: fit-content;
+}
+
+.btn {
+  font-size: 1.2em;
+}
+
+.modal {
+  --bs-modal-color: #{colors.$kv-text-on-primary};;
+  --bs-modal-bg: #{colors.$kv-primary-900};
+  --bs-modal-border-color: white;
+}
+
+// IGDB Game Card
+.igdb-game-card-container {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  padding: 6px;
+  border-radius: custom.$img-border-radius;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+  margin-top: 6px;
+
+  &:hover {
+    background-color: colors.$kv-primary-800;
+  }
+
+  &:hover img {
+    filter: brightness(1.1);
+  }
+
+  &:focus {
+    background-color: colors.$kv-secondary-800;
+  }
+
+  &:active {
+    background-color: colors.$igdb;
+  }
+
+  cursor: pointer;
+
+  .card-img-wrapper {
+    position: relative;
+    left: 0;
+    padding-bottom: 133%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+      border-radius: custom.$img-border-radius;
+    }
+  }
+
+}
+
+.card-text-content {
+  padding: 12px;
+
+  .genres {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.igdb-card-active {
+  background-color: colors.$igdb;
+
+  &:hover {
+    background-color: colors.$igdb;
+  }
+}
+
+.highlight {
+  border: 2px solid colors.$kv-secondary-700;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+@media screen and (max-width: breakpoints.$sm) {
+  .add-language-support-container {
+    margin: 0;
+    width: 100%;
+  }
 }

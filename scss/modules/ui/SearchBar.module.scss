@@ -7,7 +7,7 @@
   width: fit-content;
   border-radius: 10px;
   margin-left: auto;
-  @include custom.shadow;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
 
   &:hover {
     box-shadow: 0px 0px 10px colors.$kv-primary-800;
