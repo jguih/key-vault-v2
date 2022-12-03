@@ -19,7 +19,7 @@ const formRef = React.createRef();
 
 export default function Admin() {
   const {
-    game, dispatchGame, register, handleSubmit, error, dispatchIGDBGame, isIgdbDispatched, igdbNotFound
+    game, dispatchGame, register, handleSubmit, error, dispatchIGDBGame, isIgdbDispatched, setIsIgdbDispatched, igdbNotFound
   } = useGameForm();
   const { data } = useData();
   const validLanguages = useMemo(() => {
@@ -40,6 +40,7 @@ export default function Admin() {
     data,
     dispatchIGDBGame,
     isIgdbDispatched,
+    setIsIgdbDispatched,
     igdbNotFound,
     validLanguages,
     modal: {
@@ -145,7 +146,10 @@ function IgdbModal() {
                 return (
                   <IgdbGameCard
                     igdbGame={game}
-                    onClickCard={() => setCurrentGame(game)}
+                    onClickCard={() => {
+                      setCurrentGame(game);
+                      gc.setIsIgdbDispatched(false);
+                    }}
                     key={index}
                     activeCard={activeCard}
                     setActiveCard={setActiveCard}
@@ -192,7 +196,7 @@ function IgdbGameCard({ igdbGame, onClickCard, activeCard, setActiveCard, ...pro
         <p className={`${styles.genres}`}>
           {igdbGame.genres?.map(genre => genre.name).join(", ")}
         </p>
-        <p>
+        <p className='m-0'>
           {year && month && day ?
             <>
               <strong> Data de Lançamento: </strong>{`${day}/${month}/${year}`}
@@ -277,7 +281,10 @@ function GameForm() {
             type="button"
             variant="igdb"
             className={`${styles.btn}`}
-            onClick={gc.modal.showIGDBModal}
+            onClick={() => {
+              gc.modal.showIGDBModal();
+              //gc.setIsIgdbDispatched(false);
+            }}
           >IGDB</Button>
           <Button
             type="submit"
@@ -369,7 +376,7 @@ function GameForm() {
           : null}
       </Kv.FloatingTextArea>
       <Kv.FloatingInput
-        {...gc.register.field("releaseDate", { required: true, max: "9999-12-31" })}
+        {...gc.register.field("releaseDate", { max: "9999-12-31" })}
         type="date"
         label="Data de Lançamento"
         placeholder="Data de Lançamento"
@@ -390,7 +397,7 @@ function GameForm() {
           : null}
       </Kv.FloatingInput>
       <Kv.FloatingInput
-        {...gc.register.field("publisher", { required: true })}
+        {...gc.register.field("publisher")}
         type="text"
         label="Distribuidor"
         placeholder="Distribuidor"

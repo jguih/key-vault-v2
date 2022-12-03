@@ -82,6 +82,7 @@ export default function Content({ name }) {
               price={price}
               discount={discount}
               isDiscountActive={isDiscountActive}
+              platform={platform?.map(p => p.name)}
             />
             <Description
               description={description ?? ""}

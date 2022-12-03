@@ -20,41 +20,54 @@ export default function Home() {
 
   useEffect(() => {
     if (games) {
-      let sortedGames = games
-        .sort((gameA, gameB) => {
-          return new Date(new Date(gameB.releaseDate)) -
-            new Date(new Date(gameA.releaseDate))
-        });
+      let sortedGames = games;
       const outdoorGamesArr = [];
       const upcomingGamesArr = [];
       const recentGamesArr = [];
-      let count = 0;
 
+      // Sort by release date Desc
+      sortedGames = sortedGames
+        .sort((gameA, gameB) => {
+          if (gameA.releaseDate === "") return -1;
+          if (gameB.releaseDate === "") return 1;
+          const dateA = new Date(gameA.releaseDate);
+          const dateB = new Date(gameB.releaseDate);
+          if (dateA > dateB) {
+            return -1;
+          }
+          if (dateA < dateB) {
+            return 1;
+          }
+          return 0;
+        });
       sortedGames.every((game) => {
-        if (new Date() <= new Date(game.releaseDate)) {
-          // Future Games
+        const date = game.releaseDate !== "" ?
+          new Date(game.releaseDate) : "";
+        if (new Date() < date || date === "") {
           if (upcomingGamesArr.length < upcomingGamesSize) {
             upcomingGamesArr.push(game);
-          } else {
-            count++;
           }
-        } else if (new Date() > new Date(game.releaseDate)) {
+        }
+        if (new Date() >= date && date !== "") {
           // Most recent, excluding future games
           if (outdoorGamesArr.length < outdoorSize) {
             outdoorGamesArr.push(game);
           } else if (recentGamesArr.length < recentGamesSize) {
             recentGamesArr.push(game);
-          } else {
-            count++;
           }
         }
-        if (count === 2) return false;
+        if (upcomingGamesArr.length === upcomingGamesSize &&
+          outdoorGamesArr.length === outdoorSize &&
+          recentGamesArr.length === recentGamesSize) {
+          return false;
+        }
         return true;
       });
 
-      count = 0;
       const discountedGamesArr = [];
       const rpgGamesArr = [];
+
+      // Sort by name Asc
       sortedGames = sortedGames
         .sort((gameA, gameB) => {
           if (gameA.name < gameB.name) {
@@ -73,17 +86,16 @@ export default function Home() {
         if (isDiscountActive) {
           if (discountedGamesArr.length < discountedGamesSize) {
             discountedGamesArr.push(game);
-          } else {
-            count++;
           }
         } else if (genresArr?.includes("role-playing (rpg)")) {
           if (rpgGamesArr.length < rpgGamesSize) {
             rpgGamesArr.push(game);
-          } else {
-            count++;
           }
         }
-        if (count === 2) return false;
+        if (discountedGamesArr.length === discountedGamesSize &&
+          rpgGamesArr.length === rpgGamesSize) {
+          return false;
+        }
         return true;
       });
 

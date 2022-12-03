@@ -39,7 +39,7 @@ export function getPlatformsIcons(platformsName, options) {
         return (
           <span key={index}>
             <i className="bi bi-steam me-1"></i>
-            {options?.withName ? "Steam" : null}
+            {options?.withName ? "Steam " : null}
           </span>
         );
       
@@ -47,7 +47,7 @@ export function getPlatformsIcons(platformsName, options) {
         return (
           <span key={index}>
             <Icon icon="cib:epic-games" className="me-1" />
-            {options?.withName ? "Epic" : null}
+            {options?.withName ? "Epic " : null}
           </span>
         );
 
@@ -55,7 +55,7 @@ export function getPlatformsIcons(platformsName, options) {
         return (
           <span key={index}>
             <Icon icon="simple-icons:gogdotcom" className="me-1"/>
-            {options?.withName ? "Gog" : null}
+            {options?.withName ? "Gog " : null}
           </span>
         );
     }

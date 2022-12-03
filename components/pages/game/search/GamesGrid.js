@@ -89,7 +89,7 @@ export default function GamesGrid({ games }) {
 
   const sort = {
     priceAsc: function () {
-      const myQuery = {...router.query};
+      const myQuery = {...router.query, page: 1};
       myQuery.sort = sortBy.priceAsc;
       router.push({
         pathname: "/game",
@@ -97,7 +97,7 @@ export default function GamesGrid({ games }) {
       })
     },
     priceDesc: function () {
-      const myQuery = {...router.query};
+      const myQuery = {...router.query, page: 1};
       myQuery.sort = sortBy.priceDesc;
       router.push({
         pathname: "/game",
@@ -105,7 +105,7 @@ export default function GamesGrid({ games }) {
       })
     },
     nameAsc: function () {
-      const myQuery = {...router.query};
+      const myQuery = {...router.query, page: 1};
       myQuery.sort = sortBy.nameAsc;
       router.push({
         pathname: "/game",
@@ -113,7 +113,7 @@ export default function GamesGrid({ games }) {
       })
     },
     nameDesc: function () {
-      const myQuery = {...router.query};
+      const myQuery = {...router.query, page: 1};
       myQuery.sort = sortBy.nameDesc;
       router.push({
         pathname: "/game",

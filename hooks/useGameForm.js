@@ -239,12 +239,10 @@ export function useGameForm() {
   const { games, isLoading, isError, names } = useGame();
 
   useEffect(() => {
-    if (isIgdbDispatched) {
-      document.getElementsByName("field").forEach(e => {
-        e.focus();
-        e.blur();
-      })
-    }
+    document.getElementsByName("field").forEach(e => {
+      e.focus();
+      e.blur();
+    })
   }, [isIgdbDispatched])
 
   const field = (name, options) => {
@@ -622,6 +620,7 @@ export function useGameForm() {
     error,
     dispatchIGDBGame,
     isIgdbDispatched,
+    setIsIgdbDispatched,
     igdbNotFound
   }
 }
