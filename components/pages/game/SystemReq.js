@@ -1,4 +1,3 @@
-import { GameFields } from "../../../global";
 import styleSystemReq from "../../../scss/modules/pages/game/SystemReq.module.scss";
 
 export default function SystemReq({ sysReq }) {
@@ -12,14 +11,14 @@ export default function SystemReq({ sysReq }) {
     const gameSystemRequirements = sysReq;
     let isReqEmpty = true;
     gameSystemRequirements.forEach(gsr => {
-      if (gsr[GameFields.GameSystemRequirementsFields.so] !== "" ||
-        gsr[GameFields.GameSystemRequirementsFields.storage] !== "" ||
-        gsr[GameFields.GameSystemRequirementsFields.cpu] !== "" ||
-        gsr[GameFields.GameSystemRequirementsFields.memory] !== "" ||
-        gsr[GameFields.GameSystemRequirementsFields.gpu] !== "" ||
-        gsr[GameFields.GameSystemRequirementsFields.directx] !== "" ||
-        gsr[GameFields.GameSystemRequirementsFields.internet] !== "" ||
-        gsr[GameFields.GameSystemRequirementsFields.other] !== "") {
+      if (gsr.so !== "" ||
+        gsr.storage !== "" ||
+        gsr.cpu !== "" ||
+        gsr.memory !== "" ||
+        gsr.gpu !== "" ||
+        gsr.directx !== "" ||
+        gsr.internet !== "" ||
+        gsr.other !== "") {
         isReqEmpty = false;
       }
     })

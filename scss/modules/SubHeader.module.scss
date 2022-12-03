@@ -2,13 +2,10 @@
 @use '../breakpoints' as breakpoints;
 @use '../custom' as custom;
 
-$spacing: 16px;
-$container-font-size: 1em;
-
 .main-container {
   width: 100%;
-  background-color: colors.$kv-primary-900;
   color: colors.$kv-text-on-primary;
+  padding: 12px 0px;
 
   font-size: 1rem; // Global font size
 
@@ -21,22 +18,24 @@ $container-font-size: 1em;
   nav {
     display: flex;
     flex-direction: row;
-    gap: $spacing;
+    gap: 16px;
 
     a {
       text-decoration: none;
       color: inherit;
+      padding: 6px 12px;
+      border-radius: 0.375rem;
+      background-color: colors.$kv-primary-900; 
 
       font-size: 1.2em;
-      opacity: 0.6;
       transition: 100ms opacity ease-in-out;
 
       &:hover {
-        opacity: 0.8;
+        background-color: colors.$kv-primary-800;
       }
 
       &:active {
-        opacity: 1;
+        background-color: colors.$kv-primary-700;
       }
     }
   }
@@ -53,11 +52,11 @@ $container-font-size: 1em;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: $spacing;
+  gap: 16px;
 
   padding: 8px;
 
-  font-size: $container-font-size;
+  font-size: 1em;
 }
 
 .button {

@@ -1,4 +1,3 @@
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { getGamemode } from "../../../global";
 import lgCardStyles from "../../../scss/modules/pages/game/LanguageGamemodeCard.module.scss"
 import LanguageSupport from "../../ui/LanguageSupport";

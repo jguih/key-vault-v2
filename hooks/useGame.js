@@ -1,5 +1,4 @@
 import useSWR from 'swr';
-import { GameFields } from '../global';
 
 const fetcher = (...args) => fetch(...args).then(res => res.json());
 

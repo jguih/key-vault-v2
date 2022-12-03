@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
-import { decimalFormatter, GameFields, GameSystemRequirements, getUnixDate, getGamemode, getIGDBImageURL, getPlatformsIcons, IGDBImageSize, imgTypes, toFirstUpperCase } from "../global";
+import { getUnixDate, getGamemode, getIGDBImageURL, getPlatformsIcons, IGDBImageSize, imgTypes, toFirstUpperCase } from "../global";
 import useData from "./useData";
 import { errorsActions, useGameFormErrors } from "./useGameFormErrors";
 import useGame from "./useGame";
@@ -47,7 +47,7 @@ const gameReducer = (state, action) => {
       };
 
     case gameActions.ToggleGenre:
-      let genres = state[GameFields.GameGenre];
+      let genres = state["game_genre"];
       if (action.checked) {
         if (!genres.map(g => g.id).includes(action.payload.id)) {
           genres.push(action.payload);
@@ -61,7 +61,7 @@ const gameReducer = (state, action) => {
       }
 
     case gameActions.ToggleGamemode:
-      let gamemodes = state[GameFields.GameGamemode];
+      let gamemodes = state["game_gamemode"];
       if (action.checked) {
         if (!gamemodes.map(g => g.id).includes(action.payload.id)) {
           gamemodes.push(action.payload);
@@ -75,7 +75,7 @@ const gameReducer = (state, action) => {
       }
 
     case gameActions.TogglePlatform:
-      let platforms = state[GameFields.GamePlatform];
+      let platforms = state["game_platform"];
       if (action.checked) {
         platforms.push(action.payload);
       } else {
@@ -93,18 +93,13 @@ const gameReducer = (state, action) => {
       }
 
     case gameActions.AddImg:
-      if (!action.payload.hasOwnProperty("type")) return state;
-      if (!action.payload.hasOwnProperty("url")) return state;
-      if (action.payload.type !== imgTypes.Cover &&
-        action.payload.type !== imgTypes.Screenshot &&
-        action.payload.type !== imgTypes.Artwork) return state;
       return {
         ...state,
-        game_image: [...state[GameFields.GameImage], action.payload]
+        game_image: [...state["game_image"], action.payload]
       }
 
     case gameActions.RemoveImg:
-      let images = state[GameFields.GameImage];
+      let images = state["game_image"];
       images = images.filter(image => image != action.payload);
       return {
         ...state,
@@ -113,20 +108,20 @@ const gameReducer = (state, action) => {
 
     case gameActions.AddGameLanguageSupport:
       if (!validateLanguageSupport(action.payload)) return state;
-      const currentLs = state[GameFields.GameLanguageSupport];
+      const currentLs = state["game_language_support"];
       const currentLsLanguageIds = currentLs.map(ls => ls.language.id);
       if (currentLsLanguageIds.includes(action.payload.language.id)) return state;
       return {
         ...state,
         game_language_support: [
-          ...state[GameFields.GameLanguageSupport],
+          ...state["game_language_support"],
           action.payload
         ]
       }
 
     case gameActions.RemoveGameLanguageSupport:
       if (!validateLanguageSupport(action.payload)) return state;
-      let languageSupport = state[GameFields.GameLanguageSupport];
+      let languageSupport = state["game_language_support"];
       languageSupport = languageSupport
         .filter(ls => ls.language.id !== action.payload.language.id);
       return {
@@ -135,23 +130,15 @@ const gameReducer = (state, action) => {
       }
 
     case gameActions.AddSysReqFieldValue:
-      let minimmumSysReq = state["game_system_requirements"]
-        .filter(gsr => gsr.type === GameSystemRequirements.Minimum);
-      let recommendedSysReq = state["game_system_requirements"]
-        .filter(gsr => gsr.type === GameSystemRequirements.Recommended);
-      if (action.sysType === GameSystemRequirements.Minimum) {
-        // Invalid Field
-        if (!minimmumSysReq[0].hasOwnProperty(`${action.field}`)) return state;
-
+      const minimmumSysReq = state["game_system_requirements"]
+        .filter(gsr => gsr.type === "minimum");
+      const recommendedSysReq = state["game_system_requirements"]
+        .filter(gsr => gsr.type === "recommended");
+      if (action.sysType === "minimum") {
         minimmumSysReq[0][action.field] = action.payload;
-      } else if (action.sysType === GameSystemRequirements.Recommended) {
-        // Invalid Field
-        if (!minimmumSysReq[0].hasOwnProperty(`${action.field}`)) return state;
-
+      } else if (action.sysType === "recommended") {
         recommendedSysReq[0][action.field] = action.payload;
-      } else { // Invalid type
-        return state;
-      }
+      } else return state;
       return {
         ...state,
         game_system_requirements: minimmumSysReq.concat(recommendedSysReq)
@@ -159,43 +146,43 @@ const gameReducer = (state, action) => {
 
     case gameActions.Reset:
       return {
-        [GameFields.name]: "",
-        [GameFields.description]: "",
-        [GameFields.developer]: "",
-        [GameFields.publisher]: "",
-        [GameFields.releaseDate]: "",
-        [GameFields.price]: "",
-        [GameFields.discount]: "0",
-        [GameFields.isDiscountActive]: false,
-        [GameFields.GameLanguageSupport]: [],
-        [GameFields.GameSystemRequirements]: [
+        name: "",
+        description: "",
+        developer: "",
+        publisher: "",
+        releaseDate: "",
+        price: "",
+        discount: "0",
+        isDiscountActive: false,
+        game_language_support: [],
+        game_system_requirements: [
           {
-            [GameFields.GameSystemRequirementsFields.type]: "minimum",
-            [GameFields.GameSystemRequirementsFields.so]: "",
-            [GameFields.GameSystemRequirementsFields.storage]: "",
-            [GameFields.GameSystemRequirementsFields.cpu]: "",
-            [GameFields.GameSystemRequirementsFields.memory]: "",
-            [GameFields.GameSystemRequirementsFields.gpu]: "",
-            [GameFields.GameSystemRequirementsFields.directx]: "",
-            [GameFields.GameSystemRequirementsFields.internet]: "",
-            [GameFields.GameSystemRequirementsFields.other]: ""
+            type: "minimum",
+            so: "",
+            storage: "",
+            cpu: "",
+            memory: "",
+            gpu: "",
+            directx: "",
+            internet: "",
+            other: ""
           },
           {
-            [GameFields.GameSystemRequirementsFields.type]: "recommended",
-            [GameFields.GameSystemRequirementsFields.so]: "",
-            [GameFields.GameSystemRequirementsFields.storage]: "",
-            [GameFields.GameSystemRequirementsFields.cpu]: "",
-            [GameFields.GameSystemRequirementsFields.memory]: "",
-            [GameFields.GameSystemRequirementsFields.gpu]: "",
-            [GameFields.GameSystemRequirementsFields.directx]: "",
-            [GameFields.GameSystemRequirementsFields.internet]: "",
-            [GameFields.GameSystemRequirementsFields.other]: ""
+            type: "recommended",
+            so: "",
+            storage: "",
+            cpu: "",
+            memory: "",
+            gpu: "",
+            directx: "",
+            internet: "",
+            other: ""
           }
         ],
-        [GameFields.GamePlatform]: [],
-        [GameFields.GameGenre]: [],
-        [GameFields.GameGamemode]: [],
-        [GameFields.GameImage]: [],
+        game_platform: [],
+        game_genre: [],
+        game_gamemode: [],
+        game_image: [],
       }
 
     default:
@@ -204,43 +191,43 @@ const gameReducer = (state, action) => {
 }
 
 const initialValues = {
-  [GameFields.name]: "",
-  [GameFields.description]: "",
-  [GameFields.developer]: "",
-  [GameFields.publisher]: "",
-  [GameFields.releaseDate]: "",
-  [GameFields.price]: "",
-  [GameFields.discount]: "0",
-  [GameFields.isDiscountActive]: false,
-  [GameFields.GameLanguageSupport]: [],
-  [GameFields.GameSystemRequirements]: [
+  name: "",
+  description: "",
+  developer: "",
+  publisher: "",
+  releaseDate: "",
+  price: "",
+  discount: "0",
+  isDiscountActive: false,
+  game_language_support: [],
+  game_system_requirements: [
     {
-      [GameFields.GameSystemRequirementsFields.type]: "minimum",
-      [GameFields.GameSystemRequirementsFields.so]: "",
-      [GameFields.GameSystemRequirementsFields.storage]: "",
-      [GameFields.GameSystemRequirementsFields.cpu]: "",
-      [GameFields.GameSystemRequirementsFields.memory]: "",
-      [GameFields.GameSystemRequirementsFields.gpu]: "",
-      [GameFields.GameSystemRequirementsFields.directx]: "",
-      [GameFields.GameSystemRequirementsFields.internet]: "",
-      [GameFields.GameSystemRequirementsFields.other]: ""
+      type: "minimum",
+      so: "",
+      storage: "",
+      cpu: "",
+      memory: "",
+      gpu: "",
+      directx: "",
+      internet: "",
+      other: ""
     },
     {
-      [GameFields.GameSystemRequirementsFields.type]: "recommended",
-      [GameFields.GameSystemRequirementsFields.so]: "",
-      [GameFields.GameSystemRequirementsFields.storage]: "",
-      [GameFields.GameSystemRequirementsFields.cpu]: "",
-      [GameFields.GameSystemRequirementsFields.memory]: "",
-      [GameFields.GameSystemRequirementsFields.gpu]: "",
-      [GameFields.GameSystemRequirementsFields.directx]: "",
-      [GameFields.GameSystemRequirementsFields.internet]: "",
-      [GameFields.GameSystemRequirementsFields.other]: ""
+      type: "recommended",
+      so: "",
+      storage: "",
+      cpu: "",
+      memory: "",
+      gpu: "",
+      directx: "",
+      internet: "",
+      other: ""
     }
   ],
-  [GameFields.GamePlatform]: [],
-  [GameFields.GameGenre]: [],
-  [GameFields.GameGamemode]: [],
-  [GameFields.GameImage]: [],
+  game_platform: [],
+  game_genre: [],
+  game_gamemode: [],
+  game_image: [],
 }
 
 export function useGameForm() {
@@ -253,13 +240,10 @@ export function useGameForm() {
 
   useEffect(() => {
     if (isIgdbDispatched) {
-      document.getElementsByName("field")?.forEach(e => {
+      document.getElementsByName("field").forEach(e => {
         e.focus();
         e.blur();
       })
-
-      setIsIgdbDispatched(false);
-      setIgdbNotFound({});
     }
   }, [isIgdbDispatched])
 
@@ -276,7 +260,7 @@ export function useGameForm() {
           payload: e.target.value
         })
         validate.field(name, e, options);
-        if (name === GameFields.name && names?.includes(e.target.value.toLowerCase())) {
+        if (name === "name" && names.includes(e.target.value.toLowerCase())) {
           dispatchError({
             type: errorsActions.AddFieldError,
             name: name,
@@ -290,7 +274,7 @@ export function useGameForm() {
       onBlur: (e) => {
         e.preventDefault();
         validate.field(name, e, options);
-        if (name === GameFields.name && names?.includes(e.target.value.toLowerCase())) {
+        if (name === "name" && names.includes(e.target.value.toLowerCase())) {
           dispatchError({
             type: errorsActions.AddFieldError,
             name: name,
@@ -327,7 +311,7 @@ export function useGameForm() {
     return {
       name: "genres",
       id: genre.name,
-      checked: game[GameFields.GameGenre]?.map(g => g.id)?.includes(genre.id) ?? false,
+      checked: game["game_genre"].map(g => g.id).includes(genre.id),
       label: toFirstUpperCase(genre.name),
       type: "checkbox",
       onChange: (e) => {
@@ -344,7 +328,7 @@ export function useGameForm() {
     return {
       name: "gamemodes",
       id: gamemode.name,
-      checked: game[GameFields.GameGamemode]?.map(g => g.id)?.includes(gamemode.id) ?? false,
+      checked: game["game_gamemode"].map(g => g.id).includes(gamemode.id),
       label: getGamemode(toFirstUpperCase(gamemode.name)),
       type: "checkbox",
       onChange: (e) => {
@@ -361,7 +345,7 @@ export function useGameForm() {
     return {
       name: "platforms",
       id: platform.name,
-      checked: game[GameFields.GamePlatform]?.map(p => p.id)?.includes(platform.id) ?? false,
+      checked: game["game_platform"].map(p => p.id).includes(platform.id),
       label: getPlatformsIcons(platform.name, { withName: true }),
       type: "checkbox",
       onChange: (e) => {
@@ -422,7 +406,8 @@ export function useGameForm() {
     return {
       name: name,
       label: toFirstUpperCase(name),
-      value: game[GameFields.GameSystemRequirements]?.filter(gsr => gsr.type === type)[0][name],
+      value: game["game_system_requirements"]
+        .filter(gsr => gsr.type === type)[0][name],
       onChange: (e) => {
         dispatchGame({
           type: gameActions.AddSysReqFieldValue,
@@ -522,19 +507,19 @@ export function useGameForm() {
 
     dispatchGame({
       type: gameActions.AddFieldValue,
-      field: GameFields.name,
+      field: "name",
       payload: name
     })
 
     dispatchGame({
       type: gameActions.AddFieldValue,
-      field: GameFields.description,
+      field: "description",
       payload: summary
     })
 
     dispatchGame({
       type: gameActions.AddFieldValue,
-      field: GameFields.releaseDate,
+      field: "releaseDate",
       payload: releaseDate
     })
 
@@ -576,13 +561,13 @@ export function useGameForm() {
 
     dispatchGame({
       type: gameActions.AddFieldValue,
-      field: GameFields.developer,
+      field: "developer",
       payload: developersNameArr?.join(", ")
     })
 
     dispatchGame({
       type: gameActions.AddFieldValue,
-      field: GameFields.publisher,
+      field: "publisher",
       payload: publisherNameArr?.join(", ")
     })
 
@@ -593,22 +578,22 @@ export function useGameForm() {
       })
     })
 
-    func?.();
     setIsIgdbDispatched(true);
+    func?.();
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (Object.keys(error.field).length > 0 || Object.keys(error.urlField).length > 0) {
-      console.log("Error")
-      return
+      console.log("Error");
+      return;
     }
     // All fields are valid and ready to be submitted
     game.id = games[games.length - 1].id + 1;
-    const price = game[GameFields.price];
-    const discount = game[GameFields.discount];
-    game[GameFields.price] = Number.parseFloat(price);
-    game[GameFields.discount] = Number.parseInt(discount) / 100;
+    const price = game.price;
+    const discount = game.discount;
+    game.price = Number.parseFloat(price);
+    game.discount = Number.parseInt(discount) / 100;
 
     const gameJson = JSON.stringify(game, null, 2);
     console.log(gameJson)

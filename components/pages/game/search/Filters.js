@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { GameFields, getGamemode, getPlatformsIcons, toFirstUpperCase } from "../../../../global";
+import { getGamemode, getPlatformsIcons, toFirstUpperCase } from "../../../../global";
 import useData from "../../../../hooks/useData";
 import useGame from "../../../../hooks/useGame";
 import styles from "../../../../scss/modules/pages/game/search/Filters.module.scss";
@@ -58,7 +58,7 @@ export default function Filters({ onFilter }) {
         setCheckedGenres(genresArr);
 
         filteredGames = filteredGames.filter((game) => {
-          const gameGenres = game[GameFields.GameGenre]
+          const gameGenres = game["game_genre"]
             ?.map((gameGenre) => gameGenre.name.toLowerCase());
           // Return true if every genresArr genre is included in gameGenres
           return genresArr.every((genreName) => {
@@ -87,7 +87,7 @@ export default function Filters({ onFilter }) {
         setCheckedGamemodes(gamemodesArr);
 
         filteredGames = filteredGames.filter((game) => {
-          const gameGamemodes = game[GameFields.GameGamemode]
+          const gameGamemodes = game["game_gamemode"]
             ?.map(g => g.name.toLowerCase());
           return gamemodesArr.every(gamemodeName => {
             return gameGamemodes?.includes(gamemodeName);
@@ -104,7 +104,7 @@ export default function Filters({ onFilter }) {
         setCheckedPlatforms(platformsArr);
 
         filteredGames = filteredGames.filter((game) => {
-          const gamePlatforms = game[GameFields.GamePlatform]
+          const gamePlatforms = game["game_platform"]
             ?.map(g => g.name.toLowerCase());
           return platformsArr.every(platformName => {
             return gamePlatforms?.includes(platformName);
@@ -121,7 +121,7 @@ export default function Filters({ onFilter }) {
         setCheckedLanguages(languagesArr);
 
         filteredGames = filteredGames.filter((game) => {
-          const gameLanguages = game[GameFields.GameLanguageSupport]
+          const gameLanguages = game["game_language_support"]
             ?.map(ls => ls.language)?.map(l => l["ptBR_name"]?.toLowerCase());
           return languagesArr.every(languageName => {
             return gameLanguages?.includes(languageName);
@@ -137,8 +137,7 @@ export default function Filters({ onFilter }) {
   const filter = {
     onChangeGenre: function (genre, e) {
       e.preventDefault();
-      const genreName = genre.name?.toLowerCase();
-      if (!genreName) return;
+      const genreName = genre.name.toLowerCase();
 
       let myQuery = { ...router.query };
       if (e.target.checked) {
@@ -164,7 +163,7 @@ export default function Filters({ onFilter }) {
       })
     },
     shouldCheckGenre: function (genre) {
-      const genreName = genre?.name?.toLowerCase();
+      const genreName = genre.name.toLowerCase();
       return checkedGenres.includes(genreName);
     },
     getGenreEndLabel: function () {
@@ -205,8 +204,7 @@ export default function Filters({ onFilter }) {
     },
     onChangeGamemode: function (gamemode, e) {
       e.preventDefault();
-      const gamemodeName = gamemode.name?.toLowerCase();
-      if (!gamemodeName) return;
+      const gamemodeName = gamemode.name.toLowerCase();
 
       let myQuery = { ...router.query };
       if (e.target.checked) {
@@ -230,7 +228,7 @@ export default function Filters({ onFilter }) {
       })
     },
     shouldCheckGamemode: (gamemode) => {
-      const gamemodeName = gamemode?.name?.toLowerCase();
+      const gamemodeName = gamemode.name.toLowerCase();
       return checkedGamemodes?.includes(gamemodeName);
     },
     getGamemodeEndLabel: function () {
@@ -252,8 +250,7 @@ export default function Filters({ onFilter }) {
     },
     onChangePlatform: function (platform, e) {
       e.preventDefault();
-      const platformName = platform.name?.toLowerCase();
-      if (!platformName) return;
+      const platformName = platform.name.toLowerCase();
 
       let myQuery = { ...router.query };
       if (e.target.checked) {
@@ -277,7 +274,7 @@ export default function Filters({ onFilter }) {
       })
     },
     shouldCheckPlatform: function (platform) {
-      const platformName = platform?.name?.toLowerCase();
+      const platformName = platform.name.toLowerCase();
       return checkedPlatforms.includes(platformName);
     },
     getPlatformEndLabel: function () {

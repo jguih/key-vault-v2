@@ -6,7 +6,6 @@ import Header from '../components/Header';
 import Outdoor from '../components/Outdoor';
 import Section from '../components/Section';
 import SubHeader from '../components/SubHeader';
-import { GameFields } from '../global';
 import useGame from '../hooks/useGame';
 
 export default function Home() {
@@ -23,8 +22,8 @@ export default function Home() {
     if (games) {
       let sortedGames = games
         .sort((gameA, gameB) => {
-          return new Date(new Date(gameB[GameFields.releaseDate])) -
-            new Date(new Date(gameA[GameFields.releaseDate]))
+          return new Date(new Date(gameB.releaseDate)) -
+            new Date(new Date(gameA.releaseDate))
         });
       const outdoorGamesArr = [];
       const upcomingGamesArr = [];
@@ -32,14 +31,14 @@ export default function Home() {
       let count = 0;
 
       sortedGames.every((game) => {
-        if (new Date() <= new Date(game[GameFields.releaseDate])) {
+        if (new Date() <= new Date(game.releaseDate)) {
           // Future Games
           if (upcomingGamesArr.length < upcomingGamesSize) {
             upcomingGamesArr.push(game);
           } else {
             count++;
           }
-        } else if (new Date() > new Date(game[GameFields.releaseDate])) {
+        } else if (new Date() > new Date(game.releaseDate)) {
           // Most recent, excluding future games
           if (outdoorGamesArr.length < outdoorSize) {
             outdoorGamesArr.push(game);
@@ -69,7 +68,7 @@ export default function Home() {
 
       sortedGames.every((game) => {
         const isDiscountActive = game.isDiscountActive;
-        const genresArr = game[GameFields.GameGenre]?.map((g) => g.name.toLowerCase())
+        const genresArr = game["game_genre"]?.map((g) => g.name.toLowerCase())
 
         if (isDiscountActive) {
           if (discountedGamesArr.length < discountedGamesSize) {

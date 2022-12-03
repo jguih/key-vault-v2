@@ -8,7 +8,7 @@ import { gameActions, useGameForm } from '../../hooks/useGameForm';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import LanguageSupport from '../../components/ui/LanguageSupport';
-import { GameFields, GameSystemRequirements, getUnixDate, getIGDBImageURL, IGDBImageSize, imgTypes, toFirstUpperCase } from '../../global';
+import { getUnixDate, getIGDBImageURL, IGDBImageSize, imgTypes, toFirstUpperCase } from '../../global';
 import SearchBar from '../../components/ui/SearchBar';
 import useIGDBGame from '../../hooks/IGDB/useIGDBGame';
 import useIGDBLanguageSupports from '../../hooks/IGDB/useIGDBLanguageSupports';
@@ -164,7 +164,7 @@ function IgdbModal() {
 }
 
 function IgdbGameCard({ igdbGame, onClickCard, activeCard, setActiveCard, ...props }) {
-  const [year, month, day] = getUnixDate(igdbGame["first_release_date"]);
+  const [year, month, day] = getUnixDate(igdbGame?.["first_release_date"]);
 
   if (!igdbGame) return;
 
@@ -215,17 +215,17 @@ function GameForm() {
   if (!gc) return;
 
   function isReqEmpty() {
-    const gameSystemRequirements = gc.game[GameFields.GameSystemRequirements];
+    const gameSystemRequirements = gc.game["game_system_requirements"];
     let isReqEmpty = true;
     gameSystemRequirements?.forEach(gsr => {
-      if (gsr[GameFields.GameSystemRequirementsFields.so] !== "" ||
-        gsr[GameFields.GameSystemRequirementsFields.storage] !== "" ||
-        gsr[GameFields.GameSystemRequirementsFields.cpu] !== "" ||
-        gsr[GameFields.GameSystemRequirementsFields.memory] !== "" ||
-        gsr[GameFields.GameSystemRequirementsFields.gpu] !== "" ||
-        gsr[GameFields.GameSystemRequirementsFields.directx] !== "" ||
-        gsr[GameFields.GameSystemRequirementsFields.internet] !== "" ||
-        gsr[GameFields.GameSystemRequirementsFields.other] !== "") {
+      if (gsr.so !== "" ||
+        gsr.storage !== "" ||
+        gsr.cpu !== "" ||
+        gsr.memory !== "" ||
+        gsr.gpu !== "" ||
+        gsr.directx !== "" ||
+        gsr.internet !== "" ||
+        gsr.other !== "") {
         isReqEmpty = false;
       }
     })
@@ -233,12 +233,12 @@ function GameForm() {
   }
 
   const emptyFields = {
-    languageSupport: gc.game[GameFields.GameLanguageSupport].length === 0,
+    languageSupport: gc.game["game_language_support"].length === 0,
     systemRequirements: isReqEmpty(),
-    genres: gc.game[GameFields.GameGenre].length === 0,
-    gamemodes: gc.game[GameFields.GameGamemode].length === 0,
-    platforms: gc.game[GameFields.GamePlatform].length === 0,
-    images: gc.game[GameFields.GameImage].length === 0
+    genres: gc.game["game_genre"].length === 0,
+    gamemodes: gc.game["game_gamemode"].length === 0,
+    platforms: gc.game["game_platform"].length === 0,
+    images: gc.game["game_image"].length === 0
   }
 
   function Img(image, index) {
@@ -349,79 +349,79 @@ function GameForm() {
           </Button> : null}
       </div>
       <Kv.FloatingInput
-        {...gc.register.field(GameFields.name, { required: true })}
+        {...gc.register.field("name", { required: true })}
         type="text"
         label="Nome"
         placeholder="Nome"
       >
-        {gc.error.field?.[GameFields.name] ?
-          <p className={`${styles.error}`}>{gc?.error.field[GameFields.name].message}</p> : null}
+        {gc.error.field?.name ?
+          <p className={`${styles.error}`}>{gc?.error.field.name.message}</p> : null}
       </Kv.FloatingInput>
       <Kv.FloatingTextArea
-        {...gc.register.field(GameFields.description)}
+        {...gc.register.field("description")}
         type="textarea"
         label="Descrição"
         placeholder="Descrição"
         style={{ height: 200 + "px" }}
       >
-        {gc.error.field?.[GameFields.description] ?
-          <p className={`${styles.error}`}>{gc?.error.field[GameFields.description].message}</p>
+        {gc.error.field?.description ?
+          <p className={`${styles.error}`}>{gc?.error.field.description.message}</p>
           : null}
       </Kv.FloatingTextArea>
       <Kv.FloatingInput
-        {...gc.register.field(GameFields.releaseDate, { required: true, max: "9999-12-31" })}
+        {...gc.register.field("releaseDate", { required: true, max: "9999-12-31" })}
         type="date"
         label="Data de Lançamento"
         placeholder="Data de Lançamento"
         style={{ colorScheme: "dark" }}
       >
-        {gc.error.field?.[GameFields.releaseDate] ?
-          <p className={`${styles.error}`}>{gc?.error.field[GameFields.releaseDate].message}</p>
+        {gc.error.field?.releaseDate ?
+          <p className={`${styles.error}`}>{gc?.error.field.releaseDate.message}</p>
           : null}
       </Kv.FloatingInput>
       <Kv.FloatingInput
-        {...gc.register.field(GameFields.developer, { required: true })}
+        {...gc.register.field("developer", { required: true })}
         type="text"
         label="Desenvolvedor"
         placeholder="Desenvolvedor"
       >
-        {gc.error.field?.[GameFields.developer] ?
-          <p className={`${styles.error}`}>{gc?.error.field[GameFields.developer].message}</p>
+        {gc.error.field?.developer ?
+          <p className={`${styles.error}`}>{gc?.error.field.developer.message}</p>
           : null}
       </Kv.FloatingInput>
       <Kv.FloatingInput
-        {...gc.register.field(GameFields.publisher, { required: true })}
+        {...gc.register.field("publisher", { required: true })}
         type="text"
         label="Distribuidor"
         placeholder="Distribuidor"
       >
-        {gc.error.field?.[GameFields.publisher] ?
-          <p className={`${styles.error}`}>{gc?.error.field[GameFields.publisher].message}</p>
+        {gc.error.field?.publisher ?
+          <p className={`${styles.error}`}>{gc.error.field.publisher.message}</p>
           : null}
       </Kv.FloatingInput>
       <Row className={`${gc.isIgdbDispatched ? styles.highlight : ""}`}>
         <Col>
           <Kv.InputGroup
-            {...gc.register.field(GameFields.price, { required: true, min: "0", step: "0.01" })}
+            {...gc.register.field("price", { required: true, min: "0", step: "0.01" })}
             type="number"
             label="Preço"
             startLabel="R$"
           >
-            {gc.error.field?.[GameFields.price] ?
-              <p className={`${styles.error}`}>{gc?.error.field[GameFields.price].message}</p>
+            {gc.error.field?.price ?
+              <p className={`${styles.error}`}>{gc?.error.field.price.message}</p>
               : null}
           </Kv.InputGroup>
         </Col>
         <Col>
           <Kv.InputGroup
-            {...gc.register.field(GameFields.discount,
+            {...gc.register.field("discount",
               { required: true, max: "100", min: "0", step: "1" })}
             type="number"
             label="Desconto"
             endLabel="%"
           >
-            {gc.error.field?.[GameFields.discount] ?
-              <p className={`${styles.error}`}>{gc?.error.field[GameFields.discount].message}</p>
+            {gc.error.field?.discount ?
+              <p className={`${styles.error}`}>{gc?.error.field.discount.message}</p>
               : null}
           </Kv.InputGroup>
         </Col>
@@ -434,11 +434,11 @@ function GameForm() {
       </Row>
       <h2 className="mt-4">Características</h2>
       <hr></hr>
-      {gc.igdbNotFound?.genres?.length > 0 ?
+      {gc.igdbNotFound.genres?.length > 0 ?
         <p className={`${styles.error} mb-1`}>Categorias não encontradas:
           {" "}{gc.igdbNotFound.genres.join(" | ")}
         </p> : null}
-      {gc.igdbNotFound?.gamemodes?.length > 0 ?
+      {gc.igdbNotFound.gamemodes?.length > 0 ?
         <p className={`${styles.error}`}>Game modes não encontrados:
           {" "}{gc.igdbNotFound.gamemodes.join(" | ")}
         </p> : null}
@@ -496,102 +496,70 @@ function GameForm() {
         <Col>
           <h3 className="mb-3 fw-normal">Requisitos Mínimos</h3>
           <Kv.FormControl
-            {...gc.register.sysReqField(
-              GameFields.GameSystemRequirementsFields.so,
-              GameSystemRequirements.Minimum)}
+            {...gc.register.sysReqField("so", "minimum")}
             type="text"
           />
           <Kv.FormControl
-            {...gc.register.sysReqField(
-              GameFields.GameSystemRequirementsFields.storage,
-              GameSystemRequirements.Minimum)}
+            {...gc.register.sysReqField("storage", "minimum")}
             type="text"
           />
           <Kv.FormControl
-            {...gc.register.sysReqField(
-              GameFields.GameSystemRequirementsFields.cpu,
-              GameSystemRequirements.Minimum)}
+            {...gc.register.sysReqField("cpu", "minimum")}
             type="text"
           />
           <Kv.FormControl
-            {...gc.register.sysReqField(
-              GameFields.GameSystemRequirementsFields.memory,
-              GameSystemRequirements.Minimum)}
+            {...gc.register.sysReqField("memory", "minimum")}
             type="text"
           />
           <Kv.FormControl
-            {...gc.register.sysReqField(
-              GameFields.GameSystemRequirementsFields.gpu,
-              GameSystemRequirements.Minimum)}
+            {...gc.register.sysReqField("gpu", "minimum")}
             type="text"
           />
           <Kv.FormControl
-            {...gc.register.sysReqField(
-              GameFields.GameSystemRequirementsFields.directx,
-              GameSystemRequirements.Minimum)}
+            {...gc.register.sysReqField("directx", "minimum")}
             type="text"
           />
           <Kv.FormControl
-            {...gc.register.sysReqField(
-              GameFields.GameSystemRequirementsFields.internet,
-              GameSystemRequirements.Minimum)}
+            {...gc.register.sysReqField("internet", "minimum")}
             type="text"
           />
           <Kv.FormControl
-            {...gc.register.sysReqField(
-              GameFields.GameSystemRequirementsFields.other,
-              GameSystemRequirements.Minimum)}
+            {...gc.register.sysReqField("other", "minimum")}
             type="text"
           />
         </Col>
         <Col>
           <h3 className="mb-3 fw-normal">Requisitos Recomendados</h3>
           <Kv.FormControl
-            {...gc.register.sysReqField(
-              GameFields.GameSystemRequirementsFields.so,
-              GameSystemRequirements.Recommended)}
+            {...gc.register.sysReqField("so", "recommended")}
             type="text"
           />
           <Kv.FormControl
-            {...gc.register.sysReqField(
-              GameFields.GameSystemRequirementsFields.storage,
-              GameSystemRequirements.Recommended)}
+            {...gc.register.sysReqField("storage", "recommended")}
             type="text"
           />
           <Kv.FormControl
-            {...gc.register.sysReqField(
-              GameFields.GameSystemRequirementsFields.cpu,
-              GameSystemRequirements.Recommended)}
+            {...gc.register.sysReqField("cpu", "recommended")}
             type="text"
           />
           <Kv.FormControl
-            {...gc.register.sysReqField(
-              GameFields.GameSystemRequirementsFields.memory,
-              GameSystemRequirements.Recommended)}
+            {...gc.register.sysReqField("memory", "recommended")}
             type="text"
           />
           <Kv.FormControl
-            {...gc.register.sysReqField(
-              GameFields.GameSystemRequirementsFields.gpu,
-              GameSystemRequirements.Recommended)}
+            {...gc.register.sysReqField("gpu", "recommended")}
             type="text"
           />
           <Kv.FormControl
-            {...gc.register.sysReqField(
-              GameFields.GameSystemRequirementsFields.directx,
-              GameSystemRequirements.Recommended)}
+            {...gc.register.sysReqField("directx", "recommended")}
             type="text"
           />
           <Kv.FormControl
-            {...gc.register.sysReqField(
-              GameFields.GameSystemRequirementsFields.internet,
-              GameSystemRequirements.Recommended)}
+            {...gc.register.sysReqField("internet", "recommended")}
             type="text"
           />
           <Kv.FormControl
-            {...gc.register.sysReqField(
-              GameFields.GameSystemRequirementsFields.other,
-              GameSystemRequirements.Recommended)}
+            {...gc.register.sysReqField("other", "recommended")}
             type="text"
           />
         </Col>
@@ -601,7 +569,7 @@ function GameForm() {
       <div className="mb-3">
         <h3 className="mb-3 fw-normal">Cover</h3>
         <div className={`${styles["img-container"]}`}>
-          {gc.game?.[GameFields.GameImage]?.map((image, index) => {
+          {gc.game?.["game_image"]?.map((image, index) => {
             if (image.type === imgTypes.Cover) {
               return Img(image, index);
             }
@@ -620,7 +588,7 @@ function GameForm() {
       <div className="mb-3" ref={imagesRef}>
         <h3 className="mb-3 fw-normal">Screenshots</h3>
         <div className={`${styles["img-container"]}`}>
-          {gc.game?.[GameFields.GameImage]?.map((image, index) => {
+          {gc.game?.["game_image"]?.map((image, index) => {
             if (image.type === imgTypes.Screenshot) {
               return Img(image, index);
             }
@@ -639,7 +607,7 @@ function GameForm() {
       <div className="mb-3">
         <h3 className="mb-3 fw-normal">Artwork</h3>
         <div className={`${styles["img-container"]}`}>
-          {gc.game?.[GameFields.GameImage]?.map((image, index) => {
+          {gc.game?.["game_image"]?.map((image, index) => {
             if (image.type === imgTypes.Artwork) {
               return Img(image, index);
             }
@@ -695,7 +663,7 @@ function AddLanguageSupport() {
   return (
     <>
       <LanguageSupport
-        languageSupport={gc.game?.[GameFields.GameLanguageSupport]}
+        languageSupport={gc.game["game_language_support"]}
         variant="hover"
         onClickLanguage={(languageSupport) => {
           gc.dispatchGame({

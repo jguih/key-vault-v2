@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import Image from "next/image";
-import { brlCurrencyFormatter, imgTypes, GameFields } from "../global";
+import { brlCurrencyFormatter, imgTypes } from "../global";
 import outdoor from '../scss/modules/Outdoor.module.scss';
 
 export default function Outdoor({ games }) {
@@ -51,7 +51,7 @@ export default function Outdoor({ games }) {
   }, [index])
 
   function getSmallGameCard(game, index) {
-    const cover = game[GameFields.GameImage]
+    const cover = game["game_image"]
       ?.filter(img => img.type === imgTypes.Cover)
       ?.map(img => img.url);
     return (
@@ -104,10 +104,10 @@ export default function Outdoor({ games }) {
       <div className={outdoor.outdoor}>
         <div className={outdoor["outdoor-img"]}>
           {games.slice(0, size).map((game, index) => {
-            const artworks = game[GameFields.GameImage]
+            const artworks = game["game_image"]
               ?.filter(img => img.type === imgTypes.Artwork)
               ?.map(img => img.url);
-            const screenshots = game[GameFields.GameImage]
+            const screenshots = game["game_image"]
               ?.filter(img => img.type === imgTypes.Screenshot)
               ?.map(img => img.url);
             return (

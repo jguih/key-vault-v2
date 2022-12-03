@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useReducer } from "react";
 
 export const errorsActions = {
   AddUrlError: "ADD-IMG-ERROR",
