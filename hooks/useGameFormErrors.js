@@ -135,6 +135,12 @@ export function useGameFormErrors() {
         try {
           validURL = new URL(e.target.value);
 
+          if (validURL.host === "images.igdb.com") {
+            valid = true
+          } else {
+            throw 'invalid url'
+          }
+          
           valid = true;
           if (error.urlField[fieldName]) {
             dispatchError({

@@ -130,7 +130,87 @@ export default function Filters({ onFilter }) {
       } else {
         setCheckedLanguages([]);
       }
-      onFilter(filteredGames);
+      // Order By Price Asc
+      if (router.query.sort === "priceAsc") {
+        filteredGames = filteredGames
+          .sort((gameA, gameB) => {
+            let priceA;
+            let priceB;
+
+            if (gameA.isDiscountActive) {
+              priceA = gameA.price - (1 * gameA.price * gameA.discount);
+            } else {
+              priceA = gameA.price;
+            }
+
+            if (gameB.isDiscountActive) {
+              priceB = gameB.price - (1 * gameB.price * gameB.discount);
+            } else {
+              priceB = gameB.price;
+            }
+
+            if (priceA < priceB) {
+              return -1;
+            } else if (priceA > priceB) {
+              return 1;
+            }
+            return 0;
+          })
+      }
+      // Order By Price Desc
+      if (router.query.sort === "priceDesc") {
+        filteredGames = filteredGames
+          .sort((gameA, gameB) => {
+            let priceA;
+            let priceB;
+
+            if (gameA.isDiscountActive) {
+              priceA = gameA.price - (1 * gameA.price * gameA.discount);
+            } else {
+              priceA = gameA.price;
+            }
+
+            if (gameB.isDiscountActive) {
+              priceB = gameB.price - (1 * gameB.price * gameB.discount);
+            } else {
+              priceB = gameB.price;
+            }
+
+            if (priceA > priceB) {
+              return -1;
+            } else if (priceA < priceB) {
+              return 1;
+            }
+            return 0;
+          })
+      }
+      // Order by Name Asc
+      if (router.query.sort === "nameAsc") {
+        filteredGames = filteredGames
+          .sort((gameA, gameB) => {
+            if (gameA.name < gameB.name) {
+              return -1;
+            }
+            if (gameA.name > gameB.name) {
+              return 1;
+            }
+            return 0
+          });
+      }
+      // Order by Name Desc
+      if (router.query.sort === "nameDesc") {
+        filteredGames = filteredGames
+          .sort((gameA, gameB) => {
+            if (gameA.name > gameB.name) {
+              return -1;
+            }
+            if (gameA.name < gameB.name) {
+              return 1;
+            }
+            return 0
+          });
+      }
+      onFilter([...filteredGames]);
     }
   }, [router, games, onFilter]);
 
@@ -319,7 +399,7 @@ export default function Filters({ onFilter }) {
         pathname: "/game",
         query: myQuery
       })
-    },  
+    },
     shouldCheckLanguage: function (language) {
       const languageName = language?.["ptBR_name"]?.toLowerCase();
       return checkedLanguages.includes(languageName);

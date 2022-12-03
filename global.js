@@ -13,41 +13,13 @@ export const GameSystemRequirements = {
   Recommended: "recommended"
 }
 
-export const GameFields = {
-  name: "name",
-  description: "description",
-  developer: "developer",
-  publisher: "publisher",
-  releaseDate: "releaseDate",
-  price: "price",
-  discount: "discount",
-  isDiscountActive: "isDiscountActive",
-  GameLanguageSupport: "game_language_support",
-  GameSystemRequirements: "game_system_requirements",
-  GameSystemRequirementsFields: {
-    type: "type",
-    so: "so",
-    storage: "storage",
-    cpu: "cpu",
-    memory: "memory",
-    gpu: "gpu",
-    directx: "directx",
-    internet: "internet",
-    other: "other"
-  },
-  GamePlatform: "game_platform",
-  GameGenre: "game_genre",
-  GameGamemode: "game_gamemode",
-  GameImage: "game_image"
-}
-
 export const IGDBImageSize = {
   cover_big: "cover_big",
   original: "original"
 }
 
 export function getIGDBImageURL(size, id) {
-  return `https://images.igdb.com/igdb/image/upload/t_${size}/${id}.jpg`
+  return `https://images.igdb.com/igdb/image/upload/t_${size}/${id}.png`
 }
 
 export function getUnixDate(milliseconds) {
@@ -138,7 +110,7 @@ export const integerFormatter =
 
 // Creates a game card from game object
 export function createGameCard(game) {
-  const cover = game[GameFields.GameImage]
+  const cover = game["game_image"]
       ?.filter(img => img.type === imgTypes.Cover)
       ?.map(img => img.url);
   return (
@@ -151,7 +123,7 @@ export function createGameCard(game) {
         price={game.price || 0}
         discount={game.discount || 0}
         isDiscountActive={game.isDiscountActive}
-        platformsNameArr={getPlatformsIcons(game[GameFields.GamePlatform]?.map(p => p.name))}
+        platformsNameArr={getPlatformsIcons(game["game_platform"]?.map(p => p.name))}
         imgUrl={cover?.[0] || ""}
       />
     </Link>

@@ -81,13 +81,19 @@ export function TopPagination({currentPage, totalPageCount, onPageChange}) {
 
   return (
     <BsPagination className={`${styles["top-pagination"]}`}>
-      <BsPagination.Prev onClick={handlePrev}/>
+      <BsPagination.Prev 
+        onClick={handlePrev}
+        disabled={currentPage === 1}  
+      />
       <p>{currentPage} of {" "}
         <span onClick={() => onPageChange(totalPageCount)} className={`${styles["last-page"]}`}>
           {totalPageCount}
         </span>
       </p>
-      <BsPagination.Next onClick={handleNext}/>
+      <BsPagination.Next 
+        onClick={handleNext}
+        disabled={currentPage === totalPageCount}
+      />
     </BsPagination>
   );
 }

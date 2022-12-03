@@ -7,6 +7,13 @@ import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import * as Kv from "../../../ui/Kv";
 
+const sortBy = {
+  priceAsc: "priceAsc",
+  priceDesc: "priceDesc",
+  nameAsc: "nameAsc",
+  nameDesc: "nameDesc"
+}
+
 export default function GamesGrid({ games }) {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
@@ -23,16 +30,24 @@ export default function GamesGrid({ games }) {
     const lastGameIndex = firstGameIndex + pageSize;
     return games?.slice(firstGameIndex, lastGameIndex);
   }, [currentPage, games]);
+  const [shouldActive, setShouldActive] = useState("")
 
   useEffect(() => {
-    if (router.isReady && totalPageCount) {
-      let pageN = 1;
-      if (router.query.page) {
-        if (pageN >= 1 && pageN <= totalPageCount) {
-          pageN = Number(router.query.page);
+    if (router.isReady) {
+      if (totalPageCount) {
+        let pageN = 1;
+        if (router.query.page) {
+          if (pageN >= 1 && pageN <= totalPageCount) {
+            pageN = Number(router.query.page);
+          }
         }
+        setCurrentPage(pageN);
       }
-      setCurrentPage(pageN);
+
+      if (router.query.sort) {
+        const sort = router.query.sort;
+        setShouldActive(sort);
+      }
     }
   }, [router, totalPageCount])
 
@@ -57,6 +72,56 @@ export default function GamesGrid({ games }) {
     );
   }
 
+  function getSortName (sort) {
+    switch (sort) {
+      case sortBy.nameAsc: 
+        return "Nome (Crescente)";
+      case sortBy.nameDesc:
+        return "Nome (Decrescente)";
+      case sortBy.priceAsc:
+        return "Preço (Crescente)";
+      case sortBy.priceDesc:
+        return "Preço (Decrescente)";
+      default:
+        return "Selecionar";
+    }
+  }
+
+  const sort = {
+    priceAsc: function () {
+      const myQuery = {...router.query};
+      myQuery.sort = sortBy.priceAsc;
+      router.push({
+        pathname: "/game",
+        query: myQuery
+      })
+    },
+    priceDesc: function () {
+      const myQuery = {...router.query};
+      myQuery.sort = sortBy.priceDesc;
+      router.push({
+        pathname: "/game",
+        query: myQuery
+      })
+    },
+    nameAsc: function () {
+      const myQuery = {...router.query};
+      myQuery.sort = sortBy.nameAsc;
+      router.push({
+        pathname: "/game",
+        query: myQuery
+      })
+    },
+    nameDesc: function () {
+      const myQuery = {...router.query};
+      myQuery.sort = sortBy.nameDesc;
+      router.push({
+        pathname: "/game",
+        query: myQuery
+      })
+    }
+  }
+
   if (currentGames.length > 0) {
     return (
       <div className={`${styles.container}`}>
@@ -69,16 +134,31 @@ export default function GamesGrid({ games }) {
             />
           </div>
           <div className={`${styles["top-sort"]}`}>
-            <Kv.Dropdown variant="bg-900" title="Ordenar">
+            <p>Ordenar: </p>
+            <Kv.Dropdown variant="bg-900" title={getSortName(shouldActive)}>
               <Dropdown.Item 
-                active
+                onClick={() => sort.priceAsc()}
+                active={shouldActive === sortBy.priceAsc}
               > 
                 <p className='m-0'>Preço (Crescente)</p>
               </Dropdown.Item>
               <Dropdown.Item
-                
+                onClick={() => sort.priceDesc()}
+                active={shouldActive === sortBy.priceDesc}
               > 
                 <p className='m-0'>Preço (Decrescente)</p>
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => sort.nameAsc()}
+                active={shouldActive === sortBy.nameAsc}
+              > 
+                <p className='m-0'>Nome (Crescente)</p>
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => sort.nameDesc()}
+                active={shouldActive === sortBy.nameDesc}
+              > 
+                <p className='m-0'>Nome (Decrescente)</p>
               </Dropdown.Item>
             </Kv.Dropdown>
           </div>

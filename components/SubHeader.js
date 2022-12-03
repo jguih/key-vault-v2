@@ -13,10 +13,10 @@ export default function SubHeader() {
   function handleOnSubmit(e) {
     e.preventDefault();
 
-    let myQuery = {};
+    let myQuery = {sort: "nameAsc"};
     if (e.target.querySelector("input").value) {
       myQuery = {
-        entry: e.target.querySelector("input").value
+        entry: e.target.querySelector("input").value,
       }
     }
 
@@ -30,7 +30,8 @@ export default function SubHeader() {
     router.push({
       pathname: "/game",
       query: {
-        genres: genre.name.toLowerCase()
+        genres: genre.name.toLowerCase(),
+        sort: "nameAsc"
       }
     })
   }
@@ -39,7 +40,8 @@ export default function SubHeader() {
     router.push({
       pathname: "/game",
       query: {
-        discounted: true
+        discounted: true,
+        sort: "priceAsc"
       }
     })
   }
@@ -48,7 +50,7 @@ export default function SubHeader() {
     router.push({
       pathname: "/game",
       query: {
-        
+        sort: "nameAsc"
       }
     })
   }
@@ -85,7 +87,10 @@ export default function SubHeader() {
         <Link
           href={{
             pathname: "/game",
-            query: { discounted: true }
+            query: { 
+              discounted: true,
+              sort: "priceAsc" 
+            }
           }}
         >
           Promoções
@@ -93,6 +98,9 @@ export default function SubHeader() {
         <Link
           href={{
             pathname: "/game",
+            query: {
+              sort: "nameAsc"
+            }
           }}
         >
           Novidades
