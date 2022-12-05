@@ -131,7 +131,7 @@ export default function Filters({ onFilter }) {
         setCheckedLanguages([]);
       }
       // Order By Price Asc
-      if (router.query.sort === "priceAsc") {
+      if (router.query.sort?.toLowerCase() === "priceasc") {
         filteredGames = filteredGames
           .sort((gameA, gameB) => {
             let priceA;
@@ -158,7 +158,7 @@ export default function Filters({ onFilter }) {
           })
       }
       // Order By Price Desc
-      if (router.query.sort === "priceDesc") {
+      if (router.query.sort?.toLowerCase() === "pricedesc") {
         filteredGames = filteredGames
           .sort((gameA, gameB) => {
             let priceA;
@@ -185,7 +185,7 @@ export default function Filters({ onFilter }) {
           })
       }
       // Order by Name Asc
-      if (router.query.sort === "nameAsc") {
+      if (router.query.sort?.toLowerCase() === "nameasc") {
         filteredGames = filteredGames
           .sort((gameA, gameB) => {
             if (gameA.name < gameB.name) {
@@ -198,7 +198,7 @@ export default function Filters({ onFilter }) {
           });
       }
       // Order by Name Desc
-      if (router.query.sort === "nameDesc") {
+      if (router.query.sort?.toLowerCase() === "namedesc") {
         filteredGames = filteredGames
           .sort((gameA, gameB) => {
             if (gameA.name > gameB.name) {
@@ -209,6 +209,40 @@ export default function Filters({ onFilter }) {
             }
             return 0
           });
+      }
+      // Order by Release Date Asc
+      if (router.query.sort?.toLowerCase() === "releasedateasc") {
+        filteredGames = filteredGames
+          .sort((gameA, gameB) => {
+            if (gameA.releaseDate === "") return 1;
+            if (gameB.releaseDate === "") return -1;
+            const dateA = new Date(gameA.releaseDate);
+            const dateB = new Date(gameB.releaseDate);
+            if (dateA > dateB) {
+              return 1;
+            }
+            if (dateA < dateB) {
+              return -1;
+            }
+            return 0;
+          });
+      }
+      // Order by Release Date Desc
+      if (router.query.sort?.toLowerCase() === "releasedatedesc") {
+        filteredGames = filteredGames
+          .sort((gameA, gameB) => {
+            if (gameA.releaseDate === "") return -1;
+            if (gameB.releaseDate === "") return 1;
+            const dateA = new Date(gameA.releaseDate);
+            const dateB = new Date(gameB.releaseDate);
+            if (dateA > dateB) {
+              return -1;
+            }
+            if (dateA < dateB) {
+              return 1;
+            }
+            return 0;
+          })
       }
       onFilter([...filteredGames]);
     }

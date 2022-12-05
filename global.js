@@ -125,6 +125,7 @@ export function createGameCard(game) {
         isDiscountActive={game.isDiscountActive}
         platformsNameArr={getPlatformsIcons(game["game_platform"]?.map(p => p.name))}
         imgUrl={cover?.[0] || ""}
+        releaseDate={game.releaseDate}
       />
     </Link>
   );

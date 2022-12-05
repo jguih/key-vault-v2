@@ -59,7 +59,7 @@
   --bs-pagination-hover-bg: #{colors.$kv-primary-800};
   --bs-pagination-hover-border-color: #dee2e6;
   --bs-pagination-focus-color: #{colors.$kv-text-on-primary};
-  --bs-pagination-focus-bg: none;
+  --bs-pagination-focus-bg: #{colors.$kv-primary-700};
   --bs-pagination-focus-box-shadow: none;
   --bs-pagination-active-color: #fff;
   --bs-pagination-active-bg: #{colors.$kv-secondary-700};
