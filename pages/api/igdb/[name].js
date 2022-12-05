@@ -21,6 +21,7 @@ export default async function handler(req, res) {
               game_modes.name,
               summary,
               genres.name;
+            limit 30;
             where version_parent = null; 
             search "${name}";`
         });

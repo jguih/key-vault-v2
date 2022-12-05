@@ -11,7 +11,9 @@ const sortBy = {
   priceAsc: "priceAsc",
   priceDesc: "priceDesc",
   nameAsc: "nameAsc",
-  nameDesc: "nameDesc"
+  nameDesc: "nameDesc",
+  releaseDateAsc: "releaseDateAsc",
+  releaseDateDesc: "releaseDateDesc"
 }
 
 export default function GamesGrid({ games }) {
@@ -46,7 +48,7 @@ export default function GamesGrid({ games }) {
 
       if (router.query.sort) {
         const sort = router.query.sort;
-        setShouldActive(sort);
+        setShouldActive(sort.toLowerCase());
       }
     }
   }, [router, totalPageCount])
@@ -74,14 +76,18 @@ export default function GamesGrid({ games }) {
 
   function getSortName (sort) {
     switch (sort) {
-      case sortBy.nameAsc: 
-        return "Nome (Crescente)";
-      case sortBy.nameDesc:
-        return "Nome (Decrescente)";
-      case sortBy.priceAsc:
-        return "Preço (Crescente)";
-      case sortBy.priceDesc:
-        return "Preço (Decrescente)";
+      case sortBy.nameAsc.toLowerCase(): 
+        return "Nome (A-Z)";
+      case sortBy.nameDesc.toLowerCase():
+        return "Nome (Z-A)";
+      case sortBy.priceAsc.toLowerCase():
+        return "Preço (do mais barato)";
+      case sortBy.priceDesc.toLowerCase():
+        return "Preço (do mais caro)";
+      case sortBy.releaseDateAsc.toLowerCase():
+        return "Data de Lançamento (do mais antigo)";
+      case sortBy.releaseDateDesc.toLowerCase():
+        return "Data de Lançamento (do mais recente)";
       default:
         return "Selecionar";
     }
@@ -119,6 +125,22 @@ export default function GamesGrid({ games }) {
         pathname: "/game",
         query: myQuery
       })
+    },
+    releaseDateAsc: function () {
+      const myQuery = {...router.query, page: 1};
+      myQuery.sort = sortBy.releaseDateAsc;
+      router.push({
+        pathname: "/game",
+        query: myQuery
+      })
+    },
+    releaseDateDesc: function () {
+      const myQuery = {...router.query, page: 1};
+      myQuery.sort = sortBy.releaseDateDesc;
+      router.push({
+        pathname: "/game",
+        query: myQuery
+      })
     }
   }
 
@@ -138,27 +160,39 @@ export default function GamesGrid({ games }) {
             <Kv.Dropdown variant="bg-900" title={getSortName(shouldActive)}>
               <Dropdown.Item 
                 onClick={() => sort.priceAsc()}
-                active={shouldActive === sortBy.priceAsc}
+                active={shouldActive === sortBy.priceAsc.toLowerCase()}
               > 
-                <p className='m-0'>Preço (Crescente)</p>
+                <p className='m-0'>Preço (do mais barato)</p>
               </Dropdown.Item>
               <Dropdown.Item
                 onClick={() => sort.priceDesc()}
-                active={shouldActive === sortBy.priceDesc}
+                active={shouldActive === sortBy.priceDesc.toLowerCase()}
               > 
-                <p className='m-0'>Preço (Decrescente)</p>
+                <p className='m-0'>Preço (do mais caro)</p>
               </Dropdown.Item>
               <Dropdown.Item
                 onClick={() => sort.nameAsc()}
-                active={shouldActive === sortBy.nameAsc}
+                active={shouldActive === sortBy.nameAsc.toLowerCase()}
               > 
-                <p className='m-0'>Nome (Crescente)</p>
+                <p className='m-0'>Nome (A-Z)</p>
               </Dropdown.Item>
               <Dropdown.Item
                 onClick={() => sort.nameDesc()}
-                active={shouldActive === sortBy.nameDesc}
+                active={shouldActive === sortBy.nameDesc.toLowerCase()}
               > 
-                <p className='m-0'>Nome (Decrescente)</p>
+                <p className='m-0'>Nome (Z-A)</p>
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => sort.releaseDateAsc()}
+                active={shouldActive === sortBy.releaseDateAsc.toLowerCase()}
+              > 
+                <p className='m-0'>Data de Lançamento (do mais antigo)</p>
+              </Dropdown.Item>
+              <Dropdown.Item
+                onClick={() => sort.releaseDateDesc()}
+                active={shouldActive === sortBy.releaseDateDesc.toLowerCase()}
+              > 
+                <p className='m-0'>Data de Lançamento (do mais recente)</p>
               </Dropdown.Item>
             </Kv.Dropdown>
           </div>

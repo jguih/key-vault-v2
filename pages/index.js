@@ -114,7 +114,7 @@ export default function Home() {
       router.push({
         pathname: "/game",
         query: {
-
+          sort: "releaseDateDesc"
         }
       })
     },
@@ -131,6 +131,14 @@ export default function Home() {
         pathname: "/game",
         query: {
           genres: "role-playing (rpg)"
+        }
+      })
+    },
+    upcoming: function (e) {
+      router.push({
+        pathname: "/game",
+        query: {
+          sort: "releaseDateDesc"
         }
       })
     }
@@ -162,6 +170,7 @@ export default function Home() {
           <Section
             title="Chegando em Breve"
             games={sectionGames.upcoming}
+            onClick={sectionOnClick.upcoming}
           />
           <Section
             title="Promoção"
@@ -171,6 +180,7 @@ export default function Home() {
           <Section
             title="Adicionados Recentemente"
             games={sectionGames.recent}
+            onClick={sectionOnClick.recentlyAdded}
           />
           <Section
             title="RPG"

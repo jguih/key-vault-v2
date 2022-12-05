@@ -11,6 +11,8 @@
   display: flex;
   flex-direction: column;
 
+  font-size: 1rem;
+
   .card-img {
     position: relative;
     padding-bottom: 133%;
@@ -43,6 +45,19 @@
   &:hover .new-price {
     background-color: colors.$kv-green;
   }
+}
+
+.release-status {
+  position: absolute;
+  bottom: -3.5%;
+  left: 5%;
+  padding: 2px 6px;
+  border-radius: 10px;
+
+  font-size: 0.8em;
+  font-weight: bold;
+
+  background-color: colors.$kv-secondary-800;
 }
 
 .name {

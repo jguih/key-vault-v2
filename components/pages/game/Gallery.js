@@ -4,35 +4,9 @@ import { useEffect, useState } from "react";
 
 export default function Gallery({ screenshots, alt }) {
   const [currentImg, setCurrentImg] = useState();
-  const [sliderImg, setSliderImg] = useState();
 
   useEffect(() => {
     if (screenshots) {
-      // Updates the slider images
-      setSliderImg(
-        screenshots.map((screenshot, index) => {
-          return (
-            <div className={gallery["slider-img"]} key={index}>
-              <Image
-                src={screenshot}
-                fill
-                priority
-                alt={alt}
-                sizes="25vw"
-                onClick={() => setCurrentImg(
-                  <Image
-                    src={screenshot}
-                    fill priority
-                    alt={alt}
-                    sizes="(max-width: 576px) 100vw
-                            50vw"
-                  />
-                )}
-              />
-            </div>
-          );
-        })
-      );
       // Sets the first image as the current image
       setCurrentImg(
         <Image
@@ -53,7 +27,29 @@ export default function Gallery({ screenshots, alt }) {
         {currentImg}
       </div>
       <div className={gallery.slider}>
-        {sliderImg}
+        {screenshots?.map((screenshot, index) => {
+          return (
+            <div className={gallery["slider-img"]} key={index}>
+              <Image
+                src={screenshot}
+                fill
+                priority
+                alt=""
+                sizes="25vw"
+                onClick={() => setCurrentImg(
+                  <Image
+                    src={screenshot}
+                    fill 
+                    priority
+                    alt={alt}
+                    sizes="(max-width: 576px) 100vw
+                            50vw"
+                  />
+                )}
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
