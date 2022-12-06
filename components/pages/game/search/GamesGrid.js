@@ -37,13 +37,18 @@ export default function GamesGrid({ games }) {
   useEffect(() => {
     if (router.isReady) {
       if (totalPageCount) {
-        let pageN = 1;
-        if (router.query.page) {
-          if (pageN >= 1 && pageN <= totalPageCount) {
-            pageN = Number(router.query.page);
-          }
+        if (router.query?.page >= 1 && router.query?.page <= totalPageCount) {
+          const pageN = Number(router.query.page);
+          setCurrentPage(pageN);
+        } else {
+          router.push({
+            pathname: "/game",
+            query: {
+              ...router.query,
+              page: 1
+            }
+          })
         }
-        setCurrentPage(pageN);
       }
 
       if (router.query.sort) {
@@ -74,9 +79,9 @@ export default function GamesGrid({ games }) {
     );
   }
 
-  function getSortName (sort) {
+  function getSortName(sort) {
     switch (sort) {
-      case sortBy.nameAsc.toLowerCase(): 
+      case sortBy.nameAsc.toLowerCase():
         return "Nome (A-Z)";
       case sortBy.nameDesc.toLowerCase():
         return "Nome (Z-A)";
@@ -95,7 +100,7 @@ export default function GamesGrid({ games }) {
 
   const sort = {
     priceAsc: function () {
-      const myQuery = {...router.query, page: 1};
+      const myQuery = { ...router.query, page: 1 };
       myQuery.sort = sortBy.priceAsc;
       router.push({
         pathname: "/game",
@@ -103,7 +108,7 @@ export default function GamesGrid({ games }) {
       })
     },
     priceDesc: function () {
-      const myQuery = {...router.query, page: 1};
+      const myQuery = { ...router.query, page: 1 };
       myQuery.sort = sortBy.priceDesc;
       router.push({
         pathname: "/game",
@@ -111,7 +116,7 @@ export default function GamesGrid({ games }) {
       })
     },
     nameAsc: function () {
-      const myQuery = {...router.query, page: 1};
+      const myQuery = { ...router.query, page: 1 };
       myQuery.sort = sortBy.nameAsc;
       router.push({
         pathname: "/game",
@@ -119,7 +124,7 @@ export default function GamesGrid({ games }) {
       })
     },
     nameDesc: function () {
-      const myQuery = {...router.query, page: 1};
+      const myQuery = { ...router.query, page: 1 };
       myQuery.sort = sortBy.nameDesc;
       router.push({
         pathname: "/game",
@@ -127,7 +132,7 @@ export default function GamesGrid({ games }) {
       })
     },
     releaseDateAsc: function () {
-      const myQuery = {...router.query, page: 1};
+      const myQuery = { ...router.query, page: 1 };
       myQuery.sort = sortBy.releaseDateAsc;
       router.push({
         pathname: "/game",
@@ -135,7 +140,7 @@ export default function GamesGrid({ games }) {
       })
     },
     releaseDateDesc: function () {
-      const myQuery = {...router.query, page: 1};
+      const myQuery = { ...router.query, page: 1 };
       myQuery.sort = sortBy.releaseDateDesc;
       router.push({
         pathname: "/game",
@@ -158,45 +163,45 @@ export default function GamesGrid({ games }) {
           <div className={`${styles["top-sort"]}`}>
             <p>Ordenar: </p>
             <Kv.Dropdown variant="bg-900" title={getSortName(shouldActive)}>
-              <Dropdown.Item 
+              <Dropdown.Item
                 onClick={() => sort.priceAsc()}
                 active={shouldActive === sortBy.priceAsc.toLowerCase()}
-              > 
+              >
                 <p className='m-0'>Preço (do mais barato)</p>
               </Dropdown.Item>
               <Dropdown.Item
                 onClick={() => sort.priceDesc()}
                 active={shouldActive === sortBy.priceDesc.toLowerCase()}
-              > 
+              >
                 <p className='m-0'>Preço (do mais caro)</p>
               </Dropdown.Item>
               <Dropdown.Item
                 onClick={() => sort.nameAsc()}
                 active={shouldActive === sortBy.nameAsc.toLowerCase()}
-              > 
+              >
                 <p className='m-0'>Nome (A-Z)</p>
               </Dropdown.Item>
               <Dropdown.Item
                 onClick={() => sort.nameDesc()}
                 active={shouldActive === sortBy.nameDesc.toLowerCase()}
-              > 
+              >
                 <p className='m-0'>Nome (Z-A)</p>
               </Dropdown.Item>
               <Dropdown.Item
                 onClick={() => sort.releaseDateAsc()}
                 active={shouldActive === sortBy.releaseDateAsc.toLowerCase()}
-              > 
+              >
                 <p className='m-0'>Data de Lançamento (do mais antigo)</p>
               </Dropdown.Item>
               <Dropdown.Item
                 onClick={() => sort.releaseDateDesc()}
                 active={shouldActive === sortBy.releaseDateDesc.toLowerCase()}
-              > 
+              >
                 <p className='m-0'>Data de Lançamento (do mais recente)</p>
               </Dropdown.Item>
             </Kv.Dropdown>
           </div>
-        </div>  
+        </div>
         <div className={`${styles["games-grid"]}`}>
           {currentGames.map((game, index) => getGameCard(game, index))}
         </div>
