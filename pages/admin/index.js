@@ -11,8 +11,6 @@ import LanguageSupport from '../../components/ui/LanguageSupport';
 import { getUnixDate, getIGDBImageURL, IGDBImageSize, imgTypes, toFirstUpperCase } from '../../global';
 import SearchBar from '../../components/ui/SearchBar';
 import useIGDBGame from '../../hooks/IGDB/useIGDBGame';
-import useIGDBLanguageSupports from '../../hooks/IGDB/useIGDBLanguageSupports';
-import useIGDBInvolvedCompanies from '../../hooks/IGDB/useIGDBInvolvedCompanies';
 
 const GameContext = React.createContext();
 const formRef = React.createRef();
@@ -70,34 +68,59 @@ function IgdbModal() {
   const gc = useContext(GameContext);
   const [searchParam, setSearchParam] = useState();
   const { games: IGDBgames, error, isLoading: isIGDBGameLoading } = useIGDBGame(searchParam);
-  const [currentGame, setCurrentGame] = useState();
-  const {
-    data: languageSupport,
-    error: isLSError,
-    isLoading: isLSLoading
-  } = useIGDBLanguageSupports(currentGame?.id);
-  const {
-    data: involvedCompanies,
-    error: isICError,
-    isLoading: isICLoading
-  } = useIGDBInvolvedCompanies(currentGame?.id);
-  const currentGameData = useMemo(() => {
-    if (!isLSLoading && !isICLoading) {
-      return {
-        game: currentGame,
+  const [activeCard, setActiveCard] = useState();
+  const [isImporting, setIsImporting] = useState(false);
+
+  async function handleOnClickIGDBGameCard(igdbGame) {
+    gc.setIsIgdbDispatched(false);
+    setActiveCard(igdbGame.id);
+    setIsImporting(true);
+
+    const fetchLS = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/igdb/language_supports/" + igdbGame.id, {
+          method: "POST",
+          header: new Headers({
+            'Accept': 'application/json'
+          }),
+        });
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const fetchIC = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/igdb/involved_companies/" + igdbGame.id, {
+          method: "POST",
+          header: new Headers({
+            'Accept': 'application/json'
+          }),
+        });
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const languageSupport = await fetchLS();
+    const involvedCompanies = await fetchIC();
+    if (languageSupport && involvedCompanies) {
+      const currentGameData = {
+        game: igdbGame,
         languageSupport,
         involvedCompanies
-      };
+      }
+      const final = () => {
+        gc.modal.closeIGDBModal();
+        setIsImporting(false);
+      }
+      gc.dispatchIGDBGame(currentGameData, final);
     }
-  }, [isLSLoading, isICLoading])
-  const [activeCard, setActiveCard] = useState(currentGame?.id);
-
-  useEffect(() => {
-    if (currentGameData && currentGameData.game &&
-      currentGameData.languageSupport && currentGameData.involvedCompanies) {
-      gc.dispatchIGDBGame(currentGameData, gc.modal.closeIGDBModal);
-    }
-  }, [currentGameData])
+  }
 
   const searchBar = {
     timeout: null,
@@ -115,6 +138,43 @@ function IgdbModal() {
 
       setSearchParam(e.target.querySelector("input").value);
     }
+  }
+
+  function getIGDBContent() {
+    if (isIGDBGameLoading) {
+      return (
+        <div className='d-flex align-items-center justify-content-center'>
+          <span className='fw-bold'>Loading...</span>
+          <Spinner animation='border' />
+        </div>
+      );
+    } else if (isImporting) {
+      return (
+        <div className='d-flex align-items-center justify-content-center'>
+          <span className='fw-bold'>Importing...</span>
+          <Spinner animation='border' />
+        </div>
+      );
+    } else if (IGDBgames?.length > 0) {
+      return (
+        IGDBgames.map((game, index) => {
+          return (
+            <IgdbGameCard
+              igdbGame={game}
+              onClickCard={() => handleOnClickIGDBGameCard(game)}
+              key={index}
+              activeCard={activeCard}
+            />
+          );
+        })
+      );
+    } else if (searchParam) {
+      return (
+        <Alert variant='igdb' className='text-center'>
+          Nenhum Jogo Encontrado :/
+        </Alert>
+      );
+    } else return null;
   }
 
   return (
@@ -136,38 +196,14 @@ function IgdbModal() {
           />
         </div>
         <div className='mt-3'>
-          {isIGDBGameLoading ?
-            <div className='d-flex align-items-center justify-content-center'>
-              <span className='fw-bold'>Loading...</span>
-              <Spinner animation='border' />
-            </div>
-            : IGDBgames?.length > 0 ?
-              IGDBgames.map((game, index) => {
-                return (
-                  <IgdbGameCard
-                    igdbGame={game}
-                    onClickCard={() => {
-                      setCurrentGame(game);
-                      gc.setIsIgdbDispatched(false);
-                    }}
-                    key={index}
-                    activeCard={activeCard}
-                    setActiveCard={setActiveCard}
-                  />
-                );
-              })
-              : searchParam ?
-                <Alert variant='info' className='text-center'>
-                  Nenhum Jogo Encontrado :/
-                </Alert>
-                : null}
+          {getIGDBContent()}
         </div>
       </Modal.Body>
     </Modal>
   );
 }
 
-function IgdbGameCard({ igdbGame, onClickCard, activeCard, setActiveCard, ...props }) {
+function IgdbGameCard({ igdbGame, onClickCard, activeCard, ...props }) {
   const [year, month, day] = getUnixDate(igdbGame?.["first_release_date"]);
 
   if (!igdbGame) return;
@@ -176,10 +212,7 @@ function IgdbGameCard({ igdbGame, onClickCard, activeCard, setActiveCard, ...pro
     <div
       className={`${styles["igdb-game-card-container"]} 
         ${activeCard === igdbGame.id ? styles["igdb-card-active"] : ""}`}
-      onClick={() => {
-        setActiveCard?.(igdbGame.id);
-        onClickCard?.();
-      }}
+      onClick={() => onClickCard?.()}
       {...props}
     >
       <div className={`${styles["card-img-wrapper"]}`}>
@@ -274,7 +307,7 @@ function GameForm() {
         <h2
           className="m-0"
           onClick={() => { formRef.current.scrollIntoView() }}
-          style={{cursor: "pointer"}}
+          style={{ cursor: "pointer" }}
         >{gc.game.name}</h2>
         <div className="d-flex gap-2">
           <Button
