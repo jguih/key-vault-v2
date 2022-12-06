@@ -40,7 +40,7 @@ export default function GamesGrid({ games }) {
         if (router.query?.page >= 1 && router.query?.page <= totalPageCount) {
           const pageN = Number(router.query.page);
           setCurrentPage(pageN);
-        } else {
+        } else if (router.query.page) {
           router.push({
             pathname: "/game",
             query: {
