@@ -28,10 +28,10 @@ export default function SystemReq({ sysReq }) {
   if (!isReqEmpty())
   return (
     <div className={`${styleSystemReq.container}`}>
-      <h3>System Requirements</h3>
+      <h3>Requisitos</h3>
       <div className={`${styleSystemReq.grid}`}>
         <div className={`${styleSystemReq["grid-item-min"]}`}>
-          <h5>Minimum</h5>
+          <h5>Mínimos</h5>
           {minSysReq[0]?.so ? <p><strong>SO: </strong>{minSysReq[0].so}</p> : ""}
           {minSysReq[0]?.storage ? <p><strong>Storage: </strong>{minSysReq[0].storage}</p> : ""}
           {minSysReq[0]?.cpu ? <p><strong>CPU: </strong>{minSysReq[0].cpu}</p> : ""}
@@ -41,7 +41,7 @@ export default function SystemReq({ sysReq }) {
           {minSysReq[0]?.other ? <p><strong>Other: </strong>{minSysReq[0].other}</p> : ""}
         </div>
         <div className={`${styleSystemReq["grid-item-rec"]}`}>
-          <h5>Recommended</h5>
+          <h5>Recomendados</h5>
           {recSysReq[0]?.so ? <p><strong>SO: </strong>{recSysReq[0].so}</p> : ""}
           {recSysReq[0]?.storage ? <p><strong>Storage: </strong>{recSysReq[0].storage}</p> : ""}
           {recSysReq[0]?.cpu ? <p><strong>CPU: </strong>{recSysReq[0].cpu}</p> : ""}
