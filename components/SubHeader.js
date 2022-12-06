@@ -50,7 +50,7 @@ export default function SubHeader() {
     router.push({
       pathname: "/game",
       query: {
-        sort: "nameAsc"
+        sort: "releaseDateAsc"
       }
     })
   }
@@ -99,7 +99,7 @@ export default function SubHeader() {
           href={{
             pathname: "/game",
             query: {
-              sort: "nameAsc"
+              sort: "releaseDateDesc"
             }
           }}
         >
