@@ -26,7 +26,7 @@ export default function GameSearchBody() {
         } else {
           delete myQuery.entry;
         }
-
+        myQuery.page = 1;
         router.push({
           pathname: "/game",
           query: myQuery
@@ -43,7 +43,7 @@ export default function GameSearchBody() {
       } else {
         delete myQuery.entry;
       }
-
+      myQuery.page = 1;
       router.push({
         pathname: "/game",
         query: myQuery
