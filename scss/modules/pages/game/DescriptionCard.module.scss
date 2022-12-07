@@ -14,10 +14,10 @@
   font-size: 1rem; // Global font size
 
   hr {
-    border: 1px solid colors.$kv-primary-700;
-    margin: 0;
-    border-radius: 10px;
-    opacity: 1;
+    border: 1px solid colors.$kv-primary-700 !important;
+    margin: 0 !important;
+    border-radius: 10px !important;
+    opacity: 1 !important;
   }
 
   p {
