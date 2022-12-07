@@ -258,7 +258,7 @@ export function useGameForm() {
           payload: e.target.value
         })
         validate.field(name, e, options);
-        if (name === "name" && names.includes(e.target.value.toLowerCase())) {
+        if (name === "name" && names.includes(e.target.value?.toLowerCase().trim())) {
           dispatchError({
             type: errorsActions.AddFieldError,
             name: name,
@@ -590,8 +590,16 @@ export function useGameForm() {
     game.id = games[games.length - 1].id + 1;
     const price = game.price;
     const discount = game.discount;
+    const name = game.name?.trim();
+    const description = game.description?.trim();
+    const developer = game.developer?.trim();
+    const publisher = game.publisher?.trim();
     game.price = Number.parseFloat(price);
     game.discount = Number.parseInt(discount) / 100;
+    game.name = name;
+    game.description = description;
+    game.developer = developer;
+    game.publisher = publisher;
 
     const gameJson = JSON.stringify(game, null, 2);
     console.log(gameJson)
