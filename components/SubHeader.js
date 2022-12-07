@@ -50,7 +50,7 @@ export default function SubHeader() {
     router.push({
       pathname: "/game",
       query: {
-        sort: "releaseDateAsc"
+        sort: "releaseDateDesc"
       }
     })
   }
