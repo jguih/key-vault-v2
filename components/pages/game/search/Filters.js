@@ -270,7 +270,7 @@ export default function Filters({ onFilter }) {
           delete myQuery.genres;
         }
       }
-      delete myQuery.page;
+      myQuery.page = 1;
       router.push({
         pathname: "/game",
         query: myQuery
@@ -310,7 +310,7 @@ export default function Filters({ onFilter }) {
         // Removing 'discounted=true' from URL
         delete myQuery.discounted;
       }
-      delete myQuery.page;
+      myQuery.page = 1;
       router.push({
         pathname: "/game",
         query: myQuery
@@ -335,7 +335,7 @@ export default function Filters({ onFilter }) {
           delete myQuery.gamemodes;
         }
       }
-      delete myQuery.page;
+      myQuery.page = 1;
       router.push({
         pathname: "/game",
         query: myQuery
@@ -381,7 +381,7 @@ export default function Filters({ onFilter }) {
           delete myQuery.platforms;
         }
       }
-      delete myQuery.page;
+      myQuery.page = 1;
       router.push({
         pathname: "/game",
         query: myQuery
@@ -428,7 +428,7 @@ export default function Filters({ onFilter }) {
           delete myQuery.languages;
         }
       }
-      delete myQuery.page;
+      myQuery.page = 1;
       router.push({
         pathname: "/game",
         query: myQuery
