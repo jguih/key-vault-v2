@@ -332,6 +332,7 @@ function FiltersBody() {
     onClickGenreEndLabel: function () {
       let myQuery = { ...router.query };
       delete myQuery.genres;
+      myQuery.page = 1;
       router.push({
         pathname: "/game",
         query: myQuery
@@ -397,6 +398,7 @@ function FiltersBody() {
     onClickGamemodeEndLabel: function () {
       let myQuery = { ...router.query };
       delete myQuery.gamemodes;
+      myQuery.page = 1;
       router.push({
         pathname: "/game",
         query: myQuery
@@ -443,6 +445,7 @@ function FiltersBody() {
     onClickPlatformEndLabel: function () {
       let myQuery = { ...router.query };
       delete myQuery.platforms;
+      myQuery.page = 1;
       router.push({
         pathname: "/game",
         query: myQuery
@@ -490,6 +493,7 @@ function FiltersBody() {
     onClickLanguageEndLabel: function () {
       let myQuery = { ...router.query };
       delete myQuery.languages;
+      myQuery.page = 1;
       router.push({
         pathname: "/game",
         query: myQuery
