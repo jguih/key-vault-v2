@@ -16,10 +16,8 @@
 }
 
 .content-container {
-  display: flex;
-  flex-direction: row;
-  flex-shrink: 0;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 20% 80%;
 }
 
 // Search bar
@@ -58,4 +56,18 @@
 .button {
   color: colors.$kv-text-on-primary !important;
   border: none !important;
+}
+
+// 0px to 1200px
+@media screen and (max-width: breakpoints.$xl) {
+  .content-container {
+    grid-template-columns: 25% 75%;
+  }
+}
+
+// 0px to 992px
+@media screen and (max-width: breakpoints.$lg) {
+  .content-container {
+    display: block;
+  }
 }

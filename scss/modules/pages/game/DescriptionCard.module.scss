@@ -60,6 +60,18 @@
 // 0 to 992px
 @media screen and (max-width: breakpoints.$lg) {
   .container {
-    font-size: 0.9rem;
+    //font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: breakpoints.$sm) {
+  .img-wrapper {
+    display: none;
+  }
+  .description {
+    display: none;
+  }
+  .first-hr {
+    display: none;
   }
 }

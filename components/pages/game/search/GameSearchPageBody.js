@@ -1,11 +1,10 @@
-import { Container } from "react-bootstrap";
+import { Button, Container, Offcanvas } from "react-bootstrap";
 import GamesGrid from "./GamesGrid";
 import bodyStyles from "../../../../scss/modules/pages/game/search/GameSearchPageBody.module.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Filters from "./Filters";
 import { useRouter } from "next/router";
 import SearchBar from "../../../ui/SearchBar";
-import useGame from "../../../../hooks/useGame";
 
 export default function GameSearchBody() {
   const router = useRouter();
@@ -60,26 +59,28 @@ export default function GameSearchBody() {
   }
 
   return (
-    <Container className={`mt-4 mb-4`}>
-      <div className={`${bodyStyles["top-section"]}`}>
-        <span className={`${bodyStyles["results"]}`}>
-          {getResults()}
-        </span>
-        <SearchBar
-          defaultValue={entry}
-          onSubmit={(e) => mySearchBar.handleOnSubmit(e)}
-          onChange={(e) => mySearchBar.handleOnChange(e)}
-        />
-      </div>
-      <hr />
-      <div className={`${bodyStyles["content-container"]}`}>
-        <Filters
-          onFilter={setFilteredGames}
-        />
-        <GamesGrid
-          games={filteredGames}
-        />
-      </div>
-    </Container>
+    <>
+      <Container className={`mt-4 mb-4`}>
+        <div className={`${bodyStyles["top-section"]}`}>
+          <span className={`${bodyStyles["results"]}`}>
+            {getResults()}
+          </span>
+          <SearchBar
+            defaultValue={entry}
+            onSubmit={(e) => mySearchBar.handleOnSubmit(e)}
+            onChange={(e) => mySearchBar.handleOnChange(e)}
+          />
+        </div>
+        <hr />
+        <div className={`${bodyStyles["content-container"]}`}>
+          <Filters
+            onFilter={setFilteredGames}
+          />
+          <GamesGrid
+            games={filteredGames}
+          />
+        </div>
+      </Container>
+    </>
   );
 }

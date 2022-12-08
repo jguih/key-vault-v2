@@ -17,8 +17,10 @@ export default function DescriptionCard({ coverUrl, description, releaseDate, de
           sizes="30vw"
         />
       </div>
-      {description ? <p>{description}</p> : null}
-      <hr />
+      <div className={descCard.description}>
+        {description ? <p>{description}</p> : null}
+      </div>
+      <hr className={descCard["first-hr"]}/>
       <p>
         {_releaseDate ? <><strong>Lançamento: </strong>{`${day}/${month}/${year}`}<br /></> : null}
         {developer ? <><strong>Desenvolvedor: </strong>{developer}<br /></> : null}

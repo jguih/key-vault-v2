@@ -1,15 +1,18 @@
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
+import { Button, Offcanvas } from "react-bootstrap";
 import { getGamemode, getPlatformsIcons, toFirstUpperCase } from "../../../../global";
 import useData from "../../../../hooks/useData";
 import useGame from "../../../../hooks/useGame";
 import styles from "../../../../scss/modules/pages/game/search/Filters.module.scss";
 import * as Kv from "../../../ui/Kv";
 
+const FilterContext = React.createContext();
+
 export default function Filters({ onFilter }) {
   const router = useRouter();
-  const { data } = useData();
   const { games, isLoading, isError } = useGame();
+  const [showOffCanvas, setShowOffCanvas] = useState(false);
 
   // States below are controlled by router changes
   const [checkedGenres, setCheckedGenres] = useState([]); // Genre checkboxes state
@@ -17,6 +20,14 @@ export default function Filters({ onFilter }) {
   const [checkedGamemodes, setCheckedGamemodes] = useState([]); // Game mode checkboxes state
   const [checkedPlatforms, setCheckedPlatforms] = useState([]); // Platform checkboxes state
   const [checkedLanguages, setCheckedLanguages] = useState([]); // Languages checkboxes state
+
+  const checked = {
+    checkedGenres,
+    checkedDiscount,
+    checkedGamemodes,
+    checkedLanguages,
+    checkedPlatforms
+  }
 
   useEffect(() => {
     if (router.isReady && games) {
@@ -247,6 +258,35 @@ export default function Filters({ onFilter }) {
       onFilter([...filteredGames]);
     }
   }, [router, games, onFilter]);
+
+  return (
+    <FilterContext.Provider value={checked}>
+      <div className={`${styles["main-container"]}`}>
+        <FiltersBody />
+      </div>
+      <div className={`${styles["responsive-container"]}`}>
+        <Button
+          onClick={() => setShowOffCanvas(true)}
+          variant="kv-secondary-800"
+        >
+          Filtros
+        </Button>
+        <FiltersOffCanvas
+          show={showOffCanvas}
+          handleHide={() => setShowOffCanvas(false)}
+        >
+          <FiltersBody />
+        </FiltersOffCanvas>
+      </div>
+    </FilterContext.Provider>
+  );
+}
+
+function FiltersBody() {
+  const fc = useContext(FilterContext);
+  const { checkedDiscount, checkedGenres, checkedGamemodes, checkedLanguages, checkedPlatforms } = fc;
+  const { data } = useData();
+  const router = useRouter();
 
   const filter = {
     onChangeGenre: function (genre, e) {
@@ -549,5 +589,27 @@ export default function Filters({ onFilter }) {
         })}
       </Kv.Accordion>
     </div>
+  )
+}
+
+function FiltersOffCanvas({ show, handleHide, children }) {
+  return (
+    <Offcanvas
+      show={show}
+      onHide={handleHide}
+      className="text-bg-kv-primary-900"
+    >
+      <Offcanvas.Header>
+        <Offcanvas.Title>
+          Filtros
+        </Offcanvas.Title>
+        <Button className={`${styles["offcanvas-close-btn"]}`} onClick={handleHide}>
+          <i className="bi bi-x-lg"></i>
+        </Button>
+      </Offcanvas.Header>
+      <Offcanvas.Body>
+        {children}
+      </Offcanvas.Body>
+    </Offcanvas>
   );
 }

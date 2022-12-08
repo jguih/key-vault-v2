@@ -81,6 +81,12 @@
   --bs-dropdown-link-active-color: #fff;
   --bs-dropdown-link-active-bg: #{$active-bg};
   --bs-dropdown-font-size: 1.1em;
+
+  cursor: pointer;
+  a {
+    text-decoration: none;
+    color: colors.$kv-text-on-primary;
+  }
 }
 
 @mixin dropdown-toggle($bg, $hover-bg, $active-bg) {

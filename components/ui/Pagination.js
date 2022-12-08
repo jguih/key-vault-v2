@@ -31,7 +31,7 @@ export function Pagination({
   }
 
   return (
-    <div>
+    <>
       {
         <BsPagination className={`${styles.pagination}`}>
           {items.map((item, index) => {
@@ -62,7 +62,7 @@ export function Pagination({
           })}
         </BsPagination>
       }
-    </div>
+    </>
   )
 }
 

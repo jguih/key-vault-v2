@@ -151,7 +151,7 @@ export default function GamesGrid({ games }) {
 
   if (currentGames.length > 0) {
     return (
-      <div className={`${styles.container}`}>
+      <div>
         <div className={`${styles.top} sticky-top pt-3`}>
           <div className={`${styles["top-pagination"]}`}>
             <TopPagination
@@ -205,12 +205,14 @@ export default function GamesGrid({ games }) {
         <div className={`${styles["games-grid"]}`}>
           {currentGames.map((game, index) => getGameCard(game, index))}
         </div>
-        <Pagination
-          totalCount={totalCount}
-          pageSize={pageSize}
-          currentPage={currentPage}
-          onPageChange={(page) => onPageChange(page)}
-        />
+        <div className={`${styles["pagination"]}`}>
+          <Pagination
+            totalCount={totalCount}
+            pageSize={pageSize}
+            currentPage={currentPage}
+            onPageChange={(page) => onPageChange(page)}
+          />
+        </div>
       </div>
     );
   } else {
