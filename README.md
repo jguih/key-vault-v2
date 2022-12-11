@@ -37,6 +37,10 @@ A Game Store Project
   
   ![Screenshot](./images/GameAdminFilled2.png)
   
+  ### Game Admin Page IGDB Modal
+  
+  ![Screenshot](./images/GameAdminIGDB.png)
+  
 </p>
 
 ## How to Run This Project
