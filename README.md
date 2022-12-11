@@ -1,8 +1,41 @@
 # Key Vault
 
+A Game Store Project
+
+## Gallery
 <p align=center>
   
+  ### Home Page
+  
   ![Screenshot](./images/Home.png)
+  
+  ### Game Page
+  
+  ![Screenshot](./images/GamePage.png)
+  
+  ### Game Search Page (Superior)
+  
+  ![Screenshot](./images/GameSearchPage1.png)
+  
+  ### Game Search Page (Inferior)
+  
+  ![Screenshot](./images/GameSearchPage2.png)
+  
+  ### Game Admin Page (Superior)
+  
+  ![Screenshot](./images/GameAdmin1.png)
+  
+  ### Game Admin Page (Inferior)
+  
+  ![Screenshot](./images/GameAdmin2.png)
+  
+  ### Game Admin Page (Filled Superior)
+  
+  ![Screenshot](./images/GameAdminFilled1.png)
+  
+  ### Game Admin Page (Filled Inferior)
+  
+  ![Screenshot](./images/GameAdminFilled2.png)
   
 </p>
 
