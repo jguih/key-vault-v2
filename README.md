@@ -39,20 +39,33 @@ A Game Store Project
   
 </p>
 
-## Getting Started
+## How to Run This Project
 
-First, run the development server:
+First, install the dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
+npm install
+```
+
+Run the development server:
+
+```bash
+npx next dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Local Env Variables
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+In order to use the IGDB integration:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+First, create a file inside the project's root called .env.local
+
+Then put the following env variables inside .env.local
+
+```bash
+TWITCH_CLIENT_ID # Your twitch client ID
+TWITCH_ACCESS_TOKEN # Your twitch access token
+```
+
+For more information: https://api-docs.igdb.com/#about
